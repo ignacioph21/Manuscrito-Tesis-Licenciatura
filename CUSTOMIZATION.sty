@@ -1,0 +1,95 @@
+% PAQUETES NECESARIOS
+
+\usepackage[bitstream-charter]{mathdesign}  % fonts
+\usepackage[T1]{fontenc}                    % fonts
+
+\usepackage[english,spanish, es-nodecimaldot]{babel}         % multilenguaje
+\usepackage{graphicx}                       % inclusion de figuras
+\usepackage{amsmath}                        % entornos de matematica
+\usepackage{setspace}\onehalfspacing        % espaciado entre lineas
+\usepackage[usarlogouba]{DF-MSc-titlepage}  % titlepage al estilo df.uba.ar
+
+% TeXstudio command definitions
+\providecommand{\titulo}[1]{}
+\providecommand{\subtitulo}[1]{}
+\providecommand{\autor}[1]{} 
+\providecommand{\numerodelibreta}[1]{}
+\providecommand{\lugardetrabajo}[1]{}
+\providecommand{\director}[1]{}
+\providecommand{\codirector}[1]{}
+\providecommand{\fechadeinicio}[1]{}
+\providecommand{\fechadefinalizacion}[1]{}
+\providecommand{\fechadeexamen}[1]{}
+
+
+
+\usepackage{indentfirst}                    % indentar el inicio de seccion
+% \usepackage{aas_macros}                     % macros para nombre de journals
+\usepackage{hyperref}                       % para vinculos en el pdf
+\usepackage{bookmark}                       % para que genere bookmarks en el pdf
+\usepackage{fancyhdr}                       % para los headers & footers
+\usepackage{emptypage}                      % saca headers and footers de paginas en blanco
+\usepackage[margin=1in]{geometry}           % geometria de la pagina
+
+% Para tranquilizar la compilacion, volver luego
+\setlength{\headheight}{13.59999pt}
+\addtolength{\topmargin}{-1.59999pt}
+
+% CUSTOMIZACIONES PROPIAS
+
+\graphicspath{{./figures}}                  % define el directorio de figuras
+\usepackage[Sonny]{fncychap}                % para definir estilos de capitulos
+\renewcommand{\vec}[1]{\mathbf{#1}}         % vectores como bold
+
+\ChNameUpperCase\ChNameVar{\centering\Huge\rm}
+\ChRuleWidth{1.5pt} \ChTitleUpperCase\ChNumVar{\centering\bfseries\Huge}
+\ChTitleVar{\centering\Huge\rm}
+
+\geometry{bindingoffset=1cm}                % espacio en el borde interno para el encuadernado
+\geometry{textwidth=390pt}                  % cuerpo del texto fijo en 390pt
+\addto\captionsspanish{\renewcommand{\listtablename}{Índice de tablas}}
+\renewcommand\spanishtablename{Tabla}
+\usepackage{color}                          % para poner texto en color
+\usepackage{caption}                        % para las figuras
+\usepackage{subcaption}                     % para las subfiguras
+
+\lhead{\nouppercase{\leftmark}}             % heading en minuscula
+\rhead{\nouppercase{\rightmark}}            % heading en minuscula
+
+\usepackage[font={small}]{caption}          % Achica la letra en los captions de figuras y tablas
+
+\hyphenation{in-te-rac-ción}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}                    % Numero de subsubsection
+
+% hyperref nice style for links
+\hypersetup{
+	colorlinks = true, % Colours links instead of ugly boxes
+	urlcolor   = blue, % Colour for external hyperlinks
+	linkcolor  = blue, % Colour of internal links
+	citecolor  = blue  % Colour of citations
+}
+
+
+% Para Manuel Noseda -----------------------------------------------------------
+\usepackage{changepage}
+\usepackage{wrapfig}
+\usepackage{comment}
+
+% que es esto???
+\newcommand\myeq{\mathrel{\stackrel{\makebox[0pt]{\mbox{\normalfont\tiny hip}}}{=}}}
+
+% Línea de tiempo
+\usepackage{xcolor}
+\newcommand\ytl[2]{
+	\parbox[b]{10em}{\hfill{\color{gray}\bfseries #1}~$\cdots\cdots$~}\makebox[0pt][c]{$\bullet$}\vrule\quad \parbox[c]{5.5cm}{\vspace{7pt}\color{black}\raggedright #2\\[7pt]}\\[-1pt]}
+\newcommand\ytln[2]{
+	\parbox[b]{10em}{\hfill{\color{red}\bfseries #1}~\textcolor{red}{$\cdots\cdots\cdots\cdots\cdots$~}}\makebox[0pt][c]{\color{red}$\bullet$}\vrule\quad \parbox[c]{5.5cm}{\vspace{7pt}\color{red}\raggedright #2\\[7pt]}\\[-3pt]}
+
+% Tabla
+\renewcommand\arraystretch{1.5}
+\usepackage{booktabs}
+
+% Código
+\usepackage{listings}
