@@ -13,21 +13,63 @@
 
 \subsection{La sonda} 
 
+Al sumergir un alambre de cobre esmaltado en un fluido conductor, como se esquematiza en la Figura \ref{fig:esquema_fundamento}, el recubrimiento aislante actuará a modo de medio dieléctrico entre los conductores. En el caso de dos conductores cilíndricos coaxiales, de radios $r_1<r_2$, cuyo intersticio se encuentra lleno de un medio con permitividad $\varepsilon$ y permeabilidad $\mu$, se tienen una capacitancia ($C'$) e inductancia ($L'$) por unidad de longitud, dadas por % \cite{gordillozavaletaNonpropagatingHydrodynamicSolitons2012} % Para de  
+
+\begin{subequations}
+	\begin{equation}
+		C' = 2\pi\varepsilon\ln^{-1}\left(\frac{r_2}{r_1}\right)
+	\end{equation} 
+	\begin{equation}
+		L' = \frac{\mu}{2\pi}\ln\left(\frac{r_2}{r_1}\right)
+	\end{equation} 
+\end{subequations}
+
 \begin{figure}[th!]
 	\centering
 	\includegraphics[width=0.789\linewidth]{"Figuras/Sensor/Esquema fundamento/esquema_fundamental"}
-	\caption{}
-	\label{fig:esquemafundamental}
+	\caption{Esquema de un alambre esmaltado sumergido en un fluido conductor, puesto a Tierra mediante otro alambre sin aislar. El alambre de cobre se encuentra a conectado a un potencial externo $V_{ext}$. El recubrimiento aislante actuará como medio dieléctrico, comportándose el sistema  efectivamente como un capacitor, cuya capacitancia depende de la altura sumergida. } 
+	\label{fig:esquema_fundamento}
 \end{figure}
+
+  
+La porción sumergida del alambre puede modelarse como una sucesión de segmentos de longitud $dl$, cada uno de los cuales agrega al circuito una capacitancia $dC = C'dl$ en paralelo y una inductancia $dL = L'dl$ en serie. De esta forma, es posible escribir la impedancia $Z(l+dl)$ recursivamente, a partir de la impedancia $Z(l)$ y la del segmento infinitesimal siguiente:  
+
+\begin{equation}
+	Z(l+dl) = j\omega L'dl + \left(\frac{1}{Z(l)} + \frac{1}{j\omega C' dl}\right)^{-1} 
+\end{equation}  
+
+Con $j$ la unidad imaginaria. Tomando $dl\rightarrow0$ y reteniendo términos hasta primer orden, resulta en una ecuación diferencial para $Z(l)$ 
+
+\begin{equation}
+	\frac{dZ}{dl} = j\omega L' - j\omega C'Z^2
+\end{equation} 
+
+Ésta puede resolverse sumando la condición de contorno $Z(0)=\infty$, que refleja la ausencia de un camino capacitivo hacia el fluido si el alambre no está sumergido, pudiendo así considerar al circuito como abierto. El resultado es el siguiente 
+
+\begin{equation}
+	Z(l) = j\sqrt{\frac{L'}{C'}} \tan\left(\omega \sqrt{L'C'} l - \pi/2\right)
+\end{equation}
+
+En el caso particular en que $l$ es lo suficientemente pequeño ($\omega\mu\varepsilon l\ll 1$) resulta suficiente con tomar la expansión de esta solución a primer orden 
+
+\begin{equation}
+	Z(l) \approx \frac{1}{j\omega C' l} + \mathcal{O}\left(\frac{1}{L'C'^2\omega^2l^3}\right)
+\end{equation}
+
+De este modo, se puede observar que en este régimen el sistema se comportará básicamente como un capacitor de capacitancia $C'l$, de modo que, midiendo la capacitancia de este circuito será posible inferir la altura sumergida del alambre y, por tanto, la altura de la superficie libre. 
 
 
 \subsection{Medición de la capacitancia} 
+En la Sección anterior se mostró cómo la medición de la capacitancia de un alambre esmaltado sumergido permite determinar la altura que éste se encuentra inmerso. Esta medición puede llevarse acabo conectándolo al circuito de la Figura \ref{fig:circuitocompleto-v3}. % sumergido 
+
 \begin{figure}[th!]
 	\centering
 	\includegraphics[width=0.87\linewidth]{"Figuras/Setups/circuito_completo v3"}
 	\caption{}
 	\label{fig:circuitocompleto-v3}
 \end{figure}
+
+Este arreglo se corresponde a conectar la sonda en paralelo al capacitor de un circuito RLC serie, lo cual tendrá el efecto de modificar la capacitancia efectiva del mismo.  
 
 \subsection{Medición de la fase} 
 
