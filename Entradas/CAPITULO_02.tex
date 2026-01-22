@@ -26,7 +26,7 @@ Al sumergir un alambre de cobre esmaltado en un fluido conductor, como se esquem
 
 \begin{figure}[th!]
 	\centering
-	\includegraphics[width=0.789\linewidth]{"Figuras/Sensor/Esquema fundamento/esquema_fundamental"}
+	\includegraphics[width=0.71089\linewidth]{"Figuras/Sensor/Esquema fundamento/esquema_fundamental"}
 	\caption{Esquema de un alambre esmaltado sumergido en un fluido conductor, puesto a Tierra mediante otro alambre sin aislar. El alambre de cobre se encuentra a conectado a un potencial externo $V_{ext}$. El recubrimiento aislante actuará como medio dieléctrico, comportándose el sistema  efectivamente como un capacitor, cuya capacitancia depende de la altura sumergida. } 
 	\label{fig:esquema_fundamento}
 \end{figure}
@@ -56,20 +56,72 @@ En el caso particular en que $l$ es lo suficientemente pequeño ($\omega\mu\vare
 	Z(l) \approx \frac{1}{j\omega C' l} + \mathcal{O}\left(\frac{1}{L'C'^2\omega^2l^3}\right)
 \end{equation}
 
-De este modo, se puede observar que en este régimen el sistema se comportará básicamente como un capacitor de capacitancia $C'l$, de modo que, midiendo la capacitancia de este circuito será posible inferir la altura sumergida del alambre y, por tanto, la altura de la superficie libre. 
+De este modo, se puede observar que en este régimen el sistema se comportará básicamente como un capacitor de capacitancia $C'l$, de modo que, midiendo la capacitancia de este circuito, será posible inferir la altura sumergida del alambre y, por tanto, la altura de la superficie libre. 
+
+Ahora bien, más que la longitud total sumergida del alambre, o sonda, la cantidad de interés será el apartamiento $\Delta l$ respecto de una posición de equilibrio $l_{0}$ (para la superficie libre en reposo), tal que $l=l_{0}+\Delta l$. Teniendo esta consideración en cuenta, la capacitancia de la sonda será $C_s = C_{0} + \Delta C$, y el objetivo de la medición será esta $\Delta C$, directamente relacionada a los desplazamientos de la superficie libre. % o 
+
+
+
+Un último punto importante es que, si bien el desarrollo hasta aquí se llevó a cabo suponiendo casos donde el fluido alrededor del alambre se mantuviera estático, será posible levantar ésta hipótesis, y considerar que $\Delta l=\Delta l(t)$, siempre que las variaciones sean lo suficientemente lentas respecto al tiempo de respuesta típico del sistema: % la superficie libre a un  
+
+\begin{equation}
+	\tau_s = \alpha\frac{\varepsilon}{\sigma}\left(\frac{r_1}{r_1+r_2}\right)  
+\end{equation}
+
+Donde $\alpha$ es una constante que depende de la geometría de los conductores, y $\sigma$ es la conductividad del fluido. Se asumirá que esta condición se cumple en general. 
+
+El único caso en que fue posible observar una limitación en el funcionamiento del sensor vinculada a ésto fue al aumentar varios órdenes de magnitud la conductividad del fluido  (agregando sal al agua destilada, en el orden de $10^{4}$ ppm) aunque para agua el agua de red el funcionamiento fue, hasta donde se pudo observar, equivalente al del agua destilada, a diferencia de lo reportado en \cite{gordillozavaletaNonpropagatingHydrodynamicSolitons2012}. % en  3-
+
+
+% Esta condición implica que el sensor podría no funcionar correctamente en aguas 
+% Se puede mostrar que, en general, esta condición se cumplirá para agua destilada \cite{gordillozavaletaNonpropagatingHydrodynamicSolitons2012}. % para e agua destilada éste $$ válida 
+
+
+
 
 
 \subsection{Medición de la capacitancia} 
-En la Sección anterior se mostró cómo la medición de la capacitancia de un alambre esmaltado sumergido permite determinar la altura que éste se encuentra inmerso. Esta medición puede llevarse acabo conectándolo al circuito de la Figura \ref{fig:circuitocompleto-v3}. % sumergido 
+En la Sección anterior se mostró cómo la medición de la capacitancia de un alambre esmaltado sumergido permite determinar los desplazamientos de la superficie libre respecto de una posición en equilibrio.  % longitud que éste se encuentra inmerso ($l$) a 
+
 
 \begin{figure}[th!]
 	\centering
-	\includegraphics[width=0.87\linewidth]{"Figuras/Setups/circuito_completo v3"}
+	\includegraphics[width=0.7018\linewidth]{"Figuras/Setups/circuito_completo v3"}
 	\caption{}
 	\label{fig:circuitocompleto-v3}
 \end{figure}
 
-Este arreglo se corresponde a conectar la sonda en paralelo al capacitor de un circuito RLC serie, lo cual tendrá el efecto de modificar la capacitancia efectiva del mismo.   
+Esta medición puede llevarse acabo conectando la sonda al circuito de la Figura \ref{fig:circuitocompleto-v3}, que se corresponde a su conexión en paralelo al capacitor de un circuito RLC serie (de parámetros base $R$, $L$ y $C$), teniendo como efecto la modificación de la capacitancia efectiva del mismo. De esta forma se tendrá un circuito RLC serie equivalente, cuya capacitancia será ahora $C_{\text{EQ}}(t)=C_0+C_s(t)$.   
+
+% . % sumergido conectar la sonda 
+% Este arreglo á lo cual rá el r  
+
+Al conectar éste circuito a una fuente de corriente alterna de frecuencia angular $\omega$ y amplitud $V$ la ecuación para la corriente $I(t)$ vendrá dada por 
+
+\begin{equation}
+	V \cos(\omega t) = \frac{d^2I(t)}{dt^2} + \frac{R}{L} \frac{dI(t)}{dt} + \frac{1}{C_{\text{EQ}}(t)L} I(t)  
+\end{equation}
+
+Donde $C_{\text{EQ}}(t) = C + C_0 + \Delta C(t)\equiv C_q + \Delta C(t)$, definiendo $C_q$ como la capacitancia efectiva cuando la superficie libre se encuentra en reposo. Si las variaciones en la capacitancia son lo suficientemente lentas respecto a la frecuencia se puede asumir una solución de la forma $I(t)=I_0(t)\cos(\omega t + \phi(t))$, en analogía a lo que ocurriría en el caso estático para $C=\text{cte}$.  Cuando las variaciones de la capacitancia sean lo suficientemente pequeñas ($\Delta C/C_q\ll 1$) será suficiente con  un desarrollo a primer orden para describir la fase $\phi(t)$:      % pod puede escribirse _{\text{EQ}}  como 
+
+\begin{equation}
+		\tan(\phi) = -\frac{1}{R} \left[\omega L - \frac{1}{\omega C_q}\right] - \frac{1}{R} \frac{\Delta C}{\omega C_q^2} + \mathcal{O}\left[\left(\frac{\Delta C}{C_q}\right)^2\right] 
+\end{equation}
+
+Es posible eliminar además el primer término de este desarrollo si se elige trabajar con la frecuencia de resonancia $\omega=1/\sqrt{LC_q}$. De esta forma quedaría simplemente 
+
+\begin{equation}
+	\tan(\phi) = -Q_F \frac{\Delta C}{C_q} 
+\end{equation}
+
+Donde $Q_F=\frac{1}{R}\sqrt{L/C_q}$ es el factor de calidad del RLC. Finalmente, si el término de la derecha también es mucho menor a uno se puede aproximar $\tan(\phi)\approx\phi$ y queda una relación lineal entre $\phi$ y la variación de capacitancia, y por tanto, con las variaciones en la altura sumergida del sensor. 
+
+\begin{equation}
+	\phi(t) = -Q_{F} \frac{\Delta C(t)}{C_q} = -Q_{F}\frac{C'}{C_q} \Delta l(t) 
+\end{equation} 
+
+Y al ajustar los parámetros del RLC (y $Q_F$ en consecuencia) es posible ajustar la sensitividad del sensor, ya que si por ejemplo se quiere medir un rango muy amplio de $\Delta l$, bastaría con hacer que $Q_{F}$ sea más pequeño. % p 
+
 
 \subsection{Medición de la fase} 
 
