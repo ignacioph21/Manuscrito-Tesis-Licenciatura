@@ -123,8 +123,38 @@ Donde $Q_F=\frac{1}{R}\sqrt{L/C_q}$ es el factor de calidad del RLC. Finalmente,
 Y al ajustar los parámetros del RLC (y $Q_F$ en consecuencia) es posible ajustar la sensitividad del sensor, ya que si por ejemplo se quiere medir un rango muy amplio de $\Delta l$, bastaría con hacer que $Q_{F}$ sea más pequeño. % p  
 
 
-\subsection{Medición de la fase} 
+Los valores nominales de los elementos utilizados para el sensor son los de la Tabla \ref{tab:rlc_valores}. Estos valores se eligieron luego de varias pruebas preliminares, ya que fueron los que mejores resultados permitieron obtener para los desplazamientos típicos de la superficie libre con los que se trabajó (de un orden máximo de 1 cm).   
 
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline
+		\textbf{Elemento} & \textbf{Valor} \\ \hline
+		R & $(360 \pm 40)\,\Omega$ \\ \hline
+		L & $(10 \pm 1)\,\text{mH}$ \\ \hline
+		C & $(560 \pm 60)\,\text{pF}$ \\ \hline
+	\end{tabular}
+	\caption{.}
+	\label{tab:rlc_valores}
+\end{table} 
+
+Es importante resaltar que, como muestra la Figura \ref{fig:circuitocompleto-v3}, el elemento a Tierra en el RLC debe ser el capacitor, ya que el agua estará a este potencial en cualquier caso, y de conectar, por ejemplo, la resistencia a Tierra, se generaría un cortocircuito. Se observó que, al tener este elemento a Tierra en el RLC (independientemente de si la sonda estaba conectada), se produce una disminución en la frecuencia de resonancia del mismo, que se atribuye al acoplamiento de capacitancias parásitas $C_p$ de un orden similar a la $C$ utilizada ($C_p\;\sim$ 200 pF), con lo cual se debe asumir que es levemente mayor al valor reportado en la Tabla \ref{tab:rlc_valores}.  
+
+De esta manera, para el sensor en el aire la capacitancia total $C_{\text{EQ}}$ resultó ser aproximadamente 400 pF mayor a la $C$ base del RLC, con lo cual $C_{\text{EQ}}\;\sim$ 1000 pF. Con el sensor sumergido aproximadamente 1 cm en agua destilada la variación en la capacitancia es del orden de $\Delta C\;\sim$ 10 pF, de forma que se verifica la hipótesis que hicimos anteriormente para llegar a una relación lineal entre la fase y los desplazamientos de altura, resultando el cociente $\Delta C/C\sim0.01\ll1$.   % \approx 
+
+Las frecuencias de resonancia típicas con las que se trabajó fueron del orden de 52 kHz, para los elementos previamente mencionados, ajustándolas más finamente en cada caso, antes de la medición, aunque cuando por distintos motivos no fue posible realizar este ajuste el efecto fue simplemente la suma de un $\phi_0$ a las señales, que puede eliminarse al restar el valor medio, ya que finalmente la cantidad de interés será la variación de altura. % n a los fines . % En algunos casos se observó una deriva muy lenta  
+
+% De esta manera, a capacitancia total $Cq$ para el sensor sin sumergir resultó de , con una frecuencia de resonancia de $f_s=(53.19\pm0.01)$ kHz, mientras que con el sensor sumergido fue de $C_q=(895\pm90)$ pF y una frecuencia $f_s=(52.60\pm0.01)$ kHz. 
+
+%Para el sensor en el aire la capacitancia total $C_q$ que se debe sumar al $C$ base resultó ser del orden de 400 pF, a la cual contribuye entonces la $C_0$ y las capacitancias parásitas, que se estiman del orden de 200 pF. De esta forma la capacitancia total Al sumergir aproximadamente 1 cm el sensor en agua destilada se observa una variación en la capacitancia de entre 10 y 20 pF, lo cual sería consistente con la hipótesis de $C/\Delta C\ll 1$. 
+%
+%Las frecuencias de resonancia típicas con las que se trabajó fueron en consecuencia del orden de 52 kHz. 
+
+
+
+
+\subsection{Medición de la fase} 
+Hasta aquí se demostró conceptualmente cómo es posible encontrar una relación lineal entre la fase ($\phi$) de la corriente de la sonda y las variaciones en su altura sumergida ($\Delta l$) al conectarla en paralelo al capacitor de  un RLC serie. El paso final para completar la descripción del sensor será entonces hallar un método para la medición de dicha fase. % do m o desplazamient 
 
 
 
