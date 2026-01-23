@@ -100,6 +100,7 @@ Al conectar éste circuito a una fuente de corriente alterna de frecuencia angul
 
 \begin{equation}
 	V \cos(\omega t) = \frac{d^2I(t)}{dt^2} + \frac{R}{L} \frac{dI(t)}{dt} + \frac{1}{C_{\text{EQ}}(t)L} I(t)  
+	\label{eq:circuit_eq}
 \end{equation}
 
 Donde $C_{\text{EQ}}(t) = C + C_0 + \Delta C(t)\equiv C_q + \Delta C(t)$, definiendo $C_q$ como la capacitancia efectiva cuando la superficie libre se encuentra en reposo. Si las variaciones en la capacitancia son lo suficientemente lentas respecto a la frecuencia se puede asumir una solución de la forma $I(t)=I_0(t)\cos(\omega t + \phi(t))$, en analogía a lo que ocurriría en el caso estático para $C=\text{cte}$.  Cuando las variaciones de la capacitancia sean lo suficientemente pequeñas ($\Delta C/C_q\ll 1$) será suficiente con  un desarrollo a primer orden para describir la fase $\phi(t)$:      % pod puede escribirse _{\text{EQ}}  como 
@@ -123,6 +124,115 @@ Donde $Q_F=\frac{1}{R}\sqrt{L/C_q}$ es el factor de calidad del RLC. Finalmente,
 Y al ajustar los parámetros del RLC (y $Q_F$ en consecuencia) es posible ajustar la sensitividad del sensor, ya que si por ejemplo se quiere medir un rango muy amplio de $\Delta l$, bastaría con hacer que $Q_{F}$ sea más pequeño. % p  
 
 
+
+
+
+
+
+\subsection{Medición de la fase} 
+Hasta aquí se demostró conceptualmente cómo es posible encontrar una relación lineal entre la fase ($\phi$) de la corriente de la sonda y las variaciones en su altura sumergida ($\Delta l$) al conectarla en paralelo al capacitor de  un RLC serie. El paso final para completar la descripción del sensor será, entonces, hallar un método para la medición de dicha fase. % do m o desplazamient   
+
+Con este fin se empleará la técnica de \textit{demodulación homodina}, que utiliza una señal de referencia para obtener la amplitud y fase relativa de la señal de interés (en este caso la caída de tensión sobre la resistencia $R$). % ó 
+
+El primer paso consistirá en modular la señal de interés, a la cual se llamará $A(t)$, con alguna frecuencia, obteniendo entonces una nueva señal 
+
+\begin{equation}
+	S(t) = A(t)\cos(\omega_r t)
+\end{equation} 
+
+Es importante que la frecuencia de modulación sea mucho más rápida que las frecuencias características de $A(t)$, para que pueda captar todas sus variaciones correctamente. En este caso, la tensión sobre la resistencia ya tendrá la misma forma de $S(t)$, con lo cual no es necesario realizar este primer paso explícitamente. % e  
+
+Luego, se debe \textit{mixear} la señal  modulada con la de referencia, $R(t)=\cos(\omega_r t)$, que en este caso será la tensión alterna que alimenta al circuito\footnote{\normalsize La referencia podría tener en principio una frecuencia distinta a la de modulación, pero por simplicidad, y porque en este sistema será así, se considerarán iguales.},  obteniendo entonces 
+
+\begin{equation}
+	M(t) = S(t)R(t) = A(t)/2 \; \big(1+\cos(2\omega_r t)\big) 	
+\end{equation} 
+
+Si hubiese ruido eléctrico $N(t)$ sumando, la señal sería $M(t) = S(t)R(t) + N(t)R(t)$. El efecto de este mixeo será centrar el ruido en $\omega_r$, recordando que un producto en tiempo se traduce como una convolución en frecuencia. Además, quedan dos copias de la señal de interés, una centrada en 0 y otra en $2\omega_r$. 
+
+Finalmente, se debe aplicar un filtro pasabajos, de frecuencia de corte $\omega_c$, o tiempo de integración $\tau_c=2\pi/\omega_c$. Siempre que $\omega_c<\omega_r$ el efecto de este filtro será no dejar pasar, ni la copia de la señal en $2\omega_r$, ni al ruido, y obtener así la amplitud $A(t)/2$.   % por además total y , 
+
+\missingfigure{Esquema Lockin } 
+
+Si inicialmente la señal hubiese tenido una fase respecto a la señal de referencia, o sea, $S(t)=A(t)\cos(\omega_r t + \phi_r)$, como ocurrirá en este caso, habría que repetir el mismo procedimiento con una señal de referencia que tenga 90$^\circ$ de desfasaje respecto a $R(t)$, a la cual se la conoce como \textit{cuadratura}. Al final se obtendrá para la referencia una señal $X(t) = A(t)/2 \; \cos(\phi_r)$, que se conoce como componente homodina, y para la cuadratura, una señal $Y(t)=A(t)/2 \; \sin(\phi_r)$, que es la componente heterodina. Con éstas resulta fácil obtener la amplitud y fase como: 
+
+\begin{subequations}
+	\begin{equation}
+		A^2 = 4 (X^2+Y^2) 
+	\end{equation} 
+	\begin{equation}
+		\phi_r = \arctan(Y/X)
+	\end{equation}
+\end{subequations}  % se  a ,  y $$. 
+
+Por lo general, se utiliza un amplificador lock-in para llevar a cabo esta técnica de manera síncrona, pero se discutirá más sobre su implementación más adelante. % á
+
+
+
+\section{Resolución numérica del circuito} 
+Antes de iniciar con la construcción del sensor en el laboratorio, se empezó caracterizando numéricamente el comportamiento del circuito descripto en las secciones anteriores, esto es, la resolución de la ecuación \eqref{eq:circuit_eq}. El objetivo de este paso preliminar fue, por una parte verificar que la solución hallada bajo las distintas aproximaciones funcionaba correctamente, pero además, poder probar distintas combinaciones de parámetros y determinar qué efectos tendrían éstas sobre el funcionamiento del sensor. A continuación se mencionan brevemente algunas de las conclusiones más relevantes que se pudieron observar. % la ecuación ss resolviendo para  ver 
+
+Se pudo verificar que la fase se relaciona linealmente con $\Delta l$ hasta cierto punto. Por ejemplo, para una señal aleatoria (amplitud constante entre 0-6 Hz y fase aleatoria) como las que podrían ser de interés medir en la superficie libre, con los valores de la Tabla \ref{tab:rlc_valores} que eventualmente se terminaron usando, la reconstrucción de la altura es la de la Figura \ref{fig:diferencias}.  % de esta forma  
+
+
+\begin{figure}[th!]
+	\centering
+	\includegraphics[width=0.87\linewidth]{"Figuras/Sensor/Pruebas numéricas/Diferencias"}
+	\caption{}
+	\label{fig:diferencias}
+\end{figure}
+
+Donde los errores son del orden del 1 \% aproximadamente.  Si los desplazamientos  $\Delta l$ se vuelven lo suficientemente grandes, como para que $\Delta C\sim C_q$, se produce una saturación en la fase medida.  % se intentade a partir del cual a 
+
+
+
+\missingfigure{Saturación}
+
+
+
+
+Se puede contrarrestar este efecto como ya se explicó modificando los parámetros del circuito, siendo la opción más sencilla disminuir el factor de calidad $Q_F$, o bien disminuyendo la capacitancia por unidad de longitud $C'$ del alambre, lo cual implica cambiarlo por otro. % yendo 
+
+Otro efecto interesante que se pudo observar es que, si se intentan medir variaciones en $\Delta l$ demasiado rápidos respecto se produce histéresis en el sistema. 
+
+
+\missingfigure{Histéresis} 
+
+
+Aunque ninguno de estos efectos adversos se llegaron a observar en la práctica. 
+
+
+
+\section{Prueba de un circuito equivalente} 
+Siguiendo con el enfoque constructivo el siguiente paso fue realizar una prueba conceptual del circuito. Para esto se armó un circuito RLC serie, a cuya capacitancia se le fue conectando en paralelo capacitancias de distintos valores, y midiendo en cada caso la diferencia de fase respecto de la señal de referencia. 
+
+
+\begin{figure}[th!]
+	\centering
+	\includegraphics[width=0.87\linewidth]{"Figuras/Sensor/Prueba protoboard/Datos_osciloscopio_unidades"}
+	\caption{}
+	\label{fig:datososciloscopiounidades}
+\end{figure}
+
+
+
+
+
+
+\section{Prototipado} %  y prueba  
+
+
+
+
+
+\begin{figure}[th!]
+	\centering
+	\includegraphics[width=0.87\linewidth]{"Figuras/Sensor/El sensor/dibujo_sensor_modelo"}
+	\caption{}
+	\label{fig:dibujosensormodelo}
+\end{figure}
+
+
 Los valores nominales de los elementos utilizados para el sensor son los de la Tabla \ref{tab:rlc_valores}. Estos valores se eligieron luego de varias pruebas preliminares, ya que fueron los que mejores resultados permitieron obtener para los desplazamientos típicos de la superficie libre con los que se trabajó (de un orden máximo de 1 cm).   
 
 \begin{table}[h]
@@ -138,59 +248,22 @@ Los valores nominales de los elementos utilizados para el sensor son los de la T
 	\label{tab:rlc_valores}
 \end{table} 
 
-Es importante resaltar que, como muestra la Figura \ref{fig:circuitocompleto-v3}, el elemento a Tierra en el RLC debe ser el capacitor, ya que el agua estará a este potencial en cualquier caso, y de conectar, por ejemplo, la resistencia a Tierra, se generaría un cortocircuito. Se observó que, al tener este elemento a Tierra en el RLC (independientemente de si la sonda estaba conectada), se produce una disminución en la frecuencia de resonancia del mismo, que se atribuye al acoplamiento de capacitancias parásitas $C_p$ de un orden similar a la $C$ utilizada ($C_p\;\sim$ 200 pF), con lo cual se debe asumir que es levemente mayor al valor reportado en la Tabla \ref{tab:rlc_valores}.  
+
+Es importante resaltar que, como muestra la Figura \ref{fig:circuitocompleto-v3}, el elemento a Tierra en el RLC debe ser el capacitor, ya que el agua estará a este potencial en cualquier caso, y de conectar, por ejemplo, la resistencia a Tierra, se generaría un cortocircuito. Se observó que, al tener este elemento  a Tierra en el RLC (independientemente de si la sonda estaba conectada), se produce una disminución en la frecuencia de resonancia del mismo, que se atribuye al acoplamiento de capacitancias parásitas $C_p$, que tienen como efecto sumar a la $C$ utilizada ($C_p\;\sim$ 200 pF), con lo cual se debe asumir que es levemente mayor al valor reportado en la Tabla \ref{tab:rlc_valores}.  % de un orden similar   el capacitor
+
 
 De esta manera, para el sensor en el aire la capacitancia total $C_{\text{EQ}}$ resultó ser aproximadamente 400 pF mayor a la $C$ base del RLC, con lo cual $C_{\text{EQ}}\;\sim$ 1000 pF. Con el sensor sumergido aproximadamente 1 cm en agua destilada la variación en la capacitancia es del orden de $\Delta C\;\sim$ 10 pF, de forma que se verifica la hipótesis que hicimos anteriormente para llegar a una relación lineal entre la fase y los desplazamientos de altura, resultando el cociente $\Delta C/C\sim0.01\ll1$.   % \approx 
 
 Las frecuencias de resonancia típicas con las que se trabajó fueron del orden de 52 kHz, para los elementos previamente mencionados, ajustándolas más finamente en cada caso, antes de la medición, aunque cuando por distintos motivos no fue posible realizar este ajuste el efecto fue simplemente la suma de un $\phi_0$ a las señales, que puede eliminarse al restar el valor medio, ya que finalmente la cantidad de interés será la variación de altura. % n a los fines . % En algunos casos se observó una deriva muy lenta  
+
+La capacitancia por unidad de longitud para el cable de cobre elegido se estimó en el orden de $1$ pF/mm. % $0^{-12}$
+
 
 % De esta manera, a capacitancia total $Cq$ para el sensor sin sumergir resultó de , con una frecuencia de resonancia de $f_s=(53.19\pm0.01)$ kHz, mientras que con el sensor sumergido fue de $C_q=(895\pm90)$ pF y una frecuencia $f_s=(52.60\pm0.01)$ kHz. 
 
 %Para el sensor en el aire la capacitancia total $C_q$ que se debe sumar al $C$ base resultó ser del orden de 400 pF, a la cual contribuye entonces la $C_0$ y las capacitancias parásitas, que se estiman del orden de 200 pF. De esta forma la capacitancia total Al sumergir aproximadamente 1 cm el sensor en agua destilada se observa una variación en la capacitancia de entre 10 y 20 pF, lo cual sería consistente con la hipótesis de $C/\Delta C\ll 1$. 
 %
 %Las frecuencias de resonancia típicas con las que se trabajó fueron en consecuencia del orden de 52 kHz. 
-
-
-
-
-\subsection{Medición de la fase} 
-Hasta aquí se demostró conceptualmente cómo es posible encontrar una relación lineal entre la fase ($\phi$) de la corriente de la sonda y las variaciones en su altura sumergida ($\Delta l$) al conectarla en paralelo al capacitor de  un RLC serie. El paso final para completar la descripción del sensor será entonces hallar un método para la medición de dicha fase. % do m o desplazamient  
-
-
-
-
-\section{Resolución numérica del circuito} 
-
-\begin{figure}[th!]
-	\centering
-	\includegraphics[width=0.87\linewidth]{"Figuras/Sensor/Pruebas numéricas/Diferencias"}
-	\caption{}
-	\label{fig:diferencias}
-\end{figure}
-
-
-
-\section{Prueba de un circuito equivalente} 
-\begin{figure}[th!]
-	\centering
-	\includegraphics[width=0.87\linewidth]{"Figuras/Sensor/Prueba protoboard/Datos_osciloscopio_unidades"}
-	\caption{}
-	\label{fig:datososciloscopiounidades}
-\end{figure}
-
-
-
-
-
-
-\section{Prototipado} %  y prueba  
-
-\begin{figure}[th!]
-	\centering
-	\includegraphics[width=0.87\linewidth]{"Figuras/Sensor/El sensor/dibujo_sensor_modelo"}
-	\caption{}
-	\label{fig:dibujosensormodelo}
-\end{figure}
 
 
 
