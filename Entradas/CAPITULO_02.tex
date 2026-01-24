@@ -86,7 +86,7 @@ En la Sección anterior se mostró cómo la medición de la capacitancia de un a
 
 \begin{figure}[th!]
 	\centering
-	\includegraphics[width=0.7018\linewidth]{"Figuras/Setups/circuito_completo v3"}
+	\includegraphics[width=0.57018\linewidth]{"Figuras/Setups/circuito_completo v3"}
 	\caption{}
 	\label{fig:circuitocompleto-v3}
 \end{figure}
@@ -109,7 +109,7 @@ Donde $C_{\text{EQ}}(t) = C + C_0 + \Delta C(t)\equiv C_q + \Delta C(t)$, defini
 		\tan(\phi) = -\frac{1}{R} \left[\omega L - \frac{1}{\omega C_q}\right] - \frac{1}{R} \frac{\Delta C}{\omega C_q^2} + \mathcal{O}\left[\left(\frac{\Delta C}{C_q}\right)^2\right] 
 \end{equation}
 
-Es posible eliminar además el primer término de este desarrollo si se elige trabajar con la frecuencia de resonancia $\omega=1/\sqrt{LC_q}$. De esta forma quedaría simplemente 
+Es posible eliminar además el primer término de este desarrollo si se elige trabajar con la frecuencia de resonancia $\omega_r=1/\sqrt{LC_q}$. De esta forma quedaría simplemente 
 
 \begin{equation}
 	\tan(\phi) = -Q_F \frac{\Delta C}{C_q} 
@@ -146,13 +146,21 @@ Luego, se debe \textit{mixear} la señal  modulada con la de referencia, $R(t)=\
 
 \begin{equation}
 	M(t) = S(t)R(t) = A(t)/2 \; \big(1+\cos(2\omega_r t)\big) 	
-\end{equation} 
+\end{equation} % T 
 
 Si hubiese ruido eléctrico $N(t)$ sumando, la señal sería $M(t) = S(t)R(t) + N(t)R(t)$. El efecto de este mixeo será centrar el ruido en $\omega_r$, recordando que un producto en tiempo se traduce como una convolución en frecuencia. Además, quedan dos copias de la señal de interés, una centrada en 0 y otra en $2\omega_r$. 
 
 Finalmente, se debe aplicar un filtro pasabajos, de frecuencia de corte $\omega_c$, o tiempo de integración $\tau_c=2\pi/\omega_c$. Siempre que $\omega_c<\omega_r$ el efecto de este filtro será no dejar pasar, ni la copia de la señal en $2\omega_r$, ni al ruido, y obtener así la amplitud $A(t)/2$.   % por además total y , 
 
-\missingfigure{Esquema Lockin } 
+% \missingfigure{Esquema Lockin } 
+
+\begin{figure}[th!]
+	\centering
+	\includegraphics[width=0.987\linewidth]{"Figuras/Sensor/lockin fase/Ejemplo v2"} % 1 
+	\caption{}
+	\label{fig:ejemplo-v2} % 1 
+\end{figure}
+
 
 Si inicialmente la señal hubiese tenido una fase respecto a la señal de referencia, o sea, $S(t)=A(t)\cos(\omega_r t + \phi_r)$, como ocurrirá en este caso, habría que repetir el mismo procedimiento con una señal de referencia que tenga 90$^\circ$ de desfasaje respecto a $R(t)$, a la cual se la conoce como \textit{cuadratura}. Al final se obtendrá para la referencia una señal $X(t) = A(t)/2 \; \cos(\phi_r)$, que se conoce como componente homodina, y para la cuadratura, una señal $Y(t)=A(t)/2 \; \sin(\phi_r)$, que es la componente heterodina. Con éstas resulta fácil obtener la amplitud y fase como: 
 
@@ -172,31 +180,45 @@ Por lo general, se utiliza un amplificador lock-in para llevar a cabo esta técn
 \section{Resolución numérica del circuito} 
 Antes de iniciar con la construcción del sensor en el laboratorio, se empezó caracterizando numéricamente el comportamiento del circuito descripto en las secciones anteriores, esto es, la resolución de la ecuación \eqref{eq:circuit_eq}. El objetivo de este paso preliminar fue, por una parte verificar que la solución hallada bajo las distintas aproximaciones funcionaba correctamente, pero además, poder probar distintas combinaciones de parámetros y determinar qué efectos tendrían éstas sobre el funcionamiento del sensor. A continuación se mencionan brevemente algunas de las conclusiones más relevantes que se pudieron observar. % la ecuación ss resolviendo para  ver 
 
-Se pudo verificar que la fase se relaciona linealmente con $\Delta l$ hasta cierto punto. Por ejemplo, para una señal aleatoria (amplitud constante entre 0-6 Hz y fase aleatoria) como las que podrían ser de interés medir en la superficie libre, con los valores de la Tabla \ref{tab:rlc_valores} que eventualmente se terminaron usando, la reconstrucción de la altura es la de la Figura \ref{fig:diferencias}.  % de esta forma  
-
-
 \begin{figure}[th!]
 	\centering 
 	\includegraphics[width=0.87\linewidth]{"Figuras/Sensor/Pruebas numéricas/Diferencias"}
 	\caption{}
-	\label{fig:diferencias}
+	\label{fig:diferencias_num}
 \end{figure}
+
+Se pudo verificar que la fase se relaciona linealmente con $\Delta l$ hasta cierto punto. Por ejemplo, para una señal aleatoria (amplitud constante entre 0-6 Hz y fase aleatoria) como las que podrían ser de interés medir en la superficie libre, con los valores de la Tabla \ref{tab:rlc_valores} que eventualmente se terminaron usando, la reconstrucción de la altura es la de la Figura \ref{fig:diferencias_num}.  % de esta forma  
+
+
+
 
 Donde los errores son del orden del 1 \% aproximadamente.  Si los desplazamientos  $\Delta l$ se vuelven lo suficientemente grandes, como para que $\Delta C\sim C_q$, se produce una saturación en la fase medida.  % se intentade a partir del cual a 
 
 
 
-\missingfigure{Saturación}
+% \missingfigure{Saturación}
+\begin{figure}[th!]
+	\centering
+	\includegraphics[width=0.57\linewidth]{"Figuras/Sensor/Pruebas numéricas/Variar Qs"}
+	\caption{}
+	\label{fig:variar-qs}
+\end{figure}
 
 
 
 
-Se puede contrarrestar este efecto como ya se explicó modificando los parámetros del circuito, siendo la opción más sencilla disminuir el factor de calidad $Q_F$, o bien disminuyendo la capacitancia por unidad de longitud $C'$ del alambre, lo cual implica cambiarlo por otro. % yendo 
+Se puede contrarrestar este efecto como ya se explicó modificando los parámetros del circuito, siendo la opción más sencilla disminuir el factor de calidad $Q_F$, como se muestra en la Figura \ref{fig:variar-qs}, o bien disminuyendo la capacitancia por unidad de longitud $C'$ del alambre, lo cual implica cambiarlo por otro. % yendo 
 
-Otro efecto interesante que se pudo observar es que, si se intentan medir variaciones en $\Delta l$ demasiado rápidos respecto se produce histéresis en el sistema. 
+Otro efecto interesante que se pudo observar es que, si se intentan medir variaciones en $\Delta l$ demasiado rápidos respecto se produce histéresis en el sistema. En la Figura \ref{fig:histeresis} se comparan dos ejemplos para la medición de una señal sinusoidal, una a frecuencia baja en comparación a la de resonancia (\ref{fig:histeresis}a) donde la respuesta es lineal y otra a una frecuencia más alta (\ref{fig:histeresis}b), donde se puede ver un comportamiento histerético en el sistema. % pa% ($f/f_r\sim10^{-4}$)  
 
 
-\missingfigure{Histéresis} 
+% \missingfigure{Histéresis} 
+\begin{figure}[th!]
+	\centering
+	\includegraphics[width=0.87\linewidth]{"Figuras/Sensor/Pruebas numéricas/Histéresis"}
+	\caption{}
+	\label{fig:histeresis}
+\end{figure}
 
 
 Aunque ninguno de estos efectos adversos se llegaron a observar en la práctica. 
