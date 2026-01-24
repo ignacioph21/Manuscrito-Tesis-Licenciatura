@@ -87,7 +87,7 @@ En la Sección anterior se mostró cómo la medición de la capacitancia de un a
 \begin{figure}[th!]
 	\centering
 	\includegraphics[width=0.57018\linewidth]{"Figuras/Setups/circuito_completo v3"}
-	\caption{}
+	\caption{Esquema del circuito utilizado para medir la diferencia de capacitancia $\Delta C$, y en consecuencia $\Delta l$, del sensor sumergido. Se conecta en paralelo la sonda al capacitor de un circuito RLC serie, de forma tal que el agua queda conectada a Tierra y el alambre de cobre a la otra punta de $C$. Se alimenta al circuito mediante una fuente de tensión alterna a la frecuencia de resonancia, y se mide el voltaje sobre la fuente y la resistencia.} 
 	\label{fig:circuitocompleto-v3}
 \end{figure}
 
@@ -130,11 +130,11 @@ Y al ajustar los parámetros del RLC (y $Q_F$ en consecuencia) es posible ajusta
 
 
 \subsection{Medición de la fase} 
-Hasta aquí se demostró conceptualmente cómo es posible encontrar una relación lineal entre la fase ($\phi$) de la corriente de la sonda y las variaciones en su altura sumergida ($\Delta l$) al conectarla en paralelo al capacitor de  un RLC serie. El paso final para completar la descripción del sensor será, entonces, hallar un método para la medición de dicha fase. % do m o desplazamient   
+Hasta aquí se demostró conceptualmente cómo es posible encontrar una relación lineal entre la fase ($\phi$) de la corriente de la sonda y las variaciones en su altura sumergida ($\Delta l$) al conectarla en paralelo al capacitor de  un RLC serie. El paso final para completar la descripción del sensor será, entonces, incorporar un método para la medición de dicha fase. % do m o desplazamient   \textbf{ hallar} ty. 
 
 Con este fin se empleará la técnica de \textit{demodulación homodina}, que utiliza una señal de referencia para obtener la amplitud y fase relativa de la señal de interés (en este caso la caída de tensión sobre la resistencia $R$). % ó 
 
-El primer paso consistirá en modular la señal de interés, a la cual se llamará $A(t)$, con alguna frecuencia, obteniendo entonces una nueva señal 
+A continuación se describe brevemente la técnica, y en la Figura \ref{fig:ejemplo-v2} las señales involucradas en el proceso para un caso particular a modo ilustrativo. El primer paso consistirá en modular la señal de interés, a la cual se llamará $A(t)$, con alguna frecuencia, obteniendo entonces una nueva señal % a 
 
 \begin{equation}
 	S(t) = A(t)\cos(\omega_r t)
@@ -157,7 +157,7 @@ Finalmente, se debe aplicar un filtro pasabajos, de frecuencia de corte $\omega_
 \begin{figure}[th!]
 	\centering
 	\includegraphics[width=0.987\linewidth]{"Figuras/Sensor/lockin fase/Ejemplo v2"} % 1 
-	\caption{}
+	\caption{Distintas señales asociadas a la técnica de demodulación homodina. En primer lugar (a) la señal a medir $A(t)$ y la señal de referencia $R(t)$. Con éstas se construyen (b) la señal modulada $S(t)$ y (c) la señal mixeada $M(t)$, a partir de la cual se obtiene (d) la reconstrucción de la señal de interés. Abajo de todo (e) se muestra el contenido en frecuencia de $M(t)$, pudiéndose apreciar a frecuencias bajas el contenido de $A(t)$ y otras dos copias del mismo alrededor de $2\omega_r$, que serán eliminadas mediante el filtro pasabajos, de frecuencia $\omega_c$, junto al ruido que pudiese haber.} 
 	\label{fig:ejemplo-v2} % 1 
 \end{figure}
 
@@ -183,7 +183,7 @@ Antes de iniciar con la construcción del sensor en el laboratorio, se empezó c
 \begin{figure}[th!]
 	\centering 
 	\includegraphics[width=0.87\linewidth]{"Figuras/Sensor/Pruebas numéricas/Diferencias"}
-	\caption{}
+	\caption{(a) Comparación de la altura sumergida, $\Delta l$, con la reconstruida, obtenida mediante la resolución numérica de la ecuación \eqref{eq:circuit_eq} y la técnica de demodulación homodina para el cálculo de la fase. (b) Diferencia entre ambas señales, de dos órdenes de magnitud menor.} % &  ty  
 	\label{fig:diferencias_num}
 \end{figure}
 
@@ -200,8 +200,8 @@ Donde los errores son del orden del 1 \% aproximadamente.  Si los desplazamiento
 \begin{figure}[th!]
 	\centering
 	\includegraphics[width=0.57\linewidth]{"Figuras/Sensor/Pruebas numéricas/Variar Qs"}
-	\caption{}
-	\label{fig:variar-qs}
+	\caption{Comparación de las curvas de respuesta del sensor obtenidas numéricamente para distintos factores de calidad $Q_F$ (líneas sólidas). A menor factor de calidad se extiende el rango de alturas en el que funciona linealmente, manteniéndose cerca de la respuesta ideal (línea punteada). Factores de calidad mayores permiten medir diferencias de altura más pequeñas y saturan antes. En todos los casos para $\Delta l$ lo suficientemente pequeño el comportamiento es lineal  (recuadro ampliado). }
+	\label{fig:variar-qs} % veunte 
 \end{figure}
 
 
@@ -216,7 +216,7 @@ Otro efecto interesante que se pudo observar es que, si se intentan medir variac
 \begin{figure}[th!]
 	\centering
 	\includegraphics[width=0.87\linewidth]{"Figuras/Sensor/Pruebas numéricas/Histéresis"}
-	\caption{}
+	\caption{Arriba, la comparación de los desplazamientos $\Delta l$ reales y los obtenidos numéricamente, para señales senoidales de $f=0.2$ KHz (a.I) y $f=2$  kHz (b.I), con un circuito de frecuencia de resonancia de $f_s=67$ kH. Debajo, las curvas de respuesta ($-$), an ambos casos comparadas a la ideal ($\cdot-$), pudiendo observar una respuesta lineal para frecuencias relativamente bajas (a.II) en comparación a frecuencias más altas (b.II) donde el circuito no llega a responder lo suficientemente rápido y se produce histéresis. } % línea azul sólida a a  respuesta  
 	\label{fig:histeresis}
 \end{figure}
 
@@ -232,10 +232,9 @@ Siguiendo con el enfoque constructivo el siguiente paso fue realizar una prueba 
 \begin{figure}[th!]
 	\centering
 	\includegraphics[width=0.87\linewidth]{"Figuras/Sensor/Prueba protoboard/Datos_osciloscopio_unidades"}
-	\caption{}
+	\caption{Diferencia de fase $\Delta \phi$ obtenida al agregar en paralelo a un RLC distintas capacitancias (\markcircle*[blue]{0.365ex}) } % \textbf{ }{filled} \textbf{\bluecircle} 
 	\label{fig:datososciloscopiounidades}
 \end{figure}
-
 
 
 

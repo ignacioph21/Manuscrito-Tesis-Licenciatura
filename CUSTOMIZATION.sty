@@ -37,7 +37,6 @@
 
 % CUSTOMIZACIONES PROPIAS
 
-\usepackage{todonotes} 
 
 \graphicspath{{./figures}}                  % define el directorio de figuras
 \usepackage[Sonny]{fncychap}                % para definir estilos de capitulos
@@ -82,6 +81,25 @@
 % que es esto???
 \newcommand\myeq{\mathrel{\stackrel{\makebox[0pt]{\mbox{\normalfont\tiny hip}}}{=}}}
 
+
+
+
+
+
+% Tabla
+\renewcommand\arraystretch{1.5}
+\usepackage{booktabs}
+
+% Código
+\usepackage{listings} 
+
+% Para Ignacio Hernando 
+% -----------------------------------------------------------
+
+% Para missingfigures 
+\usepackage{todonotes} 
+
+
 % Línea de tiempo
 \usepackage{xcolor}
 \newcommand\ytl[2]{
@@ -89,9 +107,113 @@
 \newcommand\ytln[2]{
 	\parbox[b]{10em}{\hfill{\color{red}\bfseries #1}~\textcolor{red}{$\cdots\cdots\cdots\cdots\cdots$~}}\makebox[0pt][c]{\color{red}$\bullet$}\vrule\quad \parbox[c]{5.5cm}{\vspace{7pt}\color{red}\raggedright #2\\[7pt]}\\[-3pt]}
 
-% Tabla
-\renewcommand\arraystretch{1.5}
-\usepackage{booktabs}
 
-% Código
-\usepackage{listings}
+\usepackage{tikz} 
+%--------------------------------------------------
+% Marcadores robustos para captions (TikZ inline)
+%--------------------------------------------------
+\usepackage{xparse}
+
+%--------------------------------------------------
+% CÍRCULO
+% \markcircle*[color]{size}  -> relleno
+% \markcircle [color]{size}  -> vacío
+%--------------------------------------------------
+\DeclareRobustCommand{\markcircle}{%
+	\@ifstar
+	{\markcircle@filled}
+	{\markcircle@empty}%
+}
+
+\NewDocumentCommand{\markcircle@filled}{O{black} m}{%
+	\tikz[baseline=-0.6ex]%
+	\node[circle, fill=#1, draw=#1, inner sep=#2] {};%
+}
+
+\NewDocumentCommand{\markcircle@empty}{O{black} m}{%
+	\tikz[baseline=-0.6ex]%
+	\node[circle, fill=none, draw=#1, inner sep=#2] {};%
+}
+
+%--------------------------------------------------
+% CUADRADO
+%--------------------------------------------------
+\DeclareRobustCommand{\marksquare}{%
+	\@ifstar
+	{\marksquare@filled}
+	{\marksquare@empty}%
+}
+
+\NewDocumentCommand{\marksquare@filled}{O{black} m}{%
+	\tikz[baseline=-0.6ex]%
+	\node[rectangle, fill=#1, draw=#1, inner sep=#2] {};%
+}
+
+\NewDocumentCommand{\marksquare@empty}{O{black} m}{%
+	\tikz[baseline=-0.6ex]%
+	\node[rectangle, fill=none, draw=#1, inner sep=#2] {};%
+}
+
+%--------------------------------------------------
+% ROMBO
+%--------------------------------------------------
+\DeclareRobustCommand{\markdiamond}{%
+	\@ifstar
+	{\markdiamond@filled}
+	{\markdiamond@empty}%
+}
+
+\NewDocumentCommand{\markdiamond@filled}{O{black} m}{%
+	\tikz[baseline=-0.6ex]%
+	\node[diamond, aspect=1, fill=#1, draw=#1, inner sep=#2] {};%
+}
+
+\NewDocumentCommand{\markdiamond@empty}{O{black} m}{%
+	\tikz[baseline=-0.6ex]%
+	\node[diamond, aspect=1, fill=none, draw=#1, inner sep=#2] {};%
+}
+
+%--------------------------------------------------
+% TRIÁNGULO INVERTIDO
+%--------------------------------------------------
+\DeclareRobustCommand{\marktriangledown}{%
+	\@ifstar
+	{\marktriangledown@filled}
+	{\marktriangledown@empty}%
+}
+
+\NewDocumentCommand{\marktriangledown@filled}{O{black} m}{%
+	\tikz[baseline=-0.6ex]%
+	\node[regular polygon,
+	regular polygon sides=3,
+	rotate=180,
+	fill=#1, draw=#1,
+	inner sep=#2] {};%
+}
+
+\NewDocumentCommand{\marktriangledown@empty}{O{black} m}{%
+	\tikz[baseline=-0.6ex]%
+	\node[regular polygon,
+	regular polygon sides=3,
+	rotate=180,
+	fill=none, draw=#1,
+	inner sep=#2] {};%
+}
+
+%--------------------------------------------------
+% LÍNEAS
+%--------------------------------------------------
+\DeclareRobustCommand{\marksolid}[2][black]{%
+	\tikz[baseline=-0.6ex]%
+	\draw[#1, line width=#2] (0,0)--(1.2em,0);%
+}
+
+\DeclareRobustCommand{\markdashed}[2][black]{%
+	\tikz[baseline=-0.6ex]%
+	\draw[#1, dashed, line width=#2] (0,0)--(1.2em,0);%
+}
+
+\DeclareRobustCommand{\markdashdot}[2][black]{%
+	\tikz[baseline=-0.6ex]%
+	\draw[#1, dash dot, line width=#2] (0,0)--(1.2em,0);%
+}
