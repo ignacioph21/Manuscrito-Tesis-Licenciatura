@@ -1,5 +1,8 @@
 \chapter{Sensor capacitivo} 
 
+
+
+
 \begin{figure}[th!]
 	\centering
 	\includegraphics[width=0.987\linewidth]{Figuras/Sensor/Timeline/Timeline_v2}
@@ -8,8 +11,11 @@
 \end{figure}
 
 
+\clearpage 
 
 \section{Principio de funcionamiento} 
+En esta primera Sección se desarrollarán los fundamentos teóricos en los que se basa el funcionamiento del sensor capacitivo construído durante la Tesis, haciendo hincapie en las distintas hipótesis que deben cumplirse para que su respuesta sea lineal empezando por la sonda, la componente  que irá sumergida y estará en contacto con el fluido, siguiendo por el circuito al cual se conecta y terminando con la técnica de demodulación homodina, que una vez implementada permitirá realizar la medición propiamente dicha. % será la que  lugar  
+
 
 \subsection{La sonda} 
 
@@ -119,6 +125,7 @@ Donde $Q_F=\frac{1}{R}\sqrt{L/C_q}$ es el factor de calidad del RLC. Finalmente,
 
 \begin{equation}
 	\phi(t) = -Q_{F} \frac{\Delta C(t)}{C_q} = -Q_{F}\frac{C'}{C_q} \Delta l(t) 
+	\label{eq:relación_lineal}
 \end{equation} 
 
 Y al ajustar los parámetros del RLC (y $Q_F$ en consecuencia) es posible ajustar la sensitividad del sensor, ya que si por ejemplo se quiere medir un rango muy amplio de $\Delta l$, bastaría con hacer que $Q_{F}$ sea más pequeño. % p  
@@ -187,14 +194,7 @@ Antes de iniciar con la construcción del sensor en el laboratorio, se empezó c
 	\label{fig:diferencias_num}
 \end{figure}
 
-Se pudo verificar que la fase se relaciona linealmente con $\Delta l$ hasta cierto punto. Por ejemplo, para una señal aleatoria (amplitud constante entre 0-6 Hz y fase aleatoria) como las que podrían ser de interés medir en la superficie libre, con los valores de la Tabla \ref{tab:rlc_valores} que eventualmente se terminaron usando, la reconstrucción de la altura es la de la Figura \ref{fig:diferencias_num}.  % de esta forma  
-
-
-
-
-Donde los errores son del orden del 1 \% aproximadamente.  Si los desplazamientos  $\Delta l$ se vuelven lo suficientemente grandes, como para que $\Delta C\sim C_q$, se produce una saturación en la fase medida.  % se intentade a partir del cual a 
-
-
+Se pudo verificar que la fase se relaciona linealmente con $\Delta l$ hasta cierto punto. Por ejemplo, para una señal aleatoria (amplitud constante entre 0-6 Hz y fase aleatoria) como las que podrían ser de interés medir en la superficie libre, con los valores de la Tabla \ref{tab:rlc_valores} que se terminaron eligiendo para la construcción del sensor, la reconstrucción de la altura es la de la Figura \ref{fig:diferencias_num},  donde los errores son del orden del 1 \% aproximadamente.  % .Dss  de esta forma  eventualmente usando 
 
 % \missingfigure{Saturación}
 \begin{figure}[th!]
@@ -203,6 +203,13 @@ Donde los errores son del orden del 1 \% aproximadamente.  Si los desplazamiento
 	\caption{Comparación de las curvas de respuesta del sensor obtenidas numéricamente para distintos factores de calidad $Q_F$ (líneas sólidas). A menor factor de calidad se extiende el rango de alturas en el que funciona linealmente, manteniéndose cerca de la respuesta ideal (línea punteada). Factores de calidad mayores permiten medir diferencias de altura más pequeñas y saturan antes. En todos los casos para $\Delta l$ lo suficientemente pequeño el comportamiento es lineal  (recuadro ampliado). }
 	\label{fig:variar-qs} % veunte 
 \end{figure}
+
+
+Si los desplazamientos  $\Delta l$ se vuelven lo suficientemente grandes, como para que $\Delta C\sim C_q$, se produce una saturación en la fase medida.  % se intentade a partir del cual a 
+
+
+
+
 
 
 
@@ -216,7 +223,7 @@ Otro efecto interesante que se pudo observar es que, si se intentan medir variac
 \begin{figure}[th!]
 	\centering
 	\includegraphics[width=0.87\linewidth]{"Figuras/Sensor/Pruebas numéricas/Histéresis"}
-	\caption{Arriba, la comparación de los desplazamientos $\Delta l$ reales y los obtenidos numéricamente, para señales senoidales de $f=0.2$ KHz (a.I) y $f=2$  kHz (b.I), con un circuito de frecuencia de resonancia de $f_s=67$ kH. Debajo, las curvas de respuesta ($-$), an ambos casos comparadas a la ideal ($\cdot-$), pudiendo observar una respuesta lineal para frecuencias relativamente bajas (a.II) en comparación a frecuencias más altas (b.II) donde el circuito no llega a responder lo suficientemente rápido y se produce histéresis. } % línea azul sólida a a  respuesta  
+	\caption{Arriba, la comparación de los desplazamientos $\Delta l$ reales y los obtenidos numéricamente, para señales senoidales de $f=0.2$ KHz (a.I) y $f=2$  kHz (b.I), con un circuito de frecuencia de resonancia de $f_s=67$ kH. Debajo, las curvas de respuesta (\marksolid[blue]{0.6pt}), an ambos casos comparadas a la ideal (\markdashdot[black]{0.6pt}), pudiendo observar una respuesta lineal para frecuencias relativamente bajas (a.II) en comparación a frecuencias más altas (b.II) donde el circuito no llega a responder lo suficientemente rápido y se produce histéresis. } % línea azul sólida a a  respuesta  $-$$\cdot-$ 
 	\label{fig:histeresis}
 \end{figure}
 
@@ -226,24 +233,37 @@ Aunque ninguno de estos efectos adversos se llegaron a observar en la práctica.
 
 
 \section{Prueba de un circuito equivalente} 
-Siguiendo con el enfoque constructivo el siguiente paso fue realizar una prueba conceptual del circuito. Para esto se armó un circuito RLC serie, a cuya capacitancia se le fue conectando en paralelo capacitancias de distintos valores, y midiendo en cada caso la diferencia de fase respecto de la señal de referencia. 
+Siguiendo con el enfoque constructivo, el siguiente paso fue realizar una prueba conceptual del circuito. Para esto se armó un circuito RLC serie, a cuya capacitancia se le fue conectando en paralelo capacitancias de distintos valores, y midiendo en cada caso la diferencia de fase respecto de la señal de referencia. 
 
+La medición de la diferencia de fase se llevó a cabo mediante un osciloscopio en este caso ya que todavía no se había puesto en práctica la técnica de demodulación homodina. 
 
 \begin{figure}[th!]
 	\centering
-	\includegraphics[width=0.87\linewidth]{"Figuras/Sensor/Prueba protoboard/Datos_osciloscopio_unidades"}
-	\caption{Diferencia de fase $\Delta \phi$ obtenida al agregar en paralelo a un RLC distintas capacitancias (\markcircle*[blue]{0.365ex}) } % \textbf{ }{filled} \textbf{\bluecircle} 
+	\includegraphics[width=0.50787\linewidth]{"Figuras/Sensor/Prueba protoboard/Datos_osciloscopio_unidades"}
+	\caption{Diferencia de fase $\Delta \phi$ obtenida al agregar en paralelo a la capacitancia de un RLC serie distintas capacitancias (\markcircle*[blue]{0.365ex}). La línea vertical (\marksolid[blue]{0.4ex}) separa los rangos donde el sistema se comporta o no linealmente. Para diferencias de fase pequeñas se muestra además el ajuste lineal (\marksolid[black]{0.4ex}) de los datos, con parámetros $a=(5.3\pm0.3)\times10^{-2}$ rad/pF y $b=(-5\pm6)\times10^{-3}$ rad. La extensión de dicho ajuste al otro rango (\markdashed{0.54ex}) muestra cómo se separan los datos significativamente.} % \textbf{ }{filled} \textbf{\bluecircle} mente
 	\label{fig:datososciloscopiounidades}
 \end{figure}
 
 
+Para esta prueba se utilizaron los siguientes elementos, $R=(1800\pm200)\;\Omega$, $L=(10\pm1)$ mH y $C=(100\pm10)$ pF, que dan un factor de calidad $Q_F=(5.6\pm0.7)$. Éstos son similares a los que eventualmente se terminarían eligiendo para el sensor. 
+
+En la Figura \ref{fig:datososciloscopiounidades} se pueden apreciar los resultados. Igual que lo que se había observado numéricamente, la respuesta del sistema es lineal para $Q_F\Delta C/C\ll1$, y empieza a desviarse cuando la capacitancia agregada a la del RLC serie se vuelve demasiado grande. % saturar  A
+
+En el rango en que se observó un comportamiento lineal se ajustaron linealmente los datos, obteniendo una pendiente $a=(5.3\pm0.3)\times10^{-2}$ rad/pF, y una ordenada $b=(-5\pm6)\times10^{-3}$ rad. Como es de esperarse la ordenada es compatible con cero, y la pendiente se puede comparar con la que se esperaría por la ecuación \eqref{eq:relación_lineal}, esto es, 
+
+\begin{equation}
+	a_{\text{teo}}=\frac{1}{R\sqrt{LC}}
+\end{equation}
+
+Para los elementos elegidos resulta en $a_{\text{teo}}=(5.6\pm0.7)\times10^{-2}$ rad/pF, que coincide con el obtenido del ajuste lineal. Además los estimadores resultaron $R^2=0.99550$ y $\chi_\ni^2=1.25$, concluyendo que en este rango son bien descriptos los datos por una función lineal. 
+
+De esta forma, se verifica el comportamiento predicho para el circuito en el caso estático. % la validez de la teoría 
 
 
+\section{Diseño y prototipado del sensor} %  y prueba  P 
+Ya habiendo terminado con la fase más exploratoria y las pruebas preliminares descriptas en las Secciones anteriores, se pasó al diseño y prototipado del sensor, al cual corresponde esta Sección, que implica el armado de la sonda y del circuito para la medición de la fase. La puesta en marcha de la técnica de demodulación homodina para llevar a cabo esta medición será descripta en la Sección siguiente debido a la complejidad que terminó requiriendo. % , junto a l s  ya que tuvo su 
 
-\section{Prototipado} %  y prueba  
-
-
-
+\subsection*{La sonda} 
 
 
 \begin{figure}[th!]
@@ -254,6 +274,7 @@ Siguiendo con el enfoque constructivo el siguiente paso fue realizar una prueba 
 \end{figure}
 
 
+\subsection*{El circuito RLC serie} 
 Los valores nominales de los elementos utilizados para el sensor son los de la Tabla \ref{tab:rlc_valores}. Estos valores se eligieron luego de varias pruebas preliminares, ya que fueron los que mejores resultados permitieron obtener para los desplazamientos típicos de la superficie libre con los que se trabajó (de un orden máximo de 1 cm).   
 
 \begin{table}[h]
@@ -275,9 +296,11 @@ Es importante resaltar que, como muestra la Figura \ref{fig:circuitocompleto-v3}
 
 De esta manera, para el sensor en el aire la capacitancia total $C_{\text{EQ}}$ resultó ser aproximadamente 400 pF mayor a la $C$ base del RLC, con lo cual $C_{\text{EQ}}\;\sim$ 1000 pF. Con el sensor sumergido aproximadamente 1 cm en agua destilada la variación en la capacitancia es del orden de $\Delta C\;\sim$ 10 pF, de forma que se verifica la hipótesis que hicimos anteriormente para llegar a una relación lineal entre la fase y los desplazamientos de altura, resultando el cociente $\Delta C/C\sim0.01\ll1$.   % \approx 
 
+La capacitancia por unidad de longitud para el cable de cobre elegido se estimó a partir de estos valores en el orden de $1$ pF/mm. % $0^{-12}$ 
+
+
 Las frecuencias de resonancia típicas con las que se trabajó fueron del orden de 52 kHz, para los elementos previamente mencionados, ajustándolas más finamente en cada caso, antes de la medición, aunque cuando por distintos motivos no fue posible realizar este ajuste el efecto fue simplemente la suma de un $\phi_0$ a las señales, que puede eliminarse al restar el valor medio, ya que finalmente la cantidad de interés será la variación de altura. % n a los fines . % En algunos casos se observó una deriva muy lenta  
 
-La capacitancia por unidad de longitud para el cable de cobre elegido se estimó en el orden de $1$ pF/mm. % $0^{-12}$
 
 
 % De esta manera, a capacitancia total $Cq$ para el sensor sin sumergir resultó de , con una frecuencia de resonancia de $f_s=(53.19\pm0.01)$ kHz, mientras que con el sensor sumergido fue de $C_q=(895\pm90)$ pF y una frecuencia $f_s=(52.60\pm0.01)$ kHz. 

@@ -205,15 +205,21 @@
 %--------------------------------------------------
 \DeclareRobustCommand{\marksolid}[2][black]{%
 	\tikz[baseline=-0.6ex]%
-	\draw[#1, line width=#2] (0,0)--(1.2em,0);%
+	\draw[#1, line width=#2] (0,0)--(2.2em,0);% 1 
 }
 
 \DeclareRobustCommand{\markdashed}[2][black]{%
 	\tikz[baseline=-0.6ex]%
-	\draw[#1, dashed, line width=#2] (0,0)--(1.2em,0);%
+	\draw[#1,
+	line width=#2,
+	dash pattern=on 6pt off 2pt]
+	(0,0)--(2.2em,0);%
 }
 
 \DeclareRobustCommand{\markdashdot}[2][black]{%
 	\tikz[baseline=-0.6ex]%
-	\draw[#1, dash dot, line width=#2] (0,0)--(1.2em,0);%
+	\draw[#1,
+	line width=#2,
+	dash pattern=on 6pt off 2pt on 1pt off 2pt]
+	(0,0)--(2.2em,0);%
 }
