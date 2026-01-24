@@ -56,7 +56,7 @@ En el caso particular en que $l$ es lo suficientemente pequeño ($\omega\mu\vare
 	Z(l) \approx \frac{1}{j\omega C' l} + \mathcal{O}\left(\frac{1}{L'C'^2\omega^2l^3}\right)
 \end{equation}
 
-De este modo, se puede observar que en este régimen el sistema se comportará básicamente como un capacitor de capacitancia $C'l$, de modo que, midiendo la capacitancia de este circuito, será posible inferir la altura sumergida del alambre y, por tanto, la altura de la superficie libre. 
+En este régimen el sistema se comportará básicamente como un capacitor de capacitancia $C'l$, de modo que, midiendo la capacitancia de este circuito, será posible inferir la altura sumergida del alambre y, por tanto, la altura de la superficie libre. % De este modo, se puede observar que e 
 
 Ahora bien, más que la longitud total sumergida del alambre, o sonda, la cantidad de interés será el apartamiento $\Delta l$ respecto de una posición de equilibrio $l_{0}$ (para la superficie libre en reposo), tal que $l=l_{0}+\Delta l$. Teniendo esta consideración en cuenta, la capacitancia de la sonda será $C_s = C_{0} + \Delta C$, y el objetivo de la medición será esta $\Delta C$, directamente relacionada a los desplazamientos de la superficie libre. % o 
 
@@ -65,12 +65,12 @@ Ahora bien, más que la longitud total sumergida del alambre, o sonda, la cantid
 Un último punto importante es que, si bien el desarrollo hasta aquí se llevó a cabo suponiendo casos donde el fluido alrededor del alambre se mantuviera estático, será posible levantar ésta hipótesis, y considerar que $\Delta l=\Delta l(t)$, siempre que las variaciones sean lo suficientemente lentas respecto al tiempo de respuesta típico del sistema: % la superficie libre a un  
 
 \begin{equation}
-	\tau_s = \alpha\frac{\varepsilon}{\sigma}\left(\frac{r_1}{r_1+r_2}\right)  
+	\tau_s = \alpha\frac{\varepsilon}{\sigma}\left(\frac{r_1}{r_2-r_1}\right) % +   
 \end{equation}
 
-Donde $\alpha$ es una constante que depende de la geometría de los conductores, y $\sigma$ es la conductividad del fluido. Se asumirá que esta condición se cumple en general. 
+Donde $\alpha$ es una constante que depende de la geometría de los conductores, y $\sigma$ es la conductividad del fluido. 
 
-El único caso en que fue posible observar una limitación en el funcionamiento del sensor vinculada a ésto fue al aumentar varios órdenes de magnitud la conductividad del fluido  (agregando sal al agua destilada, en el orden de $10^{4}$ ppm) aunque para agua el agua de red el funcionamiento fue, hasta donde se pudo observar, equivalente al del agua destilada, a diferencia de lo reportado en \cite{gordillozavaletaNonpropagatingHydrodynamicSolitons2012}. % en  3-
+Se asumirá que esta condición se cumple en general. El único caso en que fue posible observar una limitación en el funcionamiento del sensor vinculada a ésto fue al aumentar varios órdenes de magnitud la conductividad del fluido  (agregando sal al agua destilada, en el orden de $10^{4}$ ppm) aunque para agua el agua de red el funcionamiento fue, hasta donde se pudo observar, equivalente al del agua destilada, a diferencia de lo reportado en \cite{gordillozavaletaNonpropagatingHydrodynamicSolitons2012}. % en  3-
 
 
 % Esta condición implica que el sensor podría no funcionar correctamente en aguas 
@@ -91,7 +91,7 @@ En la Sección anterior se mostró cómo la medición de la capacitancia de un a
 	\label{fig:circuitocompleto-v3}
 \end{figure}
 
-Esta medición puede llevarse acabo conectando la sonda al circuito de la Figura \ref{fig:circuitocompleto-v3}, que se corresponde a su conexión en paralelo al capacitor de un circuito RLC serie (de parámetros base $R$, $L$ y $C$), teniendo como efecto la modificación de la capacitancia efectiva del mismo. De esta forma se tendrá un circuito RLC serie equivalente, cuya capacitancia será ahora $C_{\text{EQ}}(t)=C_0+C_s(t)$.   
+Esta medición puede llevarse acabo conectando la sonda al circuito de la Figura \ref{fig:circuitocompleto-v3}, que se corresponde a su conexión en paralelo al capacitor de un circuito RLC serie (de parámetros base $R$, $L$ y $C$), teniendo como efecto la modificación de la capacitancia efectiva del mismo. De esta forma se tendrá un circuito RLC serie equivalente, cuya capacitancia será ahora $C_{\text{EQ}}(t)=C+C_s(t)$. % _0   
 
 % . % sumergido conectar la sonda 
 % Este arreglo á lo cual rá el r  
@@ -103,7 +103,7 @@ Al conectar éste circuito a una fuente de corriente alterna de frecuencia angul
 	\label{eq:circuit_eq}
 \end{equation}
 
-Donde $C_{\text{EQ}}(t) = C + C_0 + \Delta C(t)\equiv C_q + \Delta C(t)$, definiendo $C_q$ como la capacitancia efectiva cuando la superficie libre se encuentra en reposo. Si las variaciones en la capacitancia son lo suficientemente lentas respecto a la frecuencia se puede asumir una solución de la forma $I(t)=I_0(t)\cos(\omega t + \phi(t))$, en analogía a lo que ocurriría en el caso estático para $C=\text{cte}$.  Cuando las variaciones de la capacitancia sean lo suficientemente pequeñas ($\Delta C/C_q\ll 1$) será suficiente con  un desarrollo a primer orden para describir la fase $\phi(t)$:      % pod puede escribirse _{\text{EQ}}  como 
+Donde $C_{\text{EQ}}(t) = C + C_0 + \Delta C(t)\equiv C_q + \Delta C(t)$, definiendo $C_q$ como la capacitancia efectiva cuando la superficie libre se encuentra en reposo. Si las variaciones en la capacitancia son lo suficientemente lentas respecto a la frecuencia se puede asumir una solución de la forma $I(t)=I_0(t)\cos(\omega t + \phi(t))$, en analogía a lo que ocurriría en el caso estático para $C_{\text{EQ}}=\text{cte}$.  Cuando las variaciones de la capacitancia sean lo suficientemente pequeñas ($\Delta C/C_q\ll 1$) será suficiente con  un desarrollo a primer orden para describir la fase $\phi(t)$:      % pod puede escribirse _{\text{EQ}}  como 
 
 \begin{equation}
 		\tan(\phi) = -\frac{1}{R} \left[\omega L - \frac{1}{\omega C_q}\right] - \frac{1}{R} \frac{\Delta C}{\omega C_q^2} + \mathcal{O}\left[\left(\frac{\Delta C}{C_q}\right)^2\right] 
