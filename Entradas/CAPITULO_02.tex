@@ -432,7 +432,7 @@ En la Figura \ref{fig:series-temporales-a} se muestran las series temporales obt
 \begin{figure}[th!]
 	\centering
 	\includegraphics[width=0.987\linewidth]{"Figuras/Sensor/Series temporales/Series temporales a"}
-	\caption{}
+	\caption{(a) Posición real del motor en función del tiempo (solidaria a la posición de la superficie libre). (b) Fase medida por el sensor simultáneamente (el eje derecho muestra los valores para la señal calibrada por la función lineal obtenida de la Figura \ref{fig:motor-vs-fase}). (c) Diferencias de la altura real y la fase calibrada.} % ,  
 	\label{fig:series-temporales-a}
 \end{figure}
 
@@ -441,36 +441,55 @@ Para poder verificar esto se puede graficar una señal contra la otra, como en l
 \begin{figure}[th!]
 	\centering
 	\includegraphics[width=0.65560787\linewidth]{"Figuras/Sensor/Motor vs Fase/Motor vs FASE"}
-	\caption{}
+	\caption{Posición real del motor (solidaria a la altura real de la superficie libre) contra la fase medida por el sensor simultáneamente (\markcircle*[blue]{0.4ex}). Se muestra además el ajuste lineal (\marksolid{0.4ex}) de parámetros a = $(604 \pm 3)$ mm/rad y $b = (1.97 ± 0.01)$ mm.}
 	\label{fig:motor-vs-fase}
 \end{figure}
 
-Los parámetros del ajuste lineal fueron los siguientes. 
+Los parámetros del ajuste lineal fueron los siguientes: pendiente de a = $(604 \pm 3)$ mm/rad, ordenada de $b = (1.97 ± 0.01)$ mm y el estimador R² = 0.99518. 
 
 
-Además, puede verse muy poca dispersión en los puntos, con lo cual el ruido en la medición apuntaría a ser bajo. 
+%$a = (1.647062e-03 ± 7.2e-06)$ rad/mm
+%a = (9.436972e-02 ± 4.1e-04) °/mm
+%b = (-3.268623e-03 ± 8.6e-06) rad
+%
+%R² = 0.99518
+%χ²_ν = 1.004
+
+
+
+Se considera un muy buen ajuste, y que los datos siguen efectivamente una tendencia lineal durante todo el tiempo de la medición. Se puede apreciar de la pendiente que en principio se podrían mediar desplazamientos de hasta unos 6.0 cm antes de romper la hipótsis de fase pequeña. Por otro lado, la ordenada es distinta de cero, lo cual probablemente se deba a que la frecuencia del circuito estaba levemente desviada de la de resonancia. Además, puede verse muy poca dispersión en los puntos, con lo cual el ruido en la medición apuntaría a ser bajo. Tampoco pareciera haber histéresis en los datos.  
 
 
 
 \subsection{Diferencias} 
 Por último, se pueden usar los parámetros del ajuste lineal como parámetros de calibración del sensor, con lo cuales pasar de fase a altura (c.f. eje derecho de la Figura \ref{fig:series-temporales-a}). Una vez calibrada la señal se pueden calcular las dieferencias con la altura real, que sería el último panel de la Figura, \ref{fig:series-temporales-a}c.  
 
+\begin{figure}[th!]
+	\centering
+	\includegraphics[width=0.987\linewidth]{Figuras/Sensor/Diferencias/Diferencias}
+	\caption{(a) Histograma de las diferencias (Figura \ref{fig:series-temporales-a}c). (b) Espectro de las mismas diferencias que para (a).}
+	\label{fig:diferencias}
+\end{figure}
+
 A partir de estas diferencias, de dispersión 0.08 mm, se puede estimar un cota parar el error del sensor de aproximadamente 0.1 mm.  
 
 Además, viendo el histograma de estas diferencias, Figura \ref{fig:diferencias}a se puede notar que están centradas en 0 y decaen rápidamente. Del espectro de las mismas, Figura \ref{fig:diferencias}b se ven oscilaciones a baja frecuencia pero que en principio no deberían ser relevantes en el cálculo de los espectros en turbulencia de ondas.  
 
-\begin{figure}[th!]
-	\centering
-	\includegraphics[width=0.987\linewidth]{Figuras/Sensor/Diferencias/Diferencias}
-	\caption{}
-	\label{fig:diferencias}
-\end{figure}
+
 
 
 \subsection*{Ruido} 
 En la Figura \ref{fig:espectro_ruido} se puede apreciar la densidad espectral de potencias del ruido del sensor, estando éste sumergido en un fluido estático. 
 
-\missingfigure{Espectro ruido}  
+% \missingfigure{Espectro ruido}  
+
+\begin{figure}[th!]
+	\centering
+	\includegraphics[width=0.987\linewidth]{Figuras/Sensor/Ruido/espectro_ruido}
+	\caption{Densidad espectral de potencias para el ruido del sensor (\marksolid[blue]{0.4ex}). Se marcan los múltiplos enteros de 50 Hz (\markdashed[black]{0.4ex}), que coincide con los picos.}
+	\label{fig:espectro_ruido}
+\end{figure}
+
 
 Se puede ver que es prácticamente uniforme, y lo único importante a resaltar de aquí es que hay picos importantes en los múltiplos enteros de 50 Hz, que se atribuyen a ruido eléctrico de la corriente de línea (ya que aparecen incluso con la sonda desconectada del circuito). Por este motivo se eliminarán estos picos (que abarcan menos de 1 Hz) en el postprocesado de las señales mediadas de aquí en adelante. 
 
