@@ -279,7 +279,7 @@ El alambre de acero en forma de U, además de dar un lugar para el anclaje del a
 
 La carcasa (en negro) fue diseñada como dos partes que se conectan entre sí mediante cuatro tornillos M4. Estas dos mitades se imprimieron mediante impresoras 3D en plástico PLA. Se eligió hacerla en dos mitades ya que en el centro se encuentran las canaletas por donde se enhebran ambos alambres, que de otra forma hubiesen sido difíciles de lograr con la impresora utilizada, y de esta forma además es más fácil su inserción previo a atornillarlas. % o  É 
 
-La parte superior de la carcasa se encuentra abierta, exponiendo así ambos alambres y permitiendo su conexión mediante cables de terminaciones tipo cocodrilo a la placa con el circuito RLC serie. 
+La parte superior de la carcasa se encuentra abierta, exponiendo así ambos alambres y permitiendo su conexión mediante cables de terminaciones tipo cocodrilo a la placa con el circuito RLC serie. Ésta sección permite además conectar la sonda, ya sea a un tornillo micrométrico que permita ajustar finamente la altura sumergida, o directamente a perfilería de aluminio si tal precisión no fuese necesaria. 
 
 Por último, la cruz en el medio (\textit{trusses} en inglés) dan mayor integridad estructural a la parte inferior de la carcasa, cuyo fin es dar un segundo punto de anclaje al alambre de cobre y asegurarse así que se mantenga recto. Cualquier deformación en la forma de éste podría traducirse en una curva de calibración no lineal que complicaría las mediciones. Algo similar ocurriría si el alambre entra de forma no perpendicular en el fluido, pero esto último solo tiene como consecuencia una constante multiplicativa en la constante de proporcionalidad entre la fase y $\Delta l$ (relacionada a la proyección sobre la línea perpendicular), con lo cual la respuesta se mantendría lineal. % Lo mismo éste 
 
@@ -362,54 +362,76 @@ No se entrara en detalle sobre el código en sí, pero el resultado final fue un
 \subsection*{El algoritmo de Lock-in Digital} 
 Con el software desarrollado para la placa es posible entonces medir simultáneamente la señal de referencia y el voltaje sobre la resistencia del RLC serie. El análisis de estas señales se lleva a cabo posterior a su adquisición mediante los pasos explicados para la técnica de demodulación homodina, llegando efectivamente a lo que sería un lock-in digital asíncrono. Se desarrolló también una versión que funciona en tiempo real para el segundo método de adquisición explicado, pero que permite visualizar señales únicamente hasta unas pocas decenas de Hz. % aunque
 
-Tampoco se entrará en detalle sobre la implementación de este algoritmo, pero se mencionarán brevemente algunos de los puntos principales que difieren al método convencional. Esto se debe a que por eficiencia en la adquisición solo se midió la referencia, y la cuadratura se generó digitalmente a partir de ésta.  
-
-Para esto se implementó la Transformada de Hilbert, que tendrá el efecto de aplicar un desfasaje de 90$^\circ$ a la señal de referencia.  %  que para una señal limitada en frecuencia (a) 
-
-Otro punto importante es que, al trabajar con señales de frecuencias tan altas no será despreciable el delay temporal que hay entre la medición de un canal y el siguiente de la placa, que en este caso se corresponde a $\Delta t=1$ $\mu$s. Este efecto es como si la referencia tuviese una fase adicional $\phi_0=\omega_s\Delta_t$, sobre la cual estarán montadas las variaciones que se quieren medir. Hay varias opciones para corregir esto, una es simplemente restar esto al final, pero no tiene en cuenta la posibilidad de pequeñas variaciones locales en la frecuencia o fase de la señal de referencia que se pueden tr a la fase final obtenida. Para tener esto en cuenta lo que se terminó optando por hacer es aplicar un \textit{fractional delay filter} (FDF) teniendo en cuenta que la señal es limitada en frecuencia. Esto permite reevaluar a la señal de referencia en los mismos tiempos que la señal del segundo canal, siendo fiel a la señal real a diferencia de lo que se puede obtener mediante una interpolación lineal. 
-
-El último punto a mencionar tiene que ver con el filtro pasabajos utilizado. Se eligió una filtro de tipo exponencial, en base a lo explicado en \cite{harvieOLIAOpensourceDigital2023}, ya que permite extender el funcionamiento del Lock-in a tiempo real. Este filtro, que transcurre en dos etapas, usando el parámetro $\alpha=\cos(\gamma)-1+\sqrt{\cos^2(\gamma)-4\cos(\gamma)+3}$ que se relaciona con la frecuencia de corte o el tiempo de integración $\tau$ de la forma: $\gamma=2\pi f_c/f_s$ con $f_s$ la frecuencia de sampleo. Entonces:
-
-\begin{align} 
-	X_1[n] &= X_1[n-1] + \alpha(X_0[n]-X_1[n-1]) \\
-	Y_1[n] &= Y_1[n-1] + \alpha(Y_0[n]-Y_1[n-1]) \\
-\end{align}
-
-y la segunda etapa: 
-
-\begin{align}
-	X_2[n] &= X_2[n-1] + \alpha(X_1[n]-X_2[n-1]) \\
-	Y_2[n] &= Y_2[n-1] + \alpha(Y_1[n]-Y_2[n-1]) \\
-\end{align}
-
-Y podemos elegir trivialmente $X_0[-1]=Y_0[-1]=0$. Con este para la señal anterior y el FDF tenemos: 
+Tampoco se entrará en detalle sobre la implementación de este algoritmo, pero se mencionarán brevemente algunos de los puntos principales que difieren al método convencional. Esto se debe principalmente a que, por eficiencia en la adquisición, solo se midió la referencia, y la cuadratura se generó digitalmente a partir de ésta. Para esto se implementó la Transformada de Hilbert, que tendrá el efecto de aplicar un desfasaje de 90$^\circ$ a la señal de referencia.  %  que para una señal limitada en frecuencia (a)  
 
 
 
-El código para este lock-in digital se encuentra disponible en \cite{Hernando_DigitalLockIn}. La versión final permitió obtener resultados comparables a los de un Lock-in como el SR-830, con todas las ventajas de portabilidad y escalado que vienen asociadas a la placa. Un ejemplo clásico que muestra el correcto funcionamiento de éste es la medida de la amplitud y fase de un RLC serie en función de la frecuencia, como el que se presenta en el Apéndice \ref{apéndice:prueba_lockin_digital}.   % muestra : \missingfigure{Código lock-in digital} 
+Otro punto importante es que, al trabajar con señales de frecuencias tan altas no será despreciable el delay temporal que hay entre la medición de un canal y el siguiente de la placa, que en este caso se corresponde a $\Delta t=1$ $\mu$s. Este efecto es como si la referencia tuviese una fase adicional $\phi_0=\omega_s\Delta_t$, sobre la cual estarán montadas las variaciones que se quieren medir. Hay varias opciones para corregir esto, una es simplemente restar esto al final, pero no tiene en cuenta la posibilidad de pequeñas variaciones locales en la frecuencia o fase de la señal de referencia que se pueden traspasar a la fase final obtenida. Para tener esto en cuenta lo que se terminó optando por hacer es aplicar un \textit{fractional delay filter} (FDF) teniendo en cuenta que la señal es limitada en frecuencia. Esto permite reevaluar a la señal de referencia en los mismos tiempos que la señal del segundo canal, siendo fiel a la señal real, a diferencia de lo que se puede obtener mediante una interpolación lineal. Este efecto es solo relevante cuando $\omega_s\sim1/\Delta t$, de otra forma $\phi_0$ será despreciable. 
+
+El último punto a mencionar tiene que ver con el filtro pasabajos utilizado. Se eligió una filtro de tipo exponencial, en base a lo explicado en \cite{harvieOLIAOpensourceDigital2023}, ya que permite extender el funcionamiento del Lock-in a tiempo real. Este filtro transcurre en dos etapas, y toma como valores iniciales las señales $X_0[t_n]\equiv X_0[n]$ e $Y_0[t_n]\equiv Y_0[n]$. Entonces, el valor del punto $n$ para las señales filtradas ($X_1$ e $Y_1$) depende del valor de las señales en $n-1$ y $n$: 
+
+\begin{subequations} 
+	\begin{equation}
+		X_1[n] = X_1[n-1] + \alpha(X_0[n]-X_1[n-1]) 		
+	\end{equation}
+	\begin{equation}
+		Y_1[n] = Y_1[n-1] + \alpha(Y_0[n]-Y_1[n-1]) 
+	\end{equation}
+\end{subequations}
+	
+
+Usando el parámetro $\alpha=\cos(\gamma)-1+\sqrt{\cos^2(\gamma)-4\cos(\gamma)+3}$, que se relaciona con la frecuencia de corte, o el tiempo de integración $\tau_c$ de la forma: $\gamma=2\pi f_c/f_s$, con $f_s$ la frecuencia de sampleo. La segunda etapa es análoga a la primera: % uy l
+
+\begin{subequations} 
+	\begin{equation}
+		X_2[n] = X_2[n-1] + \alpha(X_1[n]-X_2[n-1]) 
+	\end{equation}
+	\begin{equation}
+		Y_2[n] = Y_2[n-1] + \alpha(Y_1[n]-Y_2[n-1]) 
+	\end{equation}
+\end{subequations}
+	
+	
+
+Pudiendo  elegir trivialmente $X_0[-1]=Y_0[-1]=0$ al inicio de la señal. % Con este para la señal anterior y el FDF tenemos: Ypodemos 
+
+
+
+El código para este lock-in digital se encuentra disponible en \cite{Hernando_DigitalLockIn}. La versión final permitió obtener resultados comparables a los de un Lock-in como el SR-830 (pudiendo llegar incluso a superar la frecuencia máxima de funcionamiento de éste según el caso), con todas las ventajas de portabilidad y escalado que vienen asociadas a la placa. Un ejemplo clásico que muestra el correcto funcionamiento de éste es la medida de la amplitud y fase de un RLC serie en función de la frecuencia, como el que se presenta en el Apéndice \ref{apéndice:prueba_lockin_digital}.   % muestra : \missingfigure{Código lock-in digital} 
 
 
 
 \section{Prueba final y calibración} 
-Teniendo 
+Teniendo ya construído el sensor, y puesta en marcha la técnica para la medición de la fase, se llevó a cabo la caracterización final y calibración del mismo, siendo este el paso final antes de utilizarlo en experiencias de turbulencia de ondas. 
 
-La frecuencia máxima 
-
+El procedimiento para la calibración consistió en realizar movimientos controlados y conocidos de la superficie libre midiendo simultáneamente con el sensor (que se encontraba en una posición estática). De esta forma es posible comparar la altura medida con la real y estudiar si la respuesta es lineal y cuáles serían los parámetros de calibración del sensor.  
 
 \subsection{Montaje} 
+
+El montaje para la calibración del sensor, como se muestra en la Figura \ref{fig:montajecalibracion},  consistió en un recipiente pequeño lleno de aproximadamente 5 cm de agua destilada, montado mediante un brazo de unos 15 cm de largo, impreso en 3D, a un motor lineal LinMot colocado verticalmente.
 
 \begin{figure}[th!]
 	\centering
 	\includegraphics[width=0.87\linewidth]{Figuras/Setups/Montaje_calibracion_fondo}
-	\caption{}
+	\caption{Modelado 3D del montaje utilizado para la calibración del sensor a escala real. Este se compone de un motor lineal colocado verticalmente (a) unido mediante un brazo (b) a un recipiente con agua destilada (c). El sensor (d) se encuentra fijo, sujeto a un perfil de aluminio mediante un tornillo micrométrico (e).} % tyt  
 	\label{fig:montajecalibracion}
 \end{figure}
 
+
+Se alimentó al motor con una señal aleatoria periódica de 10 segundos de longitud (formada por ruido limitado en frecuencia entre 0-6 Hz y fase aleatoria), de forma tal que el movimiento fuese lo suficientemente lento como para poder considerar que la posición del motor es solidaria a la de la superficie libre, y evitar que se produzcan vibraciones en la misma. %  (Ondas de Faraday)
+
+La sonda del sensor se montó sobre un perfil de aluminio, mediante un tornillo micrométrico intermedio que permitió ajustar la posición tal que la punta no llegase a tocar el fondo del recipiente con agua. 
+
+Se midió simultáneamente la fase del sensor, mediante la placa de adquisición y el lock-in digital, y la posición real del motor, mediante el software del controlador (vale aclarar que es la instantánea a la que llega, no los setpoints pedidos). 
+
+Un par de observaciones importantes son que, si bien se intentó evitar al máximo las vibraciones en el setup hubo algunas que podrían generar que el error aparente en las mediciones sean mayores a los reales, y además que, si la sonda solo se encuentra sumergida unos pocos mm parece no funcionar correctamente, con lo cual de aquí en más siempre se buscó que estuviese sumergida al menos un par de cm. % y  
+
 \subsection{Altura vs Altura} 
+De  
 
 \begin{figure}[th!]
 	\centering
-	\includegraphics[width=0.87\linewidth]{"Figuras/Sensor/Series temporales/Series temporales a"}
+	\includegraphics[width=0.987\linewidth]{"Figuras/Sensor/Series temporales/Series temporales a"}
 	\caption{}
 	\label{fig:series-temporales-a}
 \end{figure}
@@ -418,7 +440,7 @@ La frecuencia máxima
 
 \begin{figure}[th!]
 	\centering
-	\includegraphics[width=0.87\linewidth]{"Figuras/Sensor/Motor vs Fase/Motor vs FASE"}
+	\includegraphics[width=0.65560787\linewidth]{"Figuras/Sensor/Motor vs Fase/Motor vs FASE"}
 	\caption{}
 	\label{fig:motor-vs-fase}
 \end{figure}
@@ -429,9 +451,18 @@ La frecuencia máxima
 
 \begin{figure}[th!]
 	\centering
-	\includegraphics[width=0.87\linewidth]{Figuras/Sensor/Diferencias/Diferencias}
+	\includegraphics[width=0.987\linewidth]{Figuras/Sensor/Diferencias/Diferencias}
 	\caption{}
 	\label{fig:diferencias}
 \end{figure}
 
+\section{Especificaciones finales} % sub 
+
+El sensor construído es sencillo y de muy bajo costo, ya que se compone principalmente por un alambre de cobre esmaltado y otros componentes de fácil acceso. La única componente costosa para su utilización es la placa de adquisición (aunque ya de por sí es una alternativa mucho más económica que el amplificador Lock-in), pero para la cual según sea lo que se desea medir podrían buscarse alternativas en placas de desarrollo (por ejemplo FPGA o Teensy). % a 
+
+De la Sección anterior se vio que el sensor puede llegar a resolver de base amplitudes de hasta aproximadamente 0.1 mm, aunque probablemente realizando una calibración más cuidadosa el error real sea menos.  
+
+La frecuencia máxima a la que podrán medirse variaciones de $\Delta l$ estará relacionada a la frecuencia de resonancia del circuito RLC, ya que será la moduladora, pudiendo llegar hasta algunas decenas de kHz con los componentes utilizados. Sin embargo, hay que tener en cuenta el hecho de que el alambre tiene un determinado diámetro, con lo cual no tendrá sentido caracterizar ondas con longitud de onda menor a $d=(0.35\pm0.05)$ mm. Utilizando la relación de dispersión para ondas gravito-capilares para el agua, esta longitud de onda está asociada a una frecuencia $f=(3.3\pm0.7)$ kHz. Ésta será la frecuencia máxima a la cual tendría sentido medir con el sensor, que está por encima del 1 kHz hasta el cual desea utilizarse. 
+
+Y con la placa de adquisicón utilizada es posible usar, hasta donde se probó tres sensores simultáneamente, aunque sería escalable a más en la propia placa, y aún más utilizando múltiples placas sincronizadas. 
 
