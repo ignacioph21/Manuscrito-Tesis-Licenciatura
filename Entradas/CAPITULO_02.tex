@@ -370,7 +370,7 @@ Otro punto importante es que, al trabajar con señales de frecuencias tan altas 
 
 El último punto a mencionar tiene que ver con el filtro pasabajos utilizado. Se eligió una filtro de tipo exponencial, en base a lo explicado en \cite{harvieOLIAOpensourceDigital2023}, ya que permite extender el funcionamiento del Lock-in a tiempo real. Este filtro, que transcurre en dos etapas, usando el parámetro $\alpha=\cos(\gamma)-1+\sqrt{\cos^2(\gamma)-4\cos(\gamma)+3}$ que se relaciona con la frecuencia de corte o el tiempo de integración $\tau$ de la forma: $\gamma=2\pi f_c/f_s$ con $f_s$ la frecuencia de sampleo. Entonces:
 
-\begin{align}
+\begin{align} 
 	X_1[n] &= X_1[n-1] + \alpha(X_0[n]-X_1[n-1]) \\
 	Y_1[n] &= Y_1[n-1] + \alpha(Y_0[n]-Y_1[n-1]) \\
 \end{align}
