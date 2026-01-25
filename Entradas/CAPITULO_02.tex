@@ -14,12 +14,12 @@
 \clearpage 
 
 \section{Principio de funcionamiento} 
-En esta primera Sección se desarrollarán los fundamentos teóricos en los que se basa el funcionamiento del sensor capacitivo construído durante la Tesis, haciendo hincapie en las distintas hipótesis que deben cumplirse para que su respuesta sea lineal empezando por la sonda, la componente  que irá sumergida y estará en contacto con el fluido, siguiendo por el circuito al cual se conecta y terminando con la técnica de demodulación homodina, que una vez implementada permitirá realizar la medición propiamente dicha. % será la que  lugar  
+En esta primera Sección se desarrollarán los fundamentos teóricos en los que se basa el funcionamiento del sensor capacitivo construído durante la Tesis, haciendo hincapie en las distintas hipótesis que deben cumplirse para que su respuesta sea lineal. En primer lugar se modela la sonda, componente  que irá sumergida y estará en contacto con el fluido, siguiendo por el circuito al cual se conecta, y terminando con la técnica de demodulación homodina, que una vez implementada permitirá realizar la medición propiamente dicha. % será la que  lugar  empezando por la rá 
 
 
 \subsection{La sonda} 
 
-Al sumergir un alambre de cobre esmaltado en un fluido conductor, como se esquematiza en la Figura \ref{fig:esquema_fundamento}, el recubrimiento aislante actuará a modo de medio dieléctrico entre los conductores. En el caso de dos conductores cilíndricos coaxiales, de radios $r_1<r_2$, cuyo intersticio se encuentra lleno de un medio con permitividad $\varepsilon$ y permeabilidad $\mu$, se tienen una capacitancia ($C'$) e inductancia ($L'$) por unidad de longitud, dadas por % \cite{gordillozavaletaNonpropagatingHydrodynamicSolitons2012} % Para de  
+Al sumergir un alambre de cobre esmaltado en un fluido conductor, como se esquematiza en la Figura \ref{fig:esquema_fundamento}, el recubrimiento aislante actuará a modo de medio dieléctrico entre ambos. En el caso de dos conductores cilíndricos coaxiales, de radios $r_1<r_2$, cuyo intersticio se encuentra lleno de un medio con permitividad $\varepsilon$ y permeabilidad $\mu$, se tienen una capacitancia ($C'$) e inductancia ($L'$) por unidad de longitud, dadas por % \cite{gordillozavaletaNonpropagatingHydrodynamicSolitons2012} % Para de  los conductores 
 
 \begin{subequations}
 	\begin{equation}
@@ -50,13 +50,13 @@ Con $j$ la unidad imaginaria. Tomando $dl\rightarrow0$ y reteniendo términos ha
 	\frac{dZ}{dl} = j\omega L' - j\omega C'Z^2
 \end{equation} 
 
-Ésta puede resolverse sumando la condición de contorno $Z(0)=\infty$, que refleja la ausencia de un camino capacitivo hacia el fluido si el alambre no está sumergido, pudiendo así considerar al circuito como abierto. El resultado es el siguiente 
+Ésta puede resolverse agregando la condición de contorno $Z(0)=\infty$, que refleja la ausencia de un camino capacitivo hacia el fluido si el alambre no está sumergido, pudiendo así considerar al circuito como abierto. El resultado es el siguiente % sumando 
 
 \begin{equation}
 	Z(l) = j\sqrt{\frac{L'}{C'}} \tan\left(\omega \sqrt{L'C'} l - \pi/2\right)
 \end{equation}
 
-En el caso particular en que $l$ es lo suficientemente pequeño ($\omega\mu\varepsilon l\ll 1$) resulta suficiente con tomar la expansión de esta solución a primer orden 
+En el caso particular en que $l$ es lo suficientemente pequeño ($\omega\sqrt{\mu\varepsilon} l\ll 1$) resulta suficiente con tomar la expansión de esta solución a primer orden 
 
 \begin{equation}
 	Z(l) \approx \frac{1}{j\omega C' l} + \mathcal{O}\left(\frac{1}{L'C'^2\omega^2l^3}\right)
@@ -102,7 +102,7 @@ Esta medición puede llevarse acabo conectando la sonda al circuito de la Figura
 % . % sumergido conectar la sonda 
 % Este arreglo á lo cual rá el r  
 
-Al conectar éste circuito a una fuente de corriente alterna de frecuencia angular $\omega$ y amplitud $V$ la ecuación para la corriente $I(t)$ vendrá dada por 
+Al conectar éste circuito a una fuente de tensión alterna de frecuencia angular $\omega$ y amplitud $V$ la ecuación para la corriente $I(t)$ vendrá dada por % corriente 
 
 \begin{equation}
 	V \cos(\omega t) = \frac{d^2I(t)}{dt^2} + \frac{R}{L} \frac{dI(t)}{dt} + \frac{1}{C_{\text{EQ}}(t)L} I(t)  
@@ -115,20 +115,20 @@ Donde $C_{\text{EQ}}(t) = C + C_0 + \Delta C(t)\equiv C_q + \Delta C(t)$, defini
 		\tan(\phi) = -\frac{1}{R} \left[\omega L - \frac{1}{\omega C_q}\right] - \frac{1}{R} \frac{\Delta C}{\omega C_q^2} + \mathcal{O}\left[\left(\frac{\Delta C}{C_q}\right)^2\right] 
 \end{equation}
 
-Es posible eliminar además el primer término de este desarrollo si se elige trabajar con la frecuencia de resonancia $\omega_r=1/\sqrt{LC_q}$. De esta forma quedaría simplemente 
+Es posible eliminar además el primer término de este desarrollo si se elige trabajar con la frecuencia de resonancia, $\omega_r=1/\sqrt{LC_q}$. De esta forma quedaría simplemente 
 
 \begin{equation}
 	\tan(\phi) = -Q_F \frac{\Delta C}{C_q} 
 \end{equation}
 
-Donde $Q_F=\frac{1}{R}\sqrt{L/C_q}$ es el factor de calidad del RLC. Finalmente, si el término de la derecha también es mucho menor a uno se puede aproximar $\tan(\phi)\approx\phi$ y queda una relación lineal entre $\phi$ y la variación de capacitancia, y por tanto, con las variaciones en la altura sumergida del sensor. 
+Donde $Q_F=\frac{1}{R}\sqrt{L/C_q}$ es el factor de calidad del RLC. Finalmente, si el término de la derecha también es mucho menor a uno, se puede aproximar $\tan(\phi)\approx\phi$ y queda una relación lineal entre $\phi$ y la variación de capacitancia, y por tanto, con las variaciones en la altura sumergida del sensor. 
 
 \begin{equation}
 	\phi(t) = -Q_{F} \frac{\Delta C(t)}{C_q} = -Q_{F}\frac{C'}{C_q} \Delta l(t) 
 	\label{eq:relación_lineal}
 \end{equation} 
 
-Y al ajustar los parámetros del RLC (y $Q_F$ en consecuencia) es posible ajustar la sensitividad del sensor, ya que si por ejemplo se quiere medir un rango muy amplio de $\Delta l$, bastaría con hacer que $Q_{F}$ sea más pequeño. % p  
+Al ajustar los parámetros del RLC (y $Q_F$ en consecuencia) es posible ajustar la sensitividad del sensor, ya que si, por ejemplo, se quiere medir un rango muy amplio de $\Delta l$, bastaría con hacer que $Q_{F}$ sea más pequeño. % p  Y a 
 
 
 
@@ -141,7 +141,7 @@ Hasta aquí se demostró conceptualmente cómo es posible encontrar una relació
 
 Con este fin se empleará la técnica de \textit{demodulación homodina}, que utiliza una señal de referencia para obtener la amplitud y fase relativa de la señal de interés (en este caso la caída de tensión sobre la resistencia $R$). % ó 
 
-A continuación se describe brevemente la técnica, y en la Figura \ref{fig:ejemplo-v2} las señales involucradas en el proceso para un caso particular a modo ilustrativo. El primer paso consistirá en modular la señal de interés, a la cual se llamará $A(t)$, con alguna frecuencia, obteniendo entonces una nueva señal % a 
+A continuación se describe brevemente la técnica, mostrando en la Figura \ref{fig:ejemplo-v2} las señales involucradas en el proceso para un caso particular a modo ilustrativo. El primer paso consistirá en modular la señal de interés, a la cual se llamará $A(t)$, con alguna frecuencia, obteniendo entonces una nueva señal % a y 
 
 \begin{equation}
 	S(t) = A(t)\cos(\omega_r t)
@@ -155,7 +155,7 @@ Luego, se debe \textit{mixear} la señal  modulada con la de referencia, $R(t)=\
 	M(t) = S(t)R(t) = A(t)/2 \; \big(1+\cos(2\omega_r t)\big) 	
 \end{equation} % T 
 
-Si hubiese ruido eléctrico $N(t)$ sumando, la señal sería $M(t) = S(t)R(t) + N(t)R(t)$. El efecto de este mixeo será centrar el ruido en $\omega_r$, recordando que un producto en tiempo se traduce como una convolución en frecuencia. Además, quedan dos copias de la señal de interés, una centrada en 0 y otra en $2\omega_r$. 
+Si hubiese ruido eléctrico $N(t)$ sumando, la señal sería $M(t) = S(t)R(t) + N(t)R(t)$. El efecto de este mixeo será centrar el ruido en $\omega_r$, recordando que un producto en tiempo se traduce como una convolución en frecuencia. Además, quedan dos copias de la señal de interés, una centrada en 0 y otra en $2\omega_r$, como se puede ver en la Figura \ref{fig:ejemplo-v2}e. 
 
 Finalmente, se debe aplicar un filtro pasabajos, de frecuencia de corte $\omega_c$, o tiempo de integración $\tau_c=2\pi/\omega_c$. Siempre que $\omega_c<\omega_r$ el efecto de este filtro será no dejar pasar, ni la copia de la señal en $2\omega_r$, ni al ruido, y obtener así la amplitud $A(t)/2$.   % por además total y , 
 
@@ -185,7 +185,7 @@ Por lo general, se utiliza un amplificador lock-in para llevar a cabo esta técn
 
 
 \section{Resolución numérica del circuito} 
-Antes de iniciar con la construcción del sensor en el laboratorio, se empezó caracterizando numéricamente el comportamiento del circuito descripto en las secciones anteriores, esto es, la resolución de la ecuación \eqref{eq:circuit_eq}. El objetivo de este paso preliminar fue, por una parte verificar que la solución hallada bajo las distintas aproximaciones funcionaba correctamente, pero además, poder probar distintas combinaciones de parámetros y determinar qué efectos tendrían éstas sobre el funcionamiento del sensor. A continuación se mencionan brevemente algunas de las conclusiones más relevantes que se pudieron observar. % la ecuación ss resolviendo para  ver 
+Antes de iniciar con la construcción del sensor en el laboratorio, se empezó caracterizando numéricamente el comportamiento del circuito descripto en las Secciones anteriores, esto es, la resolución de la ecuación \eqref{eq:circuit_eq}. El objetivo de este paso preliminar fue, por una parte verificar que la solución hallada bajo las distintas aproximaciones funcionase correctamente, pero además, poder probar distintas combinaciones de parámetros y determinar qué efectos tendrían éstas sobre el funcionamiento del sensor. A continuación se mencionan brevemente algunas de las conclusiones más relevantes que se pudieron observar. % la ecuación ss resolviendo para  ver s ba 
 
 \begin{figure}[th!]
 	\centering 
@@ -205,7 +205,7 @@ Se pudo verificar que la fase se relaciona linealmente con $\Delta l$ hasta cier
 \end{figure} 
 
 
-Si los desplazamientos  $\Delta l$ se vuelven lo suficientemente grandes, como para que $\Delta C\sim C_q$, se produce una saturación en la fase medida.  % se intentade a partir del cual a 
+Si los desplazamientos  $\Delta l$ se vuelven lo suficientemente grandes, como para que $\Delta C\sim C_q$, se produce una saturación en la fase medida.  Se puede contrarrestar este efecto como ya se explicó modificando los parámetros del circuito, siendo la opción más sencilla disminuir el factor de calidad $Q_F$, como se muestra en la Figura \ref{fig:variar-qs}, o bien disminuyendo la capacitancia por unidad de longitud $C'$ del alambre, lo cual implicaría cambiarlo por otro. % yendo  % se intentade a partir del cual a 
 
 
 
@@ -214,9 +214,9 @@ Si los desplazamientos  $\Delta l$ se vuelven lo suficientemente grandes, como p
 
 
 
-Se puede contrarrestar este efecto como ya se explicó modificando los parámetros del circuito, siendo la opción más sencilla disminuir el factor de calidad $Q_F$, como se muestra en la Figura \ref{fig:variar-qs}, o bien disminuyendo la capacitancia por unidad de longitud $C'$ del alambre, lo cual implica cambiarlo por otro. % yendo 
 
-Otro efecto interesante que se pudo observar es que, si se intentan medir variaciones en $\Delta l$ demasiado rápidos respecto se produce histéresis en el sistema. En la Figura \ref{fig:histeresis} se comparan dos ejemplos para la medición de una señal sinusoidal, una a frecuencia baja en comparación a la de resonancia (\ref{fig:histeresis}a) donde la respuesta es lineal y otra a una frecuencia más alta (\ref{fig:histeresis}b), donde se puede ver un comportamiento histerético en el sistema. % pa% ($f/f_r\sim10^{-4}$)  
+
+Otro efecto interesante que se pudo observar es que, si se intentan medir variaciones en $\Delta l$ demasiado rápidas respecto a la frecuencia de resonancia del circuito, se produce histéresis en el sistema. En la Figura \ref{fig:histeresis} se comparan dos ejemplos para la medición de una señal sinusoidal, una a frecuencia baja en comparación a la de resonancia (\ref{fig:histeresis}a) donde la respuesta es lineal y otra a una frecuencia más alta (\ref{fig:histeresis}b), donde se puede ver un comportamiento histerético en el sistema. % pa% ($f/f_r\sim10^{-4}$)  o 
 
 
 % \missingfigure{Histéresis} 
@@ -233,7 +233,7 @@ Aunque ninguno de estos efectos adversos se llegaron a observar en la práctica.
 
 
 \section{Prueba de un circuito equivalente} 
-Siguiendo con el enfoque constructivo, el siguiente paso fue realizar una prueba conceptual del circuito. Para esto se armó un circuito RLC serie, a cuya capacitancia se le fue conectando en paralelo capacitancias de distintos valores, y midiendo en cada caso la diferencia de fase respecto de la señal de referencia. 
+Siguiendo con el enfoque constructivo, el siguiente paso fue realizar una prueba conceptual del circuito. Para esto se armó un circuito RLC serie, a cuya capacitancia se le fue conectando en paralelo capacitancias menores de distintos valores, y midiendo en cada caso la diferencia de fase respecto de la señal de referencia. 
 
 La medición de la diferencia de fase se llevó a cabo mediante un osciloscopio en este caso ya que todavía no se había puesto en práctica la técnica de demodulación homodina. 
 
@@ -249,10 +249,10 @@ Para esta prueba se utilizaron los siguientes elementos, $R=(1800\pm200)\;\Omega
 
 En la Figura \ref{fig:datososciloscopiounidades} se pueden apreciar los resultados. Igual que lo que se había observado numéricamente, la respuesta del sistema es lineal para $Q_F\Delta C/C\ll1$, y empieza a desviarse cuando la capacitancia agregada a la del RLC serie se vuelve demasiado grande. % saturar  A
 
-En el rango en que se observó un comportamiento lineal se ajustaron linealmente los datos, obteniendo una pendiente $a=(5.3\pm0.3)\times10^{-2}$ rad/pF, y una ordenada $b=(-5\pm6)\times10^{-3}$ rad. Como es de esperarse la ordenada es compatible con cero, y la pendiente se puede comparar con la que se esperaría por la ecuación \eqref{eq:relación_lineal}, esto es, 
+En el rango en que se observó un comportamiento lineal se ajustaron linealmente los datos, obteniendo una pendiente $a=(5.3\pm0.3)\times10^{-2}$ rad/pF, y una ordenada $b=(-5\pm6)\times10^{-3}$ rad. Como es de esperarse, la ordenada es compatible con cero, y la pendiente puede compararse  con la que se esperaría por la ecuación \eqref{eq:relación_lineal}, esto es, 
 
 \begin{equation}
-	a_{\text{teo}}=\frac{1}{R\sqrt{LC}}
+	a_{\text{teo}}=\frac{1}{R}\sqrt{\frac{L}{C^3}}
 \end{equation}
 
 Para los elementos elegidos resulta en $a_{\text{teo}}=(5.6\pm0.7)\times10^{-2}$ rad/pF, que coincide con el obtenido del ajuste lineal. Además los estimadores resultaron $R^2=0.99550$ y $\chi_\ni^2=1.25$, concluyendo que en este rango son bien descriptos los datos por una función lineal. 
@@ -264,7 +264,7 @@ De esta forma, se verifica el comportamiento predicho para el circuito en el cas
 Ya habiendo terminado con la fase más exploratoria y las pruebas preliminares descriptas en las Secciones anteriores, se pasó al diseño y prototipado del sensor, al cual corresponde esta Sección, que implica el armado de la sonda y del circuito para la medición de la fase. La puesta en marcha de la técnica de demodulación homodina para llevar a cabo esta medición será descripta en la Sección siguiente debido a la complejidad que terminó requiriendo. % , junto a l s  ya que tuvo su 
 
 \subsection*{La sonda} 
-
+Un modelo de la versión final de la sonda se muestra en la Figura \ref{fig:dibujosensormodelo}. Ésta es relativamente sencilla, siendo su componente principal el alambre de cobre esmaltado, que en este caso fue de $(0.35\pm0.05)$ mm de diámetro. 
 
 \begin{figure}[th!]
 	\centering
@@ -273,6 +273,18 @@ Ya habiendo terminado con la fase más exploratoria y las pruebas preliminares d
 	\label{fig:dibujosensormodelo}
 \end{figure}
 
+Las partes restantes son básicamente para el soporte estructural del alambre, y para facilitar su conexión al circuito RLC. 
+
+El alambre de acero en forma de U, además de dar un lugar para el anclaje del alambre de cobre, tiene la funcionalidad de poner al fluido circundante a la misma Tierra que el circuito. 
+
+La carcasa (en negro) fue diseñada como dos partes que se conectan entre sí mediante cuatro tornillos M4. Estas dos mitades se imprimieron mediante impresoras 3D en plástico PLA. Se eligió hacerla en dos mitades ya que en el centro se encuentran las canaletas por donde se enhebran ambos alambres, que de otra forma hubiesen sido difíciles de lograr con la impresora utilizada, y de esta forma además es más fácil su inserción previo a atornillarlas. % o  É 
+
+La parte superior de la carcasa se encuentra abierta, exponiendo así ambos alambres y permitiendo su conexión mediante cables de terminaciones tipo cocodrilo a la placa con el circuito RLC serie. 
+
+Por último, la cruz en el medio (\textit{trusses} en inglés) dan mayor integridad estructural a la parte inferior de la carcasa, cuyo fin es dar un segundo punto de anclaje al alambre de cobre y asegurarse así que se mantenga recto. Cualquier deformación en la forma de éste podría traducirse en una curva de calibración no lineal que complicaría las mediciones. Algo similar ocurriría si el alambre entra de forma no perpendicular en el fluido, pero esto último solo tiene como consecuencia una constante multiplicativa en la constante de proporcionalidad entre la fase y $\Delta l$ (relacionada a la proyección sobre la línea perpendicular), con lo cual la respuesta se mantendría lineal. % Lo mismo éste 
+
+Un punto importante a tener en cuenta es que, al cortar el alambre de cobre para montar la sonda, la parte que quedará sumergida tiene en la punta al alambre expuesto sin esmaltar, y la corriente tomaría este camino hacia la Tierra en lugar del capacitivo a través del recubrimiento aislante. Para evitar esto se aplicó un spray aislante (Ailamatic DELTA), que además al secarse afianzó la adherencia al alambre de acero. 
+ 
 
 \subsection*{El circuito RLC serie} 
 Los valores nominales de los elementos utilizados para el sensor son los de la Tabla \ref{tab:rlc_valores}. Estos valores se eligieron luego de varias pruebas preliminares, ya que fueron los que mejores resultados permitieron obtener para los desplazamientos típicos de la superficie libre con los que se trabajó ($\lesssim$1 cm).   % de un orden máximo de  a 
@@ -312,11 +324,53 @@ Las frecuencias de resonancia típicas con las que se trabajó fueron del orden 
 
 
 \section{Placa de adquisición y Lock-in digital} 
+Las primeras pruebas de funcionamiento del sensor se llevaron a cabo utilizando un amplificador lock-in SR-830, lo cual permitió verificar que el comportamiento era el esperado. Sin embargo, se abandonó el uso de este lock-in antes de seguir con la caracterización, ya que éste presentaba dos factores que complicarían su aplicación en el largo plazo. En primer lugar son equipos grandes de difícil movilidad, pero lo principal es que cuentan con un solo canal de medición, con lo cual no es escalable para múltiples sensores, que sería la idea poder usar en el laboratorio eventualmente. 
+
+% Por un lado, los dos amplificadores disponibles para préstamo en los laboratorios de enseñanza no pueden ser usados a voluntad, ya que depende de los horarios de clases en cada momento. 
+
+Se exploró la idea de utilizar distintas placas de desarrollo programables que aplicasen el algoritmo de demodulación homodina de forma digital y sincrónica, por ejemplo Arduino UNO, pero su limitación principal fue la "lenta" tasa de adquisición, respecto a las frecuencias de oscilación de las tensiones a medir.   
+
+Finalmente se optó por utilizar una placa de adquisición para medir simultáneamente las tensiones a una alta tasa y posteriormente analizar las señales digitalmente (ya sea de forma síncrona o asíncrona luego de la medición). 
+
+
+
+\subsection*{La placa de adquisición}
+
+La placa utilizada fue la disponible de mayor tasa en el conversor analógico digital, que fue la PersonalDAQ 3001 de IOTech \cite{MCC_PersonalDAQ3000_Manual}. Ésta placa permite adquirir con una tasa de hasta 1 MHz distribuida en 8 canales en formato diferencial (o 16 canales puntuales) cada uno con una resolución de 16 bits para un rango de voltaje ajustable entre $\pm10$ V y $\pm 100$ mV. % 0 
+
+Para las mediciones de esta Tesis se utilizó siempre un único sensor, con lo cual fueron necesarios solo dos canales en modo diferencial, uno para la referencia y otro para la tensión sobre la resistencia, de modo que cada canal tuvo una frecuencia de muestreo máxima de 500 kHz. 
+
+Si bien puede parecer mucho una adquisición a esta tasa para finalmente medir oscilaciones en la superficie libre de hasta unos 200 Hz hay que recordar que éstas estarán moduladas por la frecuencia de resonancia del RLC serie, que como se mencionó en la Sección anterior es del orden de 50 kHz, con lo cual la frecuencia mínima de muestreo (por el Teorema de Nyquist para evitar aliasing) está en 100 kHz. Los 500 kHz permiten estar por encima de este mínimo por una cantidad considerable, pero pruebas con tres sensores en simultáneo, que requiere un total de cuatro canales en modo diferencial, a 250 kHz cada uno dieron resultados comparables a los de una tasa mayor.  
+
+
+\subsection*{Software de control de la placa}
+La principal complejidad que vino asociada a la utilización de esta placa fue su comunicación con la computadora para llevar a cabo las mediciones, ya que la compañía no proporciona software oficial compatible con sistemas operativos modernos (la última versión disponible es para Windows XP). 
+
+
+% Fue necesario entonces desarrollar las rutinas de adquisición síncrona y asíncrona para la placa, entre otras, prácticamente desde cero, a partir de los comandos básicos que se encuentran en los controladores de la placa. 
+
+Fue necesario entonces desarrollar rutinas propias para la adquisición síncrona y asíncrona, entre otras, a partir de las funciones de bajo nivel expuestas por la biblioteca dinámica, que se comunica con el controlador del dispositivo. % actúa como interfaz  
+
+Con  este fin se utilizó Python 3, y se basó el desarrollo en el wrapper de la biblioteca dinámica \textit{PyIOTech} \cite{PyIOTech}, que también fue necesario readaptar ya que se encuentra escrita en Python 2. 
+
+No se entrara en detalle sobre el código en sí, pero el resultado final fue una interfaz gráfica de usuario mínima para llevar a cabo las mediciones en los canales deseados, que se encuentra disponible en \cite{Hernando_PersonalDAQ3001_Python}. Se implementaron dos métodos de adquisición, en primer lugar uno para una cantidad de puntos predeterminados, ideal para mediciones cortas, y uno pensado para mediciones largas que cuenta con guardado en disco en simultáneo a la medición por bloques, más eficiente que el primero al utilizar un buffer circular pequeño y no necesitar guardar todos los puntos en memoria antes de escribirlos en disco. Éste segundo método fue el más utilizado ya que permite tomar datos continuamente y detenerlo cuando se considere suficiente. 
 
 
 
 
 
+\subsection*{El algoritmo de Lock-in Digital} 
+Con el software desarrollado para la placa es posible entonces medir simultáneamente la señal de referencia y el voltaje sobre la resistencia del RLC serie. El análisis de estas señales se lleva a cabo posterior a su adquisición mediante los pasos explicados para la técnica de demodulación homodina, llegando efectivamente a lo que sería un lock-in digital asíncrono. Se desarrolló también una versión que funciona en tiempo real para el segundo método de adquisición explicado, pero que permite visualizar señales únicamente hasta unas pocas decenas de Hz. % aunque
+
+Tampoco se entrará en detalle sobre la implementación de este algoritmo, pero se mencionarán brevemente algunos de los puntos principales que difieren al método convencional. Esto se debe a que por eficiencia en la adquisición solo se midió la referencia, y la cuadratura se generó digitalmente a partir de ésta.  
+
+
+
+
+
+El código para este lock-in digital se encuentra disponible en: 
+
+\missingfigure{Código lock-in digital} 
 
 \section{Prueba final y calibración} 
 
