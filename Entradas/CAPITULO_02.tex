@@ -311,7 +311,7 @@ De esta manera, para el sensor en el aire la capacitancia total $C_{\text{EQ}}$ 
 La capacitancia por unidad de longitud para el cable de cobre elegido se estimó a partir de estos valores en el orden de $1$ pF/mm. % $0^{-12}$ 
 
 
-Las frecuencias de resonancia típicas con las que se trabajó fueron del orden de 52 kHz, para los elementos previamente mencionados, ajustándolas más finamente en cada caso, antes de la medición, aunque cuando por distintos motivos no fue posible realizar este ajuste el efecto fue simplemente la suma de un $\phi_0$ a las señales, que puede eliminarse al restar el valor medio, ya que finalmente la cantidad de interés será la variación de altura. % n a los fines . % En algunos casos se observó una deriva muy lenta  
+Las frecuencias de resonancia típicas con las que se trabajó fueron del orden de $f_s\sim52$ kHz, para los elementos previamente mencionados, ajustándolas más finamente en cada caso, antes de la medición, aunque cuando por distintos motivos no fue posible realizar este ajuste el efecto fue simplemente la suma de un $\phi_0$ a las señales, que puede eliminarse al restar el valor medio, ya que finalmente la cantidad de interés será la variación de altura. % n a los fines . % En algunos casos se observó una deriva muy lenta  
 
 
 
@@ -364,15 +364,37 @@ Con el software desarrollado para la placa es posible entonces medir simultánea
 
 Tampoco se entrará en detalle sobre la implementación de este algoritmo, pero se mencionarán brevemente algunos de los puntos principales que difieren al método convencional. Esto se debe a que por eficiencia en la adquisición solo se midió la referencia, y la cuadratura se generó digitalmente a partir de ésta.  
 
+Para esto se implementó la Transformada de Hilbert, que tendrá el efecto de aplicar un desfasaje de 90$^\circ$ a la señal de referencia.  %  que para una señal limitada en frecuencia (a) 
+
+Otro punto importante es que, al trabajar con señales de frecuencias tan altas no será despreciable el delay temporal que hay entre la medición de un canal y el siguiente de la placa, que en este caso se corresponde a $\Delta t=1$ $\mu$s. Este efecto es como si la referencia tuviese una fase adicional $\phi_0=\omega_s\Delta_t$, sobre la cual estarán montadas las variaciones que se quieren medir. Hay varias opciones para corregir esto, una es simplemente restar esto al final, pero no tiene en cuenta la posibilidad de pequeñas variaciones locales en la frecuencia o fase de la señal de referencia que se pueden tr a la fase final obtenida. Para tener esto en cuenta lo que se terminó optando por hacer es aplicar un \textit{fractional delay filter} (FDF) teniendo en cuenta que la señal es limitada en frecuencia. Esto permite reevaluar a la señal de referencia en los mismos tiempos que la señal del segundo canal, siendo fiel a la señal real a diferencia de lo que se puede obtener mediante una interpolación lineal. 
+
+El último punto a mencionar tiene que ver con el filtro pasabajos utilizado. Se eligió una filtro de tipo exponencial, en base a lo explicado en \cite{harvieOLIAOpensourceDigital2023}, ya que permite extender el funcionamiento del Lock-in a tiempo real. Este filtro, que transcurre en dos etapas, usando el parámetro $\alpha=\cos(\gamma)-1+\sqrt{\cos^2(\gamma)-4\cos(\gamma)+3}$ que se relaciona con la frecuencia de corte o el tiempo de integración $\tau$ de la forma: $\gamma=2\pi f_c/f_s$ con $f_s$ la frecuencia de sampleo. Entonces:
+
+\begin{align}
+	X_1[n] &= X_1[n-1] + \alpha(X_0[n]-X_1[n-1]) \\
+	Y_1[n] &= Y_1[n-1] + \alpha(Y_0[n]-Y_1[n-1]) \\
+\end{align}
+
+y la segunda etapa: 
+
+\begin{align}
+	X_2[n] &= X_2[n-1] + \alpha(X_1[n]-X_2[n-1]) \\
+	Y_2[n] &= Y_2[n-1] + \alpha(Y_1[n]-Y_2[n-1]) \\
+\end{align}
+
+Y podemos elegir trivialmente $X_0[-1]=Y_0[-1]=0$. Con este para la señal anterior y el FDF tenemos: 
 
 
 
+El código para este lock-in digital se encuentra disponible en \cite{Hernando_DigitalLockIn}. La versión final permitió obtener resultados comparables a los de un Lock-in como el SR-830, con todas las ventajas de portabilidad y escalado que vienen asociadas a la placa. Un ejemplo clásico que muestra el correcto funcionamiento de éste es la medida de la amplitud y fase de un RLC serie en función de la frecuencia, como el que se presenta en el Apéndice \ref{apéndice:prueba_lockin_digital}.   % muestra : \missingfigure{Código lock-in digital} 
 
-El código para este lock-in digital se encuentra disponible en: 
 
-\missingfigure{Código lock-in digital} 
 
 \section{Prueba final y calibración} 
+Teniendo 
+
+La frecuencia máxima 
+
 
 \subsection{Montaje} 
 
