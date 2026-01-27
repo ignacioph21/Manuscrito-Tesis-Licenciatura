@@ -9,36 +9,54 @@ Las experiencias realizadas para esta Tesis se corresponden al estudio estadíst
 \section{Montaje para Turbulencia de Ondas} 
 
 \subsection{Montaje}
-El armado experimental consistió, como se muestra en la Figura \ref{fig:montajewaveturbulence-fondo}, en una cuba de acrílico de 20x20 cm$^2$ llena hasta una altura de $h_0=(4.45\pm0.05)$ cm de agua destilada de 
+El armado experimental consistió, como se muestra en la Figura \ref{fig:montajewaveturbulence-fondo}, en una cuba de acrílico de 20x20 cm$^2$ llena hasta una altura de $h_0=(4.45\pm0.05)$ cm de agua destilada. En ésta se sumergió aproximadamente un centímetro una paleta de acrílico, unida a un motor lineal LinMot colocado horizontalmente, al cual fueron suministradas distintas señales según el caso.  
 
 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=0.879506\linewidth]{"Figuras/Setups/Montaje_wave_turbulence _fondo"}
+	\includegraphics[width=0.789506\linewidth]{"Figuras/Setups/Montaje_wave_turbulence _fondo"}
 	\caption{}
 	\label{fig:montajewaveturbulence-fondo}
 \end{figure}
 
+En el extremo opuesto a la paleta se colocó el sensor capacitivo, sumergido aproximadamente un centímetro, lo cual se reguló mediante un tornillo micrométrico.  
 
+La altura sumergida del sensor y de la paleta se mantuvieron constantes durante las experiencias, y lo único que se varió fue el forzado del motor en cada caso. 
 
-
+Con la intención de romper lo más posible los modos fundamentales del recinto, y poder considerar un fluido isótropo, se colocó la paleta con una inclinación, de forma tal que las reflexiones no fuesen perpendiculares a los bordes. 
 
 
 
 \subsection{Inyección de energía}  
-Para la inyección de energía en el sistema 
+Para la inyección de energía en el sistema se forzó a la paleta con una señal de ruido limitado en frecuencia, como la que se muestra en la Figura \ref{fig:curvaforzado}a. 
 
 % Se eligió inyectar energía en el sistema mediante un forzado a escalas grandes. Para este forzado
 
 \begin{figure}[th!]
 	\centering
-	\includegraphics[width=0.87\linewidth]{Figuras/Forzado/curva_forzado}
+	\includegraphics[width=0.987\linewidth]{Figuras/Forzado/curva_forzado}
 	\caption{(a) Curva típica para el forzado del fluido. En los paneles inferiores se muestra su contenido en frecuencia, con su amplitud (b) limitada al rango de 0-6 Hz en este caso , y su fase (c) aleatoria.}
 	\label{fig:curvaforzado}
 \end{figure}
 
+Esta señal fue creada pidiendo una amplitud constante en un rango específico de frecuencias, por ejemplo, para el caso de la Figura \ref{fig:curvaforzado} el rango de amplitud no nula es entre 0 y 6 Hz. Además, la fase de la señal es aleatoria, distribuida uniformemente en el intervalo $(-\pi,+\pi]$. 
 
+La amplitud del forzado, como el rango de frecuencias con amplitud no nula, estarán intrínsecamente relacionados con la potencia media inyectada en el sistema; a mayor amplitud, o mayor rango, más será. También será relevante la profundidad que se encuentra sumergida la paleta, ya que la fuerza que ésta realizará (y por tanto la potencia inyectada) será proporcional al área efectiva sumergida. %  la cantidad de energía 
+
+
+
+
+ 
 \subsection{Juegos de Datos} 
+Para la experiencias de esta Tesis la inyección de energía se realizó a escalas grandes (frecuencias bajas), siempre en el rango gravitatorio, con el objetivo de poder observar el poblamiento completo de escalas en la cascada directa de energía, desde el rango gravitatorio hasta el capilar. 
+
+Los juegos de datos consisten en cuatro rangos de frecuencias distintas, todas desde 0 Hz, y terminando 3, 4, 5 o 6 Hz. Para cada uno de estos rangos se usaron 11 amplitudes distintas, las cuales estarán escritas en términos de porcentaje (del 60 al 160 $\%$) respecto de una curva base. Las curvas bases de los cuatro rangos fueron generadas con la misma amplitud en Fourier, de forma tal que los escalados posteriores sean comparables entre distintos juegos de datos. % ¿Tabla? . 
+
+Las mediciones se tomaron un minuto después de haber iniciado el forzado, con el objetivo de asegurarse estar dentro del régimen estacionario de turbulencia de ondas. Para cada medición se tomaron datos durante un minuto y medio, y para la mayor amplitud en el rango de mayor frecuencia (que sería el de mayor energía inyectada) se midió durante cinco minutos, para poder realizar algunos análisis que requieren más puntos en la estadística (como se mencionará cuando vaya a utilizarse). % punto con 
+
+
+
+
 
 
 
