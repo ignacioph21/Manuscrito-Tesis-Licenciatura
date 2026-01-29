@@ -4,38 +4,109 @@
 
 \clearpage 
 \section{Ondas en fluidos con superficie libre} 
-\subsection*{Las ecuaciones}  
+\subsection{El caso general} % * Las ecuaciones >    
 Para un fluido de extensión infinita y profundidad finita $h_0$ en contacto con la atmósfera puede escribirse la velocidad en un determinado punto, $\vec u$, en términos del potencial velocidad, $\phi$, siempre que el flujo sea irrotacional ($\vec\nabla\times\vec u=0$) 
 
 \begin{equation}
-	\vec u(\vec X, t) = \vec \nabla\phi(\vec X, t) % x 
+	\vec u(\vec x, z, t) = \vec \nabla\phi(\vec x, z, t) 
 \end{equation} 
 
-Donde el vector $\vec X$ representa la posición tridimensional $\vec X=(\vec x, z)$, siendo $\vec x$ la posición en el plano horizontal. En el caso en que el fluido también sea incompresible ($\vec \nabla\cdot\vec u=0$) el potencial velocidad en su seno quedará completamente determinado por la Ecuación de Laplace: % Poisson  el del fluido  
+Donde por conveniencia se mantendrá separada la dependencia con la componente $z$ y con la posición horizontal $\vec x=(x, y)$. En el caso en que también sea incompresible ($\vec \nabla\cdot\vec u=0$) el potencial velocidad en el seno del fluido quedará completamente determinado por la Ecuación de Laplace: % Poisson  
 
 \begin{equation} 
-	\nabla^2\phi(\vec X, t) = 0 % x, z 
+	\nabla^2\phi(\vec x, z, t) = 0 
 \end{equation} 
 
-Sujeta a las condiciones de contorno en el fondo ($z=-h_0$) y en la superficie libre ($z=\eta(\vec x, t)$). La primera corresponde al no flujo a través del contorno sólido: 
+Sujeta a las condiciones de contorno en el fondo $\big(z=-h_0\big)$ y en la superficie libre $\big(z=\eta(\vec x, t)\big)$. La primera corresponde al no flujo a través del contorno sólido: 
 
 \begin{subequations}
 \begin{equation}
-		\frac{\partial \phi}{\partial z} = 0   
+		\frac{\partial \phi}{\partial z} = 0  % \     +  
 \end{equation}  
 				
 Mientras que en la superficie libre se tiene una condición cinemática, para la continuidad de la velocidad 
 
 \begin{equation}
-		\frac{\partial }{\partial} =  	
+		\frac{\partial \phi}{\partial z} = \frac{\partial\eta}{\partial t} + \vec \nabla \eta  \cdot\vec\nabla\phi = \frac{D\eta}{Dt} 	
 \end{equation}
 
-Y una condición dinámica para la continuidad de la presión, tomando sin pérdida de generalidad que la presión del aire es $p_a=0$ 
+Con $D/Dt$ la derivada temporal total en la descripción Euleriana. Y además una condición dinámica para la continuidad de la presión, que surge del principio de Bernoulli, tomando sin pérdida de generalidad que la presión del aire es $p_a=0$ 
 
 \begin{equation}
-		\frac{\partial}{\partial} = 			 	
+		\frac{\partial \phi}{\partial t} + g\eta + \frac{1}{2} |\nabla\phi|^2 = \frac{\sigma}{\rho} \vec\nabla \cdot\left(\frac{\nabla\eta}{\sqrt{1+|\vec\nabla\eta|^2}}\right)    			 	
 \end{equation} 
 \end{subequations}
+
+Donde $\rho$ es la densidad del fluido, $\sigma$ la tensión superficial y $g$ la constante gravitatoria. El término de la derecha corresponde a la diferencia de presión al cruzar la superficie libre, debido a la tensión superficial, y que depende de la curvatura de la misma. % Esta última condición impone los da d 
+
+De esta última ecuación pueden leerse los dos mecanismos restitutivos que serán relevantes para las ondas de la superficie libre, por un lado la gravedad, y por otro la capilaridad. \cite{kunduFluidMechanics2014, meiTheoryApplicationsOcean2016} 
+
+\subsection{La aproximación lineal} 
+
+
+
+\begin{subequations}
+	\begin{equation}
+		\frac{\partial \phi}{\partial z} = \frac{\partial\eta}{\partial t} \qquad \text{en } z=0 
+	\end{equation}
+	\begin{equation}
+		\frac{\partial \phi}{\partial t} + g\eta + \frac{1}{2} |\nabla\phi|^2 = \frac{\sigma}{\rho} \vec\nabla \cdot\left(\frac{\nabla\eta}{\sqrt{1+|\vec\nabla\eta|^2}}\right)    			 	
+	\end{equation} 
+\end{subequations}
+
+
+
+\subsection{Relación de dispersión lineal} % T* 
+
+
+\begin{equation}
+	\omega^2 = \left(gk + \frac{\sigma}{\rho}k^3\right) \tanh{(kh_0)} 
+\end{equation}
+
+
+
+
+\subsection{Formulación Hamiltoniana equivalente} % * 
+
+
+
+
+
+
+
+
+\section{Formalismo Hamiltoniano para Turbulencia de Ondas} 
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Descripción Estadística de Turbulencia de Ondas} 
+
+
+
+
+
+
+
+
+
+
+\section{Soluciones Estacionarias Exactas} 
+
+
+
+
+
+
+
 
 
 
