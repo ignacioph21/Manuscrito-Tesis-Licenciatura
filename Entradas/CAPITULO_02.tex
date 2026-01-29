@@ -3,6 +3,42 @@
 
 
 \clearpage 
+\section{Ondas en fluidos con superficie libre} 
+\subsection*{Las ecuaciones}  
+Para un fluido de extensión infinita y profundidad finita $h_0$ en contacto con la atmósfera puede escribirse la velocidad en un determinado punto, $\vec u$, en términos del potencial velocidad, $\phi$, siempre que el flujo sea irrotacional ($\vec\nabla\times\vec u=0$) 
+
+\begin{equation}
+	\vec u(\vec x, z, t) = \vec \nabla\phi(\vec x, z, t) 
+\end{equation} 
+
+Donde por conveniencia se mantendrá separada la componente $z$ del vector posición. En el caso en que también sea incompresible ($\vec \nabla\cdot\vec u=0$) el potencial velocidad en el seno del fluido quedará completamente determinado por la Ecuación de Laplace: % Poisson  
+
+\begin{equation} 
+	\nabla^2\phi(\vec x, z, t) = 0 
+\end{equation} 
+
+Sujeta a las condiciones de contorno en el fondo ($z=-h_0$) y en la superficie libre ($z=\eta(\vec x, t)$). La primera corresponde al no flujo a través del contorno sólido: 
+
+\begin{subequations}
+\begin{equation}
+		\frac{\partial \phi}{\partial z} = 0   
+\end{equation}  
+				
+Mientras que en la superficie libre se tiene una condición cinemática, para la continuidad de la velocidad 
+
+\begin{equation}
+		\frac{\partial }{\partial} =  	
+\end{equation}
+
+Y una condición dinámica para la continuidad de la presión, tomando sin pérdida de generalidad que la presión del aire es $p_a=0$ 
+
+\begin{equation}
+		\frac{\partial}{\partial} = 			 	
+\end{equation} 
+\end{subequations}
+
+
+
 
 
 
