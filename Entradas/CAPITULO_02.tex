@@ -5,7 +5,7 @@
 \clearpage 
 \section{Ondas en fluidos con superficie libre} 
 \subsection{El caso general} % * Las ecuaciones >    
-Para un fluido de extensión infinita y profundidad finita $h_0$ en contacto con la atmósfera puede escribirse la velocidad en un determinado punto, $\vec u$, en términos del potencial velocidad, $\phi$, siempre que el flujo sea irrotacional ($\vec\nabla\times\vec u=0$) 
+Para un fluido invíscido de extensión infinita y profundidad finita $h_0$ en contacto con la atmósfera puede escribirse la velocidad en un determinado punto, $\vec u$, en términos del potencial velocidad, $\phi$, siempre que el flujo sea irrotacional ($\vec\nabla\times\vec u=0$) 
 
 \begin{equation}
 	\vec u(\vec x, z, t) = \vec \nabla\phi(\vec x, z, t) 
@@ -42,8 +42,13 @@ Donde $\rho$ es la densidad del fluido, $\sigma$ la tensión superficial y $g$ l
 De esta última ecuación pueden leerse los dos mecanismos restitutivos que serán relevantes para las ondas de la superficie libre, por un lado la gravedad, y por otro la capilaridad. \cite{kunduFluidMechanics2014, meiTheoryApplicationsOcean2016} 
 
 \subsection{La aproximación lineal} 
+Para perturbaciones en la superficie libre lo suficientemente suaves es posible linealizar las ecuaciones anteriores. Esta condición implica que $\vec\nabla\eta\sim k\eta\ll1$, aunque resulta más práctico utilizar a modo de parámetro de la no linealidad la conocida como pendiente de la onda (\textit{wave steepness} en inglés), que resulta equivalente, definida para un único modo de la siguiente manera:  % En una primera aproximación resulta práctico linealizar las ecuaciones anteriores  É
 
+\begin{equation}
+	S = \frac{H}{L}  
+\end{equation}
 
+Con $H$ la altura pico a pico de la onda y $L$ su longitud de onda. En el límite lineal las condiciones de contorno en la superficie libre se reducen a: 
 
 \begin{subequations} 
 	\begin{align} 
@@ -52,14 +57,16 @@ De esta última ecuación pueden leerse los dos mecanismos restitutivos que ser�
 	\end{align}
 \end{subequations} 
 
-
+Esta aproximación resulta suficiente para la descripción de una gran cantidad de fenómenos, pero no tienen en cuenta las interacciones entre las ondas que surgen a causa de la no linealidad. Estos efectos podrán incluirse a modo perturbativo, incluyendo términos a orden más alto en $S$, como se mostrará más adelante. 
 
 \subsection{Relación de dispersión lineal} % T* 
-
+En la aproximación lineal resulta relativamente sencillo encontrar la relación de dispersión para un modo de frecuencia $\omega$ y número de onda $k$, resultando 
 
 \begin{equation}
 	\omega^2 = \left(gk + \frac{\sigma}{\rho}k^3\right) \tanh{(kh_0)} 
 \end{equation}
+
+En el caso en que la altura de las ondas también es pequeña, además de la pendiente, se tiene que $kh_0\ll1$ 
 
 
 \begin{figure}[th!]
@@ -78,7 +85,13 @@ De esta última ecuación pueden leerse los dos mecanismos restitutivos que ser�
 \subsection{Formulación Hamiltoniana equivalente} % * 
 
 
+\begin{equation}
+	E = \int d\vec r \left\{\int_{-h_0}^{\eta}  \frac{1}{2}|\vec\nabla\phi|^2dz + \frac{1}{2}g\eta^2+\frac{\sigma}{\rho}\left(\sqrt{1+|\vec\nabla\phi|^2}-1\right)\right\}
+\end{equation} 
 
+\begin{equation}
+	\frac{\partial\eta}{\partial t} = \frac{\delta H}{\delta\psi}, \qquad \frac{\partial\psi}{\partial t} = -\frac{\delta H}{\delta\eta}  
+\end{equation} 
 
 
 
