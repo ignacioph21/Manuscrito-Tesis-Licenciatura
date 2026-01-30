@@ -76,30 +76,50 @@ Además, se considerará en geneal la aproximación de profundidad infinita, que
 	\label{fig:escalalogdispersion}
 \end{figure}
  
-Se define la frecuencia de cruce como la aquella en la cual ambos términos se vuelven del mismo orden, o sea, $\omega_c$ tal que $gk_c\sim\sigma k_c^3/\rho$. Para el caso particular del agua resulta en $f_c=\omega_c/(2\pi)=13.541$ Hz. % ^ frecuencia 
-
- 
-
- 
+Se define la frecuencia de cruce como la aquella en la cual ambos términos se vuelven del mismo orden, o sea, $\omega_c$ tal que $gk_c\sim\sigma k_c^3/\rho$. Para el caso particular del agua resulta en $f_c=\omega_c/(2\pi)=13.54$ Hz. % ^ frecuencia 1 
 
 \subsection{Formulación Hamiltoniana equivalente} % * 
-
+Es sabido que en el caso general la energía del fluido puede calcularse mediante la siguiente expresión: 
 
 \begin{equation}
 	E = \int d\vec r \left\{\int_{-h_0}^{\eta}  \frac{1}{2}|\vec\nabla\phi|^2dz + \frac{1}{2}g\eta^2+\frac{\sigma}{\rho}\left(\sqrt{1+|\vec\nabla\phi|^2}-1\right)\right\}
 \end{equation} 
+ 
+Donde el primer término corresponde a la energía cinética del fluido, el segundo a la energía potencial gravitatoria, y el tercero a la energía capilar generada por la deformación de la superficie. 
+
+Zakharov, V. E. mostró en 1972 \cite{zakharovStabilityPeriodicWaves1972a} que es posible obtener las condiciones de contorno para la superficie libre tomando esta expresión para la energía e interpretándola como un Hamiltoniano $H[\eta,\psi]$ de las variables $\eta(\vec x, t)$ y $\psi\equiv\phi(\vec c, z=\eta(\vec x, t), t)$, de forma tal que,   
 
 \begin{equation}
 	\frac{\partial\eta}{\partial t} = \frac{\delta H}{\delta\psi}, \qquad \frac{\partial\psi}{\partial t} = -\frac{\delta H}{\delta\eta}  
 \end{equation} 
 
+Esto es relevante ya que con el fin de incorporar los efectos no lineales será conveniente hacer el desarrollo perturbativo partiendo desde este Hamiltoniano, como se mostrará en la siguiente Sección. Con este fin resultará conveniente trabajar en el espacio de Fourier, definiendo las amplitudes 
+ 
+\begin{equation}
+	\eta(\vec k) = \frac{1}{2\pi} \int d\vec r \eta(\vec r) e^{-i\vec k\cdot\vec r}, \qquad \psi(\vec k) = \frac{1}{2\pi} \int d\vec r \psi(\vec r) e^{-i\vec k\cdot\vec r} % \ \ 
+\end{equation}
 
+A partir de las cuales es posible escribir las variables complejas $a(\vec k)$ y $a^*(\vec k)$, 
 
+\begin{equation}
+	\eta(\vec k) = \sqrt{\frac{k}{2\omega(k)}}\left[a(\vec k)+a^*(-\vec k) \right], \qquad \psi(\vec k) = -i\frac{\omega(k)}{2k} \left[a(\vec k)-a^*(-\vec k)  \right]
+\end{equation} 
+
+Esta transformación resulta canónica, de forma que las ecuaciones de Hamilton se reducen a una sola de la forma: 
+
+\begin{equation}
+	\frac{\partial a(\vec k)}{\partial t}=-i\frac{\delta E}{\delta a^*(\vec k)} % ñ 
+\end{equation} 
 
 
 \section{Formalismo Hamiltoniano para Turbulencia de Ondas} 
 
+
 \subsection{Generalidades} 
+
+
+
+
 
 
 
