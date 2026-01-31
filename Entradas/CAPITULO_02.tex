@@ -118,11 +118,49 @@ El desarrollo del formalismo que se detalla a continuación es completamente gen
 Para simplificar la notación se abreviará la dependencia en $\vec k$ de una función como $f_{\vec k}\equiv f(\vec k)$. 
 
 \subsection{Generalidades} 
+La idea general para incorporar las no linealidades en el sistema de interés será desarrollar al Hamiltonaino $\mathcal{H}$ como una serie de potencias de $a$ y $a^*$, con lo cual: 
+
+\begin{equation}
+	\mathcal{H} = \mathcal{H}_2 + \mathcal{H}_3 + \mathcal{H}_4 + \cdots \equiv \mathcal{H}_2 + \mathcal{H}_{int} 
+\end{equation}
+
+Donde el subíndice hace referencia al orden en $a$ de cada término. Es importante notar que $\mathcal{H}_0$ puede eliminarse ya que dará una constante, que no importará al escribir las ecuaciones de movimiento, y de igual manera $\mathcal{H_1}$ se toma nulo ya que se considera al sistema en equilibrio cuando $a=a^*=0$. El primer término no nulo del desarrollo resulta entonces en $\mathcal{H}_2$, que se corresponde a la parte lineal del sistema, y siempre puede escribirse a menos de una transformación canónica como: 
+
+\begin{equation}
+	\mathcal{H}_2 = \int \omega(\vec k) a_{\vec k}a^*_{\vec k} d\vec k 
+\end{equation} 
+
+Los términos más altos en el desarrollo incorporarán efectos de interacción entre los modos, representando $\mathcal{H}_3$ interacción de a tres ondas, $\mathcal{H}_4$ de a cuatro ondas y así sucesivamente, motivo por el cual se los agrupa como un Hamiltoniano de interacción $\mathcal{H}_{\text{int}}$. Por ejemplo, en el caso más general $\mathcal{H}_3$ tendrá la forma: 
+
+\begin{equation} 
+	\begin{split}
+		\mathcal{H}_3 &= \frac{1}{2}\int\big(V_{123}a^*_1a_2a_3+\text{c.c.}\big)\delta(\vec k_1-\vec k_2 -\vec k_3) d\vec k_1d\vec k_2d\vec k_3 \\ &+ \frac{1}{6} \int\big(U_{123}a^*_1a^*_2a^*_3+\text{c.c.}\big)\delta(\vec k_1 + \vec k_2 + \vec k_3) d\vec k_1d\vec k_2d\vec k_3
+	\end{split}
+\end{equation} 
 
 
+Donde se utilizó la notación reducida $a_{\vec k_1}\equiv a_1$. El primer término corresponde a procesos del tipo $1\rightarrow2$ o $2\rightarrow1$, mientras que el segundo describe la aniquilación $3\rightarrow0$ o creación espontánea de tres ondas $0\rightarrow0$, cada cual determinado por las amplitudes $V_{123}$ y $U_{123}$. El siguiente término en el desarrollo será para interacciones de cuatro ondas, de la forma % e 
+
+\begin{equation} 
+	\begin{split}
+		\mathcal{H}_4 &= \frac{1}{4} \int W_{1234}a1^*a_2^*a_3a_4\delta(\vec k_1+\vec k_2-\vec k_3-\vec k_4) d\vec k_1d\vec k_2d\vec k_3d\vec k_4 \\
+		&+\int \big(G_{1234}a_1a_2^*a_3^*a_4^* + \text{c.c.}\big) \delta(\vec k_1-\vec k_2-\vec k_3-\vec k_4) d\vec k_1d\vec k_2d\vec k_3d\vec k_4 \\
+		&+\int \big(R^*_{1234}a_1a_2a_3a_4 + \text{c.c.}\big) \delta(\vec k_1+\vec k_2+\vec k_3+\vec k_4) d\vec k_1d\vec k_2d\vec k_3d\vec k_4
+	\end{split}	
+\end{equation} 
+
+Representando ahora procesos del tipo $2\rightarrow2$ para el primer término, $1\rightarrow3$ y $3\rightarrow1$ para el segundo, $4\rightarrow0$ y $0\rightarrow4$ para el tercero.
 
 
+\subsection{Condiciones de Resonancia} % TY 
+En general será suficiente con desarrollar el Hamiltoniano de interacción hasta el primer término no nulo. El término $\mathcal{H}_N$ describe interacciones de $N$ ondas, y puede pensarse como equivalente a una colisión de $N$ partículas, la cual debería satisfacer la conservación simultánea de los análogos a la \textit{energía} y \textit{momento lineal}, dadas por las condiciones de resonancia, que para N ondas resultan: 
 
+\begin{equation}
+	\vec k_1 \pm \vec k_2 \pm \cdots \pm \vec k_N = 0 \qquad \omega(\vec k_1) \pm \omega(\vec k_2) \pm \cdots \pm \omega(\vec k_N) = 0
+	\label{eq:condición_resonancia}
+\end{equation}  
+
+Donde los signos hacen referencias a si la onda $n$-ésima es entrante o saliente. En el caso de que la satisfacción simultánea de las condiciones de resonancia no sea posible, se puede mostrar que existe una transformación conforme que permite hacer $\mathcal{H}_N=0$. 
 
 \subsection{Ecuación de movimiento} 
 
@@ -140,7 +178,6 @@ Para simplificar la notación se abreviará la dependencia en $\vec k$ de una fu
 
 \subsection{Ecuación Cinética} 
 
-\subsection{Condiciones de Resonancia} % TY 
 
 
 \subsection{Cantidades conservadas} 
