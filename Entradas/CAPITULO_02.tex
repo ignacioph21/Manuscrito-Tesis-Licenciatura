@@ -202,6 +202,7 @@ Que son procesos del tipo $2\rightarrow2$. Aquí se asumió nuevamente que no ha
 
 \begin{equation}
 	N=\int a_{\vec k}a^*_{\vec k} d\vec k 
+	\label{eq:Wave_action_integral}
 \end{equation}
 
 
@@ -214,42 +215,40 @@ Que son procesos del tipo $2\rightarrow2$. Aquí se asumió nuevamente que no ha
 
 
 \section{Descripción Estadística de Turbulencia de Ondas} 
+Las ecuaciones de movimiento encontradas son para la evolución temporal de las amplitudes y fases de $a_{\vec k} = |a(\vec k, t)|e^{i\phi(\vec k, t)}$. En el caso en que las no linealidades sean débiles, y haya una gran cantidad de modos, esta evolución suele ser redundante, ya que incluye la dinámica rápida de la fase $\phi\sim\omega t$ que deja a la evolución lenta de las amplitudes (que es constante al orden más bajo) virtualmente no afectada. Por esto, será conveniente pasar a una descripción estadística, donde solo serán relevantes las funciones de correlación para $a_{\vec k}$, promediando en un ensamble\footnote{Aquí se consideran solo sistemas ergódicos, de forma tal que será equivalente a promediar en tiempos más largos que la evolución de la fase}. 
 
 
 \subsection{Aproximación de Fase Aleatoria} % Clausura Gaussiana 
-
-Las ecuaciones de movimiento anteriores son para la evolución temporal de las amplitudes y fases de $c_{\vec k} = |c(\vec k, t)|e^{i\phi(\vec k, t)}$. En el caso en que las nolinealidades son débiles y hay una gran cantidad de modos esta evolución suele ser redundante, ya que incluye la dinámica rápida de $\phi\sim\omega t$ que deja a la evolución lenta de las amplitudes (que es constante en el caso puramente lineal, orden más bajo) virtualmente no afectada. Por esto vamos a querer pasar a una descripción estadística, donde solo trabajaremos con las funciones de correlación para $c_{\vec k}$, donde vamos a promediar en un ensamble.
-
-Vamos a asumir una "caotización" de las fases, de forma tal que aunque al inicio estuvieran correlacionadas, luego de un tiempo ya no lo estarán. Podemos pensar que esto se debe a la dispersión del medio o a que inicialmente están en un equilibrio muy inestable del cual los saca cualquier perturbación del medio. De esta forma, bajo la aproximación de fases aleatorias tenemos las correlaciones:
+Es estándar a asumir para el caso de turbulencia de ondas débil una "caotización" de las fases, de forma tal que aunque al inicio estuvieran correlacionadas, luego de un tiempo ya no lo estarán,  asociándose este efecto a la dispersión del medio, entre otros motivos. De esta forma, bajo la aproximación de fases aleatorias tenemos las correlaciones: 
 
 \begin{equation}
 	\begin{split}
-		\langle c_{\vec k}\rangle &= \langle |c_{\vec k}|e^{i\phi_{\vec k}}	 \rangle = 0 \\
-		\langle c_{\vec k} c_{\pvec k'} \rangle &= \langle |c_{\vec k}||c_{\pvec k'}| e^{i(\phi_{\vec k}+\phi_{\pvec k'})} \rangle = 0 \\
-		\langle c_{\vec k} c^*_{\pvec k'} \rangle  &= \langle |c_{\vec k}||c_{\pvec k'}| e^{i(\phi_{\vec k}-\phi_{\pvec k'})} \rangle = n(\vec k) \delta(\vec k - \pvec k')
+		\langle a_{\vec k}\rangle &= \langle |a_{\vec k}|e^{i\phi_{\vec k}}	 \rangle = 0 \\
+		\langle a_{\vec k} c_{\vec k'} \rangle &= \langle |a_{\vec k}||a_{\vec k'}| e^{i(\phi_{\vec k}+\phi_{\vec k'})} \rangle = 0 \\
+		\langle a_{\vec k} a^*_{\vec k'} \rangle  &= \langle |a_{\vec k}||a_{\vec k'}| e^{i(\phi_{\vec k}-\phi_{\vec k'})} \rangle = n(\vec k) \delta(\vec k - \vec k')
 	\end{split}
 \end{equation} 
 
-Acá definimos la acción de onda $n(\vec k) = c_{\vec k}c^*_{\vec k}$, que sería la densidad de "partículas" con número de onda $\vec k$ en la integral \eqref{eq:Wave_action_integral}.  
+Definiendo la acción de onda $n(\vec k) = a_{\vec k}a^*_{\vec k}$, que sería la densidad  de la integral \eqref{eq:Wave_action_integral}.  
 
-Por último para los correlatorres de una cantidad impar siempre van a dar 0, y para los de orden 4 y 6 tenemos:
+Por otro lado, los correladores de una cantidad impar siempre van a dar cero, mientras que para los de orden 4 y 6 quedan:
 
 \begin{equation}
 	\begin{split}
-		\langle	c_1^*c_2^*c_3c_4 \rangle & = n_1 n_2 \big[\delta_{1-3}\delta_{2-4} + \delta_{1-4}\delta_{2-3}\big] \\ 
-		\langle c_1^*c_2^*c_3^*c_4c_5c_6 \rangle &= n_1n_2n_3\big[  \delta_{1-4}\delta_{2-5}\delta_{3-6} + \delta_{1-4}\delta_{2-6}\delta_{3-5} + \delta_{1-5}\delta_{2-4}\delta_{3-6} \\ 
+		\langle	a_1^*a_2^*a_3a_4 \rangle & = n_1 n_2 \big[\delta_{1-3}\delta_{2-4} + \delta_{1-4}\delta_{2-3}\big] \\ 
+		\langle a_1^*a_2^*a_3^*a_4a_5a_6 \rangle &= n_1n_2n_3\big[  \delta_{1-4}\delta_{2-5}\delta_{3-6} + \delta_{1-4}\delta_{2-6}\delta_{3-5} + \delta_{1-5}\delta_{2-4}\delta_{3-6} \\ 
 		& +\delta_{1-5}\delta_{2-6}\delta_{3-4} + \delta_{1-6}\delta_{2-4}\delta_{3-5} + \delta_{1-6}\delta_{2-5}\delta_{3-6} \big] 
 	\end{split}
 \end{equation}
 
-Que básicamente las deltas dan que queden dos o tres  $n$'s. Acá es donde producimos la clausura de la jerarquía, al escribir el cuarto momento como un producto de dos segundos momentos (o tres para el sexto). En parte esta aproximación se puede hacer porque las estadísticas son cercanas a la Gaussiana para turbulencia de ondas débil que es esto. \cite{falkovichTurbulence2006} 
+Con la abreviación $\delta_{i-j}\equiv\delta(\vec k_i-\vec k_j)$. Esta aproximación permite escribir el momento de orden dos en término de una sola $n_{\vec k}$, entonces el de orden cuatro queda escrito en función de dos momentos de orden dos, y el de orden seis en función de tres. Esto implica una estadística Gaussiana, donde solo importan las funciones de dos puntos.  
 
 
 
 
 
 \subsection{Ecuación Cinética} 
-Para obtener la ecuación de evolución para $n_{\vec k}$ hay que multiplicar \eqref{eq:motion_equation_three_waves} por $c^*_{\vec k}$y restarle la conjugada por $c_{\pvec k'}$, para finalmente tomar el promedio y reemplazar $\vec k=\pvec k'$:
+Para obtener la ecuación de evolución para $n_{\vec k}$, que se denomina ecuación cinética, hay que multiplicar \eqref{eq:motion_equation_three_waves} por $a^*_{\vec k}$y restarle la conjugada por $c_{\vec k'}$, para finalmente tomar el promedio y reemplazar $\vec k=\vec k'$. En el caso de tres ondas resulta:
 
 \begin{equation}
 	\begin{split}
@@ -258,6 +257,8 @@ Para obtener la ecuación de evolución para $n_{\vec k}$ hay que multiplicar \e
 	\end{split}
 \end{equation}
 
+Habiendo sido posible llegar a esta expresión gracias a la estadística Gaussiana, que permitió escribir los momentos de orden más alto que quedarían dentro de la integral en términos de $n_{\vec k}$. Para el caso de cuatro ondas la ecuación cinética resulta: 
+
 \begin{equation}
 	\begin{split}
 		\frac{\partial n_{\vec k}}{\partial t} &= \frac{\pi}{2} \int |T_{k123}|^2 f_{k123} \delta(\vec k + \vec k_1 - \vec k_2 -\vec k_3) \delta(\omega + \omega_1 -\omega_2 - \omega_3) d\vec k_1 d\vec k_2 d\vec k_3 \\
@@ -265,18 +266,17 @@ Para obtener la ecuación de evolución para $n_{\vec k}$ hay que multiplicar \e
 	\end{split}
 \end{equation}
 
-
+En ambas queda explícito que solo dan contribuciones no nulas a la evolución de $n_{\vec k}$ aquellos conjuntos que satisfacen simultáneamente las condiciones de resonancia. 
 
 % \subsection{Cantidades conservadas} 
 
 
 \subsection{Balance de energía y cascadas} 
-
-Ya establecimos que la energía total se conserva, o sea:
+Como se mencionó anteriormente, la energía total se conserva, o sea: 
 
 \begin{equation}
 	\frac{dE}{dt} = \int \frac{\partial E_{\vec k}}{\partial t} d\vec k =\int \omega \frac{\partial n_{\vec k}}{\partial t} d\vec k  
-\end{equation}
+\end{equation}  
 
 Ahora podemos usar nuevamente la ecuación cinética nuevamente, ahora escita de la forma: $\partial_t n_{\vec k} = I_{\vec k}^N$, siendo $I_k^N$ las integrales de colisiones. Esto va a ser cierto en el rango inercial (siempre que la escala de inyección y disipación estén lo suficientemente separadas). Entonces podemos escribir una ecuación de continuidad para la energía
 
