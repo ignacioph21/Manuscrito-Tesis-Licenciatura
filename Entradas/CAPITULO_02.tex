@@ -153,16 +153,58 @@ Representando ahora procesos del tipo $2\rightarrow2$ para el primer término, $
 
 
 \subsection{Condiciones de Resonancia} % TY 
-En general será suficiente con desarrollar el Hamiltoniano de interacción hasta el primer término no nulo. El término $\mathcal{H}_N$ describe interacciones de $N$ ondas, y puede pensarse como equivalente a una colisión de $N$ partículas, la cual debería satisfacer la conservación simultánea de los análogos a la \textit{energía} y \textit{momento lineal}, dadas por las condiciones de resonancia, que para N ondas resultan: 
+En general será suficiente con desarrollar el Hamiltoniano de interacción hasta el primer término no nulo, que será aquel para el cual existan soluciones simultáneas a las condiciones de resonancia, que para $N$ ondas resultan: 
 
-\begin{equation}
+\begin{equation} 
 	\vec k_1 \pm \vec k_2 \pm \cdots \pm \vec k_N = 0 \qquad \omega(\vec k_1) \pm \omega(\vec k_2) \pm \cdots \pm \omega(\vec k_N) = 0
 	\label{eq:condición_resonancia}
 \end{equation}  
 
-Donde los signos hacen referencias a si la onda $n$-ésima es entrante o saliente. En el caso de que la satisfacción simultánea de las condiciones de resonancia no sea posible, se puede mostrar que existe una transformación conforme que permite hacer $\mathcal{H}_N=0$. 
+Donde los signos hacen referencias a si la onda $n$-ésima es entrante o saliente. En el caso de que la satisfacción simultánea de estas condiciones  no sea posible se puede mostrar que existe una transformación canónica que permite eliminar ese término del Hamiltoniano, o sea, hacer $\mathcal{H}_N=0$. Por ejemplo, si no existe solución para la resonancia de tres ondas pero sí para cuatro, existe alguna transformación tal que $\mathcal{H}_3=0$ pero $\mathcal{H}_4\neq0$, y quedaría $\mathcal{H}=\mathcal{H}_2+\mathcal{H}_4$. 
 
-\subsection{Ecuación de movimiento} 
+La interacciones de $N$ ondas puede pensarse como equivalente a una colisión de $N$ partículas, la cual debería satisfacer la conservación simultánea de la  \textit{energía} y \textit{momento lineal}. Que existan o no soluciones dependerá de la relación de dispersión del sistema. 
+
+Es posible mostrar que para relaciones de la forma $\omega\sim k^{\alpha}$ la condición de resonancia para tres ondas (triadas resonantes) no será posible con $\alpha<1$, y el primer término resonante será el de cuatro ondas (cuartetos resonantes), para el cual siempre hay solución. Esto puede entenderse gráficamente, buscando para un dado $\vec k_0$ los $\vec k$ donde se produce la intersección de las superficies dadas por $\omega(\vec k_0+\vec k)$ y $\omega(\vec k)+\omega(\vec k_0)$, como se muestra en la Figura \ref{fig:condiciones de resonancia}. % curvas 
+
+\missingfigure{Condiciones de resonancia} 
+
+Para las ondas en superficie libre el rango de gravedad tiene $\alpha=1/2$, con lo cual las interacciones resonantes de tres ondas no estarán permitidas (sino serían ondas con energía negativa) y serán los cuartetos los primeros que satisfagan las condiciones de resonancia simultáneamente, mientras que en el rango capilar, con $\alpha=3/2$, siempre habrá triadas resonantes. En el caso particular en que todas las ondas sean colineales (reduciendo el problema efectivamente a 1D, aunque la energía sí seguirá distribuída en 2D) la mínima cantidad de ondas interactuantes resulta ser $N=5$. \cite{nazarenkoWaveTurbulence2011} % a 
+
+
+
+\subsection{Ecuaciones de movimiento} % ó 
+Para el caso lineal, donde $\mathcal{H}=\mathcal{H}_2$ la ecuación de movimiento resulta trivial: 
+
+\begin{equation}
+	\frac{\partial a_{\vec{k}}}{\partial t}=-i\omega a_{\vec{k}} \qquad \Rightarrow{} \qquad a_{\vec{k}}=a(\vec k, 0)e^{-i\omega t}
+\end{equation}
+
+De modo tal que las soluciones posibles serán ondas propagantes sin más. Al incorporar los términos resonantes aparecerán integrales de colisiones del lado derecho, que darán cuenta de las interacciones no lineales entre las ondas: 
+
+\begin{equation}
+	i\frac{\partial a_{\vec k}}{\partial t}-\omega_{\vec k}ca_{\vec k} = \frac{\delta H_{\text{int}}}{\delta a^*_{\vec k}} 
+\end{equation}
+
+Para el caso donde el primer término no nulo se corresponde a triadas resonantes, la ecuación de movimiento resultará: 
+
+\begin{equation}
+	i\frac{\partial a_{\vec k}}{\partial t} - \omega_k a_{\vec k} = \int \left(\frac{1}{2}V_{k12}a_1a_2\delta(\vec k - \vec k_1 -\vec k_2) + V^*_{1k2}a_1a_2^*\delta(\vec k_1 -\vec k-\vec k_2)\right)d\vec k_1d\vec k_2
+	\label{eq:motion_equation_three_waves}
+\end{equation}
+
+Asumiendo que no hay procesos de creación o aniquilación de tres ondas. El primer término de la integral se corresponde al proceso $k\rightarrow1+2$ (que es una sola opción) y el segundo a $k+2\rightarrow1$ (que son dos opciones). Para el caso de cuatro ondas su ecuación de movimiento resulta: % :
+
+\begin{equation}
+	i\frac{\partial a_{\vec k}}{\partial t} - \omega_k a_{\vec k} = \frac{1}{2} \int T_{k123}a_1^*a_2a_3\delta(\vec k+\vec k_1-\vec k_2-\vec k_2) d\vec k_1 d\vec k_2d\vec k_3
+\end{equation}
+
+Que son procesos del tipo $2\rightarrow2$. Aquí se asumió nuevamente que no hay creación o aniquilación espontánea de cuatro ondas, y además, que al no haber procesos de tres ondas del tipo $2\rightarrow1$ o $1\rightarrow2$, tampoco serán posibles los procesos $3\rightarrow1$ o $1\rightarrow3$. En este último caso al tener procesos solo entre la misma cantidad de ondas entrantes y salientes, en el ejemplo análogo de colisiones de partículas, se conservará además de la energía y el impulso lineal, el número total de partículas, cuyo equivalente para ondas será lo que denomina \textit{acción de onda} (\textit{wave action} en inglés). 
+
+\begin{equation}
+	N=\int a_{\vec k}a^*_{\vec k} d\vec k 
+\end{equation}
+
+
 
 
 
@@ -176,14 +218,85 @@ Donde los signos hacen referencias a si la onda $n$-ésima es entrante o salient
 
 \subsection{Aproximación de Fase Aleatoria} % Clausura Gaussiana 
 
+Las ecuaciones de movimiento anteriores son para la evolución temporal de las amplitudes y fases de $c_{\vec k} = |c(\vec k, t)|e^{i\phi(\vec k, t)}$. En el caso en que las nolinealidades son débiles y hay una gran cantidad de modos esta evolución suele ser redundante, ya que incluye la dinámica rápida de $\phi\sim\omega t$ que deja a la evolución lenta de las amplitudes (que es constante en el caso puramente lineal, orden más bajo) virtualmente no afectada. Por esto vamos a querer pasar a una descripción estadística, donde solo trabajaremos con las funciones de correlación para $c_{\vec k}$, donde vamos a promediar en un ensamble.
+
+Vamos a asumir una "caotización" de las fases, de forma tal que aunque al inicio estuvieran correlacionadas, luego de un tiempo ya no lo estarán. Podemos pensar que esto se debe a la dispersión del medio o a que inicialmente están en un equilibrio muy inestable del cual los saca cualquier perturbación del medio. De esta forma, bajo la aproximación de fases aleatorias tenemos las correlaciones:
+
+\begin{equation}
+	\begin{split}
+		\langle c_{\vec k}\rangle &= \langle |c_{\vec k}|e^{i\phi_{\vec k}}	 \rangle = 0 \\
+		\langle c_{\vec k} c_{\pvec k'} \rangle &= \langle |c_{\vec k}||c_{\pvec k'}| e^{i(\phi_{\vec k}+\phi_{\pvec k'})} \rangle = 0 \\
+		\langle c_{\vec k} c^*_{\pvec k'} \rangle  &= \langle |c_{\vec k}||c_{\pvec k'}| e^{i(\phi_{\vec k}-\phi_{\pvec k'})} \rangle = n(\vec k) \delta(\vec k - \pvec k')
+	\end{split}
+\end{equation} 
+
+Acá definimos la acción de onda $n(\vec k) = c_{\vec k}c^*_{\vec k}$, que sería la densidad de "partículas" con número de onda $\vec k$ en la integral \eqref{eq:Wave_action_integral}.  
+
+Por último para los correlatorres de una cantidad impar siempre van a dar 0, y para los de orden 4 y 6 tenemos:
+
+\begin{equation}
+	\begin{split}
+		\langle	c_1^*c_2^*c_3c_4 \rangle & = n_1 n_2 \big[\delta_{1-3}\delta_{2-4} + \delta_{1-4}\delta_{2-3}\big] \\ 
+		\langle c_1^*c_2^*c_3^*c_4c_5c_6 \rangle &= n_1n_2n_3\big[  \delta_{1-4}\delta_{2-5}\delta_{3-6} + \delta_{1-4}\delta_{2-6}\delta_{3-5} + \delta_{1-5}\delta_{2-4}\delta_{3-6} \\ 
+		& +\delta_{1-5}\delta_{2-6}\delta_{3-4} + \delta_{1-6}\delta_{2-4}\delta_{3-5} + \delta_{1-6}\delta_{2-5}\delta_{3-6} \big] 
+	\end{split}
+\end{equation}
+
+Que básicamente las deltas dan que queden dos o tres  $n$'s. Acá es donde producimos la clausura de la jerarquía, al escribir el cuarto momento como un producto de dos segundos momentos (o tres para el sexto). En parte esta aproximación se puede hacer porque las estadísticas son cercanas a la Gaussiana para turbulencia de ondas débil que es esto. \cite{falkovichTurbulence2006} 
+
+
+
+
+
 \subsection{Ecuación Cinética} 
+Para obtener la ecuación de evolución para $n_{\vec k}$ hay que multiplicar \eqref{eq:motion_equation_three_waves} por $c^*_{\vec k}$y restarle la conjugada por $c_{\pvec k'}$, para finalmente tomar el promedio y reemplazar $\vec k=\pvec k'$:
+
+\begin{equation}
+	\begin{split}
+		\frac{\partial n_{\vec k}}{\partial t} &= \pi \int\big[|V_{k12}|^2f_{k12}\delta(\vec k - \vec k_1 - \vec k_2) \delta(\omega - \omega_1 - \omega_2) - 2 |V_{1k2}|^2 f_{1k2} \delta(\vec k_1 - \vec k - \vec k_2) \delta(\omega_1 - \omega - \omega_2) \big]  \\ 
+		f_{123} &= n_1n_2n_3\left(\frac{1}{n_1} - \frac{1}{n_2} -  \frac{1}{n_3}\right)
+	\end{split}
+\end{equation}
+
+\begin{equation}
+	\begin{split}
+		\frac{\partial n_{\vec k}}{\partial t} &= \frac{\pi}{2} \int |T_{k123}|^2 f_{k123} \delta(\vec k + \vec k_1 - \vec k_2 -\vec k_3) \delta(\omega + \omega_1 -\omega_2 - \omega_3) d\vec k_1 d\vec k_2 d\vec k_3 \\
+		f_{1234} &= n_1n_2n_3n_4\left(\frac{1}{n_1} + \frac{1}{n_2} - \frac{1}{n_3} - \frac{1}{n_4} \right)
+	\end{split}
+\end{equation}
 
 
 
-\subsection{Cantidades conservadas} 
+% \subsection{Cantidades conservadas} 
 
 
 \subsection{Balance de energía y cascadas} 
+
+Ya establecimos que la energía total se conserva, o sea:
+
+\begin{equation}
+	\frac{dE}{dt} = \int \frac{\partial E_{\vec k}}{\partial t} d\vec k =\int \omega \frac{\partial n_{\vec k}}{\partial t} d\vec k  
+\end{equation}
+
+Ahora podemos usar nuevamente la ecuación cinética nuevamente, ahora escita de la forma: $\partial_t n_{\vec k} = I_{\vec k}^N$, siendo $I_k^N$ las integrales de colisiones. Esto va a ser cierto en el rango inercial (siempre que la escala de inyección y disipación estén lo suficientemente separadas). Entonces podemos escribir una ecuación de continuidad para la energía
+
+%\begin{equation}
+%	\varepsilon \equiv \frac{\partial }{\partial t} \int n_{\vec k} \omega d\vec k 
+%\end{equation}
+
+\begin{equation}
+	\frac{\partial E(\vec k)}{\partial t} + \vec\nabla_{\vec k} \cdot \vec \varepsilon = 0  \qquad \vec\nabla_{\vec k} \cdot \vec \varepsilon \equiv - \omega(\vec k)\;I_{\vec k}^N
+	\label{eq:energy_balance}
+\end{equation}
+
+
+Donde definimos el flujo de energía $\vec \varepsilon$. O su versión 1D con la normalización de cilíndricas:
+
+\begin{equation}
+	\frac{\partial E(k)}{\partial t} + \frac{\partial \varepsilon}{\partial k} = 0
+\end{equation}
+
+Notamos que ecuaciones estacionarias de la ecuacion cinética ($\partial_tn_k = 0$) implican que las integrales de colisiones son 0, y se corrseponden con un flujo constante de energía $\varepsilon$ entre escalas. Para la relación de dispersión $\omega\sim k^{alpha}$ son los espectros de KZF, análogos a la Ley de -5/3 (c.f. \eqref{eq:Kolmogorov_5_3}) de Kolmogorov para turbulencia normal.
 
 
 
