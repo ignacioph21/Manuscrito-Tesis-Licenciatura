@@ -232,7 +232,7 @@ Es estándar a asumir para el caso de turbulencia de ondas débil una "caotizaci
 \begin{equation}
 	\begin{split}
 		\langle a_{\vec k}\rangle &= \langle |a_{\vec k}|e^{i\phi_{\vec k}}	 \rangle = 0 \\
-		\langle a_{\vec k} c_{\vec k'} \rangle &= \langle |a_{\vec k}||a_{\vec k'}| e^{i(\phi_{\vec k}+\phi_{\vec k'})} \rangle = 0 \\
+		\langle a_{\vec k} a_{\vec k'} \rangle &= \langle |a_{\vec k}||a_{\vec k'}| e^{i(\phi_{\vec k}+\phi_{\vec k'})} \rangle = 0 \\
 		\langle a_{\vec k} a^*_{\vec k'} \rangle  &= \langle |a_{\vec k}||a_{\vec k'}| e^{i(\phi_{\vec k}-\phi_{\vec k'})} \rangle = n(\vec k) \delta(\vec k - \vec k')
 	\end{split}
 \end{equation} 
@@ -245,7 +245,7 @@ Por otro lado, los correladores de una cantidad impar siempre van a dar cero, mi
 	\begin{split}
 		\langle	a_1^*a_2^*a_3a_4 \rangle & = n_1 n_2 \big[\delta_{13}\delta_{24} + \delta_{14}\delta_{23}\big] \\ 
 		\langle a_1^*a_2^*a_3^*a_4a_5a_6 \rangle &= n_1n_2n_3\big[  \delta_{14}\delta_{25}\delta_{36} + \delta_{14}\delta_{26}\delta_{35} + \delta_{15}\delta_{24}\delta_{36} \\ 
-		& +\delta_{15}\delta_{26}\delta_{34} + \delta_{16}\delta_{24}\delta_{35} + \delta_{16}\delta_{25}\delta_{36} \big] 
+		&\qquad\quad\;\;\; +\delta_{15}\delta_{26}\delta_{34} + \delta_{16}\delta_{24}\delta_{35} + \delta_{16}\delta_{25}\delta_{36} \big] 
 	\end{split}
 \end{equation}
 
@@ -256,11 +256,11 @@ Con la abreviación $\delta_{ij}\equiv\delta(\vec k_i-\vec k_j)$. Esta aproximac
 
 
 \subsection{Ecuación Cinética} 
-Para obtener la ecuación de evolución para $n_{\vec k}$, que se denomina ecuación cinética, hay que multiplicar \eqref{eq:motion_equation_three_waves} por $a^*_{\vec k}$y restarle la conjugada por $c_{\vec k'}$, para finalmente tomar el promedio y reemplazar $\vec k=\vec k'$. En el caso de tres ondas resulta:
+Para obtener la ecuación de evolución para $n_{\vec k}$, que se denomina ecuación cinética, hay que multiplicar \eqref{eq:motion_equation_three_waves} por $a^*_{\vec k}$ y restarle la conjugada por $a_{\vec k'}$, para finalmente tomar el promedio y reemplazar $\vec k=\vec k'$. En el caso de tres ondas resulta:
 
 \begin{equation}
 	\begin{split}
-		\frac{\partial n_{\vec k}}{\partial t} &= \pi \int\big[|V_{k12}|^2f_{k12}\delta(\vec k - \vec k_1 - \vec k_2) \delta(\omega - \omega_1 - \omega_2) - 2 |V_{1k2}|^2 f_{1k2} \delta(\vec k_1 - \vec k - \vec k_2) \delta(\omega_1 - \omega - \omega_2) \big]  \\ 
+		\frac{\partial n_{\vec k}}{\partial t} &= \pi \int\bigg[|V_{k12}|^2f_{k12}\delta(\vec k - \vec k_1 - \vec k_2) \delta(\omega - \omega_1 - \omega_2) - 2 |V_{1k2}|^2 f_{1k2} \delta(\vec k_1 - \vec k - \vec k_2) \delta(\omega_1 - \omega - \omega_2) \bigg]  \\ 
 		f_{123} &= n_1n_2n_3\left(\frac{1}{n_1} - \frac{1}{n_2} -  \frac{1}{n_3}\right)
 	\end{split}
 \end{equation}
@@ -280,11 +280,13 @@ En ambas queda explícito que solo dan contribuciones no nulas a la evolución d
 
 
 \subsection{Balance de energía y cascadas} 
-Como se mencionó anteriormente, la energía total se conserva, o sea: 
+Como se mencionó anteriormente, el cumplimiento de las condiciones de resonancia implica la conservación de la energía de cada proceso y, por tanto, la energía total del sistema. Esta conservación puede expresarse de la siguiente manera: 
 
 \begin{equation}
-	\frac{dE}{dt} = \int \frac{\partial E_{\vec k}}{\partial t} d\vec k =\int \omega \frac{\partial n_{\vec k}}{\partial t} d\vec k  
+	\frac{dE}{dt} = \int \frac{\partial E_{\vec k}}{\partial t} d\vec k =\int \omega_{\vec k} \frac{\partial n_{\vec k}}{\partial t} d\vec k  
 \end{equation}  
+
+Donde $E_{\vec k}=\omega_{\vec k}n_{\vec k}$ es lo que se conoce como espectro de energía. Más generalmente, la ecuación cinética tiene la propiedad de conservar cualquier magnitud $\Phi$ cuya densidad espectral pueda escribirse como $\phi_{\vec k}=\rho_{\vec k}n_{\vec k}$, siempre que se cumpla una condición de resonancia para $\rho_{\vec k}$ en simultáneo a la de frecuencia y número de onda. 
 
 Ahora podemos usar nuevamente la ecuación cinética nuevamente, ahora escita de la forma: $\partial_t n_{\vec k} = I_{\vec k}^N$, siendo $I_k^N$ las integrales de colisiones. Esto va a ser cierto en el rango inercial (siempre que la escala de inyección y disipación estén lo suficientemente separadas). Entonces podemos escribir una ecuación de continuidad para la energía
 
