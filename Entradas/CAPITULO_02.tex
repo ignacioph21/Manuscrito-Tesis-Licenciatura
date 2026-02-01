@@ -1,9 +1,12 @@
 \chapter{Marco Teórico para Turbulencia de Ondas} 
-
+Este Capítulo está dedicado al marco teórico fundamental necesario para describir los mecanismos de transferencia de energía por interacciones resonantes en turbulencia de ondas gravito-capilares. La Sección \ref{sec:ondas_fluidos} trata el problema general de ondas en superficie libre y su aproximación lineal; la Sección \ref{sec:formalismo_hamiltoniano} introduce el formalismo Hamiltoniano general para turbulencia de ondas; la Sección \ref{sec:descripción_estadística} trata con la descripción estadística del sistema y la obtención de la ecuación cinética con sus propiedades; finalmente, la Sección \ref{sec:KZF} presenta las soluciones estacionarias a dicha ecuación en el caso de ondas gravito-capilares. 
 
 
 \clearpage 
 \section{Ondas en fluidos con superficie libre} 
+\label{sec:ondas_fluidos} 
+En primer lugar será relevante hacer un resumen del problema de ondas en la superficie libre fluido en contacto con la atmósfera, y su aproximación lineal, que será la base para incorporar posteriormente los efectos no lineales de interacción entre ondas.  
+
 \subsection{El caso general} % * Las ecuaciones >    
 Para un fluido invíscido de extensión infinita y profundidad finita $h_0$ en contacto con la atmósfera puede escribirse la velocidad en un determinado punto, $\vec u$, en términos del potencial velocidad, $\phi$, siempre que el flujo sea irrotacional ($\vec\nabla\times\vec u=0$) 
 
@@ -114,6 +117,7 @@ Esta transformación resulta canónica, de forma que las ecuaciones de Hamilton 
 
 
 \section{Formalismo Hamiltoniano para Turbulencia de Ondas} 
+\label{sec:formalismo_hamiltoniano} 
 El desarrollo del formalismo que se detalla a continuación es completamente general, válido para una amplia variedad de sistemas no lineales, partiendo desde la suposición de que es posible escribir las ecuaciones de movimiento para sus variables naturales en términos de ecuaciones Hamiltonianas canónicas, para algún par de variables canónicas $a(\vec k, t)$ y $a^*(\vec k, t)$, como ya se mostró que es posible para las ondas de superficie libre. 
 
 Para simplificar la notación se abreviará la dependencia en $\vec k$ de una función como $f_{\vec k}\equiv f(\vec k)$. 
@@ -225,6 +229,7 @@ Que son procesos del tipo $2\rightarrow2$. Aquí se asumió nuevamente que no ha
 
 
 \section{Descripción Estadística de Turbulencia de Ondas} 
+\label{sec:descripción_estadística} 
 Las ecuaciones de movimiento encontradas son para la evolución temporal de las amplitudes y fases de $a_{\vec k} = |a(\vec k, t)|e^{i\phi(\vec k, t)}$. En el caso en que las no linealidades sean débiles, y haya una gran cantidad de modos, esta evolución suele ser redundante, ya que incluye la dinámica rápida de la fase $\phi\sim\omega t$ que deja a la evolución lenta de las amplitudes (que es constante al orden más bajo) virtualmente no afectada. Por esto, será conveniente pasar a una descripción estadística, donde solo serán relevantes las funciones de correlación para $a_{\vec k}$, promediando en un ensamble\footnote{Aquí se consideran solo sistemas ergódicos, de forma tal que será equivalente a promediar en tiempos más largos que la evolución de la fase}. 
 
 
@@ -304,6 +309,7 @@ Es inmediato ver de esta forma de la ecuación cinética que, soluciones estacio
 
 
 \section{Soluciones Estacionarias Exactas} 
+\label{sec:KZF} % HA ah .h 
 Será de particular interés estudiar las soluciones estacionarias de la ecuación cinética, para los cuales se encuentran afianzada la cascada de energía, dando lo que se conoce como espectros de Kolmogorov-Zakharov-Filonenko (KZF). Aquí se considerarán solo soluciones isótropas y homogéneas, en las cuales el flujo de energía es igual en todas las direcciones, con lo cual bastará el espectro de energía unidimensional, dado por $E(k)=2\pi E(\vec k)$ en el caso 2D como para turbulencia de ondas gravito-capilares. 
 
 \subsection*{Ondas gravitocapilares} 

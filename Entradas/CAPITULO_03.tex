@@ -1,6 +1,8 @@
 \chapter{Sensor capacitivo} % REVISADO 1 (faltan gráficos)
 \thispagestyle{plain} 
 
+Este Capítulo está dedicado al modelado, diseño, construcción y caracterización del sensor capacitivo puntual que será utilizado en las experiencias de turbulencia de ondas. La hoja de ruta que fue utilizada para poder llevar a cabo el desarrollo del sensor se presenta en la Figura \ref{fig:timelinev2} y será la misma estructura que tendrá el Capítulo. % ´
+
 
 \begin{figure}[th!]
 	\centering
@@ -9,10 +11,13 @@
 	\label{fig:timelinev2}
 \end{figure}
 
+En la Sección \ref{sec:principio_funcionamiento} se presenta el modelado teórico del sensor y su principio de funcionamiento; en la Sección \ref{sec:circuito_numérico} la solución numérica de la electrónica asociada al sensor y la exploración del espacio de parámetros posibles para su construcción; en la Sección \ref{sec:circuito_protoboard} se construye un circuito esquemático equivalente para verificar que el comportamiento real se corresponda con los resultados numéricos; una vez verificado que el comportamiento del circuito equivalente sea el esperado se pasó a la construcción de un prototipo del sensor, que se presenta en la Sección \ref{sec:prototipado}; en la Sección \ref{sec:lock-in_digital} se explica el armado de un amplificador lock-in digital mediante la utilización de una placa de adquisición que permitirá tomar las mediciones; en la Sección \ref{sec:prueba_calibración} se caracteriza el sensor ya completado y; finalmente en la Sección \ref{sec:especificaciones_ténicas} se resumen las especificaciones finales que terminó teniendo el sensor construído. % á . 
+
 
 \clearpage 
 
 \section{Principio de funcionamiento} 
+\label{sec:principio_funcionamiento} 
 En esta primera Sección se desarrollarán los fundamentos teóricos en los que se basa el funcionamiento del sensor capacitivo construído durante la Tesis, haciendo hincapie en las distintas hipótesis que deben cumplirse para que su respuesta sea lineal. En primer lugar se modela la sonda, componente  que irá sumergida y estará en contacto con el fluido, siguiendo por el circuito al cual se conecta, y terminando con la técnica de demodulación homodina, que una vez implementada permitirá realizar la medición propiamente dicha. % será la que  lugar  empezando por la rá 
 
 
@@ -184,6 +189,7 @@ Por lo general, se utiliza un amplificador lock-in para llevar a cabo esta técn
 
 
 \section{Resolución numérica del circuito} 
+\label{sec:circuito_numérico} 
 Antes de iniciar con la construcción del sensor en el laboratorio, se empezó caracterizando numéricamente el comportamiento del circuito descripto en las Secciones anteriores, esto es, la resolución de la ecuación \eqref{eq:circuit_eq}. El objetivo de este paso preliminar fue, por una parte verificar que la solución hallada bajo las distintas aproximaciones funcionase correctamente, pero además, poder probar distintas combinaciones de parámetros y determinar qué efectos tendrían éstas sobre el funcionamiento del sensor. A continuación se mencionan brevemente algunas de las conclusiones más relevantes que se pudieron observar. % la ecuación ss resolviendo para  ver s ba 
 
 \begin{figure}[th!]
@@ -232,6 +238,7 @@ Aunque ninguno de estos efectos adversos se llegaron a observar en la práctica.
 
 
 \section{Prueba de un circuito equivalente} 
+\label{sec:circuito_protoboard} 
 Siguiendo con el enfoque constructivo, el siguiente paso fue realizar una prueba conceptual del circuito. Para esto se armó un circuito RLC serie, a cuya capacitancia se le fue conectando en paralelo capacitancias menores de distintos valores, y midiendo en cada caso la diferencia de fase respecto de la señal de referencia. 
 
 La medición de la diferencia de fase se llevó a cabo mediante un osciloscopio en este caso ya que todavía no se había puesto en práctica la técnica de demodulación homodina. 
@@ -260,6 +267,7 @@ De esta forma, se verifica el comportamiento predicho para el circuito en el cas
 
 
 \section{Diseño y prototipado del sensor} %  y prueba  P 
+\label{sec:prototipado}  
 Ya habiendo terminado con la fase más exploratoria y las pruebas preliminares descriptas en las Secciones anteriores, se pasó al diseño y prototipado del sensor, al cual corresponde esta Sección, que implica el armado de la sonda y del circuito para la medición de la fase. La puesta en marcha de la técnica de demodulación homodina para llevar a cabo esta medición será descripta en la Sección siguiente debido a la complejidad que terminó requiriendo. % , junto a l s  ya que tuvo su 
 
 \subsection*{La sonda} 
@@ -323,6 +331,7 @@ Las frecuencias de resonancia típicas con las que se trabajó fueron del orden 
 
 
 \section{Placa de adquisición y Lock-in digital} 
+\label{sec:lock-in_digital}  
 Las primeras pruebas de funcionamiento del sensor se llevaron a cabo utilizando un amplificador lock-in SR-830, lo cual permitió verificar que el comportamiento era el esperado. Sin embargo, se abandonó el uso de este lock-in antes de seguir con la caracterización, ya que éste presentaba dos factores que complicarían su aplicación en el largo plazo. En primer lugar son equipos grandes de difícil movilidad, pero lo principal es que cuentan con un solo canal de medición, con lo cual no es escalable para múltiples sensores, que sería la idea poder usar en el laboratorio eventualmente. 
 
 % Por un lado, los dos amplificadores disponibles para préstamo en los laboratorios de enseñanza no pueden ser usados a voluntad, ya que depende de los horarios de clases en cada momento. 
@@ -401,6 +410,7 @@ El código para este lock-in digital se encuentra disponible en \cite{Hernando_D
 
 
 \section{Prueba final y calibración} 
+\label{sec:prueba_calibración} 
 Teniendo ya construído el sensor, y puesta en marcha la técnica para la medición de la fase, se llevó a cabo la caracterización final y calibración del mismo, siendo este el paso final antes de utilizarlo en experiencias de turbulencia de ondas. 
 
 El procedimiento para la calibración consistió en realizar movimientos controlados y conocidos de la superficie libre midiendo simultáneamente con el sensor (que se encontraba en una posición estática). De esta forma es posible comparar la altura medida con la real y estudiar si la respuesta es lineal y cuáles serían los parámetros de calibración del sensor.  
@@ -493,7 +503,7 @@ En la Figura \ref{fig:espectro_ruido} se puede apreciar la densidad espectral de
 Se puede ver que es prácticamente uniforme, y lo único importante a resaltar de aquí es que hay picos importantes en los múltiplos enteros de 50 Hz, que se atribuyen a ruido eléctrico de la corriente de línea (ya que aparecen incluso con la sonda desconectada del circuito). Por este motivo se eliminarán estos picos (que abarcan menos de 1 Hz) en el postprocesado de las señales mediadas de aquí en adelante. 
 
 \section{Especificaciones finales} % sub 77 
-
+\label{sec:especificaciones_ténicas}  
 El sensor construído es sencillo y de muy bajo costo, ya que se compone principalmente por un alambre de cobre esmaltado y otros componentes de fácil acceso. La única componente costosa para su utilización es la placa de adquisición (aunque ya de por sí es una alternativa mucho más económica que el amplificador Lock-in), pero para la cual según sea lo que se desea medir podrían buscarse alternativas en placas de desarrollo (por ejemplo FPGA o Teensy). % a 
 
 De la Sección anterior se vio que el sensor puede llegar a resolver de base amplitudes de hasta aproximadamente 0.1 mm, aunque probablemente realizando una calibración más cuidadosa el error real sea menos.  
