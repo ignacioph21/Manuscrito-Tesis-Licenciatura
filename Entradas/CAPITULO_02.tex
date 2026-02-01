@@ -295,6 +295,7 @@ A partir de la segunda igualdad de la ecuación \eqref{eq:energy_conservation} e
 
 \begin{equation}
 	\frac{\partial E_{\vec k}}{\partial t} + \vec\nabla_{\vec k}\cdot\vec\varepsilon=0 
+	\label{eq:energy_balance} 
 \end{equation}
 
 Al definir el flujo de energía $\vec \varepsilon$ tal que $\vec\nabla_{\vec k}\cdot\vec\varepsilon=-\omega_{\vec k}I_{\vec k}^N$. Esto va a ser cierto en el denominado rango inercial, siempre que la escala de inyección y disipación estén lo suficientemente separadas, ya que de otra forma, habría que incluir dichas contribuciones a la ecuación cinética. 
@@ -334,19 +335,24 @@ En los desarrollos de la literatura, e igual que se hizo aquí, se suele trabaja
 
 
 \subsection{Espectros de Kolmogorov-Zakharov-Filonenko} 
-Para ondas de gravedad la relación de dispersión es $\omega\sim k^{1/2}$ y las interacciones 
+Los espectros KZF corresponden a soluciones estacionarias cuyos espectros de energía siguen leyes de potencias, de la forma $E_k\sim k^{s}$. Para ondas gravito-capilares se deben buscar soluciones por separado en cada régimen, ya que el mínimo número de ondas interactuantes en cada caso es diferente. 
+
+Para ondas de gravedad \cite{zakharovEnergySpectrumStochastic1967} % la relación de dispersión es $\omega\sim k^{1/2}$ y las interacciones 
 
 \begin{equation}
-	E_k^g \sim P^{1/3} g^{1/2} k^{-5/2} \qquad S_k^g \sim P^{1/3} g^{-1/2} k^{-5/2} \qquad S_\omega^g  \sim P^{1/3} g \omega^{-4}
+	E_k^g \sim \varepsilon^{1/3} g^{1/2} k^{-5/2} \qquad S_k^g \sim \varepsilon^{1/3} g^{-1/2} k^{-5/2} \qquad S_\omega^g  \sim \varepsilon^{1/3} g \omega^{-4}
 \end{equation}  
 
+Y para el capilar \cite{zakharovWeakTurbulenceCapillary1971}
 
 \begin{equation}
-	E_k^s \sim P^{1/2} \left(\frac{\sigma}{\rho}\right)^{1/4} k^{-7/4} \qquad S_k^s \sim P^{1/2} \left(\frac{\sigma}{\rho}\right)^{-3/4} k^{-15/4} \qquad S_\omega^s  \sim P^{1/2} \left(\frac{\sigma}{\rho}\right)^{1/6} \omega^{-17/6}
+	E_k^s \sim \varepsilon^{1/2} \left(\frac{\sigma}{\rho}\right)^{1/4} k^{-7/4} \qquad S_k^s \sim \varepsilon^{1/2} \left(\frac{\sigma}{\rho}\right)^{-3/4} k^{-15/4} \qquad S_\omega^s  \sim \varepsilon^{1/2} \left(\frac{\sigma}{\rho}\right)^{1/6} \omega^{-17/6}
 \end{equation}   
 
+En ambos casos existe otra solución posible, correspondiente al caso en que $n(\omega)\sim \omega^{-1}$, que es la denominada distribución de Rayleigh-Jeans para equilibrio termodinámico en el caso lineal, que se debe a una equipartición de la energía entre los modos y no genera una cascada de energía de este tipo.  % una que se corresponde a 
+
 \subsection*{Deducción dimensional} 
-Para que sea única dijimos que hay que asumir cómo escala el espectro de energía respecto a la cantidad de ondas interactuantes. Esto surge del balance de energía \eqref{eq:energy_balance}:
+Es posible llegar a las mismas leyes de potencias mediante análisis dimensional, suponiendo que en el rango inercial el espectro de energía sólo puede depender del flujo $\varepsilon$, la escala $k$ y el parámetro dimensional $\gamma$ adecuado según el régimen, $\gamma=g$ para gravedad y $\gamma=\sigma/\rho$ para el capilar. Para que el resultado sea único se debe fijar el exponente del flujo de energía, que dependerá del mínimo número de ondas resonantes. Esto surge del balance de energía \eqref{eq:energy_balance}: 
 
 \begin{equation}
 	\varepsilon \sim \frac{\partial E_k}{\partial t} dk \sim \omega \frac{\partial n_k}{\partial t} dk \sim I_k^N \sim n_k^{N-1}
@@ -358,6 +364,7 @@ Por la ecuación cinética. Por lo tanto: \cite{deikeEtudesExperimentalesNumeriq
 	E_k \sim n_k \sim \varepsilon^{1/(N-1)}
 \end{equation}
 
+Y ya a partir de aquí resulta sencillo hallar los exponentes restantes pidiendo $E_k\sim\varepsilon^{1/(N-1)}\gamma^{\beta}k^{s}$. 
 
 
 
