@@ -82,7 +82,8 @@ Se define la frecuencia de cruce como la aquella en la cual ambos términos se v
 Es sabido que en el caso general la energía del fluido puede calcularse mediante la siguiente expresión: 
 
 \begin{equation}
-	E = \int d\vec r \left\{\int_{-h_0}^{\eta}  \frac{1}{2}|\vec\nabla\phi|^2dz + \frac{1}{2}g\eta^2+\frac{\sigma}{\rho}\left(\sqrt{1+|\vec\nabla\phi|^2}-1\right)\right\}
+	E = \int d\vec r \left\{\int_{-h_0}^{\eta}  \frac{1}{2}|\vec\nabla\phi|^2dz + \frac{1}{2}g\eta^2+\frac{\sigma}{\rho}\left(\sqrt{1+|\vec\nabla\phi|^2}-1\right)\right\} 
+	\label{eq:gravity-capillary_energy} % y 
 \end{equation} 
  
 Donde el primer término corresponde a la energía cinética del fluido, el segundo a la energía potencial gravitatoria, y el tercero a la energía capilar generada por la deformación de la superficie. 
@@ -304,23 +305,64 @@ Es inmediato ver de esta forma de la ecuación cinética que, soluciones estacio
 \section{Soluciones Estacionarias Exactas} 
 Será de particular interés estudiar las soluciones estacionarias de la ecuación cinética, para los cuales se encuentran afianzada la cascada de energía, dando lo que se conoce como espectros de Kolmogorov-Zakharov-Filonenko (KZF). Aquí se considerarán solo soluciones isótropas y homogéneas, en las cuales el flujo de energía es igual en todas las direcciones, con lo cual bastará el espectro de energía unidimensional, dado por $E(k)=2\pi E(\vec k)$ en el caso 2D como para turbulencia de ondas gravito-capilares. 
 
-En general, e igual que se hizo con el desarrollo teórico hasta ahora, las predicciones para los  espectros de energía suelen venir expresadas en términos del número de onda $k$, sin embargo, en el ámbito experimental suele ser más accesible el espacio de frecuencias en muchos casos, con lo cual será relevante transformar las predicciones haciendo uso de $E(k)dk=E(\omega)d\omega$ y la relación de dispersión. % este tipo de soluciones s en el espacio de s 
+\subsection*{Ondas gravitocapilares} 
+Para las ondas gravito-capilares la energía viene dada por la ecuación \eqref{eq:gravity-capillary_energy}, donde se asumirá un balance entre la energía potencial y cinética, a modo de una equipartición, siendo suficiente entonces con calcular los espectros para la energía potencial (que dependen solo de la altura $\eta$ y no de la velocidad) y multiplicarla por un factor 2 para obtener la total \cite{kunduFluidMechanics2014, deikeEtudesExperimentalesNumeriques2013}.  Escritas en términos del número de onda la energía potencial gravitatoria y capilar (a primer orden) pueden escribirse:  
 
-
-
-
-\subsection{Espectros de Kolmogorov-Zakharov-Filonenko} 
-
-
-
-
-
-
+\begin{equation}
+	E_p^g = \frac{g}{2} \int|\eta_{\vec k}|^2d\vec k; \qquad E_p^s=\frac{\sigma}{2\rho }\int k^2|\eta_{\vec k}|^2 d\vec k 
+	\label{eq:potential_energies}
+\end{equation} 
 
 
 
 
 \subsection{Densidad espectral de potencias} 
+Es estándar además en los estudios experimentales de turbulencia de ondas trabajar con la densidad espectral de potencias (PSD) en lugar de con el espectro de energía, que se define como 
+
+\begin{equation}
+	S_{\eta}(k)=\frac{1}{L^2}|\eta_{k}|^2;\qquad S_\eta(\omega)=\frac{1}{T}|\eta_{\omega}^2|
+\end{equation} 
+
+Que resultarán proporcionales a los espectros, pero pueden ser calculados directamente a partir de mediciones para la altura $\eta$. Entonces, 
+
+\begin{equation}
+	E^g(k) = \frac{g}{2} S_\eta(k); \qquad E^s(k) = \frac{\sigma}{2\rho }k^2S_\eta(k) 
+\end{equation}
+
+En los desarrollos de la literatura, e igual que se hizo aquí, se suele trabajar en términos del número de onda $k$, sin embargo, en el ámbito experimental suele ser más accesible el espacio de frecuencias en muchos casos, con lo cual será relevante transformar las predicciones haciendo uso de $E(k)dk=E(\omega)d\omega$ y la relación de dispersión. De igual manera se puede convertir entre PSDs usandos que $S(\omega)d\omega=S(k)dk$.  % este tipo de soluciones s en el espacio de s 
+
+
+
+\subsection{Espectros de Kolmogorov-Zakharov-Filonenko} 
+Para ondas de gravedad la relación de dispersión es $\omega\sim k^{1/2}$ y las interacciones 
+
+\begin{equation}
+	E_k^g \sim P^{1/3} g^{1/2} k^{-5/2} \qquad S_k^g \sim P^{1/3} g^{-1/2} k^{-5/2} \qquad S_\omega^g  \sim P^{1/3} g \omega^{-4}
+\end{equation}  
+
+
+\begin{equation}
+	E_k^s \sim P^{1/2} \left(\frac{\sigma}{\rho}\right)^{1/4} k^{-7/4} \qquad S_k^s \sim P^{1/2} \left(\frac{\sigma}{\rho}\right)^{-3/4} k^{-15/4} \qquad S_\omega^s  \sim P^{1/2} \left(\frac{\sigma}{\rho}\right)^{1/6} \omega^{-17/6}
+\end{equation}   
+
+\subsection*{Deducción dimensional} 
+Para que sea única dijimos que hay que asumir cómo escala el espectro de energía respecto a la cantidad de ondas interactuantes. Esto surge del balance de energía \eqref{eq:energy_balance}:
+
+\begin{equation}
+	\varepsilon \sim \frac{\partial E_k}{\partial t} dk \sim \omega \frac{\partial n_k}{\partial t} dk \sim I_k^N \sim n_k^{N-1}
+\end{equation}
+
+Por la ecuación cinética. Por lo tanto: \cite{deikeEtudesExperimentalesNumeriques2013}
+
+\begin{equation}
+	E_k \sim n_k \sim \varepsilon^{1/(N-1)}
+\end{equation}
+
+
+
+
+
+
 
 
 
