@@ -128,6 +128,7 @@ Donde el subíndice hace referencia al orden en $a$ de cada término. Es importa
 
 \begin{equation}
 	\mathcal{H}_2 = \int \omega(\vec k) a_{\vec k}a^*_{\vec k} d\vec k 
+	\label{eq:quadratic_term} 
 \end{equation} 
 
 Los términos más altos en el desarrollo incorporarán efectos de interacción entre los modos, representando $\mathcal{H}_3$ interacción de a tres ondas, $\mathcal{H}_4$ de a cuatro ondas y así sucesivamente, motivo por el cual se los agrupa como un Hamiltoniano de interacción $\mathcal{H}_{\text{int}}$. Por ejemplo, en el caso más general $\mathcal{H}_3$ tendrá la forma: 
@@ -276,49 +277,40 @@ Habiendo sido posible llegar a esta expresión gracias a la estadística Gaussia
 
 En ambas queda explícito que solo dan contribuciones no nulas a la evolución de $n_{\vec k}$ aquellos conjuntos que satisfacen simultáneamente las condiciones de resonancia. 
 
-% \subsection{Cantidades conservadas} 
+\subsection{Cantidades conservadas} % 
 
-
-\subsection{Balance de energía y cascadas} 
-Como se mencionó anteriormente, el cumplimiento de las condiciones de resonancia implica la conservación de la energía de cada proceso y, por tanto, la energía total del sistema. Esta conservación puede expresarse de la siguiente manera: 
+En turbulencia de ondas débil se tiene $\mathcal{H}_2\gg\mathcal{H}_{int}$, con lo cual la contribución principal a la energía del sistema vendrá dada por el término cuadrático, dada por \eqref{eq:quadratic_term}. El cumplimiento de las condiciones de resonancia implica la conservación de 
+esta energía en cada proceso y, por tanto, la energía total del sistema: 
 
 \begin{equation}
-	\frac{dE}{dt} = \int \frac{\partial E_{\vec k}}{\partial t} d\vec k =\int \omega_{\vec k} \frac{\partial n_{\vec k}}{\partial t} d\vec k  
+	\frac{dE}{dt} = \int \frac{\partial E_{\vec k}}{\partial t} d\vec k =\int \omega_{\vec k} \frac{\partial n_{\vec k}}{\partial t} d\vec k=0  
+	\label{eq:energy_conservation}  
 \end{equation}  
 
-Donde $E_{\vec k}=\omega_{\vec k}n_{\vec k}$ es lo que se conoce como espectro de energía. Más generalmente, la ecuación cinética tiene la propiedad de conservar cualquier magnitud $\Phi$ cuya densidad espectral pueda escribirse como $\phi_{\vec k}=\rho_{\vec k}n_{\vec k}$, siempre que se cumpla una condición de resonancia para $\rho_{\vec k}$ en simultáneo a la de frecuencia y número de onda. 
+Donde $E_{\vec k}=\omega_{\vec k}n_{\vec k}$ es lo que se conoce como espectro de energía. Más generalmente, la ecuación cinética tiene la propiedad de conservar cualquier magnitud $\Phi$ cuyo espectro pueda escribirse como $\Phi_{\vec k}=\rho_{\vec k}n_{\vec k}$, siempre que se cumpla una condición de resonancia para $\rho_{\vec k}$ en simultáneo a la de frecuencia y número de onda, que por ejemplo, para el caso de triadas sería $\rho_1=\rho_2+\rho_3$. El caso particular de la energía se obtiene tomando $\rho_{\vec k}=\omega_{k}$, el de momento para $\rho_{\vec k}=\vec k$, y el de la acción de onda para $\rho_{k}=1$. 
 
-Ahora podemos usar nuevamente la ecuación cinética nuevamente, ahora escita de la forma: $\partial_t n_{\vec k} = I_{\vec k}^N$, siendo $I_k^N$ las integrales de colisiones. Esto va a ser cierto en el rango inercial (siempre que la escala de inyección y disipación estén lo suficientemente separadas). Entonces podemos escribir una ecuación de continuidad para la energía
-
-%\begin{equation}
-%	\varepsilon \equiv \frac{\partial }{\partial t} \int n_{\vec k} \omega d\vec k 
-%\end{equation}
+\subsection{Balance de energía y cascadas} 
+A partir de la segunda igualdad de la ecuación \eqref{eq:energy_conservation} es posible reescribir la ecuación cinética, $\partial_t n_{\vec k} = I_{\vec k}^N$ con $I_k^N$ las integrales de colisiones, en forma de una ecuación de continuidad para el espectro de energía, de la forma: 
 
 \begin{equation}
-	\frac{\partial E(\vec k)}{\partial t} + \vec\nabla_{\vec k} \cdot \vec \varepsilon = 0  \qquad \vec\nabla_{\vec k} \cdot \vec \varepsilon \equiv - \omega(\vec k)\;I_{\vec k}^N
-	\label{eq:energy_balance}
+	\frac{\partial E_{\vec k}}{\partial t} + \vec\nabla_{\vec k}\cdot\vec\varepsilon=0 
 \end{equation}
 
+Al definir el flujo de energía $\vec \varepsilon$ tal que $\vec\nabla_{\vec k}\cdot\vec\varepsilon=-\omega_{\vec k}I_{\vec k}^N$. Esto va a ser cierto en el denominado rango inercial, siempre que la escala de inyección y disipación estén lo suficientemente separadas, ya que de otra forma, habría que incluir dichas contribuciones a la ecuación cinética. 
 
-Donde definimos el flujo de energía $\vec \varepsilon$. O su versión 1D con la normalización de cilíndricas:
-
-\begin{equation}
-	\frac{\partial E(k)}{\partial t} + \frac{\partial \varepsilon}{\partial k} = 0
-\end{equation}
-
-Notamos que ecuaciones estacionarias de la ecuacion cinética ($\partial_tn_k = 0$) implican que las integrales de colisiones son 0, y se corrseponden con un flujo constante de energía $\varepsilon$ entre escalas. Para la relación de dispersión $\omega\sim k^{alpha}$ son los espectros de KZF, análogos a la Ley de -5/3 (c.f. \eqref{eq:Kolmogorov_5_3}) de Kolmogorov para turbulencia normal.
-
-
-
-
-
-
-
+Es inmediato ver de esta forma de la ecuación cinética que, soluciones estacionarias, donde las integrales de colisiones son cero, se corresponderán con un flujo constante de energía $\varepsilon$ entre escalas. Por este motivo, a este tipo de soluciones, se le conoce como cascadas de energía. Para las relaciones de dispersión $\omega\sim k^{\alpha}$ estos espectros, para los cuales se entrará en detalle en la próxima Sección, resultarán completamente análogos a la Ley de -5/3 de Kolmogorov para turbulencia hidrodinámica.
 
 
 \section{Soluciones Estacionarias Exactas} 
 
 \subsection{Espectros de Kolmogorov-Zakharov-Filonenko} 
+
+
+
+
+
+
+
 
 
 
