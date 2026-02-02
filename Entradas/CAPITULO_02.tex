@@ -5,7 +5,7 @@ Este Capítulo está dedicado al marco teórico fundamental necesario para descr
 \clearpage 
 \section{Ondas en fluidos con superficie libre} 
 \label{sec:ondas_fluidos} 
-En primer lugar será relevante hacer un resumen del problema de ondas en la superficie libre fluido en contacto con la atmósfera, y su aproximación lineal, que será la base para incorporar posteriormente los efectos no lineales de interacción entre ondas.  
+En primer lugar, será relevante hacer un resumen del problema de ondas en la superficie libre de un fluido en contacto con la atmósfera, y su aproximación lineal, que será la base para incorporar posteriormente los efectos no lineales de interacción entre las ondas.  
 
 \subsection{El caso general} % * Las ecuaciones >    
 Para un fluido invíscido de extensión infinita y profundidad finita $h_0$ en contacto con la atmósfera puede escribirse la velocidad en un determinado punto, $\vec u$, en términos del potencial velocidad, $\phi$, siempre que el flujo sea irrotacional ($\vec\nabla\times\vec u=0$) 
@@ -67,9 +67,10 @@ En la aproximación lineal resulta relativamente sencillo encontrar la relación
 
 \begin{equation}
 	\omega^2 = \left(gk + \frac{\sigma}{\rho}k^3\right) \tanh{(kh_0)} 
+	\label{eq:dispersion_relation} 
 \end{equation}
 
-Además, se considerará en geneal la aproximación de profundidad infinita, que implica $kh_0\gg1$, de forma tal que puede tomarse $\tanh(kh_0)\approx1$. Esto tiene como consecuencia que la relación quede escrita en términos de dos contribuciones, como puede verse en la Figura \ref{fig:escalalogdispersion}: la gravitatoria dominante en escalas grandes con $\omega\sim k^{1/2}$, y la capilar dominante a escalas chicas con $\omega\sim k^{3/2}$. 
+Además, se considerará en geneal la aproximación de profundidad infinita, que implica $kh_0\gg1$, de forma tal que puede tomarse $\tanh(kh_0)\approx1$. Esto tiene como consecuencia que la relación de dispersión quede escrita en término de dos contribuciones, como puede verse en la Figura \ref{fig:escalalogdispersion}: la gravitatoria dominante en escalas grandes con $\omega\sim k^{1/2}$, y la capilar dominante a escalas chicas con $\omega\sim k^{3/2}$. % s 
 
 
 \begin{figure}[th!]
@@ -79,7 +80,7 @@ Además, se considerará en geneal la aproximación de profundidad infinita, que
 	\label{fig:escalalogdispersion}
 \end{figure}
  
-Se define la frecuencia de cruce como la aquella en la cual ambos términos se vuelven del mismo orden, o sea, $\omega_c$ tal que $gk_c\sim\sigma k_c^3/\rho$. Para el caso particular del agua resulta en $f_c=\omega_c/(2\pi)=13.54$ Hz. % ^ frecuencia 1 
+Se define la frecuencia de cruce como aquella en la cual ambos términos a la derecha de \eqref{eq:dispersion_relation} se vuelven del mismo orden, o sea, $\omega_c$ tal que $gk_c\sim\sigma k_c^3/\rho$. Para el caso particular del agua resulta en $f_c=\omega_c/(2\pi)=13.54$ Hz. % ^ frecuencia 1 la  
 
 \subsection{Formulación Hamiltoniana equivalente} % * 
 Es sabido que en el caso general la energía del fluido puede calcularse mediante la siguiente expresión: 
@@ -129,7 +130,7 @@ La idea general para incorporar las no linealidades en el sistema de interés se
 	\mathcal{H} = \mathcal{H}_2 + \mathcal{H}_3 + \mathcal{H}_4 + \cdots \equiv \mathcal{H}_2 + \mathcal{H}_{int} 
 \end{equation}
 
-Donde el subíndice hace referencia al orden en $a$ de cada término. Es importante notar que $\mathcal{H}_0$ puede eliminarse ya que dará una constante, que no importará al escribir las ecuaciones de movimiento, y de igual manera $\mathcal{H_1}$ se toma nulo ya que se considera al sistema en equilibrio cuando $a=a^*=0$. El primer término no nulo del desarrollo resulta entonces en $\mathcal{H}_2$, que se corresponde a la parte lineal del sistema, y siempre puede escribirse a menos de una transformación canónica como: 
+Donde el subíndice hace referencia al orden en $a$ de cada término. Es importante notar que $\mathcal{H}_0$ puede eliminarse ya que dará una constante, que no importará al escribir las ecuaciones de movimiento, y de igual manera $\mathcal{H}_1$ se toma nulo ya que se considera al sistema en equilibrio cuando $a=a^*=0$. El primer término no nulo del desarrollo resulta entonces en $\mathcal{H}_2$, que se corresponde a la parte lineal del sistema, y siempre puede escribirse a menos de una transformación canónica como: 
 
 \begin{equation}
 	\mathcal{H}_2 = \int \omega(\vec k) a_{\vec k}a^*_{\vec k} d\vec k 
@@ -145,7 +146,7 @@ Los términos más altos en el desarrollo incorporarán efectos de interacción 
 \end{equation} 
 
 
-Donde se utilizó la notación reducida $a_{\vec k_1}\equiv a_1$. El primer término corresponde a procesos del tipo $1\rightarrow2$ o $2\rightarrow1$, mientras que el segundo describe la aniquilación $3\rightarrow0$ o creación espontánea de tres ondas $0\rightarrow0$, cada cual determinado por las amplitudes $V_{123}$ y $U_{123}$. El siguiente término en el desarrollo será para interacciones de cuatro ondas, de la forma % e 
+Donde se utilizó la notación reducida $a_{\vec k_1}\equiv a_1$. El primer término corresponde a procesos del tipo $1\rightarrow2$ o $2\rightarrow1$, mientras que el segundo describe la aniquilación $3\rightarrow0$ o creación espontánea de tres ondas $0\rightarrow3$, cada cual determinado por las amplitudes $V_{123}$ y $U_{123}$. El siguiente término en el desarrollo será para interacciones de cuatro ondas, de la forma % e 0 1 
 
 \begin{equation} 
 	\begin{split}
@@ -155,7 +156,7 @@ Donde se utilizó la notación reducida $a_{\vec k_1}\equiv a_1$. El primer tér
 	\end{split}	
 \end{equation} 
 
-Representando ahora procesos del tipo $2\rightarrow2$ para el primer término, $1\rightarrow3$ y $3\rightarrow1$ para el segundo, $4\rightarrow0$ y $0\rightarrow4$ para el tercero.
+Representando ahora procesos del tipo $2\rightarrow2$ para el primer término, $1\rightarrow3$ y $3\rightarrow1$ para el segundo, y $4\rightarrow0$ y $0\rightarrow4$ para el tercero.
 
 
 \subsection{Condiciones de Resonancia} % TY 
@@ -182,7 +183,7 @@ Es posible mostrar que para relaciones de la forma $\omega\sim k^{\alpha}$ la co
 \end{figure}
 
 
-Para las ondas en superficie libre el rango de gravedad tiene $\alpha=1/2$, con lo cual las interacciones resonantes de tres ondas no estarán permitidas (sino serían ondas con energía negativa), ver Figura \ref{fig:condiciones de resonancia}a, y serán los cuartetos los primeros que satisfagan las condiciones de resonancia simultáneamente, mientras que en el rango capilar, con $\alpha=3/2$, siempre habrá triadas resonantes, ver Figura \ref{fig:condiciones de resonancia}b. En el caso particular en que todas las ondas sean colineales (reduciendo el problema efectivamente a 1D, aunque la energía sí seguirá distribuída en 2D) la mínima cantidad de ondas interactuantes resulta ser $N=5$. \cite{nazarenkoWaveTurbulence2011} % a , 
+Para las ondas en superficie libre el rango de gravedad tiene $\alpha=1/2$, con lo cual las interacciones resonantes de tres ondas no estarán permitidas (sino serían ondas con energía negativa), ver Figura \ref{fig:condiciones de resonancia}a, y serán los cuartetos los primeros que satisfagan las condiciones de resonancia simultáneamente, mientras que en el rango capilar, con $\alpha=3/2$, siempre habrá triadas resonantes, ver Figura \ref{fig:condiciones de resonancia}b. En el caso particular en que todas las ondas sean colineales (reduciendo el problema efectivamente a 1D, aunque la energía sí seguirá distribuída en 2D) la mínima cantidad de ondas interactuantes resultará ser $N=5$. \cite{nazarenkoWaveTurbulence2011} % a ,  ty . 
 
 
 
@@ -193,10 +194,10 @@ Para el caso lineal, donde $\mathcal{H}=\mathcal{H}_2$ la ecuación de movimient
 	\frac{\partial a_{\vec{k}}}{\partial t}=-i\omega a_{\vec{k}} \qquad \Rightarrow{} \qquad a_{\vec{k}}=a(\vec k, 0)e^{-i\omega t}
 \end{equation}
 
-De modo tal que las soluciones posibles serán ondas propagantes sin más. Al incorporar los términos resonantes aparecerán integrales de colisiones del lado derecho, que darán cuenta de las interacciones no lineales entre las ondas: 
+De modo tal que las soluciones posibles serán ondas propagantes sin más. Al incorporar los términos resonantes aparecerán integrales del lado derecho, que darán cuenta de las interacciones no lineales entre las ondas: 
 
 \begin{equation}
-	i\frac{\partial a_{\vec k}}{\partial t}-\omega_{\vec k}ca_{\vec k} = \frac{\delta H_{\text{int}}}{\delta a^*_{\vec k}} 
+	i\frac{\partial a_{\vec k}}{\partial t}-\omega_{\vec k}a_{\vec k} = \frac{\delta H_{\text{int}}}{\delta a^*_{\vec k}}  % c 
 \end{equation}
 
 Para el caso donde el primer término no nulo se corresponde a triadas resonantes, la ecuación de movimiento resultará: 
@@ -212,11 +213,11 @@ Asumiendo que no hay procesos de creación o aniquilación de tres ondas. El pri
 	i\frac{\partial a_{\vec k}}{\partial t} - \omega_k a_{\vec k} = \frac{1}{2} \int T_{k123}a_1^*a_2a_3\delta(\vec k+\vec k_1-\vec k_2-\vec k_2) d\vec k_1 d\vec k_2d\vec k_3
 \end{equation}
 
-Que son procesos del tipo $2\rightarrow2$. Aquí se asumió nuevamente que no hay creación o aniquilación espontánea de cuatro ondas, y además, que al no haber procesos de tres ondas del tipo $2\rightarrow1$ o $1\rightarrow2$, tampoco serán posibles los procesos $3\rightarrow1$ o $1\rightarrow3$. En este último caso al tener procesos solo entre la misma cantidad de ondas entrantes y salientes, en el ejemplo análogo de colisiones de partículas, se conservará además de la energía y el impulso lineal, el número total de partículas, cuyo equivalente para ondas será lo que denomina \textit{acción de onda} (\textit{wave action} en inglés). 
+Que son procesos del tipo $2\rightarrow2$. Aquí se asumió nuevamente que no hay creación o aniquilación espontánea de cuatro ondas, y además, que al no haber procesos de tres ondas del tipo $2\rightarrow1$ o $1\rightarrow2$, tampoco serán posibles los procesos $3\rightarrow1$ o $1\rightarrow3$. En este último caso al tener procesos solo entre la misma cantidad de ondas entrantes y salientes, en el ejemplo análogo de colisiones de partículas se conservará, además de la energía y el impulso lineal, el número total de partículas, cuyo equivalente para ondas será lo que denomina \textit{acción de onda} (\textit{wave action} en inglés). 
 
 \begin{equation}
 	N=\int a_{\vec k}a^*_{\vec k} d\vec k 
-	\label{eq:Wave_action_integral}
+	\label{eq:Wave_action_integral} \equiv \int n_{\vec k} d\vec k 
 \end{equation}
 
 
@@ -230,11 +231,11 @@ Que son procesos del tipo $2\rightarrow2$. Aquí se asumió nuevamente que no ha
 
 \section{Descripción Estadística de Turbulencia de Ondas} 
 \label{sec:descripción_estadística} 
-Las ecuaciones de movimiento encontradas son para la evolución temporal de las amplitudes y fases de $a_{\vec k} = |a(\vec k, t)|e^{i\phi(\vec k, t)}$. En el caso en que las no linealidades sean débiles, y haya una gran cantidad de modos, esta evolución suele ser redundante, ya que incluye la dinámica rápida de la fase $\phi\sim\omega t$ que deja a la evolución lenta de las amplitudes (que es constante al orden más bajo) virtualmente no afectada. Por esto, será conveniente pasar a una descripción estadística, donde solo serán relevantes las funciones de correlación para $a_{\vec k}$, promediando en un ensamble\footnote{Aquí se consideran solo sistemas ergódicos, de forma tal que será equivalente a promediar en tiempos más largos que la evolución de la fase}. 
+Las ecuaciones de movimiento encontradas son para la evolución temporal de las amplitudes y fases de $a_{\vec k} = |a(\vec k, t)|e^{i\phi(\vec k, t)}$. En el caso en que las no linealidades sean débiles, y haya una gran cantidad de modos, esta evolución suele ser redundante, ya que incluye la dinámica rápida de la fase $\phi\sim\omega t$ que deja a la evolución lenta de las amplitudes (que es constante al orden más bajo) virtualmente no afectada. Por esto, será conveniente pasar a una descripción estadística, donde solo serán relevantes las funciones de correlación para $a_{\vec k}$, promediando en un ensamble\footnote{Aquí se consideran solo sistemas ergódicos, de forma tal que será equivalente a promediar en tiempos más largos que la evolución de la fase.}. 
 
 
 \subsection{Aproximación de Fase Aleatoria} % Clausura Gaussiana 
-Es estándar a asumir para el caso de turbulencia de ondas débil una "caotización" de las fases, de forma tal que aunque al inicio estuvieran correlacionadas, luego de un tiempo ya no lo estarán,  asociándose este efecto a la dispersión del medio, entre otros motivos. De esta forma, bajo la aproximación de fases aleatorias tenemos las correlaciones: 
+Es estándar a asumir para el caso de turbulencia de ondas débil una ''caotización'' de las fases, de forma tal que aunque al inicio estuvieran correlacionadas, luego de un tiempo ya no lo estarán,  asociándose este efecto a la dispersión del medio, entre otros motivos. De esta forma, bajo la aproximación de fases aleatorias tenemos las correlaciones: % "" 
 
 \begin{equation}
 	\begin{split}
@@ -244,9 +245,9 @@ Es estándar a asumir para el caso de turbulencia de ondas débil una "caotizaci
 	\end{split}
 \end{equation} 
 
-Definiendo la acción de onda $n(\vec k) = a_{\vec k}a^*_{\vec k}$, que sería la densidad  de la integral \eqref{eq:Wave_action_integral}.  
+Definiendo la acción de onda $n(\vec k) = a_{\vec k}a^*_{\vec k}$, que sería la densidad  de la integral \eqref{eq:Wave_action_integral}. Es posible hacer esto ya que el término complejo para la fase dará valores aleatorios, de forma tal que al realizar el promedio éste dará cero, a menos que pertenezcan el mismo modo, donde el factor de la fase dará uno. Por otro lado, los correladores de una cantidad impar siempre van a dar cero, mientras que para los de orden cuatro y seis quedan: % 46 siete 
 
-Por otro lado, los correladores de una cantidad impar siempre van a dar cero, mientras que para los de orden 4 y 6 quedan:
+
 
 \begin{equation}
 	\begin{split}
@@ -256,14 +257,14 @@ Por otro lado, los correladores de una cantidad impar siempre van a dar cero, mi
 	\end{split}
 \end{equation}
 
-Con la abreviación $\delta_{ij}\equiv\delta(\vec k_i-\vec k_j)$. Esta aproximación permite escribir el momento de orden dos en término de una sola $n_{\vec k}$, entonces el de orden cuatro queda escrito en función de dos momentos de orden dos, y el de orden seis en función de tres. Esto implica una estadística Gaussiana, donde solo importan las funciones de dos puntos.  
+Con la abreviación $\delta_{ij}\equiv\delta(\vec k_i-\vec k_j)$. Esta aproximación permite escribir el momento de orden dos en término de una sola $n_{\vec k}$, entonces el de orden cuatro queda escrito en función de dos momentos de orden dos, y el de orden seis en función de tres. Esto implica una estadística Gaussiana, donde solo importan las funciones de dos puntos, y que dará una clausura natural a la jerarquía de ecuaciones para momentos estadísticos.   
 
 
 
 
 
 \subsection{Ecuación Cinética} 
-Para obtener la ecuación de evolución para $n_{\vec k}$, que se denomina ecuación cinética, hay que multiplicar \eqref{eq:motion_equation_three_waves} por $a^*_{\vec k}$ y restarle la conjugada por $a_{\vec k'}$, para finalmente tomar el promedio y reemplazar $\vec k=\vec k'$. En el caso de tres ondas resulta:
+Para obtener la ecuación de evolución para $n_{\vec k}$, que se denomina ecuación cinética, hay que multiplicar \eqref{eq:motion_equation_three_waves} por $a^*_{\vec k}$ y restarle la ecuación conjugada multiplicada por $a_{\vec k'}$, para finalmente tomar el promedio y reemplazar $\vec k=\vec k'$. En el caso de tres ondas este procedimiento resulta en: 
 
 \begin{equation}
 	\begin{split}
@@ -272,7 +273,7 @@ Para obtener la ecuación de evolución para $n_{\vec k}$, que se denomina ecuac
 	\end{split}
 \end{equation}
 
-Habiendo sido posible llegar a esta expresión gracias a la estadística Gaussiana, que permitió escribir los momentos de orden más alto que quedarían dentro de la integral en términos de $n_{\vec k}$. Para el caso de cuatro ondas la ecuación cinética resulta: 
+Quedando del lado derecho una integral de colisiones, y habiendo sido posible llegar a esta expresión gracias a la estadística Gaussiana, que permitió escribir los momentos de orden más alto que quedarían dentro de la integral en términos de $n_{\vec k}$. Para el caso de cuatro ondas la ecuación cinética resulta: % el D q ueda .H 
 
 \begin{equation}
 	\begin{split}
@@ -296,7 +297,7 @@ esta energía en cada proceso y, por tanto, la energía total del sistema:
 Donde $E_{\vec k}=\omega_{\vec k}n_{\vec k}$ es lo que se conoce como espectro de energía. Más generalmente, la ecuación cinética tiene la propiedad de conservar cualquier magnitud $\Phi$ cuyo espectro pueda escribirse como $\Phi_{\vec k}=\rho_{\vec k}n_{\vec k}$, siempre que se cumpla una condición de resonancia para $\rho_{\vec k}$ en simultáneo a la de frecuencia y número de onda, que por ejemplo, para el caso de triadas sería $\rho_1=\rho_2+\rho_3$. El caso particular de la energía se obtiene tomando $\rho_{\vec k}=\omega_{k}$, el de momento para $\rho_{\vec k}=\vec k$, y el de la acción de onda para $\rho_{k}=1$. 
 
 \subsection{Balance de energía y cascadas} 
-A partir de la segunda igualdad de la ecuación \eqref{eq:energy_conservation} es posible reescribir la ecuación cinética, $\partial_t n_{\vec k} = I_{\vec k}^N$ con $I_k^N$ las integrales de colisiones, en forma de una ecuación de continuidad para el espectro de energía, de la forma: 
+A partir de la segunda igualdad de la ecuación \eqref{eq:energy_conservation} es posible reescribir la ecuación cinética, $\partial_t n_{\vec k} = I_{\vec k}^N$, con $I_k^N$ las integrales de colisiones, en forma de una ecuación de continuidad para el espectro de energía, de la forma: 
 
 \begin{equation}
 	\frac{\partial E_{\vec k}}{\partial t} + \vec\nabla_{\vec k}\cdot\vec\varepsilon=0 
@@ -305,14 +306,14 @@ A partir de la segunda igualdad de la ecuación \eqref{eq:energy_conservation} e
 
 Al definir el flujo de energía $\vec \varepsilon$ tal que $\vec\nabla_{\vec k}\cdot\vec\varepsilon=-\omega_{\vec k}I_{\vec k}^N$. Esto va a ser cierto en el denominado rango inercial, siempre que la escala de inyección y disipación estén lo suficientemente separadas, ya que de otra forma, habría que incluir dichas contribuciones a la ecuación cinética. 
 
-Es inmediato ver de esta forma de la ecuación cinética que, soluciones estacionarias, donde las integrales de colisiones son cero, se corresponderán con un flujo constante de energía $\varepsilon$ entre escalas. Por este motivo, a este tipo de soluciones, se le conoce como cascadas de energía. Para las relaciones de dispersión $\omega\sim k^{\alpha}$ estos espectros, sobre los cuales se entrará en detalle en la próxima Sección, resultarán completamente análogos a la Ley de -5/3 de Kolmogorov para turbulencia hidrodinámica. % para 
+Es inmediato ver de esta forma de la ecuación cinética que, soluciones estacionarias, donde las integrales de colisiones son cero, se corresponderán con un flujo constante de energía $\varepsilon$ entre escalas. Por este motivo, a este tipo de soluciones, se les conoce como cascadas de energía. Para las relaciones de dispersión $\omega\sim k^{\alpha}$ estos espectros, sobre los cuales se entrará en detalle en la próxima Sección, resultarán completamente análogos a la Ley de -5/3 de Kolmogorov para turbulencia hidrodinámica. % para 
 
 
 \section{Soluciones Estacionarias Exactas} 
 \label{sec:KZF} % HA ah .h 
-Será de particular interés estudiar las soluciones estacionarias de la ecuación cinética, para los cuales se encuentran afianzada la cascada de energía, dando lo que se conoce como espectros de Kolmogorov-Zakharov-Filonenko (KZF). Aquí se considerarán solo soluciones isótropas y homogéneas, en las cuales el flujo de energía es igual en todas las direcciones, con lo cual bastará el espectro de energía unidimensional, dado por $E(k)=2\pi E(\vec k)$ en el caso 2D como para turbulencia de ondas gravito-capilares. 
+Será de particular interés estudiar las soluciones estacionarias de la ecuación cinética, para los cuales se encuentran afianzada la cascada de energía, dando lo que se conoce como espectros de Kolmogorov-Zakharov-Filonenko (KZF). Aquí se considerarán solo soluciones isótropas y homogéneas, en las cuales el flujo de energía es igual en todas las direcciones, con lo cual bastará el espectro de energía unidimensional, dado por $E(k)=2\pi E(\vec k)$ en el caso 2D, como para turbulencia de ondas gravito-capilares. 
 
-\subsection*{Ondas gravitocapilares} 
+\subsection{Ondas gravitocapilares}  % * 
 Para las ondas gravito-capilares la energía viene dada por la ecuación \eqref{eq:gravity-capillary_energy}, donde se asumirá un balance entre la energía potencial y cinética, a modo de una equipartición, siendo suficiente entonces con calcular los espectros para la energía potencial (que dependen solo de la altura $\eta$ y no de la velocidad) y multiplicarla por un factor 2 para obtener la total \cite{kunduFluidMechanics2014, deikeEtudesExperimentalesNumeriques2013}.  Escritas en términos del número de onda la energía potencial gravitatoria y capilar (a primer orden) pueden escribirse:  
 
 \begin{equation}
@@ -349,7 +350,7 @@ Para ondas de gravedad \cite{zakharovEnergySpectrumStochastic1967} % la relació
 	E_k^g \sim \varepsilon^{1/3} g^{1/2} k^{-5/2} \qquad S_k^g \sim \varepsilon^{1/3} g^{-1/2} k^{-5/2} \qquad S_\omega^g  \sim \varepsilon^{1/3} g \omega^{-4}
 \end{equation}  
 
-Y para el capilar \cite{zakharovWeakTurbulenceCapillary1971}
+Y para el régimen capilar \cite{zakharovWeakTurbulenceCapillary1971}
 
 \begin{equation}
 	E_k^s \sim \varepsilon^{1/2} \left(\frac{\sigma}{\rho}\right)^{1/4} k^{-7/4} \qquad S_k^s \sim \varepsilon^{1/2} \left(\frac{\sigma}{\rho}\right)^{-3/4} k^{-15/4} \qquad S_\omega^s  \sim \varepsilon^{1/2} \left(\frac{\sigma}{\rho}\right)^{1/6} \omega^{-17/6}
@@ -364,7 +365,7 @@ Es posible llegar a las mismas leyes de potencias mediante análisis dimensional
 	\varepsilon \sim \frac{\partial E_k}{\partial t} dk \sim \omega \frac{\partial n_k}{\partial t} dk \sim I_k^N \sim n_k^{N-1}
 \end{equation}
 
-Por la ecuación cinética. Por lo tanto: \cite{deikeEtudesExperimentalesNumeriques2013}
+Por la ecuación cinética. Por lo tanto \cite{deikeEtudesExperimentalesNumeriques2013}:  
 
 \begin{equation}
 	E_k \sim n_k \sim \varepsilon^{1/(N-1)}
