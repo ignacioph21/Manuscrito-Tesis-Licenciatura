@@ -71,7 +71,7 @@ Una serie temporal típica de las medidas para este tipo de forzados limitados e
 	\label{fig:laserietemporal}
 \end{figure}
 
-
+Se puede observar en la señal una clara asimetría respecto a los valles y las crestas, siendo estas últimas menos probables. Esto puede verificarse graficando las densidades de probabilidad normalizadas (PDF) de la altura $\eta$, como está en la Figura \ref{fig:pdfs-cuba-chica-v2}. 
 
 \begin{figure}[!ht]
 	\centering
@@ -80,9 +80,11 @@ Una serie temporal típica de las medidas para este tipo de forzados limitados e
 	\label{fig:pdfs-cuba-chica-v2}
 \end{figure}
 
-
+En general para todos los casos la PDF resulta cercana a una Gaussiana, pero con pequeñas desviaciones, como es común en la literatura \cite{falconLaboratoryExperimentsWave2010, falconExperimentsSurfaceGravity2022}. Para las dos bandas de frecuencias más altas puede observarse la asimetría de valles y crestas reflejada en la PDF, siendo más prominente en el último rango, con skewness claramente positiva. Sin embargo, para el rango de 0-4 Hz no se muestran diferencias significativas respecto a una distribución Gaussiana, y en el caso particular de 0-3 Hz se nota que la asimetría se invierte, generando más valles que crestas, con skewness claramente negativa. De esta forma, pareciera haber una progresión gradual desde skewness negativa hacia positiva en función de la no linealidad del sistema, aunque esto no se corresponde con ninguna experiencia previa y no se termina de entender a qué se debe. % esta misma 
 
 \section{Wave Steepness} 
+Previo al estudio de las propiedades características de turbulencia de ondas, como podría ser la cascada de energía, se buscó verificar que la hipótesis de no linealidades pequeñas fuese válida para los forzados implementados. Para esto se estudió el \textit{wave steepness} de las ondas generadas. Sin embargo, no es trivial la determinación de este parámetro en el caso en que hay múltiples ondas de distitnas frecuencias y números de onda en el flujo. El procedimiento usual en este caso consiste en separar la señal en lo que se denomina ondas individuales y determinar un wave steepness local, como muestran \cite{tayfunDistributionsWaveSteepness2006, francisSynopticForcingWave2012}. % calculó 
+
 
 \begin{figure}[!ht]
 	\centering
@@ -90,6 +92,25 @@ Una serie temporal típica de las medidas para este tipo de forzados limitados e
 	\caption{(a) Definición de ondas individuales para una medición típica, a partir de dos cruces de cero consecutivos en el mismo sentido. (b) Definición de la altura $H_n$ y periodo $T_n$ para la $n$-ésima onda individual de la señal. }
 	\label{fig:workflow}
 \end{figure}
+
+En la Figura \ref{fig:workflow} se ejemplifica el procedimiento para la obtención de las ondas individuales. En primer lugar se identifican los cruces de cero de la señal, y se toma como una onda a la porción contenida entre dos cruces consecutivos en la misma dirección (ya sea hacia arriba o hacia abajo). Para cada onda individual se define una altura pico a pico $H_n$ y un período $T_n$ entre los cruces de cero, como muestra la Figura \ref{fig:workflow}b. La distribución conjunta de los valores para estas ondas se muestra en la Figura \ref{fig:jointporogression}. 
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.9897\linewidth]{"Figuras/Wave Steepness/Joint_porogression"}
+	\caption{}
+	\label{fig:jointporogression}
+\end{figure}
+
+PROGRESIÓN Y LÍMTES. 
+Para cada par de valores puede calcularse la pendiente de esa onda individual como: 
+
+\begin{equation}
+	S_n = \frac{H_n}{L(T_n)}
+\end{equation} 
+
+Donde se aproxima la longitud de ondas $L_n=L(T_n)$ a partir de la relación de dispersión completa para ondas gravito-capilares. De esta forma se obtiene un conjunto de $S_n$, cuya distribución de probabilidad para la variable normalizada $s_n=S_n/S_{\text{rms}}$ se muestra en la Figura \ref{fig:pdfs} para varias de las señales medidas. %  meanwavesteepness
+
 
 
 
@@ -100,33 +121,40 @@ Una serie temporal típica de las medidas para este tipo de forzados limitados e
 	\label{fig:pdfs}
 \end{figure}
 
+Generalmente, la distribución obtenida para $s_n$ resulta log-normal, de la forma: 
 
-
+\begin{equation}
+	f(s) = \frac{1}{\sigma s\sqrt{2\pi}} \exp\left[-\frac{1}{2}\left(\frac{\ln{(s)}-\mu}{\sigma}\right)^2\right] % righ 
+\end{equation} 
 
 % \input{Entradas/tabla_lognormal.tex} 
 
 
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[width=0.9897\linewidth]{"Figuras/Wave Steepness/Joint_porogression"}
-	\caption{}
-	\label{fig:jointporogression}
-\end{figure}
+Donde $\mu$ y $\sigma$ son constantes a determinar. El ajuste por esta función se puede ver para las PDFs de la Figura \ref{fig:pdfs}. Para los valores de forzado más bajo este modelo pareciera describir bien a los datos, dando $\chi_\nu^2\sim1$, sin embargo, a mayor la potencia inyectada más difiere el ajuste de los datos y $\chi_\nu^2$ aumenta gradualmente. Al mismo tiempo las líneas verticales muestran el valor medio $\langle s\rangle=\exp(\mu+\sigma^2/2)$ obtenido del ajuste, que se espera tienda a $\langle s\rangle=\sqrt{\pi}/2$. De nuevo, esto suele cumplirse para los forzados de menor potencia, y se aleja gradualmente al aumentarla. 
 
+La cantidad de ondas individuales para este análisis es de aproximadamente 300-500, variando según la señal. Para aquellas donde los $T_n$ son menores, como ocurre en los rangos de mayor frecuencia, hay más ondas individuales que para aquellas donde $T_n$ es mayor. Es posible que tomando señales más largas y con más puntos para la estadística se puedan caracterizar mejor estas distribuciones, especialmente donde no pareciera ser una log-normal. 
 
+Finalmente se calculó el valor medio de \textit{wave steepness} $S_m=\langle S \rangle$ para cada señal, calculando $L_n$ con la relación de dispersión completa, y la de solo gravedad, como se muestra en la Figura \ref{fig:meanwavesteepness} 
 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=0.9897\linewidth]{"Figuras/Wave Steepness/Mean_wave_steepness"}
+	\includegraphics[width=0.659897\linewidth]{"Figuras/Wave Steepness/Mean_wave_steepness"}
 	\caption{Pendiente media de las ondas para las distintas mediciones. Se muestran las aproximaciones utilizando la relación de dispersión de gravedad en profundidad infinita (G) y la completa (F) para obtener la longitud de onda $L(T)$. } 
 	\label{fig:meanwavesteepness}
 \end{figure}
+
+Para el rango de 0-3 Hz prácticamente no hay diferencia entre ambos valores, ya que al tratarse de $T_n$ menores suelen caer en su mayoría en el rango dominado por los efectos gravitatorios. Al aumentar la potencia del forzado las ondas son cada vez más cortas y empiezan a ser relevantes los efectos capilares, con lo cual se separan cada vez más los resultados entre la aproximación de la relación de dispersión y la versión completa. 
+
+En cualquier caso, es posible apreciar cómo la pendiente media de las ondas aumenta como sería esperado al aumentar la amplitud del forzado y el rango de frecuencias del mimo, pareciendo llegar a saturar eventualmente. Para el rango de 0-3 Hz con $S_m\sim0.01$ se verifica la suposición de turbulencia de ondas débil con $S\ll1$. Para los demás rangos de frecuencias se tiene $S_m\sim0.1$ llegando al límite de lo que se consideraría el régimen débil. 
+
+
+
 
 
 
 
 \section{Cascadas de energía}
-
+Lo siguiente que se buscó caracterizar fueron las cascadas de energía en el rango de gravedad y capilar. % rty  ay Y UUuu77 . 
 
 
 
