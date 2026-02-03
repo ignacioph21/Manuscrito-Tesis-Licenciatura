@@ -93,23 +93,30 @@ Previo al estudio de las propiedades características de turbulencia de ondas, c
 	\label{fig:workflow}
 \end{figure}
 
-En la Figura \ref{fig:workflow} se ejemplifica el procedimiento para la obtención de las ondas individuales. En primer lugar se identifican los cruces de cero de la señal, y se toma como una onda a la porción contenida entre dos cruces consecutivos en la misma dirección (ya sea hacia arriba o hacia abajo). Para cada onda individual se define una altura pico a pico $H_n$ y un período $T_n$ entre los cruces de cero, como muestra la Figura \ref{fig:workflow}b. La distribución conjunta de los valores para estas ondas se muestra en la Figura \ref{fig:jointporogression}. 
+En la Figura \ref{fig:workflow} se ejemplifica el procedimiento para la obtención de las ondas individuales. En primer lugar se identifican los puntos en que la señal cruza cero, y se toma como una onda al segmento contenido entre dos cruces consecutivos en la misma dirección (ya sea hacia arriba o hacia abajo). Para cada onda individual se define una altura pico a pico $H_n$ y un período $T_n$ entre los cruces de cero, como muestra la Figura \ref{fig:workflow}b. La distribución conjunta de los valores para estas ondas se muestra en la Figura \ref{fig:jointporogression}. %  a porción a  de cesde 
 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=0.9897\linewidth]{"Figuras/Wave Steepness/Joint_porogression"}
-	\caption{}
+	\includegraphics[width=0.9897\linewidth]{"Figuras/Wave Steepness/Joint_porogression_alternativa_v2"}
+	\caption{Distribución del conjunto de parámetros $(T_n, H_n)$ para las ondas individuales de las distintas señales (a) 0-3 Hz (b) 0-4 Hz (c) 0-5 Hz (d) 0-6 Hz. Los contornos  sólidos muestran la región que contiene al 67 \% de los puntos en cada caso. } % sás sís sás
 	\label{fig:jointporogression}
 \end{figure}
 
-PROGRESIÓN Y LÍMTES. 
-Para cada par de valores puede calcularse la pendiente de esa onda individual como: 
+% PROGRESIÓN Y LÍMTES. 
+ 
+Las líneas sólidas se corresponden a los contornos que contiene un 67 \% de los puntos, pudiéndose observar una clara progresión, al aumentar la potencia inyectada en el sistema, y por tanto, la no linealidad. Para los forzados más débiles las ondas tienden a ser más largas, con un $H_n$ pequeño y una amplia variedad de $T_n$, transicionando hacia ondas más cortas en los forzados más intensos, con $T_n$ pequeño y $H_n$ que llega hasta 1 cm en amplitud. Para cada par de valores puede calcularse la pendiente de esa onda individual como: 
 
 \begin{equation}
 	S_n = \frac{H_n}{L(T_n)}
 \end{equation} 
 
 Donde se aproxima la longitud de ondas $L_n=L(T_n)$ a partir de la relación de dispersión completa para ondas gravito-capilares. De esta forma se obtiene un conjunto de $S_n$, cuya distribución de probabilidad para la variable normalizada $s_n=S_n/S_{\text{rms}}$ se muestra en la Figura \ref{fig:pdfs} para varias de las señales medidas. %  meanwavesteepness
+
+
+% En la Figura \ref{fig:jointporogression} se muestra además la línea correspondiente al límite de Miche-Stokes, que se corresponde al % La línea sólida negra de la Figura \ref{fig:jointporogression} se corresponde
+
+
+
 
 
 
@@ -147,6 +154,7 @@ Para el rango de 0-3 Hz prácticamente no hay diferencia entre ambos valores, ya
 
 En cualquier caso, es posible apreciar cómo la pendiente media de las ondas aumenta como sería esperado al aumentar la amplitud del forzado y el rango de frecuencias del mimo, pareciendo llegar a saturar eventualmente. Para el rango de 0-3 Hz con $S_m\sim0.01$ se verifica la suposición de turbulencia de ondas débil con $S\ll1$. Para los demás rangos de frecuencias se tiene $S_m\sim0.1$ llegando al límite de lo que se consideraría el régimen débil. 
 
+% El límite 
 
 
 
@@ -154,26 +162,36 @@ En cualquier caso, es posible apreciar cómo la pendiente media de las ondas aum
 
 
 \section{Cascadas de energía}
-Lo siguiente que se buscó caracterizar fueron las cascadas de energía en el rango de gravedad y capilar. % rty  ay Y UUuu77 . 
+Lo siguiente que se buscó caracterizar fueron las cascadas de energía en el rango de gravedad y capilar. Para esto se calculó la PSD de cada señal mediante el algoritmo de Welch, que separa la señal en distintos segmentos y posteriormente promedia la PSD de cada uno para el resultado final. En la Figura \ref{fig:cuba-chica-v2} se pueden ver los resultados para varias señales. % rty  ay Y UUuu77 . 
 
 
+
+En todos los casos se pueden apreciar una serie de características repetidas: 
+\begin{itemize} 
+	\item En la región del forzado a frecuencias bajas se puede ver un espectro más plano, con picos que se corresponden a los modos propios fundamentales del recinto. 
+	\item Luego de la escala de inyección se puede apreciar un rango donde pareciera caer linealmente, con un cambio leve de pendiente pasando los 10 Hz. 
+	\item Eventualmente se llega a una frecuencia de corte donde la respuesta deja de ser lineal. Esta frecuencia depende del forzado y varía desde unas decenas de Hz hasta un poco más de 100 Hz en los forzados más intensos. 
+\end{itemize} 
 
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.9897\linewidth]{"Figuras/Espectros/PSDs/Cuba chica v2"}
 	\caption{PSDs (\marksolid[blue]{0.4ex}) para los distintos juegos de datos (a) 0-3 Hz (b) 0-4 Hz (c) 0-5 Hz (d) 0-6 Hz. Se muestra la frecuencia final del forzado (\markdashed[black]{0.4ex}) en cada caso. Las curvas se desplazaron verticalmente por claridad. } 
 	\label{fig:cuba-chica-v2}
-\end{figure}
+\end{figure} 
+
+Para caracterizar la región donde el comportamiento pareciera ser lineal, que se correspondería con una solución tipo ley de potencias, se intentó ajustar linealmente dos regiones separadas de la PSD (una correspondiente a gravedad y otra  a capilar), sin embargo, se observó que los parámetros obtenidos dependen muy sensiblemente del rango elegido para el ajuste, debido al ruido, especialmente para frecuencias bajas. Con el objetivo de independizarse de la elección de los rangos ajustados se decidió realizar un único ajuste por una función a tramos continua formada por dos lineales de distinta pendiente, donde la frecuencia de cruce fuese uno de los cuatro parámetros a determinar, en todo el rango desde donde termina el forzado hasta la frecuencia de corte. Un ejemplo de este procedimiento se muestra en la Figura \ref{fig:workflowv2}, donde se muestra explícitamente el rango ajustado. % correspondiente  Para poder de ajuste 
 
 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=0.9897\linewidth]{Figuras/Espectros/Workflow/Workflow_v2}
-	\caption{}
+	\includegraphics[width=0.7019897\linewidth]{Figuras/Espectros/Workflow/Workflow_v2}
+	\caption{Ejemplo de procesamiento de la PSD media (\marksolid[blue]{0.4ex}) para una de las señales. Las regiones más oscuras se corresponden con las escalas de inyección a frecuencias bajas y la de ruido a escalas chicas. La región sin colorear es el rango intermedio que se ajustó por completo mediante una función lineal a tramos continua. Cada tramo del ajuste resultante se muestra con líneas (\markdashed{0.4ex}) y (\markdashdot{0.4ex}). Se muestra además la frecuencia de cruce obtenida, marcada verticalmente (\markdashed[blue]{0.4ex}). Inset: Aumento de la región alrededor de la frecuencia de cruce donde cambia la pendiente de las rectas. Éstas se extendieron para apreciar el cambio de la pendiente en la PSD más claramente. } % (corte ) ¿Agregar incerteza? . ed A E 
 	\label{fig:workflowv2}
 \end{figure} 
 
 
+Para determinar el punto en que la PSD alcanza esta frecuencia de corte se determinó primero el nivel de ruido promediando a frecuencias altas (aproximadamente a los 400 Hz), y se buscó el punto para el cual se llega a un tercio de la desviación estándar de este ruido, habiendo elegido este criterio ya que fue el que mejor funcionó simultáneamente para todas las señales. Las frecuencias de corte halladas para cada forzado se muestran en la Figura \ref{fig:cutoff}. % n 
 
 \begin{figure}[!ht]
 	\centering
@@ -182,6 +200,9 @@ Lo siguiente que se buscó caracterizar fueron las cascadas de energía en el ra
 	\label{fig:cutoff}
 \end{figure}
 
+Aquí se puede ver claramente cómo aumenta esta frecuencia de corte a medida que aumenta la potencia inyectada durante el forzado, ya que permite el poblamiento de más escalas antes de llegar al nivel del ruido. 
+
+Una vez hallada la frecuencia de corte y determinado el rango completo para el ajuste se procedió a realizar éste. Un caso particular del ajuste está en la Figura \ref{fig:workflowv2}. En el inset se muestra un aumento de la región al rededor de la frecuencia de cruce resultante del ajuste, donde se extendieron ambas lineales de la función a tramos con el objetivo de notar más claramente el cambio de pendiente de un tramo al otro. En general se obtuvieron muy buenos ajustes con esta técnica, confirmando el comportamiento lineal con dos regiones esperada. Los exponentes de la PSD obtenidos en cada región se pueden ver en la Figura \ref{fig:exponentesapilados}. 
 
 
 \begin{figure}[!ht]
@@ -189,7 +210,8 @@ Lo siguiente que se buscó caracterizar fueron las cascadas de energía en el ra
 	\includegraphics[width=0.9897\linewidth]{Figuras/Espectros/Exponentes/Exponentes_apilados}
 	\caption{(a) Exponentes de la PSD obtenidos para ambos regímenes de la cascada de energía. En símbolos llenos (\markcircle*[blue]{0.4ex}) para el gravitatorio y en símbolos vacíos (\markcircle[blue]{0.4ex}) para el capilar. Las líneas horizontales muestran la predicción teórica para los espectros de ZF, de -4 en gravedad (\markdashdot[black]{0.4ex}) y -17/6 en capilar (\markdashed[black]{0.4ex}). (b) Resultados de la literatura para un experimento análogo en mercurio \cite{falconObservationIntermittencyWave2007}. } % @empty 
 	\label{fig:exponentesapilados}
-\end{figure}
+\end{figure} 
+
 
 
 
