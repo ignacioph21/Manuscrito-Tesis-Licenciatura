@@ -180,6 +180,7 @@ En todos los casos se pueden apreciar una serie de características repetidas:
 	\label{fig:cuba-chica-v2}
 \end{figure} 
 
+\subsection{Ajuste de la PSD} 
 Para caracterizar la región donde el comportamiento pareciera ser lineal, que se correspondería con una solución tipo ley de potencias, se intentó ajustar linealmente dos regiones separadas de la PSD (una correspondiente a gravedad y otra  a capilar), sin embargo, se observó que los parámetros obtenidos dependen muy sensiblemente del rango elegido para el ajuste, debido al ruido, especialmente para frecuencias bajas. Con el objetivo de independizarse de la elección de los rangos ajustados se decidió realizar un único ajuste por una función a tramos continua formada por dos lineales de distinta pendiente, donde la frecuencia de cruce fuese uno de los cuatro parámetros a determinar, en todo el rango desde donde termina el forzado hasta la frecuencia de corte. Un ejemplo de este procedimiento se muestra en la Figura \ref{fig:workflowv2}, donde se muestra explícitamente el rango ajustado. % correspondiente  Para poder de ajuste 
 
 
@@ -191,7 +192,7 @@ Para caracterizar la región donde el comportamiento pareciera ser lineal, que s
 \end{figure} 
 
 
-Para determinar el punto en que la PSD alcanza esta frecuencia de corte se determinó primero el nivel de ruido promediando a frecuencias altas (aproximadamente a los 400 Hz), y se buscó el punto para el cual se llega a un tercio de la desviación estándar de este ruido, habiendo elegido este criterio ya que fue el que mejor funcionó simultáneamente para todas las señales. Las frecuencias de corte halladas para cada forzado se muestran en la Figura \ref{fig:cutoff}. % n 
+Para determinar el punto en que la PSD alcanza esta frecuencia de corte se determinó primero el nivel de ruido promediando a frecuencias altas (aproximadamente a los 400 Hz), y se buscó el punto para el cual se llega a un tercio de la desviación estándar de este ruido, habiendo elegido este criterio ya que fue el que mejor funcionó simultáneamente para todas las señales. Las frecuencias de corte halladas para cada forzado se muestran en la Figura \ref{fig:cutoff}. Aquí se puede ver claramente cómo aumenta esta frecuencia de corte a medida que aumenta la potencia inyectada durante el forzado, ya que permite el poblamiento de más escalas antes de llegar al nivel del ruido. % n 
 
 \begin{figure}[!ht]
 	\centering
@@ -200,9 +201,12 @@ Para determinar el punto en que la PSD alcanza esta frecuencia de corte se deter
 	\label{fig:cutoff}
 \end{figure}
 
-Aquí se puede ver claramente cómo aumenta esta frecuencia de corte a medida que aumenta la potencia inyectada durante el forzado, ya que permite el poblamiento de más escalas antes de llegar al nivel del ruido. 
 
-Una vez hallada la frecuencia de corte y determinado el rango completo para el ajuste se procedió a realizar éste. Un caso particular del ajuste está en la Figura \ref{fig:workflowv2}. En el inset se muestra un aumento de la región al rededor de la frecuencia de cruce resultante del ajuste, donde se extendieron ambas lineales de la función a tramos con el objetivo de notar más claramente el cambio de pendiente de un tramo al otro. En general se obtuvieron muy buenos ajustes con esta técnica, confirmando el comportamiento lineal con dos regiones esperada. Los exponentes de la PSD obtenidos en cada región se pueden ver en la Figura \ref{fig:exponentesapilados}. 
+
+Una vez hallada la frecuencia de corte y determinado el rango completo para el ajuste se procedió a realizar éste. Un caso particular del ajuste está en la Figura \ref{fig:workflowv2}. En el inset se muestra un aumento de la región al rededor de la frecuencia de cruce resultante del ajuste, donde se extendieron ambas lineales de la función a tramos con el objetivo de notar más claramente el cambio de pendiente de un tramo al otro. En general se obtuvieron muy buenos ajustes con esta técnica, confirmando el comportamiento lineal con dos regiones esperada. 
+
+\subsection{Exponentes} 
+Los exponentes de la PSD obtenidos en cada región se pueden ver en la Figura \ref{fig:exponentesapilados}a. 
 
 
 \begin{figure}[!ht]
@@ -212,8 +216,14 @@ Una vez hallada la frecuencia de corte y determinado el rango completo para el a
 	\label{fig:exponentesapilados}
 \end{figure} 
 
+Para el rango de gravedad el exponente empieza relativamente bajo y aumenta hasta alcanzar el valor esperado de -4 eventualmente, siguiendo un poco más posteriormente, acercándose al espectro saturado de Phillips con -5 de exponente. Para el caso capilar en todos los rangos de frecuencias explorados la pendiente tiende a -17/6 como se esperaría. Esto se corresponde a resultados previos reportados por la literatura, donde la cascada que más se condice con las predicciones teóricas es la capilar, mientras que la de gravedad suele diferir, dependiendo el exponente del forzado y la geometría del recinto, posiblemente por efectos de la finitud del mismo y a la presencia de estructuras coherentes en escalas grandes. % a 
 
 
+En la Figura \ref{fig:exponentesapilados}b se muestran a modo comparativo los resultados hallados por Falcon et al. (2007) para una experiencia equivalente en mercurio \cite{falconObservationGravityCapillaryWave2007}. Se puede ver un comportamiento similar, con los exponentes para el rango capilar tendiendo al valor esperado de -17/6 a medida que aumenta la amplitud del forzado, y el de gravedad tendiendo a un valor ligeramente menor a -4, aunque en este caso la variación es mucho más alta. 
+
+\subsection{Frecuencias de cruce}
+
+El último parámetro por analizar de la cascada es la frecuencia de cruce entre el rango de gravedad y capilar, cuyos valores obtenidos a partir del ajuste se muestran en la Figura \ref{fig:frecuencias-de-cruce}a. Para el rango de 0-3 Hz se puede apreciar que para todas las señales los valores hallados son compatibles con la frecuencia de cruce estimada teóricamente para el agua destilada (de $\sim13.5$ Hz), mientras que para las demás señales aumenta sustancialmente.  
 
 \begin{figure}[!ht]
 	\centering
@@ -223,32 +233,62 @@ Una vez hallada la frecuencia de corte y determinado el rango completo para el a
 \end{figure}
 
 
+
+Nuevamente en la Figura \ref{fig:frecuencias-de-cruce}b se muestran los resultados de Falcon et al. (2007) en mercurio \cite{falconObservationGravityCapillaryWave2007}. En este caso también se observa un comportamiento análogo, con la frecuencia aumentando a mayor potencia inyectada, coincidiendo con la esperada para el mercurio (de $\sim17$ Hz) en los forzados más débiles y tendiendo a lo que pareciera ser el doble para los más intensos. 
+
+
 \section{Interacción a 3 y 4 ondas} 
+El siguiente objetivo, una vez caracterizada la cascada de energía, fue identificar las interacciones resonantes entre ondas de la superficie libre, ya sea mediante triadas o cuartetos. Para esto se calculó en primer lugar la correlación de tres ondas normalizada, definida como \cite{aubourgNonlocalResonancesWeak2015, aubourgThreewaveFourwaveInteractions2017}:  
+
+\begin{equation}
+	C(\omega_1, \omega_2, \omega_3) = \frac{|\langle\eta^*(\omega_1)\eta(\omega_2)\eta(\omega_3) \rangle|}{\sqrt{\langle|\eta(\omega_1)|^2\rangle}\sqrt{\langle|\eta(\omega_2)\eta(\omega_3)|^2\rangle}}
+\end{equation}
+
+Donde $\langle\cdot\rangle$ representa un promedio sobre ventanas temporales de la señal en este caso, y $\eta(\omega)$ es la FFT de la serie temporal $\eta(t)$ medida. Esta correlación se define de esta forma ya que será proporcional a $\langle\exp{(-\phi_1+\phi_2+\phi_3)}\rangle$, tal que cuando se cumpla la condición de resonancia $-\omega_1+\omega_2+\omega_3=0$ dará uno, mientras que en cualquier otro caso dará un valor arbitrario en el círculo unitario del plano complejo, que al promediar terminará dando cero. Esto implica que, de existir triadas resonantes, la correlación normalizada dará uno sobre el plano de resonancia y cero en cualquier otro caso. % 0 
+
+Distintas vistas de esta correlación, en un volumen de  $30\times30\times30$ Hz$^3$, se muestran en la Figura \ref{fig:cubos}. La visualización corresponde a superficies de nivel de $C(f_1, f_2, f_3)$. % frecuencias  
 
 % \missingfigure{CUBOS} 
 \begin{figure}[th!]
 	\centering
 	\includegraphics[width=0.987\linewidth]{Figuras/Correlaciones/Cubos}
-	\caption{}
+	\caption{Distintas vistas de la correlación $C(f_1, f_2, f_3)$ en escala logarítmica para la señal de 0-6 Hz y amplitud del 100 \%. }
 	\label{fig:cubos}
 \end{figure}
 
+Se puede apreciar claramente un plano de correlación cercana a uno, un par de órdenes mayor que los alrededores, que se corresponde perfectamente con el plano dado por la condición de triadas resonantes. Las líneas diagonales en los bordes de correlación uno se corresponden a las interacciones triviales, donde $f_2=0$ o $f_3=0$. Vale aclarar que para obtener estos resultados fue necesario utilizar una señal más larga que las usadas para las cascadas de energía, de seis minutos en este caso, con el fin de que el promedio dé dos órdenes de magnitud menor en los conjuntos no resonantes. % e 
 
-
+Un corte de este cubo para $f_2=5$ Hz se muestra en la Figura \ref{fig:triadas}. Se superpone sobre este corte la recta correspondiente a la condición de resonancia que coincide perfectamente con la zona de máxima correlación, confirmando de esta manera la existencia de triadas resonantes en el flujo.    
 
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.9897\linewidth]{Figuras/Correlaciones/Triadas}
-	\caption{}
+	\caption{(a) Corte del volumen mostrado en la Figura \ref{fig:cubos} con $f_2=5$ Hz. La línea (\markdashed[black]{0.4ex}) muestra la condición de resonancia para triadas. (b) Misma correlación calculada para ruido Gaussiano de la misma longitud y dispersión que la señal. } 
 	\label{fig:triadas}
 \end{figure}
+
+En la Figura \ref{fig:triadas}b se muestra el mismo cálculo realizado sobre una señal de ruido normal de la misma longitud y dispersión que la señal de turbulencia de ondas, con el fin de verificar la ausencia de triadas resonantes. 
+
+De manera análoga se puede calcular la correlación de cuatro ondas normalizada extendiendo la definición anterior: 
+
+\begin{equation}
+	C(\omega_1, \omega_2, \omega_3, \omega_4) = \frac{|\langle\eta^*(\omega_1)\eta^*(\omega_2)\eta(\omega_3)\eta(\omega_4)  \rangle|}{\sqrt{\langle|\eta(\omega_1)\eta(\omega_2)|^2\rangle}\sqrt{\langle|\eta(\omega_3)\eta(\omega_4)|^2\rangle}} % atyuu 
+\end{equation}
+
+Que dará uno si se verifica la condición de resonancia $-\omega_1-\omega_2+\omega_3+\omega_4$ y cero en otro caso. Aquí se calculó directamente un corte, fijando $f_2=5$ Hz y $f_3=10$ Hz, como se muestra en la Figura \ref{fig:cuartetos}a, aunque se observaron resultados similares para otros conjuntos de frecuencias. % 12 
+
 
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.9897\linewidth]{Figuras/Correlaciones/Cuartetos}
-	\caption{}
+	\caption{(a) Corte de la correlación $C(f_1, f_2, f_3, f_4)$ en escala logarítmica, con $f_2=5$ Hz y $f_3=10$ Hz. La línea (\markdashed[black]{0.4ex}) muestra la condición de resonancia para cuartetos resonantes. (b) Misma correlación calculada para ruido Gaussiano de la misma longitud y dispersión que la señal. } 
 	\label{fig:cuartetos}
 \end{figure}
+
+Aquí se puede apreciar nuevamente la aparición de una línea que coincide con la condición de resonancia teórica, aunque en este caso el ruido de los alrededores no es tan bajo en comparación al caso de triadas, lo cual se asume se debe a la longitud de la señal, esperando que converja mejor tomando mediciones de mayor duración. Al igual que antes, en la Figura \ref{fig:cuartetos}b el mismo procedimiento con ruido Gaussiano, donde solo se ve un pico correspondiente a la solución trivial $f_1=f_3$ y $f_2=f_4$. 
+
+Tanto en este caso, como para las triadas, se puede observar que la línea de correlación máxima tiene un cierto ancho, lo cual se asume que se debe al ensanchamiento de la relación de dispersión en el caso no lineal, que permite interacciones entre más conjuntos de ondas que para la del caso lineal. 
+
 
 
 \section{Intermitencia} 
