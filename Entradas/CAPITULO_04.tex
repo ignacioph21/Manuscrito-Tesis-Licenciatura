@@ -292,11 +292,24 @@ Tanto en este caso, como para las triadas, se puede observar que la línea de co
 
 
 \section{Intermitencia} 
-
+Para forzados con no linealidad lo suficientemente alta suele observarse un comportamiento intermitente en las series temporales para $\eta(t)$, caracterizado por la aparición de fluctuaciones rápidas en un entorno comparativamente más calmo. 
 
 \missingfigure{ESQUEMA INTERMITENCIA}
 
+Este fenómeno suele asociarse a la aparición de estructuras coherentes en la superficie libre, como por ejemplo, rompimiento de olas (\textit{wave breaking}), cúspides (\textit{cusps}), espuma en la cresta de las olas (\textit{whitecaps}) o ráfagas de ondas capilares. Un método para caracterizar la aparición de estos eventos extremos en escalas temporales cortas de la señal suele ser el cálculo de las PDFs para las diferencias $\Delta\eta(\tau)$ definidas a continuación: 
 
+\begin{subequations}
+	\begin{equation}
+		\Delta^{(1)}\eta(\tau) = \eta(t+\tau) - \eta(t)
+	\end{equation}
+	\begin{equation}
+		\Delta^{(2)}\eta(\tau) = \eta(t+\tau) - 2\eta(t) + \eta(t-\tau) 
+	\end{equation}
+\end{subequations}
+
+Siendo estas las diferencias de primer y segundo orden respectivamente. Ambas dan una idea de la similitud de la señal entre dos o tres puntos separados una escala temporal $\tau$, de forma que, los eventos extremos rápidos deberían manifestarse como colas pesadas en las PDFs a escalas de $\tau$ chicas, mientras que para un $\tau$ lo suficientemente grande se espera que no haya correlación entre los puntos de la señal, y que por tanto, la PDF sea Gaussiana. 
+
+En la Figura \ref{fig:pdfsdiferencias} se muestran las primeras y segundas diferencias para dos señales, una de no linearidad pequeña (0-4 Hz 50\%)
 
 \begin{figure}[!ht]
 	\centering
