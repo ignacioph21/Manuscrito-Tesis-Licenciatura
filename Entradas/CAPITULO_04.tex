@@ -333,7 +333,15 @@ Para todo lo que viene a continuación se utilizarán los datos para la señal d
 
 Resulta importante verificar hasta qué orden están bien convergidas estas funciones de estructura en base a la cantidad de puntos de las señales utilizadas. 
 
-\missingfigure{CONVERGENCIA SP} 
+% \missingfigure{CONVERGENCIA SP} 
+
+\begin{figure}[th!]
+	\centering
+	\includegraphics[width=0.87\linewidth]{Figuras/Intermitencia/Convergencias/Convergencia_16ms}
+	\caption{}
+	\label{fig:convergencia16ms}
+\end{figure}
+
 
 
 Se calcularán $S_p$ con $p\le6$ en este caso, ya que se observa que para los datos utilizados éstas están bien determinadas en todo el rango de $\tau$ relevante. Para cuantificar la planitud (\textit{flatness}) de las PDFs se calcula el cociente $S_4/S_2^2$, que dará un valor de 3 en el caso en que la PDF sea Guassiana, e irá aumentando cuanto más plana sea (más pesadas sean las colas). Ésta se puede ver para las primeras diferencias en la Figura \ref{fig:primerasdiferenciasv2}a y para las segundas en \ref{fig:segundasdiferenciasv2}a. 
@@ -341,9 +349,9 @@ Se calcularán $S_p$ con $p\le6$ en este caso, ya que se observa que para los da
 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=0.9897\linewidth]{"Figuras/Intermitencia/Funciones de Estructura/primeras_diferencias_v2"}
+	\includegraphics[width=0.9897\linewidth]{"Figuras/Intermitencia/Funciones de Estructura/Flatness"}
 	\caption{}
-	\label{fig:primerasdiferenciasv2}
+	\label{figflatness:}
 \end{figure}
 
 En ambos casos, se puede observar que existe un rango de $\tau$ en el cual esta planitud pareciera seguir una ley de potencias. Ajustando linealmente y buscando el punto en que cruza 3 se puede determinar el llamado tiempo de correlación $\tau_c$ del flujo. Para ambas diferencias resulta $\tau_c$ del orden de 50 ms, comparable a valores reportados en la literatura \cite{falconObservationIntermittencyWave2007}. 
@@ -352,9 +360,9 @@ Las funciones de estructura pueden verse en la Figura \ref{fig:primerasdiferenci
 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=0.9897\linewidth]{"Figuras/Intermitencia/Funciones de Estructura/segundas_diferencias_v2"}
+	\includegraphics[width=0.9897\linewidth]{"Figuras/Intermitencia/Funciones de Estructura/Sps"}
 	\caption{}
-	\label{fig:segundasdiferenciasv2}
+	\label{fig:sps}
 \end{figure}
 
 Un punto importante aquí es que este $\tau$ se puede relacionar con el régimen, siendo la frecuencia correspondiente a cada escala $f\sim1/\tau$. De esta forma, $10\text{ ms }\gtrsim \tau\lesssim\;76\text{ ms }$ se corresponde al rango capilar, que es donde se observa la tendencia lineal. Delays mayores se corresponderán al rango de gravedad y menores a la escala del ruido. Para cada $S_p$ se realizó un ajuste lineal para determinar este exponente $\zeta_p$. Los resultados se muestran en la Figura \ref{fig:exponentescomparacionv2}a. % esto es >
