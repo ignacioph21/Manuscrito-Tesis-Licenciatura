@@ -292,19 +292,19 @@ Tanto en este caso, como para las triadas, se puede observar que la línea de co
 
 
 \section{Intermitencia} 
-Para forzados con no linealidad lo suficientemente alta suele observarse un comportamiento intermitente en las series temporales para $\eta(t)$, caracterizado por la aparición de fluctuaciones rápidas en un entorno comparativamente más calmo. 
+Para forzados con no linealidad lo suficientemente alta suele observarse un comportamiento intermitente en las series temporales para $\eta(t)$, caracterizado por la aparición de fluctuaciones rápidas en un entorno comparativamente más calmo, como se esquematiza en la Figura \ref{fig:esquema}.  
 
 % \missingfigure{ESQUEMA INTERMITENCIA}
 
 \begin{figure}[th!]
 	\centering
-	\includegraphics[width=0.87\linewidth]{Figuras/Intermitencia/Esquema/Esquema}
+	\includegraphics[width=0.987\linewidth]{Figuras/Intermitencia/Esquema/Esquema_azul} 
 	\caption{Esquema de un observable con comportamiento intermitente en escalas $\tau$. Adaptada de \cite{farazmand2017variational}.}
 	\label{fig:esquema} 
 \end{figure}
 
 
-Este fenómeno suele asociarse a la aparición de estructuras coherentes en la superficie libre, como por ejemplo, rompimiento de olas (\textit{wave breaking}), cúspides (\textit{cusps}), espuma en la cresta de las olas (\textit{whitecaps}) o ráfagas de ondas capilares \cite{falconObservationIntermittencyWave2007, falconOriginIntermittencyWave2010}. Un método para caracterizar la aparición de estos eventos extremos en escalas temporales cortas de la señal suele ser el cálculo de las PDFs para las diferencias $\Delta\eta(\tau)$ definidas a continuación: 
+Este fenómeno suele asociarse a la aparición de estructuras coherentes en la superficie libre, como por ejemplo, rompimiento de olas (\textit{wave breaking}), cúspides (\textit{cusps}), espuma en la cresta de las olas (\textit{whitecaps}) o ráfagas de ondas capilares \cite{falconObservationIntermittencyWave2007, falconOriginIntermittencyWave2010}. Un método para caracterizar la aparición de estos eventos extremos en escalas temporales cortas de la señal suele ser el cálculo de las PDFs para las diferencias $\Delta\eta(\tau)$, definidas a continuación:  
 
 \begin{subequations}
 	\begin{equation}
@@ -317,18 +317,23 @@ Este fenómeno suele asociarse a la aparición de estructuras coherentes en la s
 
 Siendo estas las diferencias de primer y segundo orden respectivamente. Ambas dan una idea de la similitud de la señal entre dos o tres puntos separados una escala temporal $\tau$, de forma que, los eventos extremos rápidos deberían manifestarse como colas pesadas en las PDFs a escalas de $\tau$ chicas, mientras que para un $\tau$ lo suficientemente grande se espera que no haya correlación entre los puntos de la señal, y que por tanto, la PDF sea Gaussiana. 
 
-En la Figura \ref{fig:pdfsdiferencias} se muestran las PDFs normalizadas para las primeras y segundas diferencias de dos señales, una de no linealidad pequeña (0-4 Hz, 50\%) y otra para no linealidad alta (0-6 Hz, 50\%). Nuevamente se utilizaron señales más largas para este estudio, ya que al tratarse de estadística de orden superior se necesitan más puntos para la convergencia, como se verá más adelante. % para 
 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=0.9897\linewidth]{Figuras/Intermitencia/PDFS/PDFS_DIFERENCIAS}
+	\includegraphics[width=0.982897\linewidth]{Figuras/Intermitencia/PDFS/PDFS_DIFERENCIAS}
 	\caption{PDFs normalizadas (\marksolid[blue]{0.4ex}) para las primeras  (n.I) y segundas diferencias (n.II), con diferente delay $\tau$, de una señal con no linealidad baja (a) y alta (b). Las curvas se desplazaron verticalmente por claridad. Se muestra además para todos los casos la distribución Gaussiana de media cero y desviación unidad como referencia (\markdashed[black]{0.4ex}). }  % diferencias otra con no linealidad 
 	\label{fig:pdfsdiferencias}
-\end{figure} 
+\end{figure}  
 
-Para el caso de no linealidad pequeña se puede observar que todas las PDFs resultan prácticamente Gaussianas, independientemente de l parámetro de delay $\tau$, mostrando colas ligeramente más pesadas para el caso de las segundas diferencias y menor $\tau$. Para las no linealidades altas las primeras diferencias también resultan Gaussianas, mientras que ahora para las segundas diferencias se puede ver una clara progresión de una Gaussiana para delays altos a una distribución más aplanada para delays chicos. Esto es un claro signo de intermitencia, que se presenta para los forzados lo suficientemente intensos. Otra característica interesante de las PDFs es que desarrollan para delays pequeños una asimetría hacia el lado positivo, además de aplanarse, lo cual se asocia a la probabilidad mayor de las crestas que los valles. 
 
-Se deben utilizar en este caso las segundas diferencias ya que al ser muy empinado el espectro de $\eta$, $E(\omega)\sim\omega^{-n}$ con $n\ge3$ como ocurre aproximadamente en este caso, la señal es diferenciable al menos una vez, y esa componente dominará  para $\tau$ pequeños, ofuscando la aparición de los eventos extremos, y en consecuencia las primeras diferencias resultarán poco informativas. Al trabajar con las segundas diferencias se elimina dicha componente diferenciable evidenciando las fluctuaciones multiescala. % > , dominará en $S_p$ las funciones de estructura  
+
+En la Figura \ref{fig:pdfsdiferencias} se muestran las PDFs normalizadas para las primeras y segundas diferencias de dos señales, una de no linealidad pequeña (0-4 Hz, 50\%) y otra para no linealidad alta (0-6 Hz, 50\%). Nuevamente se utilizaron señales más largas para este estudio, ya que al tratarse de estadística de orden superior se necesitan más puntos para la convergencia, como se verá más adelante. % para 
+
+
+
+Para el caso de no linealidad pequeña se puede observar que todas las PDFs resultan prácticamente Gaussianas, independientemente del  parámetro de delay $\tau$, mostrando colas ligeramente más pesadas para el caso de las segundas diferencias y menor $\tau$. Para las no linealidades altas las primeras diferencias también resultan Gaussianas, mientras que ahora para las segundas diferencias se puede ver una clara progresión, de una Gaussiana para delays altos, a una distribución más aplanada para delays chicos. Esto es un claro signo de intermitencia, que se presenta para los forzados lo suficientemente intensos. Otra característica interesante de las PDFs es que desarrollan para delays pequeños una asimetría hacia el lado positivo, además de aplanarse, lo cual se asocia a la probabilidad mayor de las crestas que los valles. 
+
+Se deben utilizar en este caso las segundas diferencias ya que al ser muy empinado el espectro de $\eta$, $E(\omega)\sim\omega^{-n}$ con $n\ge3$ (como ocurre aproximadamente en este caso), la señal es diferenciable al menos una vez, y esa componente dominará  para $\tau$ pequeños, ofuscando la aparición de los eventos extremos, y en consecuencia las primeras diferencias resultarán poco informativas. Al trabajar con las segundas diferencias se elimina dicha componente diferenciable evidenciando las fluctuaciones multiescala. % > , dominará en $S_p$ las funciones de estructura  
 
 Para todo lo que viene a continuación se utilizarán los datos para la señal de 0-6 Hz y amplitud del 50 \%, ya que fue de las que mostraron comportamiento intermitente en las PDFs de los incrementos. Un análisis cuantitativo de la deformación de las PDFs puede realizar mediante el cálculo de las funciones de estructura $S_p(\tau)$ de orden $p$, que se definen en término de las diferencias de la siguiente manera: 
 
@@ -339,47 +344,67 @@ Para todo lo que viene a continuación se utilizarán los datos para la señal d
 \end{equation} 
 
 
-Resulta importante verificar hasta qué orden están bien convergidas estas funciones de estructura en base a la cantidad de puntos de las señales utilizadas. 
+Resulta importante verificar hasta qué orden están bien convergidas estas funciones de estructura, en base a la cantidad de puntos de las señales utilizadas. Por ejemplo, para $\tau=16$ ms se muestra en la Figura \ref{fig:convergencia16ms} el valor de la función de estructura hasta orden 8 en función de la duración de la señal. 
 
 % \missingfigure{CONVERGENCIA SP} 
 
 \begin{figure}[th!]
 	\centering
-	\includegraphics[width=0.87\linewidth]{Figuras/Intermitencia/Convergencias/Convergencia_16ms}
-	\caption{}
+	\includegraphics[width=0.987\linewidth]{Figuras/Intermitencia/Convergencias/Convergencia_16ms}
+	\caption{Funciones de estructura hasta el orden $p=8$ para $\tau=8$ ms con una longitud variable de la señal. } 
 	\label{fig:convergencia16ms}
 \end{figure}
 
 
 
-Se calcularán $S_p$ con $p\le6$ en este caso, ya que se observa que para los datos utilizados éstas están bien determinadas en todo el rango de $\tau$ relevante. Para cuantificar la planitud (\textit{flatness}) de las PDFs se calcula el cociente $S_4/S_2^2$, que dará un valor de 3 en el caso en que la PDF sea Guassiana, e irá aumentando cuanto más plana sea (más pesadas sean las colas). Ésta se puede ver para las primeras diferencias en la Figura \ref{fig:primerasdiferenciasv2}a y para las segundas en \ref{fig:segundasdiferenciasv2}a. 
+Se calcularán $S_p$ con $p\le6$ en este caso, ya que se observa que, para los datos utilizados, éstas están bien determinadas en todo el rango de $\tau$ relevante. Las funciones de estructura pueden verse en la Figura \ref{fig:sps}a para las primeras diferencias y \ref{fig:sps}b para las segundas. Se puede notar que existe un rango de $\tau$ para el cual éstas siguen una ley de potencias de la forma $S_p\sim\tau^{\zeta_p}$.  %% Eb 
+
+
+
+Un punto importante aquí es que este delay $\tau$ se puede relacionar con el régimen, siendo la frecuencia correspondiente a cada escala $f\sim1/\tau$. De esta forma, $10\text{ ms }\gtrsim \tau\lesssim\;76\text{ ms }$ se corresponde al rango capilar, que es donde se observa la tendencia lineal. Delays mayores se corresponderán al rango de gravedad y menores a la escala del ruido.  
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.9897\linewidth]{"Figuras/Intermitencia/Funciones de Estructura/Sps"}
+	\caption{Funciones de estructura (\markcircle[blue]{0.4ex}) en función del delay $\tau$ hasta el orden $p=6$ para (a) las primeras diferencias y (b) las segundas diferencias. En el rango comprendido por las líneas verticales (\markdashed[black]{0.4ex}) se realizó un ajuste lineal de las funciones de estructura (\marksolid[blue]{0.4ex}). } 
+	\label{fig:sps}
+\end{figure} 
+
+Para cuantificar la planitud (\textit{flatness}) de las PDFs se calcula el cociente $S_4/S_2^2$, que dará un valor de 3 en el caso en que la PDF sea Guassiana, e irá aumentando cuanto más plana sea (i.e. más pesadas sean las colas). Ésta se puede ver para las primeras diferencias en la Figura \ref{fig:flatness}a y para las segundas en \ref{fig:flatness}b. % , 
 
 
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.9897\linewidth]{"Figuras/Intermitencia/Funciones de Estructura/Flatness"}
-	\caption{}
-	\label{figflatness:}
+	\caption{Planitud (\markcircle[black]{0.4ex}) en función del delay $\tau$ para (a) las primeras diferencias y (b) las segundas diferencias. En ambos casos se muestra además un ajuste lineal para el rango donde se observa un comportamiento lineal (\marksolid[black]{0.4ex}). Las líneas punteadas (\markdashed[black]{0.4ex}) muestran el punto donde el ajuste interseca el valor 3, que se tomará como el tiempo de correlación. Los valores obtenidos son los de la Tabla \ref{tab:flatness_fit}. }  
+	\label{fig:flatness} 
 \end{figure}
 
-En ambos casos, se puede observar que existe un rango de $\tau$ en el cual esta planitud pareciera seguir una ley de potencias. Ajustando linealmente y buscando el punto en que cruza 3 se puede determinar el llamado tiempo de correlación $\tau_c$ del flujo. Para ambas diferencias resulta $\tau_c$ del orden de 50 ms, comparable a valores reportados en la literatura \cite{falconObservationIntermittencyWave2007}. 
+En ambos casos, se puede observar que existe un rango de $\tau$ en el cual esta planitud pareciera seguir también una ley de potencias, lo cual es razonable si se supone que $S_4$ y $S_2$ siguen una de manera independiente. Ajustando linealmente y buscando el punto en que cruza 3 se puede determinar el llamado tiempo de correlación $\tau_c$ del flujo. Para ambas diferencias resulta $\tau_c$ del orden de 50 ms, comparable a valores reportados en la literatura \cite{falconObservationIntermittencyWave2007}.  
 
-Las funciones de estructura pueden verse en la Figura \ref{fig:primerasdiferenciasv2}b para las primeras diferencias y \ref{fig:segundasdiferenciasv2}b para las segundas. Se puede notar que existe un rango de $\tau$ para el cual éstas siguen una ley de potencias de la forma $S_p\sim\tau^{\zeta_p}$.  %% Eb 
-
-\begin{figure}[!ht]
+\begin{table}[h!]
 	\centering
-	\includegraphics[width=0.9897\linewidth]{"Figuras/Intermitencia/Funciones de Estructura/Sps"}
-	\caption{}
-	\label{fig:sps}
-\end{figure}
+	\begin{tabular}{ |c | c | c | c | c | }       
+		\hline
+		Diferencias & Pendiente $a$ [1/ms] & Ordenada $b$ & $R^2$ & Tiempo de correlación $\tau_c$ [ms] \\
+		\hline
+		Primeras & $(-0.1172\pm0.0005)$ & $(1.576\pm0.002)$ & $0.99961$ & $(58.6\pm0.3)$ \\
+		Segundas & $(-0.60\pm0.01)$ & $(3.42\pm0.04)$ & $0.99446$  & $(49.0\pm0.6)$ \\  
+		Falcon (2007) & $(-0.88\pm0.03)$ & - & - & $\approx63$ \\ 
+		\hline 
+	\end{tabular} 
+	\caption{Parámetros obtenidos del ajuste de la planitud (c.f. Figura \ref{fig:flatness}) para diferencias de primer y segundo orden. } % pl 
+	\label{tab:flatness_fit}
+\end{table}
 
-Un punto importante aquí es que este $\tau$ se puede relacionar con el régimen, siendo la frecuencia correspondiente a cada escala $f\sim1/\tau$. De esta forma, $10\text{ ms }\gtrsim \tau\lesssim\;76\text{ ms }$ se corresponde al rango capilar, que es donde se observa la tendencia lineal. Delays mayores se corresponderán al rango de gravedad y menores a la escala del ruido. Para cada $S_p$ se realizó un ajuste lineal para determinar este exponente $\zeta_p$. Los resultados se muestran en la Figura \ref{fig:exponentescomparacionv2}a. % esto es >
+
+Al igual que con la planitud, para cada $S_p$ se realizó además un ajuste lineal para determinar el exponente $\zeta_p$. Los resultados se muestran en la Figura \ref{fig:exponentescomparacionv2}a. % esto es > ste P 
 
 
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.9897\linewidth]{Figuras/Intermitencia/Exponentes/Exponentes_comparación_v2}
-	\caption{}
+	\caption{Exponentes $\zeta_p$ obtenidos para las funciones de estructura $S_p$ en el rango capilar (\markcircle*[blue]{0.4ex}) calculadas con las diferencias de orden uno y dos. (a) Este trabajo. (b) Falcon (2007) \cite{falconObservationIntermittencyWave2007}. Se muestran además los ajustes realizados (\markdashed[blue]{0.4ex}) por una función cuadrática $\zeta_p=c_1 p-c_2 p^2/2$, cuyos resultados se encuentran en la Tabla \ref{tab:zeta_p_fit}, y el escalado esperado por análisis dimensional (\markdotted[blue]{0.4ex}). } % . 
 	\label{fig:exponentescomparacionv2}
 \end{figure}
 
@@ -389,6 +414,24 @@ Los exponentes deben ser monótonamente crecientes, con lo cual esta estimación
 
 En la Figura \ref{fig:exponentescomparacionv2}b se muestran resultados análogos en mercurio de Falcon (2007) \cite{falconObservationIntermittencyWave2007}, que son cualitativamente parecidos. Lo que es más, los exponentes para las funciones de estructura calculados a partir de las primeras diferencia coinciden perfectamente con los hallados en este caso, solapándose todos los puntos. Sí hay una diferencia notable en los exponentes para las segundas diferencias, pero el valor obtenido para $c_2^{(2)}$ resulta similar. 
 
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{ | l | c | c | c | } % . 
+		\hline
+		Caso & $c_1$ & $c_2$ & $R^2$ \\
+		\hline
+		Orden 1 & $(0.92 \pm 0.01)$ & $(0.031 \pm 0.004)$ & $0.99999$ \\
+		Orden 1 Falcon (2007) & $(0.962 \pm 0.002)$ & $(0.049 \pm 0.001)$ & $0.99999$ \\
+		Análisis dimensional & $11/12\approx0.917$ & - & - \\ 
+		\hline 
+		Orden 2 & $(1.70 \pm 0.01)$ & $(0.117 \pm 0.006)$ & $0.99994$ \\
+		Orden 2 Falcon (2007) & $(1.60 \pm 0.02)$ & $(0.183 \pm 0.009)$ & $0.99930$ \\ 
+		Análisis dimensional & 1.5 & - & - \\ 
+		\hline
+	\end{tabular}
+	\caption{Parámetros del ajuste del exponente de estructura por una función cuadrática $\zeta_p = c_1 p - \tfrac{1}{2} c_2 p^2$ para diferencias de primer y segundo orden (c.f. Figura \ref{fig:exponentescomparacionv2}). Se presentan los resultados obtenidos, los de Falcon (2007) \cite{falconObservationIntermittencyWave2007} y los esperados mediante análisis dimensional para el caso sin intermitencia. } % ´ 
+	\label{tab:zeta_p_fit}
+\end{table}
 
 
 Si bien $S_p$ con $p=7,8$ no terminan de converger completamente para todo el rango de $\tau$, su incorporación con los datos para las funciones de estructura de  menor orden respetan las tendencias encontradas con los ajustes. 
