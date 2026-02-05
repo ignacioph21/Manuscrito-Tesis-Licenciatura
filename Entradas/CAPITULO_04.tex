@@ -21,11 +21,11 @@ El armado experimental consistió, como se muestra en la Figura \ref{fig:montaje
 	\label{fig:montajewaveturbulence-fondo}
 \end{figure}
 
-En el extremo opuesto a la paleta se colocó el sensor capacitivo, sumergido aproximadamente un centímetro, lo cual se reguló mediante un tornillo micrométrico.  
+En el extremo opuesto a la paleta se colocó el sensor capacitivo, sumergido aproximadamente un centímetro, lo cual se reguló mediante un tornillo micrométrico. La altura sumergida del sensor y de la paleta se mantuvieron constantes durante las experiencias, y lo único que se varió fue el forzado del motor en cada caso.  
 
-La altura sumergida del sensor y de la paleta se mantuvieron constantes durante las experiencias, y lo único que se varió fue el forzado del motor en cada caso. 
 
-Con la intención de romper lo más posible los modos fundamentales del recinto, y poder considerar un fluido isótropo, se colocó la paleta con una inclinación, de forma tal que las reflexiones no fuesen perpendiculares a los bordes. 
+
+Con la intención de romper lo más posible los modos fundamentales del recinto, y poder considerar un fluido isótropo, se colocó la paleta con una inclinación, de forma tal que las ondas generadas fuesen en dirección hacia una de las esquinas y las reflexiones no fuesen perpendiculares a los bordes. 
 
 
 
@@ -52,9 +52,9 @@ La amplitud del forzado, como el rango de frecuencias con amplitud no nula, esta
 \subsection{Juegos de Datos} 
 Para la experiencias de esta Tesis la inyección de energía se realizó a escalas grandes (frecuencias bajas), siempre en el rango gravitatorio, con el objetivo de poder observar el poblamiento completo de escalas en la cascada directa de energía, desde el rango gravitatorio hasta el capilar. % ¿Estudio de cascada inversa forzando a escalas intermedias?. 
 
-Los juegos de datos consisten en cuatro rangos de frecuencias distintas, todas desde 0 Hz, y terminando 3, 4, 5 o 6 Hz. Para cada uno de estos rangos se usaron 11 amplitudes distintas, las cuales estarán escritas en términos de porcentaje (del 60 al 160 $\%$) respecto de una curva base. Las curvas bases de los cuatro rangos fueron generadas con la misma amplitud en Fourier, de forma tal que los escalados posteriores sean comparables entre distintos juegos de datos. % ¿Tabla? . 
+Los juegos de datos consisten en cuatro rangos de frecuencias distintas, todas desde 0 Hz, y terminando en 3, 4, 5 o 6 Hz. Para cada uno de estos rangos se usaron 11 amplitudes distintas, las cuales estarán escritas en términos de un porcentaje (del 60 al 160 $\%$) respecto de una curva base, que para los cuatro rangos fueron generadas con la misma amplitud en Fourier, de forma tal que los escalados posteriores sean comparables entre distintos juegos de datos. % ¿Tabla? .  . Las curvas bases de 
 
-Las mediciones se tomaron un minuto después de haber iniciado el forzado, con el objetivo de asegurarse estar dentro del régimen estacionario de turbulencia de ondas. A no ser que se especifique lo contrario, para cada medición se tomaron datos durante un minuto y medio, solo para la mayor amplitud en el rango de mayor frecuencia (que sería el de mayor energía inyectada) se midió durante cinco minutos, para poder realizar algunos análisis que requieren más puntos en la estadística (como se mencionará cuando vaya a utilizarse). % punto con yP  
+Las mediciones se tomaron un minuto después de haber iniciado el forzado, con el objetivo de asegurarse estar dentro del régimen estacionario de turbulencia de ondas. A no ser que se especifique lo contrario, para cada medición se tomaron datos durante un minuto y medio, solo para la una amplitud en el rango de mayor frecuencia (que sería de los de mayor energía inyectada) se midió durante seis minutos, para poder realizar algunos análisis que requieren más puntos en la estadística (como se mencionará cuando vaya a utilizarse). % punto con yP  mayor el  cinco 
 
 
 
@@ -74,7 +74,7 @@ Una serie temporal típica de las medidas para este tipo de forzados limitados e
 	\label{fig:laserietemporal}
 \end{figure}
 
-Se puede observar en la señal una clara asimetría respecto a los valles y las crestas, siendo estas últimas menos probables. Esto puede verificarse graficando las densidades de probabilidad normalizadas (PDF) de la altura $\eta$, como está en la Figura \ref{fig:pdfs-cuba-chica-v2}. 
+Se puede observar en la señal una clara asimetría respecto a los valles y las crestas, siendo estas últimas más probables. Esto puede verificarse más cuantitativamente graficando las densidades de probabilidad normalizadas (PDF) de la altura $\eta$, como está en la Figura \ref{fig:pdfs-cuba-chica-v2}. % eno
 
 \begin{figure}[!ht]
 	\centering
@@ -83,11 +83,11 @@ Se puede observar en la señal una clara asimetría respecto a los valles y las 
 	\label{fig:pdfs-cuba-chica-v2}
 \end{figure}
 
-En general para todos los casos la PDF resulta cercana a una Gaussiana, pero con pequeñas desviaciones, como es común en la literatura \cite{falconLaboratoryExperimentsWave2010, falconExperimentsSurfaceGravity2022}. Para las dos bandas de frecuencias más altas puede observarse la asimetría de valles y crestas reflejada en la PDF, siendo más prominente en el último rango, con skewness claramente positiva. Sin embargo, para el rango de 0-4 Hz no se muestran diferencias significativas respecto a una distribución Gaussiana, y en el caso particular de 0-3 Hz se nota que la asimetría se invierte, generando más valles que crestas, con skewness claramente negativa. De esta forma, pareciera haber una progresión gradual desde skewness negativa hacia positiva en función de la no linealidad del sistema, aunque esto no se corresponde con ninguna experiencia previa y no se termina de entender a qué se debe. % esta misma 
+En general para todos los casos la PDF resulta cercana a una Gaussiana, pero con pequeñas desviaciones, como es común en la literatura \cite{falconLaboratoryExperimentsWave2010, falconExperimentsSurfaceGravity2022}. Para las dos bandas de frecuencias más altas puede observarse la asimetría de valles y crestas reflejada en la PDF, siendo más prominente en el último rango, con \textit{skewness} claramente positiva. Sin embargo, para el rango de 0-4 Hz no se muestran diferencias significativas respecto a una distribución Gaussiana, y en el caso particular de 0-3 Hz se nota que la asimetría se invierte, generando más valles que crestas, con \textit{skewness} claramente negativa. De esta forma, pareciera haber una progresión gradual desde \textit{kewness} negativa hacia positiva en función de la no linealidad del sistema, aunque esto no se corresponde con ninguna experiencia previa y no se termina de entender a qué se debe. % esta misma 
 
 \section{Wave Steepness} 
 \label{sec:wave_Steepness} 
-Previo al estudio de las propiedades características de turbulencia de ondas, como podría ser la cascada de energía, se buscó verificar que la hipótesis de no linealidades pequeñas fuese válida para los forzados implementados. Para esto se estudió el \textit{wave steepness} de las ondas generadas. Sin embargo, no es trivial la determinación de este parámetro en el caso en que hay múltiples ondas, de distitnas frecuencias y números de onda, en el flujo. El procedimiento usual en este caso consiste en separar la señal en lo que se denomina ondas individuales y determinar un \textit{wave steepness} local, como muestran \cite{tayfunDistributionsWaveSteepness2006, francisSynopticForcingWave2012}. % calculó 
+Previo al estudio de las propiedades características de turbulencia de ondas, como podría ser la cascada de energía, se buscó verificar que la hipótesis de no linealidades pequeñas fuese válida para los forzados implementados. Para esto se estudió el \textit{wave steepness} de las ondas generadas. Sin embargo, a diferencia de la definición dada en la Sección \ref{sec:ondas_fluidos}, no es trivial la determinación de este parámetro en el caso en que hay múltiples ondas, de distintas frecuencias y números de onda, en el flujo. El procedimiento usual en este caso consiste en separar la señal en lo que se denominan ondas individuales y determinar un \textit{wave steepness} local, como muestran \cite{tayfunDistributionsWaveSteepness2006, francisSynopticForcingWave2012}. % calculó 
 
 
 \begin{figure}[!ht]
@@ -97,18 +97,22 @@ Previo al estudio de las propiedades características de turbulencia de ondas, c
 	\label{fig:workflow}
 \end{figure}
 
-En la Figura \ref{fig:workflow} se ejemplifica el procedimiento para la obtención de las ondas individuales. En primer lugar se identifican los puntos en que la señal cruza cero, y se toma como una onda al segmento contenido entre dos cruces consecutivos en la misma dirección (ya sea hacia arriba o hacia abajo). Para cada onda individual se define una altura pico a pico $H_n$ y un período $T_n$ entre los cruces de cero, como muestra la Figura \ref{fig:workflow}b. La distribución conjunta de los valores para estas ondas se muestra en la Figura \ref{fig:jointporogression}. %  a porción a  de cesde 
+En la Figura \ref{fig:workflow} se ejemplifica el procedimiento para la obtención de las ondas individuales. En primer lugar se identifican los puntos en que la señal cruza cero, y se toma como una onda al segmento contenido entre dos cruces consecutivos en la misma dirección (ya sea hacia arriba o hacia abajo). 
 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=0.9897\linewidth]{"Figuras/Wave Steepness/Joint_porogression_alternativa_v2"}
+	\includegraphics[width=0.9915897\linewidth]{"Figuras/Wave Steepness/Joint_porogression_alternativa_v2"}
 	\caption{Distribución del conjunto de parámetros $(T_n, H_n)$ para las ondas individuales de las distintas señales (a) 0-3 Hz (b) 0-4 Hz (c) 0-5 Hz (d) 0-6 Hz. Los contornos  sólidos muestran la región que contiene al 67 \% de los puntos en cada caso. } % sás sís sás
 	\label{fig:jointporogression}
 \end{figure}
 
 % PROGRESIÓN Y LÍMTES. 
+
+Para cada onda individual se define una altura pico a pico $H_n$ y un período $T_n$ entre los cruces de cero, como muestra la Figura \ref{fig:workflow}b. La distribución conjunta de los valores para estas ondas se muestra en la Figura \ref{fig:jointporogression}. %  a porción a  de cesde 
+
+
  
-Las líneas sólidas se corresponden a los contornos que contiene un 67 \% de los puntos, pudiéndose observar una clara progresión, al aumentar la potencia inyectada en el sistema, y por tanto, la no linealidad. Para los forzados más débiles las ondas tienden a ser más largas, con un $H_n$ pequeño y una amplia variedad de $T_n$, transicionando hacia ondas más cortas en los forzados más intensos, con $T_n$ pequeño y $H_n$ que llega hasta 1 cm en amplitud. Para cada par de valores puede calcularse la pendiente de esa onda individual como: 
+Las líneas sólidas se corresponden a los contornos que contiene un 67 \% de los puntos, pudiéndose observar una clara progresión al aumentar la potencia inyectada en el sistema, y por tanto, la no linealidad. Para los forzados más débiles las ondas tienden a ser más largas, con un $H_n$ pequeño y una amplia variedad de $T_n$, transicionando hacia ondas más cortas en los forzados más intensos, con $T_n$ pequeño y $H_n$ que llega hasta 1 cm en amplitud. Para cada par de valores puede calcularse la pendiente de esa onda individual como: % , 
 
 \begin{equation}
 	S_n = \frac{H_n}{L(T_n)}
@@ -118,6 +122,19 @@ Donde se aproxima la longitud de ondas $L_n=L(T_n)$ a partir de la relación de 
 
 
 % En la Figura \ref{fig:jointporogression} se muestra además la línea correspondiente al límite de Miche-Stokes, que se corresponde al % La línea sólida negra de la Figura \ref{fig:jointporogression} se corresponde
+
+
+
+Generalmente, es un resultado empírico que la distribución obtenida para $s_n$ resulta ser bien descripta por una log-normal \cite{tayfunDistributionsWaveSteepness2006}, de la forma: % s 
+
+\begin{equation}
+	f(s) = \frac{1}{\sigma s\sqrt{2\pi}} \exp\left[-\frac{1}{2}\left(\frac{\ln{(s)}-\mu}{\sigma}\right)^2\right] % righ 
+\end{equation} 
+
+% \input{Entradas/tabla_lognormal.tex} 
+
+
+Donde $\mu$ y $\sigma$ son constantes a determinar. El ajuste por esta función se puede ver para las PDFs de la Figura \ref{fig:pdfs}. Para los valores de forzado más bajo este modelo pareciera describir bien a los datos, dando $\chi_\nu^2\sim1$, sin embargo, a mayor la potencia inyectada más difiere el ajuste de los datos y $\chi_\nu^2$ aumenta gradualmente. Al mismo tiempo, las líneas verticales muestran el valor medio $\langle s\rangle=\exp(\mu+\sigma^2/2)$ obtenido del ajuste, que se espera tienda a $\langle s\rangle=\sqrt{\pi}/2$. De nuevo, esto suele cumplirse para los forzados de menor potencia, y se aleja gradualmente al aumentarla. 
 
 
 
@@ -131,17 +148,6 @@ Donde se aproxima la longitud de ondas $L_n=L(T_n)$ a partir de la relación de 
 	\caption{PDFs para la pendiente de las ondas normalizada ($S/S_{\text{rms}}$) de varias mediciones. Cada columna se corresponde a un rango de frecuencias, siendo (a) 0-3 Hz (b) 0-4 Hz (c) 0-5 Hz y (d) 0-6 Hz. La fila superior (n.I) se corresponde a la amplitud de 80 \% y la inferior (n.II) a 120 \%. Para cada una se muestra el ajuste por el modelo log-normal (\marksolid[blue]{0.4ex}), el valor medio obtenido (\markdashdot[blue]{0.4ex}) con su incerteza y el valor teórico esperado de $\sqrt{\pi}/2$ (\markdashed[black]{0.4ex}). } % .  
 	\label{fig:pdfs}
 \end{figure}
-
-Generalmente, la distribución obtenida para $s_n$ resulta log-normal, de la forma: 
-
-\begin{equation}
-	f(s) = \frac{1}{\sigma s\sqrt{2\pi}} \exp\left[-\frac{1}{2}\left(\frac{\ln{(s)}-\mu}{\sigma}\right)^2\right] % righ 
-\end{equation} 
-
-% \input{Entradas/tabla_lognormal.tex} 
-
-
-Donde $\mu$ y $\sigma$ son constantes a determinar. El ajuste por esta función se puede ver para las PDFs de la Figura \ref{fig:pdfs}. Para los valores de forzado más bajo este modelo pareciera describir bien a los datos, dando $\chi_\nu^2\sim1$, sin embargo, a mayor la potencia inyectada más difiere el ajuste de los datos y $\chi_\nu^2$ aumenta gradualmente. Al mismo tiempo las líneas verticales muestran el valor medio $\langle s\rangle=\exp(\mu+\sigma^2/2)$ obtenido del ajuste, que se espera tienda a $\langle s\rangle=\sqrt{\pi}/2$. De nuevo, esto suele cumplirse para los forzados de menor potencia, y se aleja gradualmente al aumentarla. 
 
 La cantidad de ondas individuales para este análisis es de aproximadamente 300-500, variando según la señal. Para aquellas donde los $T_n$ son menores, como ocurre en los rangos de mayor frecuencia, hay más ondas individuales que para aquellas donde $T_n$ es mayor. Es posible que tomando señales más largas y con más puntos para la estadística se puedan caracterizar mejor estas distribuciones, especialmente donde no pareciera ser una log-normal. 
 
@@ -167,7 +173,7 @@ En cualquier caso, es posible apreciar cómo la pendiente media de las ondas aum
 
 \section{Cascadas de energía}
 \label{sec:cascadas_De_energía} 
-Lo siguiente que se buscó caracterizar fueron las cascadas de energía en el rango de gravedad y capilar. Para esto se calculó la PSD de cada señal mediante el algoritmo de Welch, que separa la señal en distintos segmentos y posteriormente promedia la PSD de cada uno para el resultado final. En la Figura \ref{fig:cuba-chica-v2} se pueden ver los resultados para varias señales. % rty  ay Y UUuu77 . 
+Lo siguiente que se buscó caracterizar fueron las cascadas de energía en el rango de gravedad y capilar. Para esto se calculó la PSD de cada señal mediante el algoritmo de Welch, que separa la señal en distintos segmentos y, posteriormente, promedia la PSD de cada uno para el resultado final. Esto es válido bajo la suposición de que el régimen estudiado es estacionario, y el espectro no varía con el tiempo. En la Figura \ref{fig:cuba-chica-v2} se pueden ver los resultados para varias señales. % rty  ay Y UUuu77 . 
 
 
 
@@ -186,7 +192,7 @@ En todos los casos se pueden apreciar una serie de características repetidas:
 \end{figure} 
 
 \subsection{Ajuste de la PSD} 
-Para caracterizar la región donde el comportamiento pareciera ser lineal, que se correspondería con una solución tipo ley de potencias, se intentó ajustar linealmente dos regiones separadas de la PSD (una correspondiente a gravedad y otra  a capilar), sin embargo, se observó que los parámetros obtenidos dependen muy sensiblemente del rango elegido para el ajuste, debido al ruido, especialmente para frecuencias bajas. Con el objetivo de independizarse de la elección de los rangos ajustados se decidió realizar un único ajuste por una función a tramos continua formada por dos lineales de distinta pendiente, donde la frecuencia de cruce fuese uno de los cuatro parámetros a determinar, en todo el rango desde donde termina el forzado hasta la frecuencia de corte. Un ejemplo de este procedimiento se muestra en la Figura \ref{fig:workflowv2}, donde se muestra explícitamente el rango ajustado. % correspondiente  Para poder de ajuste 
+Para caracterizar la región donde el comportamiento pareciera ser lineal, que se correspondería con una solución tipo ley de potencias, se intentó ajustar linealmente dos regiones separadas de la PSD (una correspondiente a gravedad y otra  a capilar), sin embargo, se observó que los parámetros obtenidos dependen muy sensiblemente del rango elegido para el ajuste, especialmente para frecuencias bajas debido al ruido. Con el objetivo de independizarse de la elección de los rangos ajustados se decidió realizar un único ajuste por una función a tramos continua formada por dos lineales de distinta pendiente, donde la frecuencia de cruce fuese uno de los cuatro parámetros a determinar, en todo el rango desde donde termina el forzado hasta la frecuencia de corte. Un ejemplo de este procedimiento se muestra en la Figura \ref{fig:workflowv2}, donde se muestra explícitamente el rango ajustado. % correspondiente  Para poder de ajuste ,  
 
 
 \begin{figure}[!ht]
@@ -258,7 +264,7 @@ Distintas vistas de esta correlación, en un volumen de  $30\times30\times30$ Hz
 \begin{figure}[th!]
 	\centering
 	\includegraphics[width=0.987\linewidth]{Figuras/Correlaciones/Cubos}
-	\caption{Distintas vistas de la correlación $C(f_1, f_2, f_3)$ en escala logarítmica para la señal de 0-6 Hz y amplitud del 50 \%. } % 10 
+	\caption{Distintas vistas de la correlación $C(f_1, f_2, f_3)$ en escala logarítmica para la señal de 0-6 Hz y amplitud del 100 \%. } % 10 5 
 	\label{fig:cubos}
 \end{figure}
 
@@ -342,7 +348,7 @@ Para el caso de no linealidad pequeña se puede observar que todas las PDFs resu
 
 Se deben utilizar en este caso las segundas diferencias ya que al ser muy empinado el espectro de $\eta$, $E(\omega)\sim\omega^{-n}$ con $n\ge3$ (como ocurre aproximadamente en este caso), la señal es diferenciable al menos una vez, y esa componente dominará  para $\tau$ pequeños, ofuscando la aparición de los eventos extremos, y en consecuencia las primeras diferencias resultarán poco informativas. Al trabajar con las segundas diferencias se elimina dicha componente diferenciable evidenciando las fluctuaciones multiescala. % > , dominará en $S_p$ las funciones de estructura  
 
-Para todo lo que viene a continuación se utilizarán los datos para la señal de 0-6 Hz y amplitud del 50 \%, ya que fue de las que mostraron comportamiento intermitente en las PDFs de los incrementos. Un análisis cuantitativo de la deformación de las PDFs puede realizar mediante el cálculo de las funciones de estructura $S_p(\tau)$ de orden $p$, que se definen en término de las diferencias de la siguiente manera: 
+Para todo lo que viene a continuación se utilizarán los datos para la señal de 0-6 Hz y amplitud del 100 \%, ya que fue de las que mostraron comportamiento intermitente en las PDFs de los incrementos. Un análisis cuantitativo de la deformación de las PDFs puede realizar mediante el cálculo de las funciones de estructura $S_p(\tau)$ de orden $p$, que se definen en término de las diferencias de la siguiente manera: % 5 
 
 
 
