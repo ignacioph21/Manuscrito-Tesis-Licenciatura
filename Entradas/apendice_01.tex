@@ -36,7 +36,7 @@ Aunque se observó que para la fase ajusta mejor tener en cuenta el acoplamiento
 
 
 
-Los valores obtenidos obtenidos para el ajuste son los de la Tabla \ref{tab:rlc_fit_params}.  
+Los valores obtenidos obtenidos para el ajuste son los de la Tabla \ref{tab:rlc_fit_params}. La incorporación de la corrección en el modelo de la fase hace que coincidan la frecuencia de resonancia $f_0$ y el factor de calidad $Q$, cosa que no ocurre usando el modelo solo para el RLC. %  en 
 
 \begin{table}[h!]
 	\centering
@@ -44,19 +44,19 @@ Los valores obtenidos obtenidos para el ajuste son los de la Tabla \ref{tab:rlc_
 		\hline
 		Ajuste & Parámetro & Valor ± Incertidumbre & $R^2$ & $\chi^2_\nu$ \\ 
 		\hline
-		 Amplitud & $Q$   & $2.01 \pm 0.015$ & 0.99864 & 2.239 \\		 & $f_0$ [Hz] & $76310\pm 90$ &  &  \\ % 0.998640.998640.99864  % 1\times 10^4 2 
-		 & $B$  [V] & $0.1304 \pm 0.0031$ &  &  \\ % AmplitudmplitudAmplitud 
-		 & $A_0$  [V] & $2.125 \pm 0.0071$ &  &  \\ % 2.2392.2392.239 
+		 Amplitud & $Q$   & $(2.01 \pm 0.02)$ & 0.99864 & 2.239 \\		 & $f_0$ [Hz] & $(76310\pm 90)$ &  &  \\ % 0.998640.998640.99864  % 1\times 10^4 2 
+		 & $B$  [V] & $(0.130 \pm 0.003)$ &  &  \\ % AmplitudmplitudAmplitud 
+		 & $A_0$  [V] & $(2.125 \pm 0.007)$ &  &  \\ % 2.2392.2392.239 
 		 
 	\hline
-	Fase (sin corrección) & $Q$   & $1.762 \pm 0.0016$ & 0.96429 & 70.375 \\
-	& $f_0$  [Hz] & $80000\pm 100$ &  &  \\ % 7996.\times 10^4 .3\times 10^2 
-	& $B$   [V]  & $-0.3251 \pm 0.0029$ &  &  \\ % Fase (sin corrección)Fase (sin corrección)  %  70.37570.375 
+	Fase (sin corrección) & $Q$   & $(1.762 \pm 0.007)$ & 0.96429 & 70.375 \\
+	& $f_0$  [Hz] & $(80000\pm 100)$ &  &  \\ % 7996.\times 10^4 .3\times 10^2 
+	& $B$   [V]  & $(-0.325 \pm 0.003)$ &  &  \\ % Fase (sin corrección)Fase (sin corrección)  %  70.37570.375 
 	\hline
-	Fase (corregida) & $Q$   & $1.979 \pm 0.0067$ & 0.99984 & 0.275 \\
-	& $f_0$  [Hz] & $76300\pm 100$ &  &  \\ % 0.964290.964290.99984 .\times 10^4 .1\times 10^2 27 \textbf{ }
-	& $B$   [V]  & $-0.03815 \pm 0.007$ &  &  \\
-	& $f_c$  [Hz] & $15400 \pm 400$ &  &  \\ % Fase (corregida)Fase (corregida)Fase (corregida) .\times 10^4
+	Fase (corregida) & $Q$   & $(1.979 \pm 0.007)$ & 0.99984 & 0.275 \\
+	& $f_0$  [Hz] & $(76300\pm 100)$ &  &  \\ % 0.964290.964290.99984 .\times 10^4 .1\times 10^2 27 \textbf{ }
+	& $B$   [V]  & $(-0.038 \pm 0.007)$ &  &  \\
+	& $f_c$  [Hz] & $(15400 \pm 400)$ &  &  \\ % Fase (corregida)Fase (corregida)Fase (corregida) .\times 10^4
 	\hline % 0.99984 0.99984 0.2750.2750.275 8\times 10^2 
 	\end{tabular} 
 	\caption{Parámetros obtenidos de los ajustes de amplitud y fase (c.f. Figura \ref{fig:apendice}). }  % , incluyendo incertidumbres, $R^2$ y $\chi^2_\nu$ 

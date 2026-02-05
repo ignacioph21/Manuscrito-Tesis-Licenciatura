@@ -2,12 +2,14 @@
 \thispagestyle{plain} 
 
 
-Las experiencias realizadas para esta Tesis se corresponden al estudio estadístico de las propiedades de 
+% Las experiencias realizadas para esta Tesis se corresponden al estudio estadístico de las propiedades de 
+
+Este Capítulo está dedicado a la implementación del sensor en experiencias de turbulencia de ondas gravito-capilares para agua destilada, y el estudio de la transferencia de energía entre escalas. En la Sección \ref{sec:montaje_experimental} se detalla el montaje experimental utilizado para estas experiencias; en la Sección \ref{sec:series_temporales} se muestra cómo es una medición típica y sus propiedades inmediatas; en la Sección \ref{sec:wave_Steepness} se analiza la pendiente de las ondas generadas y la validez de turbulencia de ondas débil; en la Sección \ref{sec:cascadas_De_energía} se caracterizan los parámetros principales de las cascadas de energía; posteriormente, en la Sección \ref{sec:interacciones_rsonantes} se identifican los conjuntos de ondas resonantes (triadas y cuartetos) en el flujo; finalmente, en la Sección \ref{sec:intermitencia} se estudia el fenómeno de intermitencia observado para las experiencias con una no linealidad mayor. % tysíssíssís á 
 
 \clearpage 
 
 \section{Montaje para Turbulencia de Ondas} 
-
+\label{sec:montaje_experimental} 
 \subsection{Montaje}
 El armado experimental consistió, como se muestra en la Figura \ref{fig:montajewaveturbulence-fondo}, en una cuba de acrílico de 20x20 cm$^2$ llena hasta una altura de $h_0=(4.45\pm0.05)$ cm de agua destilada. En ésta se sumergió aproximadamente un centímetro una paleta de acrílico, unida a un motor lineal LinMot colocado horizontalmente, al cual fueron suministradas distintas señales según el caso.  
 
@@ -61,6 +63,7 @@ Las mediciones se tomaron un minuto después de haber iniciado el forzado, con e
 
 
 \section{Series Temporales} 
+\label{sec:series_temporales} 
 Una serie temporal típica de las medidas para este tipo de forzados limitados en frecuencia se muestra en la Figura \ref{fig:pdfs-cuba-chica-v2}. 
 
 
@@ -83,6 +86,7 @@ Se puede observar en la señal una clara asimetría respecto a los valles y las 
 En general para todos los casos la PDF resulta cercana a una Gaussiana, pero con pequeñas desviaciones, como es común en la literatura \cite{falconLaboratoryExperimentsWave2010, falconExperimentsSurfaceGravity2022}. Para las dos bandas de frecuencias más altas puede observarse la asimetría de valles y crestas reflejada en la PDF, siendo más prominente en el último rango, con skewness claramente positiva. Sin embargo, para el rango de 0-4 Hz no se muestran diferencias significativas respecto a una distribución Gaussiana, y en el caso particular de 0-3 Hz se nota que la asimetría se invierte, generando más valles que crestas, con skewness claramente negativa. De esta forma, pareciera haber una progresión gradual desde skewness negativa hacia positiva en función de la no linealidad del sistema, aunque esto no se corresponde con ninguna experiencia previa y no se termina de entender a qué se debe. % esta misma 
 
 \section{Wave Steepness} 
+\label{sec:wave_Steepness} 
 Previo al estudio de las propiedades características de turbulencia de ondas, como podría ser la cascada de energía, se buscó verificar que la hipótesis de no linealidades pequeñas fuese válida para los forzados implementados. Para esto se estudió el \textit{wave steepness} de las ondas generadas. Sin embargo, no es trivial la determinación de este parámetro en el caso en que hay múltiples ondas, de distitnas frecuencias y números de onda, en el flujo. El procedimiento usual en este caso consiste en separar la señal en lo que se denomina ondas individuales y determinar un \textit{wave steepness} local, como muestran \cite{tayfunDistributionsWaveSteepness2006, francisSynopticForcingWave2012}. % calculó 
 
 
@@ -162,6 +166,7 @@ En cualquier caso, es posible apreciar cómo la pendiente media de las ondas aum
 
 
 \section{Cascadas de energía}
+\label{sec:cascadas_De_energía} 
 Lo siguiente que se buscó caracterizar fueron las cascadas de energía en el rango de gravedad y capilar. Para esto se calculó la PSD de cada señal mediante el algoritmo de Welch, que separa la señal en distintos segmentos y posteriormente promedia la PSD de cada uno para el resultado final. En la Figura \ref{fig:cuba-chica-v2} se pueden ver los resultados para varias señales. % rty  ay Y UUuu77 . 
 
 
@@ -238,6 +243,7 @@ Nuevamente en la Figura \ref{fig:frecuencias-de-cruce}b se muestran los resultad
 
 
 \section{Interacción a 3 y 4 ondas} 
+\label{sec:interacciones_rsonantes} 
 El siguiente objetivo, una vez caracterizada la cascada de energía, fue identificar las interacciones resonantes entre ondas de la superficie libre, ya sea mediante triadas o cuartetos. Para esto se calculó en primer lugar la correlación de tres ondas normalizada, definida como \cite{aubourgNonlocalResonancesWeak2015, aubourgThreewaveFourwaveInteractions2017}:  
 
 \begin{equation}
@@ -292,6 +298,7 @@ Tanto en este caso, como para las triadas, se puede observar que la línea de co
 
 
 \section{Intermitencia} 
+\label{sec:intermitencia}  % .          
 Para forzados con no linealidad lo suficientemente alta suele observarse un comportamiento intermitente en las series temporales para $\eta(t)$, caracterizado por la aparición de fluctuaciones rápidas en un entorno comparativamente más calmo, como se esquematiza en la Figura \ref{fig:esquema}.  
 
 % \missingfigure{ESQUEMA INTERMITENCIA}
