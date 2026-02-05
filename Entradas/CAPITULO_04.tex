@@ -87,8 +87,7 @@ En general para todos los casos la PDF resulta cercana a una Gaussiana, pero con
 
 \section{Wave Steepness} 
 \label{sec:wave_Steepness} 
-Previo al estudio de las propiedades características de turbulencia de ondas, como podría ser la cascada de energía, se buscó verificar que la hipótesis de no linealidades pequeñas fuese válida para los forzados implementados. Para esto se estudió el \textit{wave steepness} de las ondas generadas. Sin embargo, a diferencia de la definición dada en la Sección \ref{sec:ondas_fluidos}, no es trivial la determinación de este parámetro en el caso en que hay múltiples ondas, de distintas frecuencias y números de onda, en el flujo. El procedimiento usual en este caso consiste en separar la señal en lo que se denominan ondas individuales y determinar un \textit{wave steepness} local, como muestran \cite{tayfunDistributionsWaveSteepness2006, francisSynopticForcingWave2012}. % calculó 
-
+Previo al estudio de las propiedades características de turbulencia de ondas, como podría ser la cascada de energía, se buscó verificar que la hipótesis de no linealidades pequeñas fuese válida para los forzados implementados. Para esto se estudió el \textit{wave steepness} de las ondas generadas. 
 
 \begin{figure}[!ht]
 	\centering
@@ -97,20 +96,29 @@ Previo al estudio de las propiedades características de turbulencia de ondas, c
 	\label{fig:workflow}
 \end{figure}
 
-En la Figura \ref{fig:workflow} se ejemplifica el procedimiento para la obtención de las ondas individuales. En primer lugar se identifican los puntos en que la señal cruza cero, y se toma como una onda al segmento contenido entre dos cruces consecutivos en la misma dirección (ya sea hacia arriba o hacia abajo). 
+A diferencia de la definición dada en la Sección \ref{sec:ondas_fluidos}, no es trivial la determinación de este parámetro en el caso en que hay múltiples ondas, de distintas frecuencias y números de onda, en el flujo. El procedimiento usual en este caso consiste en separar la señal en lo que se denominan ondas individuales y determinar un \textit{wave steepness} local, como muestran \cite{tayfunDistributionsWaveSteepness2006, francisSynopticForcingWave2012}. % calculó Sin embargo, a \subsection*{}
+ 
 
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.9915897\linewidth]{"Figuras/Wave Steepness/Joint_porogression_alternativa_v2"}
 	\caption{Distribución del conjunto de parámetros $(T_n, H_n)$ para las ondas individuales de las distintas señales (a) 0-3 Hz (b) 0-4 Hz (c) 0-5 Hz (d) 0-6 Hz. Los contornos  sólidos muestran la región que contiene al 67 \% de los puntos en cada caso. } % sás sís sás
 	\label{fig:jointporogression}
-\end{figure}
+\end{figure}  
 
-% PROGRESIÓN Y LÍMTES. 
+
+En la Figura \ref{fig:workflow} se ejemplifica el procedimiento para la obtención de las ondas individuales. En primer lugar se identifican los puntos en que la señal cruza cero, y se toma como una onda al segmento contenido entre dos cruces consecutivos en la misma dirección (ya sea hacia arriba o hacia abajo). 
+
+
+
+
+
 
 Para cada onda individual se define una altura pico a pico $H_n$ y un período $T_n$ entre los cruces de cero, como muestra la Figura \ref{fig:workflow}b. La distribución conjunta de los valores para estas ondas se muestra en la Figura \ref{fig:jointporogression}. %  a porción a  de cesde 
 
 
+
+% PROGRESIÓN Y LÍMTES. 
  
 Las líneas sólidas se corresponden a los contornos que contiene un 67 \% de los puntos, pudiéndose observar una clara progresión al aumentar la potencia inyectada en el sistema, y por tanto, la no linealidad. Para los forzados más débiles las ondas tienden a ser más largas, con un $H_n$ pequeño y una amplia variedad de $T_n$, transicionando hacia ondas más cortas en los forzados más intensos, con $T_n$ pequeño y $H_n$ que llega hasta 1 cm en amplitud. Para cada par de valores puede calcularse la pendiente de esa onda individual como: % , 
 
@@ -123,7 +131,12 @@ Donde se aproxima la longitud de ondas $L_n=L(T_n)$ a partir de la relación de 
 
 % En la Figura \ref{fig:jointporogression} se muestra además la línea correspondiente al límite de Miche-Stokes, que se corresponde al % La línea sólida negra de la Figura \ref{fig:jointporogression} se corresponde
 
-
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.9897\linewidth]{"Figuras/Wave Steepness/PDFs"}
+	\caption{PDFs para la pendiente de las ondas normalizada ($S/S_{\text{rms}}$) de varias mediciones. Cada columna se corresponde a un rango de frecuencias, siendo (a) 0-3 Hz (b) 0-4 Hz (c) 0-5 Hz y (d) 0-6 Hz. La fila superior (n.I) se corresponde a la amplitud de 80 \% y la inferior (n.II) a 120 \%. Para cada una se muestra el ajuste por el modelo log-normal (\marksolid[blue]{0.4ex}), el valor medio obtenido (\markdashdot[blue]{0.4ex}) con su incerteza y el valor teórico esperado de $\sqrt{\pi}/2$ (\markdashed[black]{0.4ex}). } % .  
+	\label{fig:pdfs}
+\end{figure} 
 
 Generalmente, es un resultado empírico que la distribución obtenida para $s_n$ resulta ser bien descripta por una log-normal \cite{tayfunDistributionsWaveSteepness2006}, de la forma: % s 
 
@@ -142,12 +155,7 @@ Donde $\mu$ y $\sigma$ son constantes a determinar. El ajuste por esta función 
 
 
 
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[width=0.9897\linewidth]{"Figuras/Wave Steepness/PDFs"}
-	\caption{PDFs para la pendiente de las ondas normalizada ($S/S_{\text{rms}}$) de varias mediciones. Cada columna se corresponde a un rango de frecuencias, siendo (a) 0-3 Hz (b) 0-4 Hz (c) 0-5 Hz y (d) 0-6 Hz. La fila superior (n.I) se corresponde a la amplitud de 80 \% y la inferior (n.II) a 120 \%. Para cada una se muestra el ajuste por el modelo log-normal (\marksolid[blue]{0.4ex}), el valor medio obtenido (\markdashdot[blue]{0.4ex}) con su incerteza y el valor teórico esperado de $\sqrt{\pi}/2$ (\markdashed[black]{0.4ex}). } % .  
-	\label{fig:pdfs}
-\end{figure}
+
 
 La cantidad de ondas individuales para este análisis es de aproximadamente 300-500, variando según la señal. Para aquellas donde los $T_n$ son menores, como ocurre en los rangos de mayor frecuencia, hay más ondas individuales que para aquellas donde $T_n$ es mayor. Es posible que tomando señales más largas y con más puntos para la estadística se puedan caracterizar mejor estas distribuciones, especialmente donde no pareciera ser una log-normal. 
 
@@ -197,7 +205,7 @@ Para caracterizar la región donde el comportamiento pareciera ser lineal, que s
 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=0.7019897\linewidth]{Figuras/Espectros/Workflow/Workflow_v2}
+	\includegraphics[width=0.87019897\linewidth]{Figuras/Espectros/Workflow/Workflow_v2}
 	\caption{Ejemplo de procesamiento de la PSD media (\marksolid[blue]{0.4ex}) para una de las señales. Las regiones más oscuras se corresponden con las escalas de inyección a frecuencias bajas y la de ruido a escalas chicas. La región sin colorear es el rango intermedio que se ajustó por completo mediante una función lineal a tramos continua. Cada tramo del ajuste resultante se muestra con líneas (\markdashed{0.4ex}) y (\markdashdot{0.4ex}). Se muestra además la frecuencia de cruce obtenida, marcada verticalmente (\markdashed[blue]{0.4ex}). Inset: Aumento de la región alrededor de la frecuencia de cruce donde cambia la pendiente de las rectas. Éstas se extendieron para apreciar el cambio de la pendiente en la PSD más claramente. } % (corte ) ¿Agregar incerteza? . ed A E 
 	\label{fig:workflowv2}
 \end{figure} 
@@ -207,17 +215,17 @@ Para determinar el punto en que la PSD alcanza esta frecuencia de corte se deter
 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=0.5729897\linewidth]{Figuras/Espectros/Cutoff/Cutoff}
+	\includegraphics[width=0.65729897\linewidth]{Figuras/Espectros/Cutoff/Cutoff}
 	\caption{Frecuencia de corte del espectro obtenida para las distintas mediciones.} 
 	\label{fig:cutoff}
 \end{figure}
 
 
 
-Una vez hallada la frecuencia de corte y determinado el rango completo para el ajuste se procedió a realizar éste. Un caso particular del ajuste está en la Figura \ref{fig:workflowv2}. En el inset se muestra un aumento de la región al rededor de la frecuencia de cruce resultante del ajuste, donde se extendieron ambas lineales de la función a tramos con el objetivo de notar más claramente el cambio de pendiente de un tramo al otro. En general se obtuvieron muy buenos ajustes con esta técnica, confirmando el comportamiento lineal con dos regiones esperada. 
+Una vez hallada la frecuencia de corte y determinado el rango completo para el ajuste se procedió a realizar éste. Un caso particular del ajuste está en la Figura \ref{fig:workflowv2}. En el inset se muestra un aumento de la región  alrededor de la frecuencia de cruce resultante del ajuste, donde se extendieron ambas lineales de la función a tramos con el objetivo de notar más claramente el cambio de pendiente de un tramo al otro. En general se obtuvieron muy buenos ajustes con esta técnica, confirmando el comportamiento lineal con dos regiones esperada. 
 
 \subsection{Exponentes} 
-Los exponentes de la PSD obtenidos en cada región se pueden ver en la Figura \ref{fig:exponentesapilados}a. 
+Los exponentes de la PSD obtenidos en cada región mediante este método se pueden ver en la Figura \ref{fig:exponentesapilados}a. 
 
 
 \begin{figure}[!ht]
@@ -228,6 +236,8 @@ Los exponentes de la PSD obtenidos en cada región se pueden ver en la Figura \r
 \end{figure} 
 
 Para el rango de gravedad el exponente empieza relativamente bajo y aumenta hasta alcanzar el valor esperado de -4 eventualmente, siguiendo un poco más posteriormente, acercándose al espectro saturado de Phillips con -5 de exponente. Para el caso capilar en todos los rangos de frecuencias explorados la pendiente tiende a -17/6 como se esperaría. Esto se corresponde a resultados previos reportados por la literatura, donde la cascada que más se condice con las predicciones teóricas es la capilar, mientras que la de gravedad suele diferir, dependiendo el exponente del forzado y la geometría del recinto, posiblemente por efectos de la finitud del mismo y a la presencia de estructuras coherentes en escalas grandes. % a 
+
+
 
 
 En la Figura \ref{fig:exponentesapilados}b se muestran a modo comparativo los resultados hallados por Falcon et al. (2007) para una experiencia equivalente en mercurio \cite{falconObservationGravityCapillaryWave2007}. Se puede ver un comportamiento similar, con los exponentes para el rango capilar tendiendo al valor esperado de -17/6 a medida que aumenta la amplitud del forzado, y el de gravedad tendiendo a un valor ligeramente menor a -4, aunque en este caso la variación es mucho más alta. 
@@ -268,9 +278,11 @@ Distintas vistas de esta correlación, en un volumen de  $30\times30\times30$ Hz
 	\label{fig:cubos}
 \end{figure}
 
-Se puede apreciar claramente un plano de correlación cercana a uno, un par de órdenes mayor que los alrededores, que se corresponde perfectamente con el plano dado por la condición de triadas resonantes. Las líneas diagonales en los bordes de correlación uno se corresponden a las interacciones triviales, donde $f_2=0$ o $f_3=0$. Vale aclarar que para obtener estos resultados fue necesario utilizar una señal más larga que las usadas para las cascadas de energía, de seis minutos en este caso, con el fin de que el promedio dé dos órdenes de magnitud menor en los conjuntos no resonantes. % e 
+Se puede apreciar claramente un plano de correlación cercana a uno, un par de órdenes mayor que los alrededores, que se corresponde perfectamente con el plano dado por la condición de triadas resonantes. Las líneas diagonales en los bordes, de correlación uno, se corresponden a las interacciones triviales, donde $f_2=0$ o $f_3=0$. 
 
-Un corte de este cubo para $f_2=5$ Hz se muestra en la Figura \ref{fig:triadas}. Se superpone sobre este corte la recta correspondiente a la condición de resonancia que coincide perfectamente con la zona de máxima correlación, confirmando de esta manera la existencia de triadas resonantes en el flujo.    
+Vale aclarar que para poder obtener estos resultados fue necesario utilizar una señal más larga que las usadas para la caracterización de las cascadas de energía, de seis minutos en este caso, con el fin de que el promedio dé dos órdenes de magnitud menor en los conjuntos no resonantes. Usando señales más cortas el plano de correlación máxima queda ofuscado por el ruido. Se espera que utilizando señales más largas incluso sea posible diferenciar incluso mejor al plano resonante de sus alrededores. % e 
+
+Es conveniente tomar cortes del volumen completo para poder observar mejor la sección de correlación máxima. Un corte de este cubo para $f_2=5$ Hz se muestra en la Figura \ref{fig:triadas}a. Se superpone sobre este corte la recta correspondiente a la condición de resonancia, que coincide perfectamente con la zona de máxima correlación, confirmando de esta manera la existencia de triadas resonantes en el flujo.    
 
 \begin{figure}[!ht]
 	\centering
@@ -279,7 +291,7 @@ Un corte de este cubo para $f_2=5$ Hz se muestra en la Figura \ref{fig:triadas}.
 	\label{fig:triadas}
 \end{figure}
 
-En la Figura \ref{fig:triadas}b se muestra el mismo cálculo realizado sobre una señal de ruido normal de la misma longitud y dispersión que la señal de turbulencia de ondas, con el fin de verificar la ausencia de triadas resonantes. 
+En la Figura \ref{fig:triadas}b se muestra el mismo cálculo realizado sobre una señal de ruido normal de la misma longitud y dispersión que la señal de turbulencia de ondas, con el fin de verificar la ausencia de triadas resonantes, mostrando así que no es un artificio del cálculo la aparición de la línea.  
 
 De manera análoga se puede calcular la correlación de cuatro ondas normalizada extendiendo la definición anterior: 
 
@@ -340,7 +352,7 @@ Siendo estas las diferencias de primer y segundo orden respectivamente. Ambas da
 
 
 
-En la Figura \ref{fig:pdfsdiferencias} se muestran las PDFs normalizadas para las primeras y segundas diferencias de dos señales, una de no linealidad pequeña (0-4 Hz, 50\%) y otra para no linealidad alta (0-6 Hz, 50\%). Nuevamente se utilizaron señales más largas para este estudio, ya que al tratarse de estadística de orden superior se necesitan más puntos para la convergencia, como se verá más adelante. % para 
+En la Figura \ref{fig:pdfsdiferencias} se muestran las PDFs normalizadas para las primeras y segundas diferencias de dos señales, una de no linealidad pequeña (0-4 Hz, 100\%) y otra para no linealidad alta (0-6 Hz, 100\%). Nuevamente se utilizaron señales más largas para este estudio, ya que al tratarse de estadística de orden superior se necesitan más puntos para la convergencia, como se verá más adelante. % para 55 
 
 
 
