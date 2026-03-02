@@ -488,7 +488,12 @@ Por último, se pueden usar los parámetros del ajuste lineal como parámetros d
 
 A partir de estas diferencias, de dispersión 0.08 mm, se puede estimar un cota parar el error del sensor de aproximadamente 0.1 mm.  
 
-Además, viendo el histograma de estas diferencias, Figura \ref{fig:diferencias}a se puede notar que están centradas en 0 y decaen rápidamente. Del espectro de las mismas, Figura \ref{fig:diferencias}b se ven oscilaciones a baja frecuencia pero que en principio no deberían ser relevantes en el cálculo de los espectros en turbulencia de ondas.  
+Además, viendo el histograma de estas diferencias, Figura \ref{fig:diferencias}a, se puede notar que están centradas en 0 y decaen rápidamente. Se evaluó además la normalidad de esta distribución mediante el test de Lilliefors (con $N=256$ puntos), obteniendo valores de $D=0.061$ y $p=0.031<0.05$, con lo cual esto rechaza la hipótesis de normalidad al $5 \%$. Sumado a esto, se tiene una \textit{skewness} de $-0.116$ y una kurtosis de $-0.755$, con lo cual no presenta asimetrías marcadas asociadas a sesgos sistemáticos y tiene colas ligeramente más livianas que una distribución Gaussiana. 
+
+
+
+
+Del espectro de las mismas, Figura \ref{fig:diferencias}b se ven oscilaciones a baja frecuencia pero que en principio no deberían ser relevantes en el cálculo de los espectros en turbulencia de ondas.  
 
 
 

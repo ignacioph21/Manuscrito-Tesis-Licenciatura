@@ -99,9 +99,18 @@ Previo al estudio de las propiedades características de turbulencia de ondas, c
 A diferencia de la definición dada en la Sección \ref{sec:ondas_fluidos}, no es trivial la determinación de este parámetro en el caso en que hay múltiples ondas, de distintas frecuencias y números de onda, en el flujo. El procedimiento usual en este caso consiste en separar la señal en lo que se denominan ondas individuales y determinar un \textit{wave steepness} local, como muestran \cite{tayfunDistributionsWaveSteepness2006, francisSynopticForcingWave2012}. % calculó Sin embargo, a \subsection*{}
  
 
+\begin{figure}[!ht] 
+	\centering 
+	\includegraphics[width=0.987\linewidth]{"Figuras/Wave Steepness/Comparación_con_Tayfun_Hexbins_v2"}
+	\caption{Histograma 2D de bins hexagonales para el conjunto de puntos $(T_n, H_n)$ normalizados por la desviación estándar en los casos de (a) la medición correspondiente al forzado de 0-6 Hz y 150 \% de amplitud, y (b) las mediciones en el océano reportadas por Tayfun (2006) \cite{tayfunDistributionsWaveSteepness2006}. La línea sólida superpuesta (\marksolid[blue]{0.4ex}) representa en ambos casos el contorno que contiene al 67 \% de los puntos. } 
+	\label{fig:comparacioncontayfunhexbinsv2}
+\end{figure}
+
+
+
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=0.9915897\linewidth]{"Figuras/Wave Steepness/Joint_porogression_v2"} % _alternativa 
+	\includegraphics[width=0.9915897\linewidth]{"Figuras/Wave Steepness/Joint_porogression_SOLO_CONTORNOS"}  % _alternativa 
 	\caption{Distribución del conjunto de parámetros $(T_n, H_n)$ para las ondas individuales de las distintas señales (a) 0-3 Hz (b) 0-4 Hz (c) 0-5 Hz (d) 0-6 Hz. Los contornos  sólidos muestran la región que contiene al 67 \% de los puntos en cada caso. } % sás sís sás
 	\label{fig:jointporogression}
 \end{figure}  
@@ -114,13 +123,13 @@ En la Figura \ref{fig:workflow} se ejemplifica el procedimiento para la obtenci�
 
 
 
-Para cada onda individual se define una altura pico a pico $H_n$ y un período $T_n$ entre los cruces de cero, como muestra la Figura \ref{fig:workflow}b. La distribución conjunta de los valores para estas ondas se muestra en la Figura \ref{fig:jointporogression}. %  a porción a  de cesde 
+Para cada onda individual se define una altura pico a pico $H_n$ y un período $T_n$ entre los cruces de cero, como muestra la Figura \ref{fig:workflow}b. La distribución conjunta de los valores para estas ondas se muestra en la Figura \ref{fig:comparacioncontayfunhexbinsv2}a para un forzado particular. Se muestra además un ejemplo típico para mediciones en el océano (Figura \ref{fig:comparacioncontayfunhexbinsv2}b) reportado por Tayfun (2006) \cite{tayfunDistributionsWaveSteepness2006}. Se puede notar una similitud cualitativa entre ambas distribuciones. %  a porción a  de cesde , 
 
 
 
 % PROGRESIÓN Y LÍMTES. 
  
-Las líneas sólidas se corresponden a los contornos que contiene un 67 \% de los puntos, pudiéndose observar una clara progresión al aumentar la potencia inyectada en el sistema, y por tanto, la no linealidad. Para los forzados más débiles las ondas tienden a ser más largas, con un $H_n$ pequeño y una amplia variedad de $T_n$, transicionando hacia ondas más cortas en los forzados más intensos, con $T_n$ pequeño y $H_n$ que llega hasta 1 cm en amplitud. Para cada par de valores puede calcularse la pendiente de esa onda individual como: % , 
+Las líneas sólidas se corresponden a los contornos que contiene un 67 \% de los puntos, que se usarán en lugar de los histogramas a continuación.  En la Figura \ref{fig:jointporogression} se muestran estos contornos para todos los forzados, pudiéndose observar una clara progresión al aumentar la potencia inyectada en el sistema, y por tanto, la no linealidad. Para los forzados más débiles las ondas tienden a ser más largas, con un $H_n$ pequeño y una amplia variedad de $T_n$, transicionando hacia ondas más cortas en los forzados más intensos, con $T_n$ pequeño y $H_n$ que llega hasta 1 cm en amplitud. Para cada par de valores puede calcularse la pendiente de esa onda individual como: % , 
 
 \begin{equation}
 	S_n = \frac{H_n}{L(T_n)}
@@ -369,7 +378,15 @@ Para todo lo que viene a continuación se utilizarán los datos para la señal d
 \end{equation} 
 
 
-Resulta importante verificar hasta qué orden están bien convergidas estas funciones de estructura, en base a la cantidad de puntos de las señales utilizadas. Por ejemplo, para $\tau=16$ ms se muestra en la Figura \ref{fig:convergencia16ms} el valor de la función de estructura hasta orden 8 en función de la duración de la señal. 
+Resulta importante verificar hasta qué orden están bien convergidas estas funciones de estructura, en base a la cantidad de puntos de las señales utilizadas. En la Figura \ref{fig:completos} se encuentra el análisis general, para todo el intervalo de $\tau$ de interés. Por ejemplo, para $\tau=16$ ms se muestra un corte de estos gráficos en la Figura \ref{fig:convergencia16ms}, donde se puede observar más fácilmente el valor de la función de estructura hasta orden 8 en función de la duración de la señal. 
+
+\begin{figure}[th!]
+	\centering
+	\includegraphics[width=0.987\linewidth]{Figuras/Intermitencia/Convergencias/Completos}
+	\caption{Funciones de estructura hasta el orden $p = 8$ en función del largo de la ventana de la señal analizada y el delay $\tau$. Se normalizaron por el máximo en cada caso para facilitar la visualización conjunta. } % comparación { } . 
+	\label{fig:completos}
+\end{figure}
+	
 
 % \missingfigure{CONVERGENCIA SP} 
 
@@ -386,7 +403,8 @@ Se calcularán $S_p$ con $p\le6$ en este caso, ya que se observa que, para los d
 
 
 
-Un punto importante aquí es que este delay $\tau$ se puede relacionar con el régimen, siendo la frecuencia correspondiente a cada escala $f\sim1/\tau$. De esta forma, $10\text{ ms }\gtrsim \tau\lesssim\;76\text{ ms }$ se corresponde al rango capilar, que es donde se observa la tendencia lineal. Delays mayores se corresponderán al rango de gravedad y menores a la escala del ruido.  
+
+Un punto importante aquí es que este delay $\tau$ se puede relacionar con el régimen, siendo la frecuencia correspondiente a cada escala $f\sim1/\tau$. De esta forma, $10\text{ ms }\lesssim \tau\lesssim\;76\text{ ms }$ se corresponde al rango capilar, que es donde se observa la tendencia lineal. Delays mayores se corresponderán al rango de gravedad y menores a la escala del ruido.  % gtr 
 
 \begin{figure}[!ht]
 	\centering
@@ -415,10 +433,10 @@ En ambos casos, se puede observar que existe un rango de $\tau$ en el cual esta 
 		\hline
 		Primeras & $(-0.1172\pm0.0005)$ & $(1.576\pm0.002)$ & $0.99961$ & $(58.6\pm0.3)$ \\
 		Segundas & $(-0.60\pm0.01)$ & $(3.42\pm0.04)$ & $0.99446$  & $(49.0\pm0.6)$ \\  
-		Falcon (2007) & $(-0.88\pm0.03)$ & - & - & $\approx63$ \\ 
+		Falcon & $(-0.88\pm0.03)$ & - & - & $\approx63$ \\ 
 		\hline 
 	\end{tabular} 
-	\caption{Parámetros obtenidos del ajuste de la planitud (c.f. Figura \ref{fig:flatness}) para diferencias de primer y segundo orden. } % pl 
+	\caption{Parámetros obtenidos del ajuste de la planitud (c.f. Figura \ref{fig:flatness}) para diferencias de primer y segundo orden. Se presentan además los resultados para las segundas diferencias obtenidos por Falcon  (2007)  \cite{falconObservationIntermittencyWave2007}. } % pl -   . 
 	\label{tab:flatness_fit}
 \end{table}
 
@@ -439,19 +457,19 @@ Los exponentes deben ser monótonamente crecientes, con lo cual esta estimación
 
 En la Figura \ref{fig:exponentescomparacionv2}b se muestran resultados análogos en mercurio de Falcon (2007) \cite{falconObservationIntermittencyWave2007}, que son cualitativamente parecidos. Lo que es más, los exponentes para las funciones de estructura calculados a partir de las primeras diferencia coinciden perfectamente con los hallados en este caso, solapándose todos los puntos. Sí hay una diferencia notable en los exponentes para las segundas diferencias, pero el valor obtenido para $c_2^{(2)}$ resulta similar. 
 
-\begin{table}[h!]
+\begin{table}[t!]
 	\centering
-	\begin{tabular}{ | l | c | c | c | } % . 
+	\begin{tabular}{ | c | l | c | c | c | c |} % . 
 		\hline
-		Caso & $c_1$ & $c_2$ & $R^2$ \\
+		& Caso  & $c_1$ & $c_2$ & $R^2$ & $\chi_\nu^2$ \\
 		\hline
-		Orden 1 & $(0.92 \pm 0.01)$ & $(0.031 \pm 0.004)$ & $0.99999$ \\
-		Orden 1 Falcon (2007) & $(0.962 \pm 0.002)$ & $(0.049 \pm 0.001)$ & $0.99999$ \\
-		Análisis dimensional & $11/12\approx0.917$ & - & - \\ 
+		& Medidos & $(0.92 \pm 0.01)$ & $(0.031 \pm 0.004)$ & $0.99999$ & 0.062\\
+		Orden 1 &  Falcon (2007) & $(0.962 \pm 0.002)$ & $(0.049 \pm 0.001)$ & $0.99999$ & - \\
+		& Análisis dimensional & $11/12\approx0.917$ & - & - & - \\ 
 		\hline 
-		Orden 2 & $(1.70 \pm 0.01)$ & $(0.117 \pm 0.006)$ & $0.99994$ \\
-		Orden 2 Falcon (2007) & $(1.60 \pm 0.02)$ & $(0.183 \pm 0.009)$ & $0.99930$ \\ 
-		Análisis dimensional & 1.5 & - & - \\ 
+		& Medidos & $(1.70 \pm 0.01)$ & $(0.117 \pm 0.006)$ & $0.99994$ & 0.243 \\
+		Orden 2 &  Falcon (2007) & $(1.60 \pm 0.02)$ & $(0.183 \pm 0.009)$ & $0.99930$ & - \\ 
+		& Análisis dimensional & 1.5 & - & - & - \\ 
 		\hline
 	\end{tabular}
 	\caption{Parámetros del ajuste del exponente de estructura por una función cuadrática $\zeta_p = c_1 p - \tfrac{1}{2} c_2 p^2$ para diferencias de primer y segundo orden (c.f. Figura \ref{fig:exponentescomparacionv2}). Se presentan los resultados obtenidos, los de Falcon (2007) \cite{falconObservationIntermittencyWave2007} y los esperados mediante análisis dimensional para el caso sin intermitencia. } % ´ 
