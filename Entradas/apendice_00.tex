@@ -8,7 +8,7 @@ A continuación se muestran las interfaces gráficas de usuario (GUI) desarrolla
 \label{sec:adquisición}
 Para el control más general posible de la placa se desarrolló la GUI que se muestra en la Figura \ref{fig:adquisicion}, incorporando todas las funcionalidades necesarias, aunque no todas las que dispone la placa, habiendo lugar para la expansión de sus funcionalidades.
 
-\begin{figure}[!b] % t  sásísás 
+\begin{figure} % [tb] % [!b] % t  sásísás 
 	\centering
 	\includegraphics[width=0.987\linewidth]{"Figuras/La interfaz/Adquisición"}
 	\caption{GUI desarrollada para la adquisición de tensiones mediante la placa Personal DAQ 3001. Se señalan las distintas partes de la misma. } 
@@ -29,7 +29,7 @@ La segunda GUI desarrollada tuvo el objetivo de visualizar la fase instantánea 
 Para poder realizar el gráfico con una tasa de actualización de varias decenas de Hz fue necesario utilizar librerías especializadas, como por ejemplo \textit{pyQtGraph}, ya que la librería estándar de \textit{matplotlib} está limitada por los tiempos de carga en este aspecto. 
 
 
-\begin{figure}[!t]
+\begin{figure} % [tb] % [!t]
 	\centering
 	\includegraphics[width=0.987\linewidth]{"Figuras/La interfaz/Gráficos"}
 	\caption{GUI desarrollada para la visualización en tiempo real de la fase, proporcional a la altura sumergida de la sonda, en un forzado aleatorio del fluido. }  

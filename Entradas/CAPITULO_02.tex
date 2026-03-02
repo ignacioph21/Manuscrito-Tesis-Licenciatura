@@ -173,19 +173,19 @@ Donde los signos hacen referencias a si la onda $n$-ésima es entrante o salient
 
 La interacciones de $N$ ondas puede pensarse como equivalente a una colisión de $N$ partículas, la cual debería satisfacer la conservación simultánea de la  \textit{energía} y \textit{momento lineal}. Que existan o no soluciones dependerá de la relación de dispersión del sistema. 
 
-Es posible mostrar que para relaciones de la forma $\omega\sim k^{\alpha}$ la condición de resonancia para tres ondas (triadas resonantes) no será posible con $\alpha<1$, y el primer término resonante será el de cuatro ondas (cuartetos resonantes), para el cual siempre hay solución. Esto puede entenderse gráficamente, buscando para un dado $\vec k_0$ los $\vec k$ donde se produce la intersección de las superficies dadas por $\omega(\vec k_0+\vec k)$ y $\omega(\vec k)+\omega(\vec k_0)$, como se muestra en la Figura \ref{fig:condiciones de resonancia}. % curvas 
+Es posible mostrar que para relaciones de la forma $\omega\sim k^{\alpha}$ la condición de resonancia para tres ondas (tríadas resonantes) no será posible con $\alpha<1$, y el primer término resonante será el de cuatro ondas (cuartetos resonantes), para el cual siempre hay solución. Esto puede entenderse gráficamente, buscando para un dado $\vec k_0$ los $\vec k$ donde se produce la intersección de las superficies dadas por $\omega(\vec k_0+\vec k)$ y $\omega(\vec k)+\omega(\vec k_0)$, como se muestra en la Figura \ref{fig:condiciones de resonancia}. % curvas 
 
 % \missingfigure{Condiciones de resonancia} 
 
 \begin{figure}[t]
 	\centering
 	\includegraphics[width=0.987\linewidth]{"Figuras/Introducción/Condiciones de resonancia/Completo"}
-	\caption{Método gráfico para hallar soluciones simultáneas a las condiciones de resonancia en el caso de triadas. (a) $\alpha=1/2$ para gravedad, existe únicamente la solución trivial. (b) $\alpha=3/2$ para capilar, existe una familia de soluciones (\markdashed[black]{0.4ex}).}
+	\caption{Método gráfico para hallar soluciones simultáneas a las condiciones de resonancia en el caso de tríadas. (a) $\alpha=1/2$ para gravedad, existe únicamente la solución trivial. (b) $\alpha=3/2$ para capilar, existe una familia de soluciones (\markdashed[black]{0.4ex}).}
 	\label{fig:condiciones de resonancia} % completo 
 \end{figure}
 
 
-Para las ondas en superficie libre el rango de gravedad tiene $\alpha=1/2$, con lo cual las interacciones resonantes de tres ondas no estarán permitidas (sino serían ondas con energía negativa), ver Figura \ref{fig:condiciones de resonancia}a, y serán los cuartetos los primeros que satisfagan las condiciones de resonancia simultáneamente, mientras que en el rango capilar, con $\alpha=3/2$, siempre habrá triadas resonantes (ver Figura \ref{fig:condiciones de resonancia}b). En el caso particular en que todas las ondas sean colineales (reduciendo el problema efectivamente a 1D, aunque la energía sí seguirá distribuída en 2D) la mínima cantidad de ondas interactuantes resultará ser $N=5$. \cite{nazarenkoWaveTurbulence2011} % a ,  ty . 
+Para las ondas en superficie libre el rango de gravedad tiene $\alpha=1/2$, con lo cual las interacciones resonantes de tres ondas no estarán permitidas (sino serían ondas con energía negativa), ver Figura \ref{fig:condiciones de resonancia}a, y serán los cuartetos los primeros que satisfagan las condiciones de resonancia simultáneamente, mientras que en el rango capilar, con $\alpha=3/2$, siempre habrá tríadas resonantes (ver Figura \ref{fig:condiciones de resonancia}b). En el caso particular en que todas las ondas sean colineales (reduciendo el problema efectivamente a 1D, aunque la energía sí seguirá distribuída en 2D) la mínima cantidad de ondas interactuantes resultará ser $N=5$. \cite{nazarenkoWaveTurbulence2011} % a ,  ty . 
 
 En el caso en que la pendiente de las ondas sea lo suficientemente grande, $S\sim0.1$,  será necesario incluir más términos en el desarrollo perturbativo, correspondiendo este caso a turbulencia fuerte, en la cuál será relevante incluir otros efectos en la teoría, como la aparición de estructuras coherentes e intermitencia. 
 
@@ -202,7 +202,7 @@ De modo tal que las soluciones posibles serán ondas propagantes sin más. Al in
 	i\frac{\partial a_{\vec k}}{\partial t}-\omega_{\vec k}a_{\vec k} = \frac{\delta H_{\text{int}}}{\delta a^*_{\vec k}}  % c 
 \end{equation}
 
-Para el caso donde el primer término no nulo se corresponde a triadas resonantes, la ecuación de movimiento resultará: 
+Para el caso donde el primer término no nulo se corresponde a tríadas resonantes, la ecuación de movimiento resultará: 
 
 \begin{equation}
 	i\frac{\partial a_{\vec k}}{\partial t} - \omega_k a_{\vec k} = \int \left(\frac{1}{2}V_{k12}a_1a_2\delta(\vec k - \vec k_1 -\vec k_2) + V^*_{1k2}a_1a_2^*\delta(\vec k_1 -\vec k-\vec k_2)\right)d\vec k_1d\vec k_2
@@ -296,7 +296,7 @@ esta energía en cada proceso y, por tanto, la energía total del sistema:
 	\label{eq:energy_conservation}  
 \end{equation}  
 
-Donde $E_{\vec k}=\omega_{\vec k}n_{\vec k}$ es lo que se conoce como espectro de energía. Más generalmente, la ecuación cinética tiene la propiedad de conservar cualquier magnitud $\Phi$ cuyo espectro pueda escribirse como $\Phi_{\vec k}=\rho_{\vec k}n_{\vec k}$, siempre que se cumpla una condición de resonancia para $\rho_{\vec k}$ en simultáneo a la de frecuencia y número de onda, que por ejemplo, para el caso de triadas sería $\rho_1=\rho_2+\rho_3$. El caso particular de la energía se obtiene tomando $\rho_{\vec k}=\omega_{k}$, el de momento para $\rho_{\vec k}=\vec k$, y el de la acción de onda para $\rho_{k}=1$. 
+Donde $E_{\vec k}=\omega_{\vec k}n_{\vec k}$ es lo que se conoce como espectro de energía. Más generalmente, la ecuación cinética tiene la propiedad de conservar cualquier magnitud $\Phi$ cuyo espectro pueda escribirse como $\Phi_{\vec k}=\rho_{\vec k}n_{\vec k}$, siempre que se cumpla una condición de resonancia para $\rho_{\vec k}$ en simultáneo a la de frecuencia y número de onda, que por ejemplo, para el caso de tríadas sería $\rho_1=\rho_2+\rho_3$. El caso particular de la energía se obtiene tomando $\rho_{\vec k}=\omega_{k}$, el de momento para $\rho_{\vec k}=\vec k$, y el de la acción de onda para $\rho_{k}=1$. 
 
 \subsection{Balance de energía y cascadas} 
 A partir de la segunda igualdad de la ecuación \eqref{eq:energy_conservation} es posible reescribir la ecuación cinética, $\partial_t n_{\vec k} = I_{\vec k}^N$, con $I_k^N$ las integrales de colisiones, en forma de una ecuación de continuidad para el espectro de energía, de la forma: 

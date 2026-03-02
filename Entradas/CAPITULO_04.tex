@@ -4,7 +4,7 @@
 
 % Las experiencias realizadas para esta Tesis se corresponden al estudio estadístico de las propiedades de 
 
-Este Capítulo está dedicado a la implementación del sensor en experiencias de turbulencia de ondas gravito-capilares para agua destilada, y el estudio de la transferencia de energía entre escalas. En la Sección \ref{sec:montaje_experimental} se detalla el montaje experimental utilizado para estas experiencias; en la Sección \ref{sec:series_temporales} se muestra cómo es una medición típica y sus propiedades inmediatas; en la Sección \ref{sec:wave_Steepness} se analiza la pendiente de las ondas generadas y la validez de turbulencia de ondas débil; en la Sección \ref{sec:cascadas_De_energía} se caracterizan los parámetros principales de las cascadas de energía; posteriormente, en la Sección \ref{sec:interacciones_rsonantes} se identifican los conjuntos de ondas resonantes (triadas y cuartetos) en el flujo; finalmente, en la Sección \ref{sec:intermitencia} se estudia el fenómeno de intermitencia observado para las experiencias con una no linealidad mayor. % tysíssíssís á 
+Este Capítulo está dedicado a la implementación del sensor en experiencias de turbulencia de ondas gravito-capilares para agua destilada, y el estudio de la transferencia de energía entre escalas. En la Sección \ref{sec:montaje_experimental} se detalla el montaje experimental utilizado para estas experiencias; en la Sección \ref{sec:series_temporales} se muestra cómo es una medición típica y sus propiedades inmediatas; en la Sección \ref{sec:wave_Steepness} se analiza la pendiente de las ondas generadas y la validez de turbulencia de ondas débil; en la Sección \ref{sec:cascadas_De_energía} se caracterizan los parámetros principales de las cascadas de energía; posteriormente, en la Sección \ref{sec:interacciones_rsonantes} se identifican los conjuntos de ondas resonantes (tríadas y cuartetos) en el flujo; finalmente, en la Sección \ref{sec:intermitencia} se estudia el fenómeno de intermitencia observado para las experiencias con una no linealidad mayor. % tysíssíssís á i a 
 
 \clearpage 
 
@@ -14,7 +14,7 @@ Este Capítulo está dedicado a la implementación del sensor en experiencias de
 El armado experimental consistió, como se muestra en la Figura \ref{fig:montajewaveturbulence-fondo}, en una cuba de acrílico de 20x20 cm$^2$ llena hasta una altura de $h_0=(4.45\pm0.05)$ cm de agua destilada. En ésta se sumergió aproximadamente un centímetro una paleta de acrílico, unida a un motor lineal LinMot colocado horizontalmente, al cual fueron suministradas distintas señales según el caso.  
 
 
-\begin{figure}[!ht]
+\begin{figure} % [!ht]
 	\centering
 	\includegraphics[width=0.789506\linewidth]{"Figuras/Setups/Montaje_wave_turbulence _fondo"}
 	\caption{Modelo 3D a escala del montaje para el estudio experimental de turbulencia de ondas gravito-capilares. Se compone por una cuba cuadrada llena de agua destilada (a), en la cual se encuentra sumergida una paleta de acrílico (b) forzada por un motor lineal colocado horizontalmente (c). En el extremo opuesto está colocado el sensor capacitivo (d) sujeto mediante un tornillo micrométrico (e)para un ajuste fino de su altura sumergida. } % '        
@@ -34,7 +34,7 @@ Para la inyección de energía en el sistema se forzó a la paleta con una seña
 
 % Se eligió inyectar energía en el sistema mediante un forzado a escalas grandes. Para este forzado
 
-\begin{figure}[th!]
+\begin{figure} % [th!]
 	\centering
 	\includegraphics[width=0.987\linewidth]{Figuras/Forzado/curva_forzado}
 	\caption{(a) Curva típica para el forzado del fluido. En los paneles inferiores se muestra su contenido en frecuencia, con su amplitud (b) limitada al rango de 0-6 Hz en este caso , y su fase (c) aleatoria.}
@@ -67,7 +67,7 @@ Las mediciones se tomaron un minuto después de haber iniciado el forzado, con e
 Una serie temporal típica de las medidas para este tipo de forzados limitados en frecuencia se muestra en la Figura \ref{fig:pdfs-cuba-chica-v2}. 
 
 
-\begin{figure}[th!]
+\begin{figure} % [th!]
 	\centering
 	\includegraphics[width=0.987\linewidth]{"Figuras/La serie temporal/La_serie_temporal"}
 	\caption{Serie temporal para el forzado en la banda 0-6 Hz y amplitud de 100\%. } % a . 
@@ -76,7 +76,7 @@ Una serie temporal típica de las medidas para este tipo de forzados limitados e
 
 Se puede observar en la señal una clara asimetría respecto a los valles y las crestas, siendo estas últimas más probables. Esto puede verificarse más cuantitativamente graficando las densidades de probabilidad normalizadas (PDF) de la altura $\eta$, como está en la Figura \ref{fig:pdfs-cuba-chica-v2}. % eno
 
-\begin{figure}[!ht]
+\begin{figure} % [!ht]
 	\centering
 	\includegraphics[width=0.9897\linewidth]{"Figuras/PDFS/PDFS cuba chica v2_2_columnas"}
 	\caption{PDFs para la altura normalizada (\marksolid[blue]{0.4ex}) de las distintas mediciones (a) 0-3 Hz (b) 0-4 Hz (c) 0-5 Hz y (d) 0-6 Hz. Se muestra, además, la distribución gaussiana de media cero y desviación unidad (\markdashed[black]{0.4ex}) a modo comparativo. } % a a 
@@ -89,7 +89,7 @@ En general para todos los casos la PDF resulta cercana a una Gaussiana, pero con
 \label{sec:wave_Steepness} 
 Previo al estudio de las propiedades características de turbulencia de ondas, como podría ser la cascada de energía, se buscó verificar que la hipótesis de no linealidades pequeñas fuese válida para los forzados implementados. Para esto se estudió el \textit{wave steepness} de las ondas generadas. 
 
-\begin{figure}[!ht]
+\begin{figure} % [!ht]
 	\centering
 	\includegraphics[width=0.9897\linewidth]{"Figuras/Wave Steepness/Work_flow_v2"}
 	\caption{(a) Definición de ondas individuales para una medición típica, a partir de dos cruces de cero consecutivos en el mismo sentido. (b) Definición de la altura $H_n$ y periodo $T_n$ para la $n$-ésima onda individual de la señal. }
@@ -99,7 +99,7 @@ Previo al estudio de las propiedades características de turbulencia de ondas, c
 A diferencia de la definición dada en la Sección \ref{sec:ondas_fluidos}, no es trivial la determinación de este parámetro en el caso en que hay múltiples ondas, de distintas frecuencias y números de onda, en el flujo. El procedimiento usual en este caso consiste en separar la señal en lo que se denominan ondas individuales y determinar un \textit{wave steepness} local, como muestran \cite{tayfunDistributionsWaveSteepness2006, francisSynopticForcingWave2012}. % calculó Sin embargo, a \subsection*{}
  
 
-\begin{figure}[!ht] 
+\begin{figure} % [!ht] 
 	\centering 
 	\includegraphics[width=0.987\linewidth]{"Figuras/Wave Steepness/Comparación_con_Tayfun_Hexbins_v2"}
 	\caption{Histograma 2D de bins hexagonales para el conjunto de puntos $(T_n, H_n)$ normalizados por la desviación estándar en los casos de (a) la medición correspondiente al forzado de 0-6 Hz y 150 \% de amplitud, y (b) las mediciones en el océano reportadas por Tayfun (2006) \cite{tayfunDistributionsWaveSteepness2006}. La línea sólida superpuesta (\marksolid[blue]{0.4ex}) representa en ambos casos el contorno que contiene al 67 \% de los puntos. } 
@@ -108,7 +108,7 @@ A diferencia de la definición dada en la Sección \ref{sec:ondas_fluidos}, no e
 
 
 
-\begin{figure}[!ht]
+\begin{figure} % [!ht]
 	\centering
 	\includegraphics[width=0.9915897\linewidth]{"Figuras/Wave Steepness/Joint_porogression_SOLO_CONTORNOS"}  % _alternativa 
 	\caption{Distribución del conjunto de parámetros $(T_n, H_n)$ para las ondas individuales de las distintas señales (a) 0-3 Hz (b) 0-4 Hz (c) 0-5 Hz (d) 0-6 Hz. Los contornos  sólidos muestran la región que contiene al 67 \% de los puntos en cada caso. } % sás sís sás
@@ -127,7 +127,7 @@ Para cada onda individual se define una altura pico a pico $H_n$ y un período $
 
 
 
-% PROGRESIÓN Y LÍMTES.  
+% PROGRESIÓN Y LÍMTES. 
  
 Las líneas sólidas se corresponden a los contornos que contiene un 67 \% de los puntos, que se usarán en lugar de los histogramas a continuación.  En la Figura \ref{fig:jointporogression} se muestran estos contornos para todos los forzados, pudiéndose observar una clara progresión al aumentar la potencia inyectada en el sistema, y por tanto, la no linealidad. Para los forzados más débiles las ondas tienden a ser más largas, con un $H_n$ pequeño y una amplia variedad de $T_n$, transicionando hacia ondas más cortas en los forzados más intensos, con $T_n$ pequeño y $H_n$ que llega hasta 1 cm en amplitud. Para cada par de valores puede calcularse la pendiente de esa onda individual como: % , 
 
@@ -140,7 +140,7 @@ Donde se aproxima la longitud de ondas $L_n=L(T_n)$ a partir de la relación de 
 
 % En la Figura \ref{fig:jointporogression} se muestra además la línea correspondiente al límite de Miche-Stokes, que se corresponde al % La línea sólida negra de la Figura \ref{fig:jointporogression} se corresponde
 
-\begin{figure}[!ht]
+\begin{figure} % [!ht]
 	\centering
 	\includegraphics[width=0.9897\linewidth]{"Figuras/Wave Steepness/PDFs"}
 	\caption{PDFs para la pendiente de las ondas normalizada ($S/S_{\text{rms}}$) de varias mediciones. Cada columna se corresponde a un rango de frecuencias, siendo (a) 0-3 Hz (b) 0-4 Hz (c) 0-5 Hz y (d) 0-6 Hz. La fila superior (n.I) se corresponde a la amplitud de 80 \% y la inferior (n.II) a 120 \%. Para cada una se muestra el ajuste por el modelo log-normal (\marksolid[blue]{0.4ex}), el valor medio obtenido (\markdashdot[blue]{0.4ex}) con su incerteza y el valor teórico esperado de $\sqrt{\pi}/2$ (\markdashed[black]{0.4ex}). } % .  
@@ -170,9 +170,9 @@ La cantidad de ondas individuales para este análisis es de aproximadamente 300-
 
 Finalmente se calculó el valor medio de \textit{wave steepness} $S_m=\langle S \rangle$ para cada señal, calculando $L_n$ con la relación de dispersión completa, y la de solo gravedad, como se muestra en la Figura \ref{fig:meanwavesteepness} 
 
-\begin{figure}[!ht]
+\begin{figure} % [!ht]
 	\centering
-	\includegraphics[width=0.659897\linewidth]{"Figuras/Wave Steepness/Mean_wave_steepness"}
+	\includegraphics[width=0.78659897\linewidth]{"Figuras/Wave Steepness/Mean_wave_steepness"}
 	\caption{Pendiente media de las ondas para las distintas mediciones. Se muestran las aproximaciones utilizando la relación de dispersión de gravedad en profundidad infinita (G) y la completa (F) para obtener la longitud de onda $L(T)$. } 
 	\label{fig:meanwavesteepness}
 \end{figure}
@@ -201,7 +201,7 @@ En todos los casos se pueden apreciar una serie de características repetidas:
 	\item Eventualmente se llega a una frecuencia de corte donde la respuesta deja de ser lineal. Esta frecuencia depende del forzado y varía desde unas decenas de Hz hasta un poco más de 100 Hz en los forzados más intensos. 
 \end{itemize} 
 
-\begin{figure}[!ht]
+\begin{figure} % [!ht]
 	\centering
 	\includegraphics[width=0.9897\linewidth]{"Figuras/Espectros/PSDs/Cuba chica v2"}
 	\caption{PSDs (\marksolid[blue]{0.4ex}) para los distintos juegos de datos (a) 0-3 Hz (b) 0-4 Hz (c) 0-5 Hz (d) 0-6 Hz. Se muestra la frecuencia final del forzado (\markdashed[black]{0.4ex}) en cada caso. Las curvas se desplazaron verticalmente por claridad. } 
@@ -212,22 +212,24 @@ En todos los casos se pueden apreciar una serie de características repetidas:
 Para caracterizar la región donde el comportamiento pareciera ser lineal, que se correspondería con una solución tipo ley de potencias, se intentó ajustar linealmente dos regiones separadas de la PSD (una correspondiente a gravedad y otra  a capilar), sin embargo, se observó que los parámetros obtenidos dependen muy sensiblemente del rango elegido para el ajuste, especialmente para frecuencias bajas debido al ruido. Con el objetivo de independizarse de la elección de los rangos ajustados se decidió realizar un único ajuste por una función a tramos continua formada por dos lineales de distinta pendiente, donde la frecuencia de cruce fuese uno de los cuatro parámetros a determinar, en todo el rango desde donde termina el forzado hasta la frecuencia de corte. Un ejemplo de este procedimiento se muestra en la Figura \ref{fig:workflowv2}, donde se muestra explícitamente el rango ajustado. % correspondiente  Para poder de ajuste ,  
 
 
-\begin{figure}[!ht]
+\begin{figure} % [!ht]
 	\centering
-	\includegraphics[width=0.87019897\linewidth]{Figuras/Espectros/Workflow/Workflow_v2}
+	\includegraphics[width=0.81277019897\linewidth]{Figuras/Espectros/Workflow/Workflow_v2}
 	\caption{Ejemplo de procesamiento de la PSD media (\marksolid[blue]{0.4ex}) para una de las señales. Las regiones más oscuras se corresponden con las escalas de inyección a frecuencias bajas y la de ruido a escalas chicas. La región sin colorear es el rango intermedio que se ajustó por completo mediante una función lineal a tramos continua. Cada tramo del ajuste resultante se muestra con líneas (\markdashed{0.4ex}) y (\markdashdot{0.4ex}). Se muestra además la frecuencia de cruce obtenida, marcada verticalmente (\markdashed[blue]{0.4ex}). Inset: Aumento de la región alrededor de la frecuencia de cruce donde cambia la pendiente de las rectas. Éstas se extendieron para apreciar el cambio de la pendiente en la PSD más claramente. } % (corte ) ¿Agregar incerteza? . ed A E 
 	\label{fig:workflowv2}
 \end{figure} 
 
-
-Para determinar el punto en que la PSD alcanza esta frecuencia de corte se determinó primero el nivel de ruido promediando a frecuencias altas (aproximadamente a los 400 Hz), y se buscó el punto para el cual se llega a un tercio de la desviación estándar de este ruido, habiendo elegido este criterio ya que fue el que mejor funcionó simultáneamente para todas las señales. Las frecuencias de corte halladas para cada forzado se muestran en la Figura \ref{fig:cutoff}. Aquí se puede ver claramente cómo aumenta esta frecuencia de corte a medida que aumenta la potencia inyectada durante el forzado, ya que permite el poblamiento de más escalas antes de llegar al nivel del ruido. % n 
-
-\begin{figure}[!ht]
+\begin{figure} % [!ht]
 	\centering
-	\includegraphics[width=0.65729897\linewidth]{Figuras/Espectros/Cutoff/Cutoff}
+	\includegraphics[width=0.697851729897\linewidth]{Figuras/Espectros/Cutoff/Cutoff}
 	\caption{Frecuencia de corte del espectro obtenida para las distintas mediciones.} 
 	\label{fig:cutoff}
 \end{figure}
+
+
+Para determinar el punto en que la PSD alcanza esta frecuencia de corte se determinó primero el nivel de ruido promediando a frecuencias altas (aproximadamente a los 400 Hz), y se buscó el punto para el cual se llega a un tercio de la desviación estándar de este ruido, habiendo elegido este criterio ya que fue el que mejor funcionó simultáneamente para todas las señales. Las frecuencias de corte halladas para cada forzado se muestran en la Figura \ref{fig:cutoff}. Aquí se puede ver claramente cómo aumenta esta frecuencia de corte a medida que aumenta la potencia inyectada durante el forzado, ya que permite el poblamiento de más escalas antes de llegar al nivel del ruido. % n 
+
+
 
 
 
@@ -237,7 +239,7 @@ Una vez hallada la frecuencia de corte y determinado el rango completo para el a
 Los exponentes de la PSD obtenidos en cada región mediante este método se pueden ver en la Figura \ref{fig:exponentesapilados}a. 
 
 
-\begin{figure}[!ht]
+\begin{figure} % [!ht]
 	\centering
 	\includegraphics[width=0.9897\linewidth]{Figuras/Espectros/Exponentes/Exponentes_apilados}
 	\caption{(a) Exponentes de la PSD obtenidos para ambos regímenes de la cascada de energía. En símbolos llenos (\markcircle*[blue]{0.4ex}) para el gravitatorio y en símbolos vacíos (\markcircle[blue]{0.4ex}) para el capilar. Las líneas horizontales muestran la predicción teórica para los espectros de ZF, de -4 en gravedad (\markdashdot[black]{0.4ex}) y -17/6 en capilar (\markdashed[black]{0.4ex}). (b) Resultados de la literatura para un experimento análogo en mercurio \cite{falconObservationIntermittencyWave2007}. } % @empty 
@@ -255,7 +257,7 @@ En la Figura \ref{fig:exponentesapilados}b se muestran a modo comparativo los re
 
 El último parámetro por analizar de la cascada es la frecuencia de cruce entre el rango de gravedad y capilar, cuyos valores obtenidos a partir del ajuste se muestran en la Figura \ref{fig:frecuencias-de-cruce}a. Para el rango de 0-3 Hz se puede apreciar que para todas las señales los valores hallados son compatibles con la frecuencia de cruce estimada teóricamente para el agua destilada (de $\sim13.5$ Hz), mientras que para las demás señales aumenta sustancialmente.  
 
-\begin{figure}[!ht]
+\begin{figure} % [!ht]
 	\centering
 	\includegraphics[width=0.9897\linewidth]{"Figuras/Espectros/Frecuencia de cruce/Frecuencias de Cruce"}
 	\caption{(a) Frecuencia de cruce de los regímenes de la PSD. La línea horizontal (\markdashed[black]{0.4ex}) muestra la predicción teórica para el agua destilada, de 13.5 Hz aproximadamente. (b) Resultados de la literatura para un experimento análogo en mercurio \cite{falconObservationIntermittencyWave2007}. Aquí la frecuencia de cruce teórica está en 17 Hz aproximadamente.} %  obtenidos para ambos regímenes de la cascada de energía En símbolos llenos (\markcircle*[blue]{0.4ex}) para el gravitatorio y en símbolos vacíos (\markcircle[blue]{0.4ex}) para el capilar. ssesn los espectros de ZF, de -4 en gravedad (\markdashdot[black]{0.4ex}) y -17/6 en capilar  corte. 
@@ -269,38 +271,46 @@ Nuevamente en la Figura \ref{fig:frecuencias-de-cruce}b se muestran los resultad
 
 \section{Interacción a 3 y 4 ondas} 
 \label{sec:interacciones_rsonantes} 
-El siguiente objetivo, una vez caracterizada la cascada de energía, fue identificar las interacciones resonantes entre ondas de la superficie libre, ya sea mediante triadas o cuartetos. Para esto se calculó en primer lugar la correlación de tres ondas normalizada, definida como \cite{aubourgNonlocalResonancesWeak2015, aubourgThreewaveFourwaveInteractions2017}:  
+El siguiente objetivo, una vez caracterizada la cascada de energía, fue identificar las interacciones resonantes entre ondas de la superficie libre, ya sea mediante tríadas o cuartetos. Para esto se calculó en primer lugar la correlación de tres ondas normalizada, definida como \cite{aubourgNonlocalResonancesWeak2015, aubourgThreewaveFourwaveInteractions2017}:  
 
 \begin{equation}
 	C(\omega_1, \omega_2, \omega_3) = \frac{|\langle\eta^*(\omega_1)\eta(\omega_2)\eta(\omega_3) \rangle|}{\sqrt{\langle|\eta(\omega_1)|^2\rangle}\sqrt{\langle|\eta(\omega_2)\eta(\omega_3)|^2\rangle}}
 \end{equation}
 
-Donde $\langle\cdot\rangle$ representa un promedio sobre ventanas temporales de la señal en este caso, y $\eta(\omega)$ es la FFT de la serie temporal $\eta(t)$ medida. Esta correlación se define de esta forma ya que será proporcional a $\langle\exp{(-\phi_1+\phi_2+\phi_3)}\rangle$, tal que cuando se cumpla la condición de resonancia $-\omega_1+\omega_2+\omega_3=0$ dará uno, mientras que en cualquier otro caso dará un valor arbitrario en el círculo unitario del plano complejo, que al promediar terminará dando cero. Esto implica que, de existir triadas resonantes, la correlación normalizada dará uno sobre el plano de resonancia y cero en cualquier otro caso. % 0 
+Donde $\langle\cdot\rangle$ representa un promedio sobre ventanas temporales de la señal en este caso, y $\eta(\omega)$ es la FFT de la serie temporal $\eta(t)$ medida. Esta correlación se define de esta forma ya que será proporcional a $\langle\exp{(-\phi_1+\phi_2+\phi_3)}\rangle$, tal que cuando se cumpla la condición de resonancia $-\omega_1+\omega_2+\omega_3=0$ dará uno, mientras que en cualquier otro caso dará un valor arbitrario en el círculo unitario del plano complejo, que al promediar terminará dando cero. Esto implica que, de existir tríadas resonantes, la correlación normalizada dará uno sobre el plano de resonancia y cero en cualquier otro caso. % 0 
 
 Distintas vistas de esta correlación, en un volumen de  $30\times30\times30$ Hz$^3$, se muestran en la Figura \ref{fig:cubos}. La visualización corresponde a superficies de nivel de $C(f_1, f_2, f_3)$. % frecuencias  
 
 % \missingfigure{CUBOS} 
-\begin{figure}[th!]
+\begin{figure} % [th!]
 	\centering
 	\includegraphics[width=0.987\linewidth]{Figuras/Correlaciones/Cubos}
 	\caption{Distintas vistas de la correlación $C(f_1, f_2, f_3)$ en escala logarítmica para la señal de 0-6 Hz y amplitud del 100 \%. } % 10 5 
 	\label{fig:cubos}
 \end{figure}
 
-Se puede apreciar claramente un plano de correlación cercana a uno, un par de órdenes mayor que los alrededores, que se corresponde perfectamente con el plano dado por la condición de triadas resonantes. Las líneas diagonales en los bordes, de correlación uno, se corresponden a las interacciones triviales, donde $f_2=0$ o $f_3=0$. 
+Se puede apreciar claramente un plano de correlación cercana a uno, un par de órdenes mayor que los alrededores, que se corresponde perfectamente con el plano dado por la condición de tríadas resonantes. Las líneas diagonales en los bordes, de correlación uno, se corresponden a las interacciones triviales, donde $f_2=0$ o $f_3=0$. 
 
 Vale aclarar que para poder obtener estos resultados fue necesario utilizar una señal más larga que las usadas para la caracterización de las cascadas de energía, de seis minutos en este caso, con el fin de que el promedio dé dos órdenes de magnitud menor en los conjuntos no resonantes. Usando señales más cortas el plano de correlación máxima queda ofuscado por el ruido. Se espera que utilizando señales más largas incluso sea posible diferenciar incluso mejor al plano resonante de sus alrededores. % e 
 
-Es conveniente tomar cortes del volumen completo para poder observar mejor la sección de correlación máxima. Un corte de este cubo para $f_2=5$ Hz se muestra en la Figura \ref{fig:triadas}a. Se superpone sobre este corte la recta correspondiente a la condición de resonancia, que coincide perfectamente con la zona de máxima correlación, confirmando de esta manera la existencia de triadas resonantes en el flujo.    
+Es conveniente tomar cortes del volumen completo para poder observar mejor la sección de correlación máxima. Un corte de este cubo para $f_2=5$ Hz se muestra en la Figura \ref{fig:tríadas}a. Se superpone sobre este corte la recta correspondiente a la condición de resonancia, que coincide perfectamente con la zona de máxima correlación, confirmando de esta manera la existencia de tríadas resonantes en el flujo.    
 
-\begin{figure}[!ht]
+\begin{figure} % [!ht]
 	\centering
 	\includegraphics[width=0.9897\linewidth]{Figuras/Correlaciones/Triadas}
-	\caption{(a) Corte del volumen mostrado en la Figura \ref{fig:cubos} con $f_2=5$ Hz. La línea (\markdashed[black]{0.4ex}) muestra la condición de resonancia para triadas. (b) Misma correlación calculada para ruido Gaussiano de la misma longitud y dispersión que la señal. } 
+	\caption{(a) Corte del volumen mostrado en la Figura \ref{fig:cubos} con $f_2=5$ Hz. La línea (\markdashed[black]{0.4ex}) muestra la condición de resonancia para tríadas. (b) Misma correlación calculada para ruido Gaussiano de la misma longitud y dispersión que la señal. } 
 	\label{fig:triadas}
+\end{figure} 
+ 
+\begin{figure} % [!ht]
+	\centering
+	\includegraphics[width=0.9897\linewidth]{Figuras/Correlaciones/Cuartetos}
+	\caption{(a) Corte de la correlación $C(f_1, f_2, f_3, f_4)$ en escala logarítmica, con $f_2=5$ Hz y $f_3=10$ Hz. La línea (\markdashed[black]{0.4ex}) muestra la condición de resonancia para cuartetos resonantes. (b) Misma correlación calculada para ruido Gaussiano de la misma longitud y dispersión que la señal. } 
+	\label{fig:cuartetos}
 \end{figure}
 
-En la Figura \ref{fig:triadas}b se muestra el mismo cálculo realizado sobre una señal de ruido normal de la misma longitud y dispersión que la señal de turbulencia de ondas, con el fin de verificar la ausencia de triadas resonantes, mostrando así que no es un artificio del cálculo la aparición de la línea.  
+
+En la Figura \ref{fig:triadas}b se muestra el mismo cálculo realizado sobre una señal de ruido normal de la misma longitud y dispersión que la señal de turbulencia de ondas, con el fin de verificar la ausencia de tríadas resonantes, mostrando así que no es un artificio del cálculo la aparición de la línea.  
 
 De manera análoga se puede calcular la correlación de cuatro ondas normalizada extendiendo la definición anterior: 
 
@@ -311,31 +321,16 @@ De manera análoga se puede calcular la correlación de cuatro ondas normalizada
 Que dará uno si se verifica la condición de resonancia $-\omega_1-\omega_2+\omega_3+\omega_4$ y cero en otro caso. Aquí se calculó directamente un corte, fijando $f_2=5$ Hz y $f_3=10$ Hz, como se muestra en la Figura \ref{fig:cuartetos}a, aunque se observaron resultados similares para otros conjuntos de frecuencias. % 12 
 
 
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[width=0.9897\linewidth]{Figuras/Correlaciones/Cuartetos}
-	\caption{(a) Corte de la correlación $C(f_1, f_2, f_3, f_4)$ en escala logarítmica, con $f_2=5$ Hz y $f_3=10$ Hz. La línea (\markdashed[black]{0.4ex}) muestra la condición de resonancia para cuartetos resonantes. (b) Misma correlación calculada para ruido Gaussiano de la misma longitud y dispersión que la señal. } 
-	\label{fig:cuartetos}
-\end{figure}
 
-Aquí se puede apreciar nuevamente la aparición de una línea que coincide con la condición de resonancia teórica, aunque en este caso el ruido de los alrededores no es tan bajo en comparación al caso de triadas, lo cual se asume se debe a la longitud de la señal, esperando que converja mejor tomando mediciones de mayor duración. Al igual que antes, en la Figura \ref{fig:cuartetos}b el mismo procedimiento con ruido Gaussiano, donde solo se ve un pico correspondiente a la solución trivial $f_1=f_3$ y $f_2=f_4$. 
+Aquí se puede apreciar nuevamente la aparición de una línea que coincide con la condición de resonancia teórica, aunque en este caso el ruido de los alrededores no es tan bajo en comparación al caso de tríadas, lo cual se asume se debe a la longitud de la señal, esperando que converja mejor tomando mediciones de mayor duración. Al igual que antes, en la Figura \ref{fig:cuartetos}b el mismo procedimiento con ruido Gaussiano, donde solo se ve un pico correspondiente a la solución trivial $f_1=f_3$ y $f_2=f_4$. 
 
-Tanto en este caso, como para las triadas, se puede observar que la línea de correlación máxima tiene un cierto ancho, lo cual se asume que se debe al ensanchamiento de la relación de dispersión en el caso no lineal, que permite interacciones entre más conjuntos de ondas que para la del caso lineal. 
+Tanto en este caso, como para las tríadas, se puede observar que la línea de correlación máxima tiene un cierto ancho, lo cual se asume que se debe al ensanchamiento de la relación de dispersión en el caso no lineal, que permite interacciones entre más conjuntos de ondas que para la del caso lineal. 
 
 
 
 \section{Intermitencia} 
 \label{sec:intermitencia}  % .          
 Para forzados con no linealidad lo suficientemente alta suele observarse un comportamiento intermitente en las series temporales para $\eta(t)$, caracterizado por la aparición de fluctuaciones rápidas en un entorno comparativamente más calmo, como se esquematiza en la Figura \ref{fig:esquema}.  
-
-% \missingfigure{ESQUEMA INTERMITENCIA}
-
-\begin{figure}[th!]
-	\centering
-	\includegraphics[width=0.987\linewidth]{Figuras/Intermitencia/Esquema/Esquema_azul} 
-	\caption{Esquema de un observable con comportamiento intermitente en escalas $\tau$. Adaptada de \cite{farazmand2017variational}.}
-	\label{fig:esquema} 
-\end{figure}
 
 
 Este fenómeno suele asociarse a la aparición de estructuras coherentes en la superficie libre, como por ejemplo, rompimiento de olas (\textit{wave breaking}), cúspides (\textit{cusps}), espuma en la cresta de las olas (\textit{whitecaps}) o ráfagas de ondas capilares \cite{falconObservationIntermittencyWave2007, falconOriginIntermittencyWave2010}. Un método para caracterizar la aparición de estos eventos extremos en escalas temporales cortas de la señal suele ser el cálculo de las PDFs para las diferencias $\Delta\eta(\tau)$, definidas a continuación:  
@@ -352,14 +347,6 @@ Este fenómeno suele asociarse a la aparición de estructuras coherentes en la s
 Siendo estas las diferencias de primer y segundo orden respectivamente. Ambas dan una idea de la similitud de la señal entre dos o tres puntos separados una escala temporal $\tau$, de forma que, los eventos extremos rápidos deberían manifestarse como colas pesadas en las PDFs a escalas de $\tau$ chicas, mientras que para un $\tau$ lo suficientemente grande se espera que no haya correlación entre los puntos de la señal, y que por tanto, la PDF sea Gaussiana. 
 
 
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[width=0.982897\linewidth]{Figuras/Intermitencia/PDFS/PDFS_DIFERENCIAS}
-	\caption{PDFs normalizadas (\marksolid[blue]{0.4ex}) para las primeras  (n.I) y segundas diferencias (n.II), con diferente delay $\tau$, de una señal con no linealidad baja (a) y alta (b). Las curvas se desplazaron verticalmente por claridad. Se muestra además para todos los casos la distribución Gaussiana de media cero y desviación unidad como referencia (\markdashed[black]{0.4ex}). }  % diferencias otra con no linealidad 
-	\label{fig:pdfsdiferencias}
-\end{figure}  
-
-
 
 En la Figura \ref{fig:pdfsdiferencias} se muestran las PDFs normalizadas para las primeras y segundas diferencias de dos señales, una de no linealidad pequeña (0-4 Hz, 100\%) y otra para no linealidad alta (0-6 Hz, 100\%). Nuevamente se utilizaron señales más largas para este estudio, ya que al tratarse de estadística de orden superior se necesitan más puntos para la convergencia, como se verá más adelante. % para 55 
 
@@ -367,7 +354,45 @@ En la Figura \ref{fig:pdfsdiferencias} se muestran las PDFs normalizadas para la
 
 Para el caso de no linealidad pequeña se puede observar que todas las PDFs resultan prácticamente Gaussianas, independientemente del  parámetro de delay $\tau$, mostrando colas ligeramente más pesadas para el caso de las segundas diferencias y menor $\tau$. Para las no linealidades altas las primeras diferencias también resultan Gaussianas, mientras que ahora para las segundas diferencias se puede ver una clara progresión, de una Gaussiana para delays altos, a una distribución más aplanada para delays chicos. Esto es un claro signo de intermitencia, que se presenta para los forzados lo suficientemente intensos. Otra característica interesante de las PDFs es que desarrollan para delays pequeños una asimetría hacia el lado positivo, además de aplanarse, lo cual se asocia a la probabilidad mayor de las crestas que los valles. 
 
+% \missingfigure{ESQUEMA INTERMITENCIA}
+
+\begin{figure}[!t] % [th!]
+	\centering
+	\includegraphics[width=0.987\linewidth]{Figuras/Intermitencia/Esquema/Esquema_azul} 
+	\caption{Esquema de un observable con comportamiento intermitente en escalas $\tau$. Adaptada de \cite{farazmand2017variational}.}
+	\label{fig:esquema} 
+\end{figure}
+
+
+\begin{figure}[!t] % [!ht]
+	\centering
+	\includegraphics[width=0.982897\linewidth]{Figuras/Intermitencia/PDFS/PDFS_DIFERENCIAS}
+	\caption{PDFs normalizadas (\marksolid[blue]{0.4ex}) para las primeras  (n.I) y segundas diferencias (n.II), con diferente delay $\tau$, de una señal con no linealidad baja (a) y alta (b). Las curvas se desplazaron verticalmente por claridad. Se muestra además para todos los casos la distribución Gaussiana de media cero y desviación unidad como referencia (\markdashed[black]{0.4ex}). }  % diferencias otra con no linealidad 
+	\label{fig:pdfsdiferencias}
+\end{figure}  
+
 Se deben utilizar en este caso las segundas diferencias ya que al ser muy empinado el espectro de $\eta$, $E(\omega)\sim\omega^{-n}$ con $n\ge3$ (como ocurre aproximadamente en este caso), la señal es diferenciable al menos una vez, y esa componente dominará  para $\tau$ pequeños, ofuscando la aparición de los eventos extremos, y en consecuencia las primeras diferencias resultarán poco informativas. Al trabajar con las segundas diferencias se elimina dicha componente diferenciable evidenciando las fluctuaciones multiescala. % > , dominará en $S_p$ las funciones de estructura  
+
+
+\begin{figure}[!t]  % [th!]
+	\centering
+	\includegraphics[width=0.987\linewidth]{Figuras/Intermitencia/Convergencias/Completos}
+	\caption{Funciones de estructura hasta el orden $p = 8$ en función del largo de la ventana de la señal analizada y el delay $\tau$. Se normalizaron por el máximo en cada caso para facilitar la visualización conjunta. } % comparación { } . 
+	\label{fig:completos}
+\end{figure} 
+
+
+% \missingfigure{CONVERGENCIA SP} 
+
+\begin{figure}[!t] % [th!]
+	\centering
+	\includegraphics[width=0.987\linewidth]{Figuras/Intermitencia/Convergencias/Convergencia_16ms}
+	\caption{Funciones de estructura hasta el orden $p=8$ para $\tau=8$ ms con una longitud variable de la señal. } 
+	\label{fig:convergencia16ms}
+\end{figure}
+
+
+
 
 Para todo lo que viene a continuación se utilizarán los datos para la señal de 0-6 Hz y amplitud del 100 \%, ya que fue de las que mostraron comportamiento intermitente en las PDFs de los incrementos. Un análisis cuantitativo de la deformación de las PDFs puede realizar mediante el cálculo de las funciones de estructura $S_p(\tau)$ de orden $p$, que se definen en término de las diferencias de la siguiente manera: % 5 
 
@@ -380,22 +405,6 @@ Para todo lo que viene a continuación se utilizarán los datos para la señal d
 
 Resulta importante verificar hasta qué orden están bien convergidas estas funciones de estructura, en base a la cantidad de puntos de las señales utilizadas. En la Figura \ref{fig:completos} se encuentra el análisis general, para todo el intervalo de $\tau$ de interés. Por ejemplo, para $\tau=16$ ms se muestra un corte de estos gráficos en la Figura \ref{fig:convergencia16ms}, donde se puede observar más fácilmente el valor de la función de estructura hasta orden 8 en función de la duración de la señal. 
 
-\begin{figure}[th!]
-	\centering
-	\includegraphics[width=0.987\linewidth]{Figuras/Intermitencia/Convergencias/Completos}
-	\caption{Funciones de estructura hasta el orden $p = 8$ en función del largo de la ventana de la señal analizada y el delay $\tau$. Se normalizaron por el máximo en cada caso para facilitar la visualización conjunta. } % comparación { } . 
-	\label{fig:completos}
-\end{figure}
-	
-
-% \missingfigure{CONVERGENCIA SP} 
-
-\begin{figure}[th!]
-	\centering
-	\includegraphics[width=0.987\linewidth]{Figuras/Intermitencia/Convergencias/Convergencia_16ms}
-	\caption{Funciones de estructura hasta el orden $p=8$ para $\tau=8$ ms con una longitud variable de la señal. } 
-	\label{fig:convergencia16ms}
-\end{figure}
 
 
 
@@ -406,26 +415,21 @@ Se calcularán $S_p$ con $p\le6$ en este caso, ya que se observa que, para los d
 
 Un punto importante aquí es que este delay $\tau$ se puede relacionar con el régimen, siendo la frecuencia correspondiente a cada escala $f\sim1/\tau$. De esta forma, $10\text{ ms }\lesssim \tau\lesssim\;76\text{ ms }$ se corresponde al rango capilar, que es donde se observa la tendencia lineal. Delays mayores se corresponderán al rango de gravedad y menores a la escala del ruido.  % gtr 
 
-\begin{figure}[!ht]
+\begin{figure} % [!t] % [!ht]
 	\centering
 	\includegraphics[width=0.9897\linewidth]{"Figuras/Intermitencia/Funciones de Estructura/Sps"}
 	\caption{Funciones de estructura (\markcircle[blue]{0.4ex}) en función del delay $\tau$ hasta el orden $p=6$ para (a) las primeras diferencias y (b) las segundas diferencias. En el rango comprendido por las líneas verticales (\markdashed[black]{0.4ex}) se realizó un ajuste lineal de las funciones de estructura (\marksolid[blue]{0.4ex}). } 
 	\label{fig:sps}
 \end{figure} 
 
-Para cuantificar la planitud (\textit{flatness}) de las PDFs se calcula el cociente $S_4/S_2^2$, que dará un valor de 3 en el caso en que la PDF sea Guassiana, e irá aumentando cuanto más plana sea (i.e. más pesadas sean las colas). Ésta se puede ver para las primeras diferencias en la Figura \ref{fig:flatness}a y para las segundas en \ref{fig:flatness}b. % , 
-
-
-\begin{figure}[!ht]
+\begin{figure} % [!ht] % [!ht]
 	\centering
-	\includegraphics[width=0.9897\linewidth]{"Figuras/Intermitencia/Funciones de Estructura/Flatness"}
+	\includegraphics[width=0.9156897\linewidth]{"Figuras/Intermitencia/Funciones de Estructura/Flatness"}
 	\caption{Planitud (\markcircle[black]{0.4ex}) en función del delay $\tau$ para (a) las primeras diferencias y (b) las segundas diferencias. En ambos casos se muestra además un ajuste lineal para el rango donde se observa un comportamiento lineal (\marksolid[black]{0.4ex}). Las líneas punteadas (\markdashed[black]{0.4ex}) muestran el punto donde el ajuste interseca el valor 3, que se tomará como el tiempo de correlación. Los valores obtenidos son los de la Tabla \ref{tab:flatness_fit}. }  
 	\label{fig:flatness} 
 \end{figure}
 
-En ambos casos, se puede observar que existe un rango de $\tau$ en el cual esta planitud pareciera seguir también una ley de potencias, lo cual es razonable si se supone que $S_4$ y $S_2$ siguen una de manera independiente. Ajustando linealmente y buscando el punto en que cruza 3 se puede determinar el llamado tiempo de correlación $\tau_c$ del flujo. Para ambas diferencias resulta $\tau_c$ del orden de 50 ms, comparable a valores reportados en la literatura \cite{falconObservationIntermittencyWave2007}.  
-
-\begin{table}[h!]
+\begin{table} % [!ht] % [h!] 
 	\centering
 	\begin{tabular}{ |c | c | c | c | c | }       
 		\hline
@@ -439,17 +443,20 @@ En ambos casos, se puede observar que existe un rango de $\tau$ en el cual esta 
 	\caption{Parámetros obtenidos del ajuste de la planitud (c.f. Figura \ref{fig:flatness}) para diferencias de primer y segundo orden. Se presentan además los resultados para las segundas diferencias obtenidos por Falcon  (2007)  \cite{falconObservationIntermittencyWave2007}. } % pl -   . 
 	\label{tab:flatness_fit}
 \end{table}
+ 
+
+
+Para cuantificar la planitud (\textit{flatness}) de las PDFs se calcula el cociente $S_4/S_2^2$, que dará un valor de 3 en el caso en que la PDF sea Guassiana, e irá aumentando cuanto más plana sea (i.e. más pesadas sean las colas). Ésta se puede ver para las primeras diferencias en la Figura \ref{fig:flatness}a y para las segundas en \ref{fig:flatness}b. % , 
+
+
+
+En ambos casos, se puede observar que existe un rango de $\tau$ en el cual esta planitud pareciera seguir también una ley de potencias, lo cual es razonable si se supone que $S_4$ y $S_2$ siguen una de manera independiente. Ajustando linealmente y buscando el punto en que cruza 3 se puede determinar el llamado tiempo de correlación $\tau_c$ del flujo. Para ambas diferencias resulta $\tau_c$ del orden de 50 ms, comparable a valores reportados en la literatura \cite{falconObservationIntermittencyWave2007}.  
+
 
 
 Al igual que con la planitud, para cada $S_p$ se realizó además un ajuste lineal para determinar el exponente $\zeta_p$. Los resultados se muestran en la Figura \ref{fig:exponentescomparacionv2}a. % esto es > ste P 
 
 
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[width=0.9897\linewidth]{Figuras/Intermitencia/Exponentes/Exponentes_comparación_v2}
-	\caption{Exponentes $\zeta_p$ obtenidos para las funciones de estructura $S_p$ en el rango capilar (\markcircle*[blue]{0.4ex}) calculadas con las diferencias de orden uno y dos. (a) Este trabajo. (b) Falcon (2007) \cite{falconObservationIntermittencyWave2007}. Se muestran además los ajustes realizados (\markdashed[blue]{0.4ex}) por una función cuadrática $\zeta_p=c_1 p-c_2 p^2/2$, cuyos resultados se encuentran en la Tabla \ref{tab:zeta_p_fit}, y el escalado esperado por análisis dimensional (\markdotted[blue]{0.4ex}). } % . 
-	\label{fig:exponentescomparacionv2}
-\end{figure}
 
 El comportamiento esperado para la dependencia de estos $\zeta_p$ con $p$ puede estimarse utilizando análisis dimensional, de forma tal que se obtiene $\zeta_p^{(1)}=11p/12$ para las primeras diferencias y $\zeta_p^{(2)}=3p/2$ para las segundas. Este estimado depende del exponente del espectro, que es de $-17/6$ para el régimen capilar en las primeras diferencias y de $-2$ en las segundas (debido a las discontinuidades en la velocidad de $\eta$) \cite{falconObservationIntermittencyWave2007}.  Se puede apreciar que para ambas diferencias este estimado funciona relativamente bien hasta $p=3$, y luego se empieza a separar. Esta separación es otro claro indicador de intermitencia, y para estimarlo se puede ajustar con una corrección cuadrática, de la forma $\zeta_p=c_1 p - c_2p^2/2$, esperando obtener $c_2\neq0$. 
 
@@ -457,7 +464,15 @@ Los exponentes deben ser monótonamente crecientes, con lo cual esta estimación
 
 En la Figura \ref{fig:exponentescomparacionv2}b se muestran resultados análogos en mercurio de Falcon (2007) \cite{falconObservationIntermittencyWave2007}, que son cualitativamente parecidos. Lo que es más, los exponentes para las funciones de estructura calculados a partir de las primeras diferencia coinciden perfectamente con los hallados en este caso, solapándose todos los puntos. Sí hay una diferencia notable en los exponentes para las segundas diferencias, pero el valor obtenido para $c_2^{(2)}$ resulta similar. 
 
-\begin{table}[t!]
+\begin{figure} % [!ht]
+	\centering
+	\includegraphics[width=0.9897\linewidth]{Figuras/Intermitencia/Exponentes/Exponentes_comparación_v2}
+	\caption{Exponentes $\zeta_p$ obtenidos para las funciones de estructura $S_p$ en el rango capilar (\markcircle*[blue]{0.4ex}) calculadas con las diferencias de orden uno y dos. (a) Este trabajo. (b) Falcon (2007) \cite{falconObservationIntermittencyWave2007}. Se muestran además los ajustes realizados (\markdashed[blue]{0.4ex}) por una función cuadrática $\zeta_p=c_1 p-c_2 p^2/2$, cuyos resultados se encuentran en la Tabla \ref{tab:zeta_p_fit}, y el escalado esperado por análisis dimensional (\markdotted[blue]{0.4ex}). } % . 
+	\label{fig:exponentescomparacionv2}
+\end{figure} 
+
+
+\begin{table} % [t!]
 	\centering
 	\begin{tabular}{ | c | l | c | c | c | c |} % . 
 		\hline
@@ -473,7 +488,7 @@ En la Figura \ref{fig:exponentescomparacionv2}b se muestran resultados análogos
 		\hline
 	\end{tabular}
 	\caption{Parámetros del ajuste del exponente de estructura por una función cuadrática $\zeta_p = c_1 p - \tfrac{1}{2} c_2 p^2$ para diferencias de primer y segundo orden (c.f. Figura \ref{fig:exponentescomparacionv2}). Se presentan los resultados obtenidos, los de Falcon (2007) \cite{falconObservationIntermittencyWave2007} y los esperados mediante análisis dimensional para el caso sin intermitencia. } % ´ 
-	\label{tab:zeta_p_fit}
+	\label{tab:zeta_p_fit} 
 \end{table}
 
 
