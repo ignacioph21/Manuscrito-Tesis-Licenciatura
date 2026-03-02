@@ -74,7 +74,7 @@ En la aproximación lineal resulta relativamente sencillo encontrar la relación
 Además, se considerará en geneal la aproximación de profundidad infinita, que implica $kh_0\gg1$, de forma tal que puede tomarse $\tanh(kh_0)\approx1$. Esto tiene como consecuencia que la relación de dispersión quede escrita en término de dos contribuciones, como puede verse en la Figura \ref{fig:escalalogdispersion}: la gravitatoria dominante en escalas grandes con $\omega\sim k^{1/2}$, y la capilar dominante a escalas chicas con $\omega\sim k^{3/2}$. % s 
 
 
-\begin{figure}[th!]
+\begin{figure}[t]
 	\centering
 	\includegraphics[width=0.7\linewidth]{"Figuras/Introducción/Relación DE dispersión/escala_log_dispersión"}
 	\caption{Relación de dispersión lineal en escala logarítmica. Se muestran además las contribuciones individuales de la parte de gravedad y capilar, dominando a escalas grandes y chicas respectivamente. La línea punteada indica el cruce entre los dos regímenes.}
@@ -91,7 +91,7 @@ Es sabido que en el caso general la energía del fluido puede calcularse mediant
 	\label{eq:gravity-capillary_energy} % y 
 \end{equation} 
  
-Donde el primer término corresponde a la energía cinética del fluido, el segundo a la energía potencial gravitatoria, y el tercero a la energía capilar generada por la deformación de la superficie. 
+\noindent donde el primer término corresponde a la energía cinética del fluido, el segundo a la energía potencial gravitatoria, y el tercero a la energía capilar generada por la deformación de la superficie. 
 
 Zakharov, V. E. mostró en 1972 \cite{zakharovStabilityPeriodicWaves1972a} que es posible obtener las condiciones de contorno para la superficie libre tomando esta expresión para la energía e interpretándola como un Hamiltoniano de las variables $\eta(\vec x, t)$ y $\psi(\vec x, t)\equiv\phi(\vec x, z=\eta(\vec x, t), t)$, de forma tal que,   % $H[\eta,\psi]$ c 
 
@@ -117,6 +117,7 @@ Esta transformación resulta canónica, de forma que las ecuaciones de Hamilton 
 	\frac{\partial a(\vec k)}{\partial t}=-i\frac{\delta E}{\delta a^*(\vec k)} % ñ 
 \end{equation} 
 
+Cabe señalar que la naturaleza Hamiltoniana de las ecuaciones de Euler para un fluido ideal ya había sido establecida previamente, siendo el resultado de Zakharov (1972) el caso particular a la superficie libre. \cite{salmon1988hamiltonian} % la especialización 
 
 \section{Formalismo Hamiltoniano para Turbulencia de Ondas} 
 \label{sec:formalismo_hamiltoniano} 
@@ -161,7 +162,7 @@ Representando ahora procesos del tipo $2\rightarrow2$ para el primer término, $
 
 
 \subsection{Condiciones de Resonancia} % TY 
-En general será suficiente con desarrollar el Hamiltoniano de interacción hasta el primer término no nulo, que será aquel para el cual existan soluciones simultáneas a las condiciones de resonancia, que para $N$ ondas resultan: 
+En general,  para pendientes de onda pequeñas, $S\ll1$, será suficiente con desarrollar el Hamiltoniano de interacción hasta el primer término no nulo (turbulencia de ondas débil), que será aquel para el cual existan soluciones simultáneas a las condiciones de resonancia, que para $N$ ondas resultan: 
 
 \begin{equation} 
 	\vec k_1 \pm \vec k_2 \pm \cdots \pm \vec k_N = 0 \qquad \omega(\vec k_1) \pm \omega(\vec k_2) \pm \cdots \pm \omega(\vec k_N) = 0
@@ -176,7 +177,7 @@ Es posible mostrar que para relaciones de la forma $\omega\sim k^{\alpha}$ la co
 
 % \missingfigure{Condiciones de resonancia} 
 
-\begin{figure}[th!]
+\begin{figure}[t]
 	\centering
 	\includegraphics[width=0.987\linewidth]{"Figuras/Introducción/Condiciones de resonancia/Completo"}
 	\caption{Método gráfico para hallar soluciones simultáneas a las condiciones de resonancia en el caso de triadas. (a) $\alpha=1/2$ para gravedad, existe únicamente la solución trivial. (b) $\alpha=3/2$ para capilar, existe una familia de soluciones (\markdashed[black]{0.4ex}).}
@@ -184,9 +185,9 @@ Es posible mostrar que para relaciones de la forma $\omega\sim k^{\alpha}$ la co
 \end{figure}
 
 
-Para las ondas en superficie libre el rango de gravedad tiene $\alpha=1/2$, con lo cual las interacciones resonantes de tres ondas no estarán permitidas (sino serían ondas con energía negativa), ver Figura \ref{fig:condiciones de resonancia}a, y serán los cuartetos los primeros que satisfagan las condiciones de resonancia simultáneamente, mientras que en el rango capilar, con $\alpha=3/2$, siempre habrá triadas resonantes, ver Figura \ref{fig:condiciones de resonancia}b. En el caso particular en que todas las ondas sean colineales (reduciendo el problema efectivamente a 1D, aunque la energía sí seguirá distribuída en 2D) la mínima cantidad de ondas interactuantes resultará ser $N=5$. \cite{nazarenkoWaveTurbulence2011} % a ,  ty . 
+Para las ondas en superficie libre el rango de gravedad tiene $\alpha=1/2$, con lo cual las interacciones resonantes de tres ondas no estarán permitidas (sino serían ondas con energía negativa), ver Figura \ref{fig:condiciones de resonancia}a, y serán los cuartetos los primeros que satisfagan las condiciones de resonancia simultáneamente, mientras que en el rango capilar, con $\alpha=3/2$, siempre habrá triadas resonantes (ver Figura \ref{fig:condiciones de resonancia}b). En el caso particular en que todas las ondas sean colineales (reduciendo el problema efectivamente a 1D, aunque la energía sí seguirá distribuída en 2D) la mínima cantidad de ondas interactuantes resultará ser $N=5$. \cite{nazarenkoWaveTurbulence2011} % a ,  ty . 
 
-
+En el caso en que la pendiente de las ondas sea lo suficientemente grande, $S\sim0.1$,  será necesario incluir más términos en el desarrollo perturbativo, correspondiendo este caso a turbulencia fuerte, en la cuál será relevante incluir otros efectos en la teoría, como la aparición de estructuras coherentes e intermitencia. 
 
 \subsection{Ecuaciones de movimiento} % ó 
 Para el caso lineal, donde $\mathcal{H}=\mathcal{H}_2$ la ecuación de movimiento resulta trivial: 
