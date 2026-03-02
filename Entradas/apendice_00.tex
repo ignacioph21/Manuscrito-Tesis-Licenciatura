@@ -1,21 +1,39 @@
 \chapter{Interfaces gráficas de usuario} 
 \label{apéndice:guis} 
 
+A continuación se muestran las interfaces gráficas de usuario (GUI) desarrolladas durante la Tesis para la utilización de la placa de adquisición Personal DAQ 3001 de IOTech y la visualización en tiempo real de la fase obtenida con la ténica de demodulación homodina sobre las tensiones medidas (lock-in digital). Ambas se desarrollaron en Python 3. 
+
+
 \section{Adquisición de datos} 
 \label{sec:adquisición}
-\begin{figure}
+Para el control más general posible de la placa se desarrolló la GUI que se muestra en la Figura \ref{fig:adquisicion}, incorporando todas las funcionalidades necesarias, aunque no todas las que dispone la placa, habiendo lugar para la expansión de sus funcionalidades.
+
+\begin{figure}[!b] % t  sásísás 
 	\centering
 	\includegraphics[width=0.987\linewidth]{"Figuras/La interfaz/Adquisición"}
-	\caption{}
+	\caption{GUI desarrollada para la adquisición de tensiones mediante la placa Personal DAQ 3001. Se señalan las distintas partes de la misma. } 
 	\label{fig:adquisicion}
 \end{figure}
 
+
+Además de permitir seleccionar la cantidad de canales sobre los que realizar la adquisición, como así también la ganancia de cada uno y la frecuencia de muestreo (que se dividirá entre la cantidad de canales elegidos), la GUI permite seleccionar entre dos modos de adquisición. El modo ``finito`` en el cual se debe especificar la cantidad de tiempo o puntos a tomar, guardando los datos binarios en la memoria de la placa y transfiriéndolos a la computadora al finalizar. Y por otro lado,  el modo ``infinito``, que permite adquirir por un tiempo largo arbitrario y detenerla cuando se considere, donde se transfieren los datos binarios en \textit{batches} a intervalos regulares desde la memoria de la placa a un \textit{buffer} circular en la memoria de la computadora (que debe configurarse con suficiente tamaño para evitar \textit{overruns} en el proceso), desde el cual se escriben al disco, evitando así tener cantidades arbitrariamente grandes de datos cargados simultáneamente. % ´ 
+
+
+
+
+
 \section{Lock-in digital en tiempo real} 
 \label{sec:lock_in_digital_gui} 
-\begin{figure}
+La segunda GUI desarrollada tuvo el objetivo de visualizar la fase instantánea obtenida en tiempo real por el algoritmo de demodulación homodina aplicado a las señales medidas con la placa, que resulta proporcional a la altura de la superficie libre, pudiendo así monitorear la evolución de la misma, como se ve en la Figura \ref{fig:graficos}. % a  
+
+Para poder realizar el gráfico con una tasa de actualización de varias decenas de Hz fue necesario utilizar librerías especializadas, como por ejemplo \textit{pyQtGraph}, ya que la librería estándar de \textit{matplotlib} está limitada por los tiempos de carga en este aspecto. 
+
+
+\begin{figure}[!t]
 	\centering
 	\includegraphics[width=0.987\linewidth]{"Figuras/La interfaz/Gráficos"}
-	\caption{}
+	\caption{GUI desarrollada para la visualización en tiempo real de la fase, proporcional a la altura sumergida de la sonda, en un forzado aleatorio del fluido. }  
 	\label{fig:graficos}
 \end{figure}
 
+La idea en un futuro sería poder combinar ambas interfaces y podes realizar la adquisición directa de la altura en la interfaz donde se grafique. 

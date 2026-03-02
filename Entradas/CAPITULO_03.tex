@@ -204,7 +204,7 @@ Antes de iniciar con la construcción del sensor en el laboratorio, se empezó c
 
 
 % \missingfigure{Histéresis} 
-\begin{figure}[b!]
+\begin{figure}[t!] % b 
 	\centering
 	\includegraphics[width=0.87\linewidth]{"Figuras/Sensor/Pruebas numéricas/Histéresis"}
 	\caption{Arriba, la comparación de los desplazamientos $\Delta l$ reales y los obtenidos numéricamente, para señales senoidales de $f=0.2$ KHz (a.I) y $f=2$  kHz (b.I), con un circuito de frecuencia de resonancia de $f_s=67$ kH. Debajo, las curvas de respuesta (\marksolid[blue]{0.6pt}), an ambos casos comparadas a la ideal (\markdashdot[black]{0.6pt}), pudiendo observar una respuesta lineal para frecuencias relativamente bajas (a.II) en comparación a frecuencias más altas (b.II) donde el circuito no llega a responder lo suficientemente rápido y se produce histéresis. } % línea azul sólida a a  respuesta  $-$$\cdot-$ 
@@ -277,7 +277,7 @@ De esta forma, se verifica el comportamiento predicho para el circuito en el cas
 \label{sec:prototipado}  
 Ya habiendo terminado con la fase más exploratoria y las pruebas preliminares descriptas en las Secciones anteriores, se pasó al diseño y prototipado del sensor, al cual corresponde esta Sección, que implica el armado de la sonda y del circuito para la medición de la fase. La puesta en marcha de la técnica de demodulación homodina para llevar a cabo esta medición será descripta en la Sección siguiente debido a la complejidad que terminó requiriendo. % , junto a l s  ya que tuvo su 
 
-\subsection*{La sonda} 
+\subsection{La sonda} 
 Un modelo de la versión final de la sonda se muestra en la Figura \ref{fig:dibujosensormodelo}. Ésta es relativamente sencilla, siendo su componente principal el alambre de cobre esmaltado, que en este caso fue de $(0.35\pm0.05)$ mm de diámetro. Las partes restantes son básicamente para el soporte estructural del alambre, y para facilitar su conexión al circuito RLC. 
 
 \begin{figure}[t!]
@@ -300,7 +300,7 @@ Por último, la cruz en el medio (\textit{trusses} en inglés) dan mayor integri
 Un punto importante a tener en cuenta es que, al cortar el alambre de cobre para montar la sonda, la parte que quedará sumergida tiene en la punta al alambre expuesto sin esmaltar, y la corriente tomaría este camino hacia la Tierra en lugar del capacitivo a través del recubrimiento aislante. Para evitar esto se aplicó un spray aislante (Ailamatic DELTA), que además al secarse afianzó la adherencia al alambre de acero. 
 
 
-\subsection*{El circuito RLC serie} 
+\subsection{El circuito RLC serie} 
 Los valores nominales de los elementos utilizados para el sensor son los de la Tabla \ref{tab:rlc_valores}. Estos valores se eligieron luego de varias pruebas preliminares, ya que fueron los que mejores resultados permitieron obtener para los desplazamientos típicos de la superficie libre con los que se trabajó ($\lesssim$1 cm).   % de un orden máximo de  a 
 
 \begin{table}[t!] % h 
@@ -348,7 +348,7 @@ Finalmente se optó por utilizar una placa de adquisición para medir simultáne
 
 
 
-\subsection*{La placa de adquisición}
+\subsection{La placa de adquisición}
 
 La placa utilizada fue la disponible de mayor tasa en el conversor analógico digital, que fue la PersonalDAQ 3001 de IOTech \cite{MCC_PersonalDAQ3000_Manual}. Esta placa permite adquirir con una tasa de hasta 1 MHz, distribuido entre 8 canales en formato diferencial (o 16 canales puntuales), cada uno con una resolución de 16 bits para un rango de voltaje ajustable entre $\pm10$ V y $\pm 100$ mV. % 0 
 
@@ -357,7 +357,7 @@ Para las mediciones de esta Tesis se utilizó siempre un único sensor, con lo c
 Si bien puede parecer mucho una adquisición a esta tasa para finalmente medir oscilaciones en la superficie libre de hasta unos 200 Hz hay que recordar que éstas estarán moduladas por la frecuencia de resonancia del RLC serie, que como se mencionó en la Sección anterior es del orden de 50 kHz, con lo cual la frecuencia mínima de muestreo (por el Teorema de Nyquist para evitar \textit{aliasing}) está en 100 kHz. Los 500 kHz permiten estar por encima de este mínimo por una cantidad considerable, pero pruebas con tres sensores en simultáneo, que requiere un total de cuatro canales en modo diferencial a 250 kHz cada uno, dieron resultados comparables.  %  a los de una tasa mayor 
 
 
-\subsection*{Software de control de la placa}
+\subsection{Software de control de la placa}
 La principal complejidad que vino asociada a la utilización de esta placa fue su comunicación con la computadora para llevar a cabo las mediciones, ya que la compañía no proporciona software oficial compatible con sistemas operativos modernos (la última versión disponible es para Windows XP). 
 
 
@@ -373,7 +373,7 @@ No se entrara en detalle sobre el código en sí, pero el resultado final fue un
 
 
 
-\subsection*{El algoritmo de Lock-in Digital} 
+\subsection{El algoritmo de Lock-in Digital} 
 Con el software desarrollado para la placa es posible entonces medir simultáneamente la señal de referencia y el voltaje sobre la resistencia del RLC serie. El análisis de estas señales se lleva a cabo posterior a su adquisición mediante los pasos explicados para la técnica de demodulación homodina, llegando efectivamente a lo que sería un lock-in digital asíncrono. Se desarrolló también una versión que funciona en tiempo real para el segundo método de adquisición explicado, pero que permite visualizar señales únicamente hasta unas pocas decenas de Hz. % aunque
 
 Tampoco se entrará en detalle sobre la implementación de este algoritmo, pero se mencionarán brevemente algunos de los puntos principales que difieren al método convencional. Esto se debe principalmente a que, por eficiencia en la adquisición, solo se midió la referencia, y la cuadratura se generó digitalmente a partir de ésta. Para esto se implementó la Transformada de Hilbert, que tendrá el efecto de aplicar un desfasaje de 90$^\circ$ a la señal de referencia.  %  que para una señal limitada en frecuencia (a)  
@@ -493,7 +493,7 @@ Además, viendo el histograma de estas diferencias, Figura \ref{fig:diferencias}
 
 
 
-\subsection*{Ruido} 
+\subsection{Ruido} 
 En la Figura \ref{fig:espectro_ruido} se puede apreciar la densidad espectral de potencias del ruido del sensor, estando éste sumergido en un fluido estático. 
 
 % \missingfigure{Espectro ruido}  
