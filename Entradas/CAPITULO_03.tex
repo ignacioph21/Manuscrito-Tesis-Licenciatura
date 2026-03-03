@@ -476,10 +476,10 @@ Se considera un muy buen ajuste, y que los datos siguen efectivamente una tenden
 
 
 
-\subsection{Diferencias} 
+\subsection{Diferencias con la altura real} % au a   
 Por último, se pueden usar los parámetros del ajuste lineal como parámetros de calibración del sensor, con lo cuales pasar de fase a altura (c.f. eje derecho de la Figura \ref{fig:series-temporales-a}). Una vez calibrada la señal se pueden calcular las dieferencias con la altura real, que sería el último panel de la Figura, \ref{fig:series-temporales-a}c.  
 
-\begin{figure}[!b] 
+\begin{figure} % [!b] 
 	\centering
 	\includegraphics[width=0.987\linewidth]{Figuras/Sensor/Diferencias/Diferencias}
 	\caption{(a) Histograma de las diferencias (Figura \ref{fig:series-temporales-a}c). (b) Espectro de las mismas diferencias que para (a).} 
@@ -498,12 +498,12 @@ Del espectro de las mismas, Figura \ref{fig:diferencias}b se ven oscilaciones a 
 
 
 
-\subsection{Ruido} 
+\subsection{Ruido del sensor} 
 En la Figura \ref{fig:espectro_ruido} se puede apreciar la densidad espectral de potencias del ruido del sensor, estando éste sumergido en un fluido estático. 
 
 % \missingfigure{Espectro ruido}  
 
-\begin{figure}[t!]
+\begin{figure} % [t!]
 	\centering
 	\includegraphics[width=0.987\linewidth]{Figuras/Sensor/Ruido/espectro_ruido}
 	\caption{Densidad espectral de potencias para el ruido del sensor (\marksolid[blue]{0.4ex}). Se marcan los múltiplos enteros de 50 Hz (\markdashed[black]{0.4ex}), que coincide con los picos. El leve decaimiento en las frecuencias más altas se debe al filtro pasabajos del algoritmo de demodulación homodina, específicamente a la elección de la frecuencia de corte de $f_c=1$ kHz. } % n e 
