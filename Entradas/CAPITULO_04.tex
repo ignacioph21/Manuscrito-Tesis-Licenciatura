@@ -157,7 +157,7 @@ Generalmente, es un resultado empírico que la distribución obtenida para $s_n$
 % \input{Entradas/tabla_lognormal.tex} 
 
 
-\noindent donde $\mu$ y $\sigma$ son constantes a determinar. El ajuste por esta función se puede ver para las PDFs de la Figura \ref{fig:pdfs}. Para los valores de forzado más bajo este modelo pareciera describir bien a los datos, dando $\chi_\nu^2\sim1$, sin embargo, a mayor la potencia inyectada más difiere el ajuste de los datos y $\chi_\nu^2$ aumenta gradualmente. Al mismo tiempo, las líneas verticales muestran el valor medio $\langle s\rangle=\exp(\mu+\sigma^2/2)$ obtenido del ajuste, que se espera tienda a $\langle s\rangle=\sqrt{\pi}/2$. De nuevo, esto suele cumplirse para los forzados de menor potencia, y se aleja gradualmente al aumentarla. % D 
+\noindent donde $\mu$ y $\sigma$ son constantes a determinar. El ajuste por esta función se puede ver para las PDFs de la Figura \ref{fig:pdfs} y los parámetros obtenidos en la Tabla \ref{tab:lognormal_global}. Para los valores de forzado más bajo este modelo pareciera describir bien a los datos, dando $\chi_\nu^2\sim1$, sin embargo, a mayor la potencia inyectada más difiere el ajuste de los datos y $\chi_\nu^2$ aumenta gradualmente. Al mismo tiempo, las líneas verticales muestran el valor medio $\langle s\rangle=\exp(\mu+\sigma^2/2)$ obtenido del ajuste, que se espera tienda a $\langle s\rangle=\sqrt{\pi}/2$. De nuevo, esto suele cumplirse para los forzados de menor potencia, y se aleja gradualmente al aumentarla. % D 
 
 
 
@@ -171,22 +171,26 @@ La cantidad de ondas individuales para este análisis es de aproximadamente 300-
 
 Finalmente se calculó el valor medio de \textit{wave steepness} $S_m=\langle S \rangle$ para cada señal, calculando $L_n$ con la relación de dispersión completa, y la de solo gravedad, como se muestra en la Figura \ref{fig:meanwavesteepness} 
 
+
+Para el rango de 0-3 Hz prácticamente no hay diferencia entre ambos valores, ya que al tratarse de $T_n$ menores suelen caer en su mayoría en el rango dominado por los efectos gravitatorios. Al aumentar la potencia del forzado las ondas son cada vez más cortas y empiezan a ser relevantes los efectos capilares, con lo cual se separan cada vez más los resultados entre la aproximación de la relación de dispersión y la versión completa. 
+
+
+\input{Entradas/tabla_lognormal_V2}  
+
+
+
+
+
+En cualquier caso, es posible apreciar cómo la pendiente media de las ondas aumenta como sería esperado al aumentar la amplitud del forzado y el rango de frecuencias del mimo, pareciendo llegar a saturar eventualmente. Para el rango de 0-3 Hz con $S_m\sim0.01$ se verifica la suposición de turbulencia de ondas débil con $S\ll1$. Para los demás rangos de frecuencias se tiene $S_m\sim0.1$ llegando al límite de lo que se consideraría el régimen débil. 
+
+% El límite 
+
 \begin{figure} % [!ht]
 	\centering
 	\includegraphics[width=0.78659897\linewidth]{"Figuras/Wave Steepness/Mean_wave_steepness"}
 	\caption{Pendiente media de las ondas para las distintas mediciones. Se muestran las aproximaciones utilizando la relación de dispersión de gravedad en profundidad infinita (G) y la completa (F) para obtener la longitud de onda $L(T)$. } 
 	\label{fig:meanwavesteepness}
 \end{figure}
-
-Para el rango de 0-3 Hz prácticamente no hay diferencia entre ambos valores, ya que al tratarse de $T_n$ menores suelen caer en su mayoría en el rango dominado por los efectos gravitatorios. Al aumentar la potencia del forzado las ondas son cada vez más cortas y empiezan a ser relevantes los efectos capilares, con lo cual se separan cada vez más los resultados entre la aproximación de la relación de dispersión y la versión completa. 
-
-En cualquier caso, es posible apreciar cómo la pendiente media de las ondas aumenta como sería esperado al aumentar la amplitud del forzado y el rango de frecuencias del mimo, pareciendo llegar a saturar eventualmente. Para el rango de 0-3 Hz con $S_m\sim0.01$ se verifica la suposición de turbulencia de ondas débil con $S\ll1$. Para los demás rangos de frecuencias se tiene $S_m\sim0.1$ llegando al límite de lo que se consideraría el régimen débil. 
-
-% El límite 
-
-
-\input{Entradas/tabla_lognormal_V2}  
-
 
 
 \section{Cascadas de energía}
