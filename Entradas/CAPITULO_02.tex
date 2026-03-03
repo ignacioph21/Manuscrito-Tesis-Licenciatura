@@ -33,14 +33,14 @@ Mientras que en la superficie libre se tiene una condición cinemática, para la
 		\frac{\partial \phi}{\partial z} = \frac{\partial\eta}{\partial t} + \vec \nabla \eta  \cdot\vec\nabla\phi = \frac{D\eta}{Dt} 	
 \end{equation}
 
-Con $D/Dt$ la derivada temporal total en la descripción Euleriana. Y además una condición dinámica para la continuidad de la presión, que surge del principio de Bernoulli, tomando sin pérdida de generalidad que la presión del aire es $p_a=0$ 
+\noindent con $D/Dt$ la derivada temporal total en la descripción Euleriana. Y además una condición dinámica para la continuidad de la presión, que surge del principio de Bernoulli, tomando sin pérdida de generalidad que la presión del aire es $p_a=0$ % C 
 
 \begin{equation}
 		\frac{\partial \phi}{\partial t} + g\eta + \frac{1}{2} |\nabla\phi|^2 = \frac{\sigma}{\rho} \vec\nabla \cdot\left(\frac{\nabla\eta}{\sqrt{1+|\vec\nabla\eta|^2}}\right)     			 	
 \end{equation} 
 \end{subequations}
 
-Donde $\rho$ es la densidad del fluido, $\sigma$ la tensión superficial y $g$ la constante gravitatoria. El término de la derecha corresponde a la diferencia de presión al cruzar la superficie libre, debido a la tensión superficial, y que depende de la curvatura de la misma. % Esta última condición impone los da d 
+\noindent donde $\rho$ es la densidad del fluido, $\sigma$ la tensión superficial y $g$ la constante gravitatoria. El término de la derecha corresponde a la diferencia de presión al cruzar la superficie libre, debido a la tensión superficial, y que depende de la curvatura de la misma. % Esta última condición impone los da d D 
 
 De esta última ecuación pueden leerse los dos mecanismos restitutivos que serán relevantes para las ondas de la superficie libre, por un lado la gravedad, y por otro la capilaridad. \cite{kunduFluidMechanics2014, meiTheoryApplicationsOcean2016} 
 
@@ -52,7 +52,7 @@ Para perturbaciones en la superficie libre lo suficientemente suaves es posible 
 	\label{eq:wave_steepness_regular} % tya 
 \end{equation}
 
-Con $H$ la altura pico a pico de la onda y $L$ su longitud de onda. En el límite lineal las condiciones de contorno en la superficie libre se reducen a: 
+\noindent con $H$ la altura pico a pico de la onda y $L$ su longitud de onda. En el límite lineal las condiciones de contorno en la superficie libre se reducen a: % C 
 
 \begin{subequations} 
 	\begin{align} 
@@ -108,7 +108,7 @@ Esto es relevante ya que con el fin de incorporar los efectos no lineales será 
 A partir de las cuales es posible escribir las variables complejas $a(\vec k)$ y $a^*(\vec k)$, 
 
 \begin{equation}
-	\eta(\vec k) = \sqrt{\frac{k}{2\omega(k)}}\left[a(\vec k)+a^*(-\vec k) \right], \qquad \psi(\vec k) = -i\frac{\omega(k)}{2k} \left[a(\vec k)-a^*(-\vec k)  \right]
+	\eta(\vec k) = \sqrt{\frac{k}{2\omega(k)}}\left[a(\vec k)+a^*(-\vec k) \right], \qquad \psi(\vec k) = -i\sqrt{\frac{\omega(k)}{2k}} \left[a(\vec k)-a^*(-\vec k)  \right]
 \end{equation} 
 
 Esta transformación resulta canónica, de forma que las ecuaciones de Hamilton se reducen a una sola de la forma: 
@@ -117,7 +117,7 @@ Esta transformación resulta canónica, de forma que las ecuaciones de Hamilton 
 	\frac{\partial a(\vec k)}{\partial t}=-i\frac{\delta E}{\delta a^*(\vec k)} % ñ 
 \end{equation} 
 
-Cabe señalar que la naturaleza Hamiltoniana de las ecuaciones de Euler para un fluido ideal ya había sido establecida previamente, siendo el resultado de Zakharov (1972) el caso particular a la superficie libre. \cite{salmon1988hamiltonian} % la especialización 
+Cabe señalar que la naturaleza Hamiltoniana de las ecuaciones de Euler para un fluido ideal ya había sido establecida previamente, siendo el resultado de Zakharov (1972) el caso particular para la superficie libre.  \cite{salmon1988hamiltonian} % la especialización 
 
 \section{Formalismo Hamiltoniano}  %  para Turbulencia de Ondas  
 \label{sec:formalismo_hamiltoniano} 
@@ -237,7 +237,7 @@ Las ecuaciones de movimiento encontradas son para la evolución temporal de las 
 
 
 \subsection{Aproximación de Fase Aleatoria} % Clausura Gaussiana 
-Es estándar a asumir para el caso de turbulencia de ondas débil una ''caotización'' de las fases, de forma tal que aunque al inicio estuvieran correlacionadas, luego de un tiempo ya no lo estarán,  asociándose este efecto a la dispersión del medio, entre otros motivos. De esta forma, bajo la aproximación de fases aleatorias tenemos las correlaciones: % "" 
+Es estándar asumir para el caso de turbulencia de ondas débil una ''caotización'' de las fases, de forma tal que aunque al inicio estuvieran correlacionadas, luego de un tiempo ya no lo estarán,  asociándose este efecto a la dispersión del medio, entre otros motivos. De esta forma, bajo la aproximación de fases aleatorias tenemos las correlaciones: % "" a  
 
 \begin{equation}
 	\begin{split}
@@ -259,7 +259,7 @@ Definiendo la acción de onda $n(\vec k) = a_{\vec k}a^*_{\vec k}$, que sería l
 	\end{split}
 \end{equation}
 
-Con la abreviación $\delta_{ij}\equiv\delta(\vec k_i-\vec k_j)$. Esta aproximación permite escribir el momento de orden dos en término de una sola $n_{\vec k}$, entonces el de orden cuatro queda escrito en función de dos momentos de orden dos, y el de orden seis en función de tres. Esto implica una estadística Gaussiana, donde solo importan las funciones de dos puntos, y que dará una clausura natural a la jerarquía de ecuaciones para momentos estadísticos.   
+\noindent con la abreviación $\delta_{ij}\equiv\delta(\vec k_i-\vec k_j)$. Esta aproximación permite escribir el momento de orden dos en término de una sola $n_{\vec k}$, entonces el de orden cuatro queda escrito en función de dos momentos de orden dos, y el de orden seis en función de tres. Esto implica una estadística Gaussiana, donde solo importan las funciones de dos puntos, y que dará una clausura natural a la jerarquía de ecuaciones para los momentos estadísticos.   % C
 
 
 
@@ -296,7 +296,7 @@ esta energía en cada proceso y, por tanto, la energía total del sistema:
 	\label{eq:energy_conservation}  
 \end{equation}  
 
-Donde $E_{\vec k}=\omega_{\vec k}n_{\vec k}$ es lo que se conoce como espectro de energía. Más generalmente, la ecuación cinética tiene la propiedad de conservar cualquier magnitud $\Phi$ cuyo espectro pueda escribirse como $\Phi_{\vec k}=\rho_{\vec k}n_{\vec k}$, siempre que se cumpla una condición de resonancia para $\rho_{\vec k}$ en simultáneo a la de frecuencia y número de onda, que por ejemplo, para el caso de tríadas sería $\rho_1=\rho_2+\rho_3$. El caso particular de la energía se obtiene tomando $\rho_{\vec k}=\omega_{k}$, el de momento para $\rho_{\vec k}=\vec k$, y el de la acción de onda para $\rho_{k}=1$. 
+\noindent donde $E_{\vec k}=\omega_{\vec k}n_{\vec k}$ es lo que se conoce como espectro de energía. Más generalmente, la ecuación cinética tiene la propiedad de conservar cualquier magnitud $\Phi$ cuyo espectro pueda escribirse como $\Phi_{\vec k}=\rho_{\vec k}n_{\vec k}$, siempre que se cumpla una condición de resonancia para $\rho_{\vec k}$ en simultáneo a la de frecuencia y número de onda, que por ejemplo, para el caso de tríadas sería $\rho_1=\rho_2+\rho_3$. El caso particular de la energía se obtiene tomando $\rho_{\vec k}=\omega_{k}$, el de momento para $\rho_{\vec k}=\vec k$, y el de la acción de onda para $\rho_{k}=1$. % D 
 
 \subsection{Balance de energía y cascadas} 
 A partir de la segunda igualdad de la ecuación \eqref{eq:energy_conservation} es posible reescribir la ecuación cinética, $\partial_t n_{\vec k} = I_{\vec k}^N$, con $I_k^N$ las integrales de colisiones, en forma de una ecuación de continuidad para el espectro de energía, de la forma: 
@@ -313,7 +313,7 @@ Es inmediato ver de esta forma de la ecuación cinética que, soluciones estacio
 
 \section{Soluciones Estacionarias Exactas} 
 \label{sec:KZF} % HA ah .h 
-Será de particular interés estudiar las soluciones estacionarias de la ecuación cinética, para los cuales se encuentran afianzada la cascada de energía, dando lo que se conoce como espectros de Kolmogorov-Zakharov-Filonenko (KZF). Aquí se considerarán solo soluciones isótropas y homogéneas, en las cuales el flujo de energía es igual en todas las direcciones, con lo cual bastará el espectro de energía unidimensional, dado por $E(k)=2\pi E(\vec k)$ en el caso 2D, como para turbulencia de ondas gravito-capilares. 
+Será de particular interés estudiar las soluciones estacionarias de la ecuación cinética, para las cuales se encuentran afianzada la cascada de energía, dando lo que se conoce como espectros de Kolmogorov-Zakharov-Filonenko (KZF). Aquí se considerarán solo soluciones isótropas y homogéneas, en las cuales el flujo de energía es igual en todas las direcciones, con lo cual bastará el espectro de energía unidimensional, dado por $E(k)=2\pi E(\vec k)$ en el caso 2D, como ocurre para turbulencia de ondas gravito-capilares. %  
 
 \subsection{Ondas gravitocapilares}  % * 
 Para las ondas gravito-capilares la energía viene dada por la ecuación \eqref{eq:gravity-capillary_energy}, donde se asumirá un balance entre la energía potencial y cinética, a modo de una equipartición, siendo suficiente entonces con calcular los espectros para la energía potencial (que dependen solo de la altura $\eta$ y no de la velocidad) y multiplicarla por un factor 2 para obtener la total \cite{kunduFluidMechanics2014, deikeEtudesExperimentalesNumeriques2013}.  Escritas en términos del número de onda la energía potencial gravitatoria y capilar (a primer orden) pueden escribirse:  
@@ -330,7 +330,7 @@ Para las ondas gravito-capilares la energía viene dada por la ecuación \eqref{
 Es estándar además en los estudios experimentales de turbulencia de ondas trabajar con la densidad espectral de potencias (PSD) en lugar de con el espectro de energía, que se define como 
 
 \begin{equation}
-	S_{\eta}(k)=\frac{1}{L^2}|\eta_{k}|^2;\qquad S_\eta(\omega)=\frac{1}{T}|\eta_{\omega}^2|
+	S_{\eta}(k)=\frac{1}{L^2}|\eta_{k}|^2;\qquad S_\eta(\omega)=\frac{1}{T}|\eta_{\omega}|^2
 \end{equation} 
 
 Que resultarán proporcionales a los espectros, pero pueden ser calculados directamente a partir de mediciones para la altura $\eta$. Entonces, 
