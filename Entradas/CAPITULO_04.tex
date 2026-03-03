@@ -1,4 +1,4 @@
-\chapter{Estudio experimental de Turbulencia de Ondas} % REVISADO 1 (falta espectro) Resultados 
+\chapter[Experiencias de turbulencia de ondas]{Estudio experimental de Turbulencia de Ondas} % REVISADO 1 (falta espectro) Resultados 
 \thispagestyle{plain} 
 
 
@@ -25,7 +25,7 @@ En el extremo opuesto a la paleta se colocó el sensor capacitivo, sumergido apr
 
 
 
-Con la intención de romper lo más posible los modos fundamentales del recinto, y poder considerar un fluido isótropo, se colocó la paleta con una inclinación, de forma tal que las ondas generadas fuesen en dirección hacia una de las esquinas y las reflexiones no fuesen perpendiculares a los bordes. 
+Con la intención de romper lo más posible los modos propios del recinto, se colocó la paleta con una inclinación, de forma tal que las ondas generadas fuesen en dirección hacia una de las esquinas y las reflexiones no fuesen perpendiculares a los bordes. % fundamentales y poder considerar un fluido isótropo,  
 
 
 
@@ -37,7 +37,7 @@ Para la inyección de energía en el sistema se forzó a la paleta con una seña
 \begin{figure} % [th!]
 	\centering
 	\includegraphics[width=0.987\linewidth]{Figuras/Forzado/curva_forzado}
-	\caption{(a) Curva típica para el forzado del fluido. En los paneles inferiores se muestra su contenido en frecuencia, con su amplitud (b) limitada al rango de 0-6 Hz en este caso , y su fase (c) aleatoria.}
+	\caption{(a) Curva típica para el forzado del fluido. En los paneles inferiores se muestra su contenido en frecuencia, con su amplitud (b) limitada al rango de 0-6 Hz en este caso, y su fase  aleatoria  (c).}
 	\label{fig:curvaforzado}
 \end{figure}
 
@@ -49,12 +49,12 @@ La amplitud del forzado, como el rango de frecuencias con amplitud no nula, esta
 
 
  
-\subsection{Juegos de Datos} 
+\subsection{Conjuntos de Datos} % Juegos
 Para la experiencias de esta Tesis la inyección de energía se realizó a escalas grandes (frecuencias bajas), siempre en el rango gravitatorio, con el objetivo de poder observar el poblamiento completo de escalas en la cascada directa de energía, desde el rango gravitatorio hasta el capilar. % ¿Estudio de cascada inversa forzando a escalas intermedias?. 
 
-Los juegos de datos consisten en cuatro rangos de frecuencias distintas, todas desde 0 Hz, y terminando en 3, 4, 5 o 6 Hz. Para cada uno de estos rangos se usaron 11 amplitudes distintas, las cuales estarán escritas en términos de un porcentaje (del 60 al 160 $\%$) respecto de una curva base, que para los cuatro rangos fueron generadas con la misma amplitud en Fourier, de forma tal que los escalados posteriores sean comparables entre distintos juegos de datos. % ¿Tabla? .  . Las curvas bases de 
+Los conjuntos de datos consisten en cuatro rangos de frecuencias distintas, todas desde 0 Hz, y terminando en 3, 4, 5 ó 6 Hz. Para cada uno de estos rangos se usaron 11 amplitudes distintas, las cuales estarán escritas en términos de un porcentaje (del 60 al 160 $\%$) respecto de una curva base, que para los cuatro rangos fueron generadas con la misma amplitud en Fourier, de forma tal que los escalados posteriores sean comparables entre distintos juegos de datos. % ¿Tabla? .  . Las curvas bases de juegos a o
 
-Las mediciones se tomaron un minuto después de haber iniciado el forzado, con el objetivo de asegurarse estar dentro del régimen estacionario de turbulencia de ondas. A no ser que se especifique lo contrario, para cada medición se tomaron datos durante un minuto y medio, solo para la una amplitud en el rango de mayor frecuencia (que sería de los de mayor energía inyectada) se midió durante seis minutos, para poder realizar algunos análisis que requieren más puntos en la estadística (como se mencionará cuando vaya a utilizarse). % punto con yP  mayor el  cinco 
+Las mediciones se tomaron 60 s después de haber iniciado el forzado, con el objetivo de asegurarse estar dentro del régimen estacionario de turbulencia de ondas. A no ser que se especifique lo contrario, para cada medición se tomaron datos durante 90 s, solo para la una amplitud en el rango de mayor frecuencia (que sería de los de mayor energía inyectada) se midió durante 360 s, para poder realizar algunos análisis que requieren más puntos en la estadística (como se mencionará más adelante). % punto con yP  mayor el  cinco un minuto un minuto y medio seis minutos cuando vaya a utilizarse 
 
 
 
@@ -83,9 +83,9 @@ Se puede observar en la señal una clara asimetría respecto a los valles y las 
 	\label{fig:pdfs-cuba-chica-v2}
 \end{figure}
 
-En general para todos los casos la PDF resulta cercana a una Gaussiana, pero con pequeñas desviaciones, como es común en la literatura \cite{falconLaboratoryExperimentsWave2010, falconExperimentsSurfaceGravity2022}. Para las dos bandas de frecuencias más altas puede observarse la asimetría de valles y crestas reflejada en la PDF, siendo más prominente en el último rango, con \textit{skewness} claramente positiva. Sin embargo, para el rango de 0-4 Hz no se muestran diferencias significativas respecto a una distribución Gaussiana, y en el caso particular de 0-3 Hz se nota que la asimetría se invierte, generando más valles que crestas, con \textit{skewness} claramente negativa. De esta forma, pareciera haber una progresión gradual desde \textit{kewness} negativa hacia positiva en función de la no linealidad del sistema, aunque esto no se corresponde con ninguna experiencia previa y no se termina de entender a qué se debe. % esta misma 
+En general para todos los casos la PDF resulta cercana a una distribución Gaussiana, pero con pequeñas desviaciones, como es común en la literatura \cite{falconLaboratoryExperimentsWave2010, falconExperimentsSurfaceGravity2022}. Para las dos bandas de frecuencias más altas puede observarse la asimetría de valles y crestas reflejada en la PDF, siendo más prominente en el último rango, con \textit{skewness} claramente positiva. Sin embargo, para el rango de 0-4 Hz no se muestran diferencias significativas respecto a una distribución Gaussiana, y en el caso particular de 0-3 Hz se nota que la asimetría se invierte, generando más valles que crestas, con \textit{skewness} claramente negativa. De esta forma, pareciera haber una progresión gradual desde \textit{skewness} negativa hacia positiva en función de la no linealidad del sistema, aunque esto no se corresponde con ninguna experiencia previa y cuyo origen no fue posible determinar. % esta misma   entender a qué se debe sásísás 
 
-\section{Wave Steepness} 
+\section[\textit{Wave Steepness}]{Medida de la no linealidad (\textit{Wave Steepness})} 
 \label{sec:wave_Steepness} 
 Previo al estudio de las propiedades características de turbulencia de ondas, como podría ser la cascada de energía, se buscó verificar que la hipótesis de no linealidades pequeñas fuese válida para los forzados implementados. Para esto se estudió el \textit{wave steepness} de las ondas generadas. 
 
@@ -135,7 +135,7 @@ Las líneas sólidas se corresponden a los contornos que contiene un 67 \% de lo
 	S_n = \frac{H_n}{L(T_n)}
 \end{equation} 
 
-Donde se aproxima la longitud de ondas $L_n=L(T_n)$ a partir de la relación de dispersión completa para ondas gravito-capilares. De esta forma se obtiene un conjunto de $S_n$, cuya distribución de probabilidad para la variable normalizada $s_n=S_n/S_{\text{rms}}$ se muestra en la Figura \ref{fig:pdfs} para varias de las señales medidas. %  meanwavesteepness
+\noindent donde se aproxima la longitud de ondas $L_n=L(T_n)$ a partir de la relación de dispersión completa para ondas gravito-capilares. De esta forma se obtiene un conjunto de $S_n$, cuya distribución de probabilidad para la variable normalizada $s_n=S_n/S_{\text{rms}}$ se muestra en la Figura \ref{fig:pdfs} para varias de las señales medidas. %  meanwavesteepness D 
 
 
 % En la Figura \ref{fig:jointporogression} se muestra además la línea correspondiente al límite de Miche-Stokes, que se corresponde al % La línea sólida negra de la Figura \ref{fig:jointporogression} se corresponde
@@ -143,7 +143,7 @@ Donde se aproxima la longitud de ondas $L_n=L(T_n)$ a partir de la relación de 
 \begin{figure} % [!ht]
 	\centering
 	\includegraphics[width=0.9897\linewidth]{"Figuras/Wave Steepness/PDFs"}
-	\caption{PDFs para la pendiente de las ondas normalizada ($S/S_{\text{rms}}$) de varias mediciones. Cada columna se corresponde a un rango de frecuencias, siendo (a) 0-3 Hz (b) 0-4 Hz (c) 0-5 Hz y (d) 0-6 Hz. La fila superior (n.I) se corresponde a la amplitud de 80 \% y la inferior (n.II) a 120 \%. Para cada una se muestra el ajuste por el modelo log-normal (\marksolid[blue]{0.4ex}), el valor medio obtenido (\markdashdot[blue]{0.4ex}) con su incerteza y el valor teórico esperado de $\sqrt{\pi}/2$ (\markdashed[black]{0.4ex}). } % .  
+	\caption{PDFs para la pendiente de las ondas normalizada ($S/S_{\text{rms}}$) de varias mediciones, obtenidas del promedio sobre ventanas temporales de la señal, siendo las incertezas reportadas para cada bin el error estándar de dicho promedio. Cada columna se corresponde a un rango de frecuencias, siendo (a) 0-3 Hz (b) 0-4 Hz (c) 0-5 Hz y (d) 0-6 Hz. La fila superior (n.I) se corresponde a la amplitud de 80 \% y la inferior (n.II) a 120 \%. Para cada una se muestra el ajuste por el modelo log-normal (\marksolid[blue]{0.4ex}), el valor medio obtenido (\markdashdot[blue]{0.4ex}) con su incerteza y el valor teórico esperado de $\sqrt{\pi}/2$ (\markdashed[black]{0.4ex}). } % .  \textbf{ va }
 	\label{fig:pdfs}
 \end{figure} 
 
@@ -156,7 +156,7 @@ Generalmente, es un resultado empírico que la distribución obtenida para $s_n$
 % \input{Entradas/tabla_lognormal.tex} 
 
 
-Donde $\mu$ y $\sigma$ son constantes a determinar. El ajuste por esta función se puede ver para las PDFs de la Figura \ref{fig:pdfs}. Para los valores de forzado más bajo este modelo pareciera describir bien a los datos, dando $\chi_\nu^2\sim1$, sin embargo, a mayor la potencia inyectada más difiere el ajuste de los datos y $\chi_\nu^2$ aumenta gradualmente. Al mismo tiempo, las líneas verticales muestran el valor medio $\langle s\rangle=\exp(\mu+\sigma^2/2)$ obtenido del ajuste, que se espera tienda a $\langle s\rangle=\sqrt{\pi}/2$. De nuevo, esto suele cumplirse para los forzados de menor potencia, y se aleja gradualmente al aumentarla. 
+\noindent donde $\mu$ y $\sigma$ son constantes a determinar. El ajuste por esta función se puede ver para las PDFs de la Figura \ref{fig:pdfs}. Para los valores de forzado más bajo este modelo pareciera describir bien a los datos, dando $\chi_\nu^2\sim1$, sin embargo, a mayor la potencia inyectada más difiere el ajuste de los datos y $\chi_\nu^2$ aumenta gradualmente. Al mismo tiempo, las líneas verticales muestran el valor medio $\langle s\rangle=\exp(\mu+\sigma^2/2)$ obtenido del ajuste, que se espera tienda a $\langle s\rangle=\sqrt{\pi}/2$. De nuevo, esto suele cumplirse para los forzados de menor potencia, y se aleja gradualmente al aumentarla. % D 
 
 
 
@@ -415,19 +415,27 @@ Se calcularán $S_p$ con $p\le6$ en este caso, ya que se observa que, para los d
 
 Un punto importante aquí es que este delay $\tau$ se puede relacionar con el régimen, siendo la frecuencia correspondiente a cada escala $f\sim1/\tau$. De esta forma, $10\text{ ms }\lesssim \tau\lesssim\;76\text{ ms }$ se corresponde al rango capilar, que es donde se observa la tendencia lineal. Delays mayores se corresponderán al rango de gravedad y menores a la escala del ruido.  % gtr 
 
-\begin{figure} % [!t] % [!ht]
+\begin{figure}[!t] % [!t] % [!ht]
 	\centering
 	\includegraphics[width=0.9897\linewidth]{"Figuras/Intermitencia/Funciones de Estructura/Sps"}
 	\caption{Funciones de estructura (\markcircle[blue]{0.4ex}) en función del delay $\tau$ hasta el orden $p=6$ para (a) las primeras diferencias y (b) las segundas diferencias. En el rango comprendido por las líneas verticales (\markdashed[black]{0.4ex}) se realizó un ajuste lineal de las funciones de estructura (\marksolid[blue]{0.4ex}). } 
 	\label{fig:sps}
 \end{figure}  
 
-\begin{figure} % [!ht] % [!ht]
+
+
+\begin{figure}[!t] % [!ht] % [!ht]
 	\centering
 	\includegraphics[width=0.9156897\linewidth]{"Figuras/Intermitencia/Funciones de Estructura/Flatness"}
 	\caption{Planitud (\markcircle[black]{0.4ex}) en función del delay $\tau$ para (a) las primeras diferencias y (b) las segundas diferencias. En ambos casos se muestra además un ajuste lineal para el rango donde se observa un comportamiento lineal (\marksolid[black]{0.4ex}). Las líneas punteadas (\markdashed[black]{0.4ex}) muestran el punto donde el ajuste interseca el valor 3, que se tomará como el tiempo de correlación. Los valores obtenidos son los de la Tabla \ref{tab:flatness_fit}. }  
 	\label{fig:flatness} 
 \end{figure}
+
+
+ 
+
+
+Para cuantificar la planitud (\textit{flatness}) de las PDFs se calcula el cociente $S_4/S_2^2$, que dará un valor de 3 en el caso en que la PDF sea Guassiana, e irá aumentando cuanto más plana sea (i.e. más pesadas sean las colas). Ésta se puede ver para las primeras diferencias en la Figura \ref{fig:flatness}a y para las segundas en \ref{fig:flatness}b. % , 
 
 \begin{table} % [!ht] % [h!] 
 	\centering
@@ -443,12 +451,6 @@ Un punto importante aquí es que este delay $\tau$ se puede relacionar con el r�
 	\caption{Parámetros obtenidos del ajuste de la planitud (c.f. Figura \ref{fig:flatness}) para diferencias de primer y segundo orden. Se presentan además los resultados para las segundas diferencias obtenidos por Falcon  (2007)  \cite{falconObservationIntermittencyWave2007}. } % pl -   . 
 	\label{tab:flatness_fit}
 \end{table}
- 
-
-
-Para cuantificar la planitud (\textit{flatness}) de las PDFs se calcula el cociente $S_4/S_2^2$, que dará un valor de 3 en el caso en que la PDF sea Guassiana, e irá aumentando cuanto más plana sea (i.e. más pesadas sean las colas). Ésta se puede ver para las primeras diferencias en la Figura \ref{fig:flatness}a y para las segundas en \ref{fig:flatness}b. % , 
-
-
 
 En ambos casos, se puede observar que existe un rango de $\tau$ en el cual esta planitud pareciera seguir también una ley de potencias, lo cual es razonable si se supone que $S_4$ y $S_2$ siguen una de manera independiente. Ajustando linealmente y buscando el punto en que cruza 3 se puede determinar el llamado tiempo de correlación $\tau_c$ del flujo. Para ambas diferencias resulta $\tau_c$ del orden de 50 ms, comparable a valores reportados en la literatura \cite{falconObservationIntermittencyWave2007}.  
 
