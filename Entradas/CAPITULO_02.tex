@@ -87,8 +87,8 @@ Se define la frecuencia de cruce como aquella en la cual ambos términos a la de
 Es sabido que en el caso general la energía del fluido puede calcularse mediante la siguiente expresión: 
 
 \begin{equation}
-	E = \int d\vec r \left\{\int_{-h_0}^{\eta}  \frac{1}{2}|\vec\nabla\phi|^2dz + \frac{1}{2}g\eta^2+\frac{\sigma}{\rho}\left(\sqrt{1+|\vec\nabla\phi|^2}-1\right)\right\} 
-	\label{eq:gravity-capillary_energy} % y 
+	E = \int d\vec r \left\{\int_{-h_0}^{\eta}  \frac{1}{2}|\vec\nabla\phi|^2dz + \frac{1}{2}g\eta^2+\frac{\sigma}{\rho}\left(\sqrt{1+|\vec\nabla\eta|^2}-1\right)\right\} 
+	\label{eq:gravity-capillary_energy} % y \phi a 
 \end{equation} 
  
 \noindent donde el primer término corresponde a la energía cinética del fluido, el segundo a la energía potencial gravitatoria, y el tercero a la energía capilar generada por la deformación de la superficie. 
@@ -266,7 +266,7 @@ Definiendo la acción de onda $n(\vec k) = a_{\vec k}a^*_{\vec k}$, que sería l
 
 
 \subsection{Ecuación Cinética} 
-Para obtener la ecuación de evolución para $n_{\vec k}$, que se denomina ecuación cinética, hay que multiplicar \eqref{eq:motion_equation_three_waves} por $a^*_{\vec k}$ y restarle la ecuación conjugada multiplicada por $a_{\vec k'}$, para finalmente tomar el promedio y reemplazar $\vec k=\vec k'$. En el caso de tres ondas este procedimiento resulta en: 
+Para obtener la ecuación de evolución para $n_{\vec k}$, que se denomina ecuación cinética, hay que multiplicar \eqref{eq:motion_equation_three_waves} por $a^*_{\vec k}$ y restarle la ecuación conjugada multiplicada por $a_{\vec k'}$, para finalmente tomar el promedio y reemplazar $\vec k=\vec k'$. De esta forma quedará una ecuación en términos de la correlación de tres amplitudes, la cual a su vez debe aproximarse a primer orden utilizando las ecuaciones de movimiento, quedando así en función del correlador de orden cuatro que puede escribirse como un producto de dos acciones de onda mediante la aproximación de fase aleatoria (ver \cite{zakharovKolmogorovSpectraTurbulence1992}). En el caso de tres ondas este procedimiento resulta en: % siete siete as u e a á  77 
 
 \begin{equation}
 	\begin{split}
